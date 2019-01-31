@@ -1,0 +1,114 @@
+page-exhibition {
+
+  .topbar{
+    width: 100%;
+    margin-top: 15px;
+  }
+  .left{
+    float: left;
+    width: 35%;
+    //background: green;
+    text-align: center;
+    padding-left: 10px;
+    margin-bottom: 20px;
+  }
+  .profile-icon{
+    margin-right:15px;
+  }
+  .cart-icon{
+    margin-right:15px;
+  }
+  .notification-icon{
+    margin-left:15px;
+  }
+  .language-icon{
+    margin-left:15px;
+  }
+  .logo-icon{
+    float: right;
+  }
+  .right{
+    float: right;
+    width: 50%;
+    padding-right: 20px;
+    //background: yellow;
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  .profile-icon{
+    //background: red;
+    padding-top: 20px;
+    font-size: 20px;
+    color: #186e47;
+  }
+  .cart-icon{
+    //background: red;
+    padding-top: 20px;
+    font-size: 20px;
+    color: #186e47;
+  }
+  .notification-icon{
+    //background: red;
+    padding-top: 20px;
+    font-size: 20px;
+    color: #186e47;
+  }
+  .language-icon{
+    //background: red;
+    padding-top: 20px;
+    font-size: 20px;
+    color: #186e47;
+  }
+
+
+
+  .exibition-slide{
+    width: 96%;
+    margin: 0 auto;
+    background: red;
+    text-align: center;
+    padding-top: 30px;
+    padding-bottom: 30px;
+  }
+
+
+  .spc{
+    width: 100%;
+    height: 20px;
+  }
+
+  .exibition-icons{
+    width: 96%;
+    margin: 0 auto;
+    padding-bottom:15px;
+  }
+  .exibition-icons ul.exibition-ul{
+    padding: 0;
+    width: 100%;
+    margin: 0 auto;
+    //height:90px;
+    list-style: none;
+    text-align: center;
+  }
+  .exibition-icons ul li{
+    float: left;
+    width:20%;
+    padding:0;
+    //background: red;
+    border: none;
+    text-align: center;
+  }
+  .exibition-icons ul li a{
+    text-decoration: none;
+    border: none;
+    display: block;
+  }
+  .exibition-icons ul li a img{
+    //background: yellow;
+    //width: 100%;
+    //height: 73px;
+    padding: 10px;
+  }
+
+
+}

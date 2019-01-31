@@ -1,0 +1,51 @@
+<ion-header>
+
+</ion-header>
+
+
+<ion-content class="bg-style">
+  <ion-grid>
+    <ion-row>
+      <ion-col col-12>
+        <div class="logo-img">
+          <img src="../../assets/content/welcome.png" alt="">
+        </div>
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col col-12>
+        <div class="myform">
+          <div class="first-input">
+            <div class="first-item">
+              <ion-item style="background: transparent!important;">
+                <ion-label> <ion-icon class="email-icon" name="mail"></ion-icon></ion-label>
+                <ion-input clearInput class="email-input" type="text" placeholder="Email"></ion-input>
+              </ion-item>
+            </div>
+            <div class="second-item">
+              <ion-item style="background: transparent!important;">
+                <ion-label> <ion-icon class="password-icon" name="eye"></ion-icon></ion-label>
+                <ion-input clearInput class="password-input" type="text" placeholder="Password"></ion-input>
+              </ion-item>
+            </div>
+          </div>
+          <div class="btns">
+            <div class="log-btn">
+              <button ion-button>LOGIN</button>
+            </div>
+            <div class="skip-btn">
+              <button ion-button>DON'T HAVE ACCOUNT?</button>
+            </div>
+            <div class="forget-pass">
+              <div class="forget-btn">
+                <button ion-button block color="dark" (click)="forgetpass()">FORGET PASSWORD</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </ion-col>
+    </ion-row>
+
+  </ion-grid>
+</ion-content>

@@ -1,0 +1,53 @@
+page-welcome {
+
+  .bg-style {
+    background: #ffffff;
+  }
+  .wel-logo-img{
+    width: 100%;
+    //background: red;
+    padding: 40px;
+    text-align: center;
+  }
+  .logo-img img{
+    width: 100%;
+    padding: 20px;
+    //border: 1px solid blue;
+  }
+
+
+  .btns{
+    width: 100%;
+    padding-top: 10px;
+    padding-bottom: 20px;
+    //background: purple;
+  }
+  .btns .reg-btn button{
+    width: 100%;
+    font-size: 16px;
+    display: block;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border: 2px solid #333333;
+    background: #186e47!important;
+  }
+  .btns .log-btn button{
+    width: 100%;
+    font-size: 16px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    display: block;
+    border: 2px solid #333333;
+    background: #186e47!important;
+  }
+  .btns .skip-btn button{
+    width: 100%;
+    font-size: 16px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    display: block;
+    border: 2px solid #333333;
+    background: #186e47!important;
+  }
+
+}

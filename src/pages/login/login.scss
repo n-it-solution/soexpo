@@ -1,0 +1,98 @@
+page-login {
+
+  .bg-style {
+    background: #ffffff;
+  }
+  .logo-img{
+    width: 80%;
+    margin: 0 auto;
+    //background: red;
+    text-align: center;
+  }
+  .logo-img img{
+    width: 100%;
+    padding: 20px;
+    //border: 1px solid blue;
+  }
+
+
+  .first-item{
+    border-bottom: 2px solid #333333;
+  }
+  .item-ios.item-block .item-inner {
+    padding-right: 8px;
+    border-bottom: none!important;
+  }
+  .item-md.item-block .item-inner {
+    padding-right: 8px;
+    border-bottom: none!important;
+  }
+  .item-ios{
+    padding-left: 5px!important;
+  }
+  .item-md{
+    padding-left: 5px!important;
+  }
+  .text-input-wp {
+    margin: 13px 8px;
+    padding: 0 8px;
+    width: calc(100% - 8px - 8px);
+    border: none!important;
+    line-height: 3rem;
+  }
+
+
+  .email-icon{
+    color: #000;
+  }
+  .email-input{
+    color: #333333;
+  }
+  .password-icon{
+    color: #000;
+  }
+  .password-input{
+    color: #333333;
+  }
+
+
+  .btns{
+    width: 100%;
+    padding-top: 10px;
+    padding-bottom: 20px;
+    //background: purple;
+  }
+
+  .btns .log-btn button{
+    width: 100%;
+    font-size: 16px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    display: block;
+    border: 1px solid #333333;
+    background: #000!important;
+  }
+  .btns .skip-btn button{
+    width: 100%;
+    font-size: 16px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    display: block;
+    border: 1px solid #333333;
+    background: #186e47!important;
+  }
+  .forget-pass{
+    width: 55%;
+    margin: 0 auto;
+  }
+  .btns .forget-pass .forget-btn button{
+    width: 100%;
+    font-size: 16px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    display: block;
+    border: 1px solid #333333;
+    background: #186e47!important;
+  }
+
+}

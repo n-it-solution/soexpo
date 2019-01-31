@@ -1,0 +1,112 @@
+page-brand {
+
+  .brand-topbar{
+    width: 100%;
+    margin-top: 15px;
+  }
+  .brand-top-det{
+    font-size: 10px;
+    float: left;
+    color: #186e47;
+    padding-top: 2px;
+  }
+  .tel-icon{
+    float: left;
+    color: #186e47;
+  }
+  .fax-icon{
+    float: left;
+    color: #186e47;
+  }
+  .website-icon{
+    float: left;
+    color: #186e47;
+  }
+  .email-icon{
+    float: left;
+    color: #186e47;
+  }
+  .brand-left{
+    float: left;
+    width: 37%;
+    //background: blue;
+    text-align: left;
+    padding-left: 10px;
+    margin-bottom: 20px;
+  }
+  .brand-center{
+    float: left;
+    width: 43%;
+    //background: green;
+    text-align: left;
+    padding-left: 0px!important;
+    margin-bottom: 20px;
+  }
+  .brand-right{
+    float: right;
+    width: 20%;
+    //background: yellow;
+    text-align: center;
+    margin-bottom: 20px;
+  }
+
+  .brand-slide{
+    width: 96%;
+    margin: 0 auto;
+    background: red;
+    text-align: center;
+    padding-top: 30px;
+    padding-bottom: 30px;
+  }
+
+
+
+  .brand-icons ul li a img{
+    padding: 10px;
+    padding-bottom: 0px!important;
+    width: 100%;
+  }
+  .brand-icons ul li a .brand-name{
+    padding: 10px;
+    width: 100%;
+  }
+
+  .spc{
+    width: 100%;
+    height: 20px;
+  }
+
+  .brand-icons{
+    width: 96%;
+    margin: 0 auto;
+    padding-bottom:15px;
+  }
+  .brand-icons ul.brand-ul{
+    padding: 0;
+    width: 100%;
+    margin: 0 auto;
+    //height:90px;
+    list-style: none;
+    text-align: center;
+  }
+  .brand-icons ul li{
+    float: left;
+    width:33.3%;
+    padding:0;
+    //background: red;
+    border: none;
+    text-align: center;
+  }
+  .brand-icons ul li a{
+    text-decoration: none;
+    border: none;
+    display: block;
+  }
+  .brand-icons ul li a img{
+    //background: yellow;
+    //width: 100%;
+    //height: 73px;
+    padding: 10px;
+  }
+
+}
