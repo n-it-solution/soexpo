@@ -12,6 +12,9 @@ import {LoginPage} from "../pages/login/login";
 import {ExhibitionPage} from "../pages/exhibition/exhibition";
 import {CompanyPage} from "../pages/company/company";
 import {BrandPage} from "../pages/brand/brand";
+import {ProfilePage} from "../pages/profile/profile";
+import {UpdateProfilePage} from "../pages/update-profile/update-profile";
+import {TestPage} from "../pages/test/test";
 
 @Component({
   templateUrl: 'app.html'
@@ -19,7 +22,7 @@ import {BrandPage} from "../pages/brand/brand";
 export class MyApp {
   @ViewChild(Nav) nav: Nav;
 
-  rootPage: any = WelcomePage;
+  rootPage: any = BrandPage;
 
   pages: Array<{title: string, component: any}>;
 
