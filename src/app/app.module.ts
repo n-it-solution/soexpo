@@ -21,7 +21,14 @@ import {LoginPage} from "../pages/login/login";
 import {ExhibitionPage} from "../pages/exhibition/exhibition";
 import {CompanyPage} from "../pages/company/company";
 import {BrandPage} from "../pages/brand/brand";
+
 import { GloaleVariablesProvider } from '../providers/gloale-variables/gloale-variables';
+
+import {ProfilePage} from "../pages/profile/profile";
+import {UpdateProfilePage} from "../pages/update-profile/update-profile";
+import {TestPage} from "../pages/test/test";
+import { StarRatingModule } from 'ionic3-star-rating';
+
 
 @NgModule({
   declarations: [
@@ -35,13 +42,17 @@ import { GloaleVariablesProvider } from '../providers/gloale-variables/gloale-va
     BrandPage,
     ListPage,
     TabsPage,
+    TestPage,
     AboutPage,
     ContactPage,
     About1Page,
+    ProfilePage,
+    UpdateProfilePage,
     Tab1Page,
     Contact1Page
   ],
   imports: [
+    StarRatingModule,
     BrowserModule,
     IonicModule.forRoot(MyApp),
     HttpClientModule
@@ -58,9 +69,12 @@ import { GloaleVariablesProvider } from '../providers/gloale-variables/gloale-va
     BrandPage,
     ListPage,
     TabsPage,
+    TestPage,
     AboutPage,
     ContactPage,
     About1Page,
+    ProfilePage,
+    UpdateProfilePage,
     Tab1Page,
     Contact1Page
   ],

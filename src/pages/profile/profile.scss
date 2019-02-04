@@ -1,0 +1,141 @@
+page-profile {
+
+  .top-user-pic{
+    width: 60%;
+    margin: 0 auto;
+    text-align: center;
+  }
+  .top-user-pic img{
+    width: 100%;
+    padding: 10px;
+    text-align: center;
+  }
+  .username{
+    width: 100%;
+    text-align: center;
+    font-size: 25px;
+    font-weight: bold;
+  }
+  .user-detail{
+    width:100%;
+  }
+  .user-detail .email{
+    width: 100%;
+    padding-top: 25px;
+    padding-bottom: 25px;
+    //background: red;
+  }
+  .user-detail .email .email-icon{
+    display: inline;
+    float: left;
+    color: #186e47;
+    text-align: center;
+    width: 12%;
+  }
+  .user-detail .email .email-icon .em-icon{
+    color: #186e47;
+    font-size: 20px;
+    text-align: center;
+  }
+  .user-detail .email .email-heading{
+    display: inline;
+    color: #333;
+    width: 25%;
+    padding-top: 2px;
+    float: left;
+    font-size: 14px;
+  }
+  .user-detail .email .email-address{
+    display: inline;
+    color: #333;
+    padding-top: 2px;
+    width: 55%;
+    float: right;
+    font-size: 14px;
+  }
+
+
+  .user-detail .phone{
+    width: 100%;
+    padding-top: 25px;
+    padding-bottom: 25px;
+    //background: red;
+  }
+  .user-detail .phone .phone-icon{
+    display: inline;
+    float: left;
+    color: #186e47;
+    text-align: center;
+    width: 12%;
+  }
+  .user-detail .phone .phone-icon .ph-icon{
+    color: #186e47;
+    font-size: 20px;
+    text-align: center;
+  }
+  .user-detail .phone .phone-heading{
+    display: inline;
+    color: #333;
+    width: 25%;
+    padding-top: 2px;
+    float: left;
+    font-size: 14px;
+  }
+  .user-detail .phone .phone-address{
+    display: inline;
+    color: #333;
+    padding-top: 2px;
+    width: 55%;
+    float: right;
+    font-size: 14px;
+  }
+
+
+  .user-detail .exhibition{
+    width: 100%;
+    padding-top: 25px;
+    padding-bottom: 25px;
+    //background: red;
+  }
+  .user-detail .exhibition .exhi-icon{
+    display: inline;
+    float: left;
+    color: #186e47;
+    text-align: center;
+    width: 12%;
+  }
+  .user-detail .exhibition .exhi-icon .ex-icon{
+    color: #186e47;
+    font-size: 20px;
+    text-align: center;
+  }
+  .user-detail .exhibition .exhi-heading{
+    display: inline;
+    color: #333;
+    width: 25%;
+    padding-top: 2px;
+    float: left;
+    font-size: 14px;
+  }
+  .user-detail .exhibition .exhi-address{
+    display: inline;
+    color: #333;
+    padding-top: 2px;
+    width: 55%;
+    float: right;
+    font-size: 14px;
+  }
+
+  .edit-button{
+    padding-top: 30px;
+    width: 80%;
+    margin: 0 auto;
+  }
+  .edit-button button{
+    width: 100%;
+    display: block;
+    background: #186e47;
+    border: 2px solid #333;
+  }
+
+}
