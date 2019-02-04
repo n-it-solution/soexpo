@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { ErrorHandler, NgModule } from '@angular/core';
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 
+import { HttpClientModule } from '@angular/common/http';
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { ListPage } from '../pages/list/list';
@@ -20,6 +21,7 @@ import {LoginPage} from "../pages/login/login";
 import {ExhibitionPage} from "../pages/exhibition/exhibition";
 import {CompanyPage} from "../pages/company/company";
 import {BrandPage} from "../pages/brand/brand";
+import { GloaleVariablesProvider } from '../providers/gloale-variables/gloale-variables';
 
 @NgModule({
   declarations: [
@@ -42,6 +44,7 @@ import {BrandPage} from "../pages/brand/brand";
   imports: [
     BrowserModule,
     IonicModule.forRoot(MyApp),
+    HttpClientModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -64,7 +67,8 @@ import {BrandPage} from "../pages/brand/brand";
   providers: [
     StatusBar,
     SplashScreen,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
+    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    GloaleVariablesProvider
   ]
 })
 export class AppModule {}
