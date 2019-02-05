@@ -3,10 +3,10 @@ page-company {
   .company-slide{
     width: 96%;
     margin: 0 auto;
-    background: red;
+    //background: red;
     text-align: center;
-    padding-top: 30px;
-    padding-bottom: 30px;
+    //padding-top: 30px;
+    //padding-bottom: 30px;
   }
 
 
@@ -53,5 +53,37 @@ page-company {
     padding: 10px;
     width: 100%;
   }
+
+
+
+  .company-main-icon-div{
+    width:100%;
+  }
+  .company-left-icon{
+    width:33.3%;
+    float: left;
+    text-align: center;
+    //background: red;
+    margin-top: 15px;
+  }
+  .company-left-icon .company-category-img{
+    width: 100%;
+  }
+  .company-left-icon .company-category-img img{
+    width: 100px;
+    padding: 7px;
+  }
+  .company-left-icon .company-category-name{
+    width: 100%;
+    text-align: center;
+    margin-top: -7px;
+  }
+  .company-left-icon .company-category-name a{
+    font-size: 12px;
+    display: block;
+    color: #333;
+    text-decoration: none;
+  }
+
 
 }

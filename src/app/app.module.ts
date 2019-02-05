@@ -32,6 +32,7 @@ import {NewsPage} from "../pages/news/news";
 import {NewsDetailPage} from "../pages/news-detail/news-detail";
 import {AnnouncementsPage} from "../pages/announcements/announcements";
 import {AnnouncementDetailPage} from "../pages/announcement-detail/announcement-detail";
+import {CartPage} from "../pages/cart/cart";
 
 
 @NgModule({
@@ -53,6 +54,7 @@ import {AnnouncementDetailPage} from "../pages/announcement-detail/announcement-
     NewsDetailPage,
     AnnouncementsPage,
     AnnouncementDetailPage,
+    CartPage,
     About1Page,
     ProfilePage,
     UpdateProfilePage,
@@ -84,6 +86,7 @@ import {AnnouncementDetailPage} from "../pages/announcement-detail/announcement-
     NewsDetailPage,
     AnnouncementsPage,
     AnnouncementDetailPage,
+    CartPage,
     About1Page,
     ProfilePage,
     UpdateProfilePage,

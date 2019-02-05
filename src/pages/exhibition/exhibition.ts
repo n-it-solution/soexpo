@@ -1,12 +1,9 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-
-/**
- * Generated class for the ExhibitionPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
+import {TabsPage} from "../tabs/tabs";
+import {Tab1Page} from "../tab1/tab1";
+import {NewsPage} from "../news/news";
+import {AnnouncementsPage} from "../announcements/announcements";
 
 @IonicPage()
 @Component({
@@ -15,11 +12,16 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class ExhibitionPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  OpenNews() {
+    this.navCtrl.setRoot(NewsPage);
   }
-
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad ExhibitionPage');
+  OpenAnnouncement(){
+    this.navCtrl.setRoot(AnnouncementsPage)
+  }
+  OpenHome(){
+    this.navCtrl.setRoot(ExhibitionPage)
+  }
+  constructor(public navCtrl: NavController) {
   }
 
 }

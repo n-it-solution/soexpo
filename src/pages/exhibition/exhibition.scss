@@ -65,10 +65,10 @@ page-exhibition {
   .exibition-slide{
     width: 96%;
     margin: 0 auto;
-    background: red;
+    //background: red;
     text-align: center;
-    padding-top: 30px;
-    padding-bottom: 30px;
+    //padding-top: 30px;
+    //padding-bottom: 30px;
   }
 
 
@@ -110,5 +110,34 @@ page-exhibition {
     padding: 10px;
   }
 
+
+  .main-icon-div{
+    width:100%;
+  }
+  .left-icon{
+    width:33.3%;
+    float: left;
+    text-align: center;
+    //background: red;
+    margin-top: 15px;
+  }
+  .left-icon .category-img{
+    width: 100%;
+  }
+  .left-icon .category-img img{
+    width: 100px;
+    padding: 7px;
+  }
+  .left-icon .category-name{
+    width: 100%;
+    text-align: center;
+    margin-top: -7px;
+  }
+  .left-icon .category-name a{
+    font-size: 12px;
+    display: block;
+    color: #333;
+    text-decoration: none;
+  }
 
 }

@@ -18,6 +18,7 @@ import {NewsPage} from "../pages/news/news";
 import {NewsDetailPage} from "../pages/news-detail/news-detail";
 import {AnnouncementsPage} from "../pages/announcements/announcements";
 import {AnnouncementDetailPage} from "../pages/announcement-detail/announcement-detail";
+import {CartPage} from "../pages/cart/cart";
 
 @Component({
   templateUrl: 'app.html'
@@ -25,7 +26,7 @@ import {AnnouncementDetailPage} from "../pages/announcement-detail/announcement-
 export class MyApp {
   @ViewChild(Nav) nav: Nav;
 
-  rootPage: any = AnnouncementsPage;
+  rootPage: any = CartPage;
 
   pages: Array<{title: string, component: any}>;
 
@@ -34,8 +35,14 @@ export class MyApp {
 
     // used for an example of ngFor and navigation
     this.pages = [
-      { title: 'Home', component: HomePage },
-      { title: 'List', component: ListPage }
+      { title: 'Exhibition', component: ExhibitionPage },
+      { title: 'Companies', component: CompanyPage },
+      { title: 'Brands', component: BrandPage },
+      { title: 'Announcements', component: AnnouncementsPage },
+      { title: 'Profile', component: ProfilePage },
+      { title: 'Register', component: RegisterPage },
+      { title: 'Login', component: LoginPage }
+      // { title: 'List', component: ListPage }
     ];
 
   }

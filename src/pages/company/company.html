@@ -20,26 +20,61 @@
     <ion-row no-padding>
       <ion-col col-12 no-padding>
         <div class="company-slide">
-          <h2>Golden Slider</h2>
+          <ion-slides autoplay="3000" speed="2000" pager loop="true" effect="fade">
+            <ion-slide *ngFor="let number of [1,2,3,4]">
+              <div>
+                <img src="../../assets/content/company-slide/{{number}}.png" alt="">
+              </div>
+            </ion-slide>
+          </ion-slides>
         </div>
       </ion-col>
     </ion-row>
     <ion-row no-padding>
       <ion-col col-12 no-padding>
         <div class="company-slide" style="margin-top: 10px; margin-bottom: 10px;">
-          <h2>General Slider</h2>
+          <ion-slides autoplay="3000" speed="2000" pager loop="true" effect="fade">
+            <ion-slide *ngFor="let number of [1,2,3,4]">
+              <div>
+                <img src="../../assets/content/company-slide/{{number}}.png" alt="">
+              </div>
+            </ion-slide>
+          </ion-slides>
         </div>
       </ion-col>
     </ion-row>
     <ion-row no-padding>
       <ion-col col-12 no-padding>
         <div class="company-slide">
-          <h2>Silver Slider</h2>
+          <ion-slides autoplay="3000" speed="2000" pager loop="true" effect="fade">
+            <ion-slide *ngFor="let number of [1,2,3,4]">
+              <div>
+                <img src="../../assets/content/company-slide/{{number}}.png" alt="">
+              </div>
+            </ion-slide>
+          </ion-slides>
         </div>
       </ion-col>
     </ion-row>
 
+
     <ion-row no-padding>
+      <ion-col col-12>
+        <div class="company-main-icon-div">
+          <div class="company-left-icon">
+            <div class="company-category-img">
+              <a href="#"><img src="../../assets/content/company.png" style="width: 100px;" alt="icon1"></a>
+            </div>
+            <div class="company-category-name">
+              <a href="#">Category Name</a>
+            </div>
+          </div>
+        </div>
+      </ion-col>
+    </ion-row>
+
+
+    <!--<ion-row no-padding>
 
       <div class="spc"></div>
 
@@ -96,7 +131,7 @@
           <div style="clear: both;"></div>
         </div>
       </ion-col>
-    </ion-row>
+    </ion-row>-->
   </ion-grid>
 
 </ion-content>
