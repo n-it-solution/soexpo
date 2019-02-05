@@ -7,7 +7,7 @@ page-brand {
   .brand-top-det{
     font-size: 10px;
     float: left;
-    color: #186e47;
+    color: #333;
     padding-top: 2px;
   }
   .tel-icon{
@@ -107,6 +107,140 @@ page-brand {
     //width: 100%;
     //height: 73px;
     padding: 10px;
+  }
+
+  .ionic3-star-rating[_ngcontent-c0] .button[_ngcontent-c0] {
+    height: 25px!important;
+    background: none;
+    box-shadow: none;
+    -webkit-box-shadow: none;
+    width: 25px!important;
+    margin: 0px;
+    padding: 0px;
+  }
+  .ionic3-star-rating[_ngcontent-c0] .button[_ngcontent-c0] ion-icon[_ngcontent-c0] {
+    font-size: 20px!important;
+  }
+
+  .main-rating{
+    width: 100%;
+  }
+  .rate-this-company{
+    text-align: center;
+    font-size: 14px;
+  }
+  .rating-one {
+    width: 100%;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    margin-top: 2px;
+  }
+  .rating-one .rating-one-left{
+    width: 50%;
+    float: left;
+    text-align: center;
+    padding-top: 2px;
+  }
+  .rating-one .rating-one-right{
+    width: 50%;
+    float: left;
+  }
+  .rating-two {
+    width: 100%;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    margin-top: 2px;
+  }
+  .rating-two .rating-two-left{
+    width: 50%;
+    float: left;
+    text-align: center;
+    padding-top: 2px;
+  }
+  .rating-two .rating-two-right{
+    width: 50%;
+    float: left;
+  }
+  .rating-three {
+    width: 100%;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    margin-top: 2px;
+  }
+  .rating-three .rating-three-left{
+    width: 50%;
+    float: left;
+    text-align: center;
+    padding-top: 2px;
+  }
+  .rating-three .rating-three-right{
+    width: 50%;
+    float: left;
+  }
+
+
+
+  .overall-rating-main{
+    width: 98%;
+    margin: 0 auto;
+  }
+  .overall-rating-main .company-name{
+    font-size: 12px;
+    padding-top: 10px;
+    width: 100%;
+    padding-bottom: 5px;
+    padding-left: 0!important;
+    color: #333;
+  }
+  .overall-rating-main .company-name .planet-icon{
+    padding-right: 5px;
+    color: #186e47;
+    padding-left: 5px;
+    font-size: 15px;
+  }
+  .overall-rating-main .company-address{
+    font-size: 12px;
+    width: 100%;
+    padding-bottom: 10px;
+    padding-left: 0!important;
+    color: #333;
+  }
+  .overall-rating-main .company-address .pin-icon{
+    padding-right: 10px;
+    color: #186e47;
+    padding-left: 5px;
+    font-size: 15px;
+  }
+  .overall-left{
+    width: 30%;
+    float: left;
+    text-align: center;
+  }
+  .overall-left img{
+    width: 100px;
+    padding: 5px;
+    border: 2px solid #eee;
+    //padding-left: 10px;
+  }
+  .overall-right{
+    width: 70%;
+    float: left;
+    text-align: left;
+  }
+  .overall-right .overall-heading{
+    padding-left: 10px;
+    padding-bottom: 5px;
+    font-size: 12px;
+  }
+  .overall-right .overall-stars{
+    padding-left: 5px;
+    padding-bottom: 5px;
+  }
+  .overall-right .overall-description{
+    padding-left: 10px;
+    padding-bottom: 10px;
+    padding-right: 10px;
+    font-size: 12px;
   }
 
 }

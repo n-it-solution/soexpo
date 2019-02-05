@@ -28,6 +28,10 @@ import {ProfilePage} from "../pages/profile/profile";
 import {UpdateProfilePage} from "../pages/update-profile/update-profile";
 import {TestPage} from "../pages/test/test";
 import { StarRatingModule } from 'ionic3-star-rating';
+import {NewsPage} from "../pages/news/news";
+import {NewsDetailPage} from "../pages/news-detail/news-detail";
+import {AnnouncementsPage} from "../pages/announcements/announcements";
+import {AnnouncementDetailPage} from "../pages/announcement-detail/announcement-detail";
 
 
 @NgModule({
@@ -45,6 +49,10 @@ import { StarRatingModule } from 'ionic3-star-rating';
     TestPage,
     AboutPage,
     ContactPage,
+    NewsPage,
+    NewsDetailPage,
+    AnnouncementsPage,
+    AnnouncementDetailPage,
     About1Page,
     ProfilePage,
     UpdateProfilePage,
@@ -72,6 +80,10 @@ import { StarRatingModule } from 'ionic3-star-rating';
     TestPage,
     AboutPage,
     ContactPage,
+    NewsPage,
+    NewsDetailPage,
+    AnnouncementsPage,
+    AnnouncementDetailPage,
     About1Page,
     ProfilePage,
     UpdateProfilePage,

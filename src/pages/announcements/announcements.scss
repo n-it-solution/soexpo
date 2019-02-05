@@ -1,0 +1,72 @@
+page-announcements {
+
+  .clearfix{
+    clear: both;
+  }
+  .all-announcements{
+    width: 100%;
+    margin: 0 auto;
+  }
+  .announcement{
+    width: 50%;
+    //background: #edf1f5;
+    //padding: 10px;
+    float: left;
+    margin-bottom: 15px;
+  }
+  .inner-announ{
+    width: 90%;
+    padding: 15px;
+    border: 1px solid #eee;
+    margin: 0 auto;
+  }
+  .announ-img{
+    width: 100%;
+    margin: 0 auto;
+  }
+  .announ-img img{
+    width: 100%;
+    padding: 5px;
+    border: 2px solid #eee;
+  }
+  .announ-clock-flag{
+    width: 100%;
+    margin: 0 auto;
+  }
+  .announ-clock{
+    width: 50%;
+    float: left;
+    text-align: left;
+  }
+  .date{
+    font-size: 8px;
+    padding-left: 2px;
+  }
+  .time-icon{
+    font-size: 8px;
+    //padding-left: 10px;
+  }
+  .announ-flag{
+    width: 50%;
+    float: left;
+    text-align: right;
+  }
+  .read{
+    font-size: 8px;
+    //padding-right: 10px;
+    padding-left: 2px;
+  }
+  .flag-icon{
+    font-size: 8px;
+    //padding-left: 10px;
+  }
+  .announ-link-heading{
+    width: 100%;
+    margin: 0 auto;
+    text-align: center;
+    cursor: pointer;
+    font-size: 12px;
+    padding-top: 10px;
+  }
+
+}

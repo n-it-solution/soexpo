@@ -49,75 +49,98 @@
 
 
     <ion-row no-padding>
-      <ion-col col-12 no-padding>
-        <div class="brand-slide">
-          <h2>Company Information</h2>
+      <ion-col col-12>
+        <div class="overall-rating-main">
+
+          <div class="overall-left">
+            <img src="../../assets/content/company.png" alt="">
+          </div>
+          <div class="overall-right">
+            <div class="overall-heading">Overall Rating</div>
+            <div class="overall-stars">
+              <ionic3-star-rating
+                      activeIcon = "ios-star"
+                      defaultIcon = "ios-star-outline"
+                      activeColor = "#EDB867"
+                      defaultColor = "grey"
+                      readonly="false"
+                      [rating]="3.2">
+              </ionic3-star-rating>
+            </div>
+            <div class="overall-description">
+              بيع وشراء واستيراد وتصدير السيارات والشاحنات والمعدات الثقيلة بانواعها
+            </div>
+          </div>
+
+          <div style="clear: both;"></div>
+          <div class="company-name" style="text-align: left;">
+            <ion-icon class="planet-icon" name="planet"></ion-icon>Company Name
+          </div>
+          <div class="company-address" style="text-align: left;">
+            <ion-icon class="pin-icon" name="pin"></ion-icon>Company Address
+          </div>
+
         </div>
       </ion-col>
     </ion-row>
 
 
+
+
+
     <ion-row no-padding>
 
       <div class="spc"></div>
-
-      <ion-col col-12>
-        <div style="width:90%; margin: 0 auto; background: red;">
-          <ionic3-star-rating
-                  activeIcon = "ios-star"
-                  defaultIcon = "ios-star-outline"
-                  activeColor = "#488aff"
-                  defaultColor = "#f4f4f4"
-                  readonly="false"
-                  [rating]="3.2">
-          </ionic3-star-rating>
-        </div>
-      </ion-col>
-
       <ion-col col-12 no-padding>
-        <div class="brand-icons">
-          <ul class="brand-ul">
-            <li><a href="#"><img src="../../assets/content/company.png" alt="icon1"></a>
-              <div class="brand-name">product name</div>
-            </li>
-            <li><a href="#"><img src="../../assets/content/company.png" alt="icon1"></a>
-              <div class="brand-name">product name</div>
-            </li>
-            <li><a href="#"><img src="../../assets/content/company.png" alt="icon1"></a>
-              <div class="brand-name">product name</div>
-            </li>
-          </ul>
-          <div style="clear: both;"></div>
-        </div>
-        <div class="brand-icons">
-          <ul class="brand-ul">
-            <li><a href="#"><img src="../../assets/content/company.png" alt="icon1"></a>
-              <div class="brand-name">product name</div>
-            </li>
-            <li><a href="#"><img src="../../assets/content/company.png" alt="icon1"></a>
-              <div class="brand-name">product name</div>
-            </li>
-            <li><a href="#"><img src="../../assets/content/company.png" alt="icon1"></a>
-              <div class="brand-name">product name</div>
-            </li>
-          </ul>
-          <div style="clear: both;"></div>
-        </div>
-        <div class="brand-icons">
-          <ul class="brand-ul">
-            <li><a href="#"><img src="../../assets/content/company.png" alt="icon1"></a>
-              <div class="brand-name">product name</div>
-            </li>
-            <li><a href="#"><img src="../../assets/content/company.png" alt="icon1"></a>
-              <div class="brand-name">product name</div>
-            </li>
-            <li><a href="#"><img src="../../assets/content/company.png" alt="icon1"></a>
-              <div class="brand-name">product name</div>
-            </li>
-          </ul>
+        <div class="main-rating">
+          <div class="rate-this-company">Rate This Company</div>
+          <div class="rating-one">
+            <div class="rating-one-left">الرضا عن المنتجات</div>
+            <div class="rating-one-right">
+              <ionic3-star-rating
+                      activeIcon = "ios-star"
+                      defaultIcon = "ios-star-outline"
+                      activeColor = "#EDB867"
+                      defaultColor = "grey"
+                      readonly="false"
+                      [rating]="3.2">
+              </ionic3-star-rating>
+            </div>
+            <div style="clear: both;"></div>
+          </div>
+          <div class="rating-two">
+            <div class="rating-two-left">الرضا عن أستجابة فريق الشركة</div>
+            <div class="rating-two-right">
+              <ionic3-star-rating
+                      activeIcon = "ios-star"
+                      defaultIcon = "ios-star-outline"
+                      activeColor = "#EDB867"
+                      defaultColor = "grey"
+                      readonly="false"
+                      [rating]="3.2">
+              </ionic3-star-rating>
+            </div>
+            <div style="clear: both;"></div>
+          </div>
+          <div class="rating-three">
+            <div class="rating-three-left">التقييم العام للشركة</div>
+            <div class="rating-three-right">
+              <ionic3-star-rating
+                      activeIcon = "ios-star"
+                      defaultIcon = "ios-star-outline"
+                      activeColor = "#EDB867"
+                      defaultColor = "grey"
+                      readonly="false"
+                      [rating]="3.2">
+              </ionic3-star-rating>
+            </div>
+            <div style="clear: both;"></div>
+          </div>
           <div style="clear: both;"></div>
         </div>
       </ion-col>
+      <div style="clear: both;"></div>
+
     </ion-row>
   </ion-grid>
 
