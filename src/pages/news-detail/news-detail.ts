@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-
+import { HttpClient } from '@angular/common/http';
+import {GloaleVariablesProvider} from "../../providers/gloale-variables/gloale-variables";
 /**
  * Generated class for the NewsDetailPage page.
  *
@@ -14,8 +15,25 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
   templateUrl: 'news-detail.html',
 })
 export class NewsDetailPage {
-
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  url:any;
+  data:any;
+  news: any = {id: 0, title: "", published_at: "", featured_image: "", content:""};
+  constructor(public navCtrl: NavController, public navParams: NavParams,
+              public httpClient: HttpClient,
+              public globalVar: GloaleVariablesProvider
+  ) {
+    this.url = navParams.get('url');
+    this.data = httpClient.get(this.url);
+    this.data
+        .subscribe(data => {
+          console.log(data.level);
+          if (data.level == 'success'){
+            console.log(data.data);
+            this.news = data.data;
+          }
+        },error=> {
+          console.log(error);
+        });
   }
 
   ionViewDidLoad() {

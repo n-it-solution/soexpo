@@ -24,15 +24,10 @@
           </div>
           <div class="bor-bottom-img"></div>
           <div class="news-detail-right-detail">
-            <div class="news-detail-heading">News Heading</div>
-            <div class="news-detail-date">23 Jan, 1994</div>
+            <div class="news-detail-heading">{{news.title}}</div>
+            <div class="news-detail-date">{{news.published_at}}</div>
             <div class="bor-bottom-date"></div>
-            <div class="news-detail-description">
-              this is news heading this is news heading this is news heading
-              this is news heading this is news heading this is news heading
-              this is news heading this is news heading this is news heading
-              this is news heading this is news heading this is news heading
-              this is news heading this is news heading this is news heading
+            <div class="news-detail-description" [innerHTML]="news.content">
             </div>
           </div>
           <div class="clearfix"></div>

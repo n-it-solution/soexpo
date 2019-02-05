@@ -26,9 +26,9 @@ export class WelcomePage {
 data:any;
   constructor(public navCtrl: NavController, public navParams: NavParams,
               public httpClient: HttpClient,
-              public global: GloaleVariablesProvider
+              public globalVar: GloaleVariablesProvider
   ) {
-      console.log(global.apiUrl);
+      console.log(globalVar.apiUrl);
       const httpOptions = {
           headers: new HttpHeaders({
               'Access-Control-Allow-Origin':  '*',

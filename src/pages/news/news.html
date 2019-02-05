@@ -18,31 +18,24 @@
   <ion-grid no-padding>
     <ion-row no-padding>
       <ion-col col-12 no-padding>
-        <div class="newses">
+        <div class="newses" *ngFor="let i of news;let in = index" (click)="openNewsDetails(i.show_url)">
           <div class="left-img">
             <img src="../../assets/content/company.png" alt="">
           </div>
           <div class="right-detail">
-            <div class="news-heading">News Heading</div>
-            <div class="news-date">23/43/1334</div>
-            <div class="news-description">this is news heading</div>
+            <div class="news-heading">{{i.title}}</div>
+            <div class="news-date">{{i.published_at}}</div>
+            <div class="news-description">{{i.content}}</div>
           </div>
           <div class="clearfix"></div>
-        </div>
-
-        <div class="newses">
-          <div class="left-img">
-            <img src="../../assets/content/company.png" alt="">
-          </div>
-          <div class="right-detail">
-            <div class="news-heading">News Heading</div>
-            <div class="news-date">23 jan, 2019</div>
-            <div class="news-description">
-              this is news heading this is news heading this is news heading
-            </div>
-          </div>
         </div>
       </ion-col>
     </ion-row>
   </ion-grid>
+  <ion-list>
+    <ion-item *ngFor="let i of items">{{i}}</ion-item>
+  </ion-list>
+  <ion-infinite-scroll (ionInfinite)="doInfinite($event)">
+    <ion-infinite-scroll-content></ion-infinite-scroll-content>
+  </ion-infinite-scroll>
 </ion-content>
