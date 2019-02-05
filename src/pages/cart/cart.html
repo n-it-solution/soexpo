@@ -1,7 +1,13 @@
 <ion-header>
 
-  <ion-navbar>
+  <!--<ion-navbar>
     <ion-title>cart</ion-title>
+  </ion-navbar>-->
+  <ion-navbar>
+    <button ion-button menuToggle right>
+      <ion-icon name="menu" color="dark"></ion-icon>
+    </button>
+    <ion-title>Cart</ion-title>
   </ion-navbar>
 
 </ion-header>
@@ -9,47 +15,72 @@
 
 <ion-content padding>
 
-  <ion-grid>
-    <ion-row>
+  <ion-grid no-padding>
+    <ion-row no-padding>
       <ion-col col-12>
-        <div class="cart-table">
-          <table style="width: 100%; border: none!important;">
-            <thead>
-            <tr>
-              <th class="manage-height-th"></th>
-              <th class="manage-height-th">Models</th>
-              <th class="manage-height-th">Companies</th>
-              <th class="manage-height-th">Quantity</th>
-              <th class="manage-height-th"></th>
-            </tr>
-            </thead>
-            <tbody>
-            <tr style="text-align: center">
-              <td class="manage-height-td">
-                <img src="../../assets/content/company.png" style="width: 50px;" alt="">
-              </td>
-              <td class="manage-height-td">Models</td>
-              <td class="manage-height-td">Companies</td>
-              <td class="manage-height-td">Quantity</td>
-              <td class="manage-height-td"><ion-icon name="trash"></ion-icon></td>
-            </tr>
-            <tr style="text-align: center">
-              <td class="manage-height-td">
-                <img src="../../assets/content/company.png" style="width: 50px;" alt="">
-              </td>
-              <td class="manage-height-td">Models</td>
-              <td class="manage-height-td">Companies</td>
-              <td class="manage-height-td">Quantity</td>
-              <td class="manage-height-td"><ion-icon name="trash"></ion-icon></td>
-            </tr>
-            </tbody>
-          </table>
-        </div>
-        <div class="cart-buttons">
-          <div class="proceed-btn">Send Request</div>
-          <div class="empty-btn">
-            <ion-icon class="trash-icon" name="trash"> &nbsp; Empty Cart</ion-icon>
+
+        <div class="cart-main"><!--cart product section start-->
+          <div class="cart-left-img">
+            <img src="../../assets/content/company.png" alt="">
           </div>
+          <div class="cart-right-detail">
+            <div class="product-name">ادوات صحية واكسسوارات</div>
+            <div class="product-company-quantity">
+              <div class="quantity-left">
+                <ion-icon class="remove-icon" name="remove-circle"></ion-icon>
+                <span> &nbsp;&nbsp; 1 &nbsp;&nbsp; </span>
+                <ion-icon class="add-icon" name="add-circle"></ion-icon>
+              </div>
+              <div class="quantity-right">
+                <div class="remove-product">Remove</div>
+              </div>
+              <div class="clearfix"></div>
+            </div>
+            <div class="clearfix"></div>
+            <div class="product-price-section">
+              <div class="price-left">
+                <ion-icon name="planet"></ion-icon>
+                <span> &nbsp; EMDAD</span>
+              </div>
+              <!--<div class="price-right">Company Name Here</div>-->
+              <div class="clearfix"></div>
+            </div>
+          </div>
+          <div class="clearfix"></div>
+        </div><!--cart product section end-->
+
+        <div class="cart-main"><!--cart product section start-->
+          <div class="cart-left-img">
+            <img src="../../assets/content/company.png" alt="">
+          </div>
+          <div class="cart-right-detail">
+            <div class="product-name">ادوات صحية واكسسوارات</div>
+            <div class="product-company-quantity">
+              <div class="quantity-left">
+                <ion-icon class="remove-icon" name="remove-circle"></ion-icon>
+                <span> &nbsp;&nbsp; 1 &nbsp;&nbsp; </span>
+                <ion-icon class="add-icon" name="add-circle"></ion-icon>
+              </div>
+              <div class="quantity-right">
+                <div class="remove-product">Remove</div>
+              </div>
+              <div class="clearfix"></div>
+            </div>
+            <div class="clearfix"></div>
+            <div class="product-price-section">
+              <div class="price-left">
+                <ion-icon name="planet"></ion-icon>
+                <span> &nbsp; EMDAD</span>
+              </div>
+              <!--<div class="price-right">Company Name Here</div>-->
+              <div class="clearfix"></div>
+            </div>
+          </div>
+          <div class="clearfix"></div>
+        </div><!--cart product section end-->
+
+        <div class="proceed-btn">
+          <button class="proceed" ion-button>Send Request</button>
         </div>
       </ion-col>
     </ion-row>
