@@ -26,7 +26,7 @@ import {CartPage} from "../pages/cart/cart";
 export class MyApp {
   @ViewChild(Nav) nav: Nav;
 
-  rootPage: any = ExhibitionPage;
+  rootPage: any = BrandPage;
 
   pages: Array<{title: string, component: any}>;
 

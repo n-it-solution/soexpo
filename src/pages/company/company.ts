@@ -29,6 +29,9 @@ export class CompanyPage {
     "show_url": "https://app.soexpo.net/api/companies/v1oz1Yz27j",
     "rating_url": "https://app.soexpo.net/api/companies/rate/v1oz1Yz27j",
   }];
+  openBrand(url){
+
+  }
   constructor(public navCtrl: NavController, public navParams: NavParams,
               public httpClient: HttpClient,
               public globalVar: GloaleVariablesProvider,
