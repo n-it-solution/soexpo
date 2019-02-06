@@ -22,20 +22,20 @@
             <div style="width: 100%;">
               <div style="float: left;width: 100%; padding-bottom: 10px; padding-top: 10px;">
                 <ion-icon class="tel-icon" name="call"></ion-icon>
-                <div class="brand-top-det">&nbsp;+09098765432</div></div>
+                <div class="brand-top-det">&nbsp;+{{companyDetails.phone}}</div></div>
               <div style="float: left;width: 100%;"><ion-icon class="fax-icon" name="filing"></ion-icon>
-                <div class="brand-top-det">&nbsp;+09098765432</div></div>
+                <div class="brand-top-det">&nbsp;{{companyDetails.fax}}</div></div>
             </div>
           </div>
           <div class="brand-center">
             <div style="width: 100%; text-align: center;">
               <div style="float: left;width: 100%; text-align: left; padding-top: 10px; padding-bottom: 10px;">
                 <ion-icon class="website-icon" name="globe"></ion-icon>
-                <div class="brand-top-det">&nbsp;www.mywebsitenew.com</div>
+                <div class="brand-top-det">&nbsp;{{companyDetails.website}}</div>
               </div>
               <div style="float: left;width: 100%; text-align: left;">
                 <ion-icon class="email-icon" name="mail"></ion-icon>
-                <div class="brand-top-det">&nbsp;myemail@gmail.com</div>
+                <div class="brand-top-det">&nbsp;{{companyDetails.email}}</div>
               </div>
             </div>
           </div>
@@ -66,8 +66,8 @@
                       defaultIcon = "ios-star-outline"
                       activeColor = "#EDB867"
                       defaultColor = "grey"
-                      readonly="false"
-                      [rating]="3.2">
+                      readonly="true"
+                      [rating1]="3.2">
               </ionic3-star-rating>
             </div>
             <div class="overall-description">
