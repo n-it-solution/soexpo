@@ -164,26 +164,26 @@
     <ion-row>
       <ion-col col-12>
         <div class="main-tabs">
-          <div class="location">
-            <div class="divbtn">
-              <ion-icon class="team-icon" name="pin"></ion-icon><b class="team-text">Location</b>
-            </div>
+          <div class="location" (click)="changeTab('location')">
+            <button ion-button color="dark" [ngClass]="{'active': tab == 'location'}"><ion-icon class="team-icon" name="pin"></ion-icon>Location</button>
           </div>
-          <div class="team">
-            <div class="divbtn active">
-              <ion-icon class="team-icon" name="people"></ion-icon><b class="team-text">Team</b>
-            </div>
+          <div class="team" (click)="changeTab('team')">
+            <button ion-button color="dark" [ngClass]="{'active': tab == 'team'}"><ion-icon class="team-icon" name="people"></ion-icon>Team</button>
           </div>
-          <div class="models">
-            <div class="divbtn">
-                <ion-icon class="team-icon" name="cube"></ion-icon><b class="team-text">Models</b>
-            </div>
+          <div class="models" (click)="changeTab('models')">
+            <button ion-button color="dark" [ngClass]="{'active': tab == 'models'}"><ion-icon class="team-icon" name="cube"></ion-icon>Models</button>
           </div>
         </div>
       </ion-col>
     </ion-row>
-
-
   </ion-grid>
-
+  <div *ngIf="tab == 'location'">
+    location
+  </div>
+  <div *ngIf="tab == 'team'">
+    team
+  </div>
+  <div *ngIf="tab == 'models'">
+    models
+  </div>
 </ion-content>
