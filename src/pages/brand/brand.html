@@ -176,14 +176,47 @@
         </div>
       </ion-col>
     </ion-row>
+
+    <ion-row padding>
+      <ion-col col-12 padding>
+        <div class="tab-main-div">
+          <div class="location-tab" *ngIf="tab == 'location'">
+            Location
+          </div>
+          <div class="team-tab" *ngIf="tab == 'team'">
+            team
+          </div>
+          <div class="models-tab" *ngIf="tab == 'models'">
+            <div class="main-product-section">
+              <div class="models-left">
+                <img src="../../assets/content/company.png" alt="">
+              </div>
+              <div class="models-right">
+                <div class="model-product-name">asdfasdfasdf</div>
+                <div class="model-brand-name">asdfasdfasdf</div>
+                <div class="model-cart-btn">
+                  <a href="#"><ion-icon class="add-to-cart-icon" name="cart"></ion-icon>Add to Cart</a>
+                </div>
+              </div>
+              <div class="clearfix"></div>
+            </div>
+            <div class="main-product-section">
+              <div class="models-left">
+                <img src="../../assets/content/company.png" alt="">
+              </div>
+              <div class="models-right">
+                <div class="model-product-name">asdfasdfasdf</div>
+                <div class="model-brand-name">asdfasdfasdf</div>
+                <div class="model-cart-btn">
+                  <a href="#"><ion-icon class="add-to-cart-icon" name="cart"></ion-icon>Add to Cart</a>
+                </div>
+              </div>
+              <div class="clearfix"></div>
+            </div>
+          </div>
+        </div>
+      </ion-col>
+    </ion-row>
+
   </ion-grid>
-  <div *ngIf="tab == 'location'">
-    location
-  </div>
-  <div *ngIf="tab == 'team'">
-    team
-  </div>
-  <div *ngIf="tab == 'models'">
-    models
-  </div>
 </ion-content>

@@ -1,5 +1,8 @@
 page-brand {
 
+  .clearfix{
+    clear: both;
+  }
   .brand-topbar{
     width: 100%;
     margin-top: 15px;
@@ -338,8 +341,75 @@ page-brand {
     padding-left: 1px!important;
   }
   .active{
-    background: purple!important;
-    border: 1px solid purple!important;
+    background: #186e47!important;
+    border: 1px solid #333!important;
+  }
+
+
+  .tab-main-div{
+    width: 100%;
+    clear: both;
+  }
+  .tab-main-div .models-tab{
+    width: 100%;
+    //background: green;
+    clear: both;
+  }
+  .tab-main-div .models-tab .main-product-section{
+    width: 100%;
+    background: #eee;
+    border: 1px solid grey;
+    padding:10px;
+    clear: both;
+    margin-bottom: 10px;
+  }
+  .tab-main-div .models-tab .main-product-section .models-left{
+    width: 20%;
+    float: left;
+  }
+  .tab-main-div .models-tab .main-product-section .models-left img{
+    width: 100%;
+    padding: 5px;
+    border: 2px solid #eee;
+  }
+  .tab-main-div .models-tab .main-product-section .models-right{
+    width: 80%;
+    float: left;
+  }
+  .tab-main-div .models-tab .main-product-section .models-right .model-product-name{
+    width: 100%;
+    padding-left: 5px;
+    padding-bottom: 5px;
+    font-size: 14px;
+    color:#333;
+  }
+  .tab-main-div .models-tab .main-product-section .models-right .model-brand-name{
+    width: 100%;
+    padding-left: 5px;
+    padding-bottom: 5px;
+    padding-top: 5px;
+    font-size: 12px;
+    color:#333;
+  }
+  .tab-main-div .models-tab .main-product-section .models-right .model-cart-btn{
+    width: 100%;
+    text-align: right;
+    padding-right: 20px;
+  }
+  .tab-main-div .models-tab .main-product-section .models-right .model-cart-btn a{
+    padding-left: 15px;
+    padding-bottom: 5px;
+    text-align: center;
+    padding-top: 5px;
+    padding-right: 15px!important;
+    font-size: 12px;
+    background: #186e47;
+    border: 1px solid #333;
+    color:#fff;
+    text-decoration: none;
+  }
+  .tab-main-div .models-tab .main-product-section .models-right .model-cart-btn a .add-to-cart-icon{
+    padding-right: 5px;
   }
 
 }
