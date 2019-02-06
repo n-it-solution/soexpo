@@ -8,8 +8,12 @@ import { StarRatingModule } from 'ionic3-star-rating';
   templateUrl: 'brand.html',
 })
 export class BrandPage {
-
+  tab:any;
+  changeTab(tab){
+  this.tab = tab;
+  }
   constructor(public navCtrl: NavController, public navParams: NavParams) {
+    this.tab = 'location';
   }
 
   ionViewDidLoad() {
