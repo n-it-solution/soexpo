@@ -412,4 +412,77 @@ page-brand {
     padding-right: 5px;
   }
 
+  .tab-main-div .team-tab{
+    width: 100%;
+    //background: green;
+    clear: both;
+  }
+  .tab-main-div .team-tab .main-team-section{
+    width: 100%;
+    background: #eee;
+    border: 1px solid grey;
+    padding:10px;
+    clear: both;
+    margin-bottom: 10px;
+  }
+  .tab-main-div .team-tab .main-team-section .team-left{
+    width: 20%;
+    float: left;
+  }
+  .tab-main-div .team-tab .main-team-section .team-left img{
+    width: 100%;
+    padding: 5px;
+    border: 2px solid #eee;
+  }
+  .tab-main-div .team-tab .main-team-section .team-right{
+    width: 80%;
+    float: left;
+  }
+  .tab-main-div .team-tab .main-team-section .team-right .team-product-name{
+    width: 100%;
+    padding-left: 5px;
+    padding-bottom: 5px;
+    font-size: 14px;
+    color:#333;
+  }
+  .tab-main-div .team-tab .main-team-section .team-right .team-brand-name{
+    width: 100%;
+    padding-left: 5px;
+    padding-bottom: 5px;
+    padding-top: 5px;
+    font-size: 12px;
+    color:#333;
+  }
+  .tab-main-div .team-tab .main-team-section .team-right .team-brand-name .mail-icon{
+    font-size: 25px;
+    color: #a92700;
+    padding-right: 10px;
+  }
+  .tab-main-div .team-tab .main-team-section .team-right .team-brand-name .call-icon{
+    font-size: 25px;
+    color: #a92700;
+    padding-right: 10px;
+  }
+  .tab-main-div .team-tab .main-team-section .team-right .team-cart-btn{
+    width: 100%;
+    text-align: right;
+    padding-right: 20px;
+  }
+  .tab-main-div .team-tab .main-team-section .team-right .team-cart-btn a{
+    padding-left: 15px;
+    padding-bottom: 5px;
+    text-align: center;
+    padding-top: 5px;
+    padding-right: 15px!important;
+    font-size: 12px;
+    background: #a92700;
+    border: 1px solid #a92700;
+    color:#fff;
+    text-decoration: none;
+  }
+  .tab-main-div .team-tab .main-team-section .team-right .team-cart-btn a .add-to-cart-icon{
+    padding-right: 5px;
+  }
+
+
 }
