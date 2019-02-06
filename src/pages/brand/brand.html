@@ -79,21 +79,21 @@
           <div class="company-name">
             <div class="comp-info-icon"><ion-icon class="planet-icon" name="planet"></ion-icon></div>
             <div class="comp-info">
-              Company Name
+              {{companyDetails.name}}
             </div>
           </div>
           <div class="clearfix"></div>
           <div class="company-address">
             <div class="comp-info-icon"><ion-icon class="pin-icon" name="pin"></ion-icon></div>
             <div class="comp-info">
-              Company Address
+              {{companyDetails.address}}
             </div>
           </div>
           <div class="clearfix"></div>
           <div class="company-description">
             <div class="comp-info-icon"><ion-icon class="info-icon" name="information-circle"></ion-icon></div>
             <div class="comp-info">
-              Company Description
+              {{companyDetails.description}}
             </div>
           </div>
 
@@ -202,26 +202,14 @@
             </div>
           </div>
           <div class="models-tab" *ngIf="tab == 'models'">
-            <div class="main-product-section">
+            <div class="main-product-section" *ngFor="let i of brands">
               <div class="models-left">
                 <img src="../../assets/content/company.png" alt="">
+                <!--<img src="{{i.image}}" alt="">-->
               </div>
               <div class="models-right">
-                <div class="model-product-name">asdfasdfasdf</div>
-                <div class="model-brand-name">asdfasdfasdf</div>
-                <div class="model-cart-btn">
-                  <a href="#"><ion-icon class="add-to-cart-icon" name="cart"></ion-icon>Add to Cart</a>
-                </div>
-              </div>
-              <div class="clearfix"></div>
-            </div>
-            <div class="main-product-section">
-              <div class="models-left">
-                <img src="../../assets/content/company.png" alt="">
-              </div>
-              <div class="models-right">
-                <div class="model-product-name">asdfasdfasdf</div>
-                <div class="model-brand-name">asdfasdfasdf</div>
+                <div class="model-product-name">{{i.name}}</div>
+                <div class="model-brand-name">{{i.product}}</div>
                 <div class="model-cart-btn">
                   <a href="#"><ion-icon class="add-to-cart-icon" name="cart"></ion-icon>Add to Cart</a>
                 </div>

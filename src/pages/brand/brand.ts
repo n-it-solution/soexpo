@@ -17,7 +17,9 @@ export class BrandPage {
   }
   data:any;
   // overRating:any;
-  companyDetails:any =  {
+  brands:any = [];
+  companyDetails:any =
+      {
     "id": 20,
     "name": "Basmat Beautiful Complex",
     "country": "Saudi Arabia",
@@ -28,7 +30,7 @@ export class BrandPage {
     ],
     "address": "مخرج14-حي الروابي",
     "phone": "0566555082",
-    "email": "dentalanddermal2015@yahoo.com",
+    "email": "dentalanddermal2015@yahoo.com11111111",
     "fax": "-",
     "website": "-",
     "description": "طب وتقويم الاسنان والجلدية",
@@ -71,12 +73,15 @@ export class BrandPage {
           console.log(data);
           if (data.level == 'success'){
             console.log(data.data);
-            // this.companyDetails = data.data.companyDetails;
-            // overRating = Number(this.companyDetails.rating.over_all_experience_evaluation.average_value);
+            this.companyDetails = data.data.companyDetails;
+            console.log(data.data.brands.data);
+            for (let i = 0; i < data.data.brands.data.length; i++) {
+              this.brands.push(data.data.brands.data[i])
+            }
+            console.log(this.brands);
           }
         },error=> {
           console.log(error);
-          // this.toastShow('something wrong');
         });
     this.tab = 'models';
   }
