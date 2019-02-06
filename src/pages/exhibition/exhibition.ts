@@ -7,6 +7,7 @@ import {AnnouncementsPage} from "../announcements/announcements";
 import { HttpClient } from '@angular/common/http';
 import {GloaleVariablesProvider} from "../../providers/gloale-variables/gloale-variables";
 import { ToastController } from 'ionic-angular';
+import {CompanyPage} from "../company/company";
 @IonicPage()
 @Component({
   selector: 'page-exhibition',
@@ -17,6 +18,10 @@ export class ExhibitionPage {
   data:any;
   exhibition = [];
   loadMore : any = true;
+  openCompany(url){
+  console.log(url);
+  this.navCtrl.push(CompanyPage,{url: url})
+  }
   doInfinite(infiniteScroll) {
     if (this.loadMore == true){
       console.log('true');
