@@ -18,6 +18,22 @@ export class ExhibitionPage {
   data:any;
   exhibition = [];
   loadMore : any = true;
+  noti:any = false;
+  lang:any = false;
+  openLnag(){
+    if (this.lang == false){
+      this.lang = true;
+    } else {
+      this.lang = false;
+    }
+  }
+  openNot(){
+    if (this.noti == false){
+      this.noti = true;
+    } else {
+      this.noti = false;
+    }
+  }
   openCompany(url){
   console.log(url);
   this.navCtrl.push(CompanyPage,{url: url})
