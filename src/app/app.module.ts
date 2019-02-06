@@ -33,6 +33,7 @@ import {NewsDetailPage} from "../pages/news-detail/news-detail";
 import {AnnouncementsPage} from "../pages/announcements/announcements";
 import {AnnouncementDetailPage} from "../pages/announcement-detail/announcement-detail";
 import {CartPage} from "../pages/cart/cart";
+import {NotificationPage} from "../pages/notification/notification";
 
 
 @NgModule({
@@ -49,6 +50,7 @@ import {CartPage} from "../pages/cart/cart";
     TabsPage,
     TestPage,
     AboutPage,
+    NotificationPage,
     ContactPage,
     NewsPage,
     NewsDetailPage,
@@ -81,6 +83,7 @@ import {CartPage} from "../pages/cart/cart";
     TabsPage,
     TestPage,
     AboutPage,
+    NotificationPage,
     ContactPage,
     NewsPage,
     NewsDetailPage,
