@@ -19,8 +19,8 @@
     <ion-row>
       <ion-col col-12>
         <div class="top-user-pic">
-          <img src="../../assets/content/welcome.png" alt="">
-          <div class="username">Full Name</div>
+          <img src="{{profile.picture}}" alt="">
+          <div class="username">{{profile.name}}</div>
         </div>
       </ion-col>
     </ion-row>
@@ -32,7 +32,7 @@
               <ion-icon class="em-icon" name="mail"></ion-icon>
             </div>
             <div class="email-heading">E-mail:</div>
-            <div class="email-address">mydemoemail@gmail.com</div>
+            <div class="email-address">{{profile.email}}</div>
             <div style="clear: both;"></div>
           </div>
           <div class="phone">
@@ -40,7 +40,7 @@
               <ion-icon class="ph-icon" name="call"></ion-icon>
             </div>
             <div class="phone-heading">Phone#:</div>
-            <div class="phone-address">+92 303 4472 147</div>
+            <div class="phone-address">{{profile.phone}}</div>
             <div style="clear: both;"></div>
           </div>
           <div class="exhibition">
@@ -48,11 +48,52 @@
               <ion-icon class="ex-icon" name="heart"></ion-icon>
             </div>
             <div class="exhi-heading">Exhibition:</div>
-            <div class="exhi-address">Something</div>
+            <div class="exhi-address">
+              <ion-list>
+                <ion-item>
+                  <!--<ion-label>Gaming</ion-label>-->
+                  <ion-select [(ngModel)]="gaming" interface="popover">
+                    <ion-option selected *ngFor="let i of exhibition">{{i}}</ion-option>
+                  </ion-select>
+                </ion-item>
+              </ion-list>
+            </div>
+            <div style="clear: both;"></div>
+          </div>
+          <div class="email">
+            <div class="email-icon">
+              <ion-icon class="em-icon" name="mail"></ion-icon>
+            </div>
+            <div class="email-heading">Country</div>
+            <div class="email-address">{{profile.country_code}}</div>
             <div style="clear: both;"></div>
           </div>
         </div>
-        <div class="edit-button">
+        <div class="email">
+          <div class="email-icon">
+            <ion-icon class="em-icon" name="mail"></ion-icon>
+          </div>
+          <div class="email-heading">City</div>
+          <div class="email-address">{{profile.city}}</div>
+          <div style="clear: both;"></div>
+        </div>
+        <div class="email">
+          <div class="email-icon">
+            <ion-icon class="em-icon" name="mail"></ion-icon>
+          </div>
+          <div class="email-heading">Job title</div>
+          <div class="email-address">{{profile.job_title}}</div>
+          <div style="clear: both;"></div>
+        </div>
+        <div class="email">
+          <div class="email-icon">
+            <ion-icon class="em-icon" name="mail"></ion-icon>
+          </div>
+          <div class="email-heading">About</div>
+          <div class="email-address">{{profile.about}}</div>
+          <div style="clear: both;"></div>
+        </div>
+        <div class="edit-button" (click)="openEditPage()">
           <button ion-button>Edit Profile</button>
         </div>
       </ion-col>
