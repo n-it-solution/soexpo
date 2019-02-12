@@ -43,6 +43,7 @@
             <div style="width: 100%;  text-align: right;">
               <div style="width: 100%; text-align: right;">
                 <img src="../../assets/content/logo.png" style=" padding-right: 10px; background: transparent; border-radius:15px; width: 70px;" class="logo-icon">
+                <!--<img src="{{companyDetails.logo}}" style=" padding-right: 10px; background: transparent; border-radius:15px; width: 70px;" class="logo-icon">-->
               </div>
             </div>
           </div>
@@ -56,7 +57,8 @@
         <div class="overall-rating-main">
 
           <div class="overall-left">
-            <img src="../../assets/content/company.png" alt="">
+            <!--<img src="{{companyDetails.logo}}" alt="">-->
+            <img src="../../assets/content/logo.png" alt="">
           </div>
           <div class="overall-right">
             <div class="overall-heading">Overall Rating</div>
@@ -184,12 +186,13 @@
             Location
           </div>
           <div class="team-tab" *ngIf="tab == 'team'">
-            <div class="main-team-section">
+            <div class="main-team-section" *ngFor="let i of members">
               <div class="team-left">
-                <img src="../../assets/content/company.png" alt="">
+                <!--<img src="../../assets/content/company.png" alt="">-->
+                <img src="{{i.picture}}" alt="">
               </div>
               <div class="team-right">
-                <div class="team-product-name">asdfasdfasdf</div>
+                <div class="team-product-name">{{i.name}}</div>
                 <div class="team-brand-name">
                   <span><ion-icon class="mail-icon" name="mail"></ion-icon></span>
                   <span><ion-icon class="call-icon" name="call"></ion-icon></span>

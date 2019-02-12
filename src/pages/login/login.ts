@@ -3,6 +3,7 @@ import {IonicPage, AlertController, NavController} from 'ionic-angular';
 import { HttpClient } from '@angular/common/http';
 import {GloaleVariablesProvider} from "../../providers/gloale-variables/gloale-variables";
 import {RegisterPage} from "../register/register";
+import {TabsPage} from "../tabs/tabs";
 @IonicPage()
 @Component({
   selector: 'page-login',
@@ -32,6 +33,8 @@ export class LoginPage {
                     if (data.level == 'success'){
                         console.log(data.data)
                     }
+                    console.log(1);
+                    this.navCtrl.setRoot(TabsPage);
           },error=> {
               console.log(error);
                     if(error.status == 422){

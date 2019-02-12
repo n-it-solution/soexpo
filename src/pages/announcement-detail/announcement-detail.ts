@@ -14,8 +14,10 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
   templateUrl: 'announcement-detail.html',
 })
 export class AnnouncementDetailPage {
-
+  data:any;
   constructor(public navCtrl: NavController, public navParams: NavParams) {
+    // console.log(navParams.get('data'));
+    this.data = navParams.get('data');
   }
 
   ionViewDidLoad() {

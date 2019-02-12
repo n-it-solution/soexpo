@@ -8,6 +8,7 @@ import {RegisterPage} from "../register/register";
 import {CompanyPage} from "../company/company";
 import {GloaleVariablesProvider} from "../../providers/gloale-variables/gloale-variables";
 import {BrandPage} from "../brand/brand";
+import {TabsPage} from "../tabs/tabs";
 
 /**
  * Generated class for the WelcomePage page.
@@ -40,7 +41,7 @@ data:any;
           })
       };
 
-    navCtrl.push(BrandPage);
+    // navCtrl.push(BrandPage);
       console.log('in welcome page');
       console.log('in welcome page1');
       console.log(httpOptions);
@@ -73,7 +74,8 @@ data:any;
       this.navCtrl.push(RegisterPage);
     }
     openExhibition(){
-      this.navCtrl.push(ExhibitionPage);
+      this.navCtrl.setRoot(TabsPage);
+      // this.navCtrl.push(ExhibitionPage);
     }
   ionViewDidLoad() {
     console.log('ionViewDidLoad WelcomePage');

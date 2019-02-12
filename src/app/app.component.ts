@@ -19,6 +19,7 @@ import {NewsDetailPage} from "../pages/news-detail/news-detail";
 import {AnnouncementsPage} from "../pages/announcements/announcements";
 import {AnnouncementDetailPage} from "../pages/announcement-detail/announcement-detail";
 import {CartPage} from "../pages/cart/cart";
+import {NotificationPage} from "../pages/notification/notification";
 
 @Component({
   templateUrl: 'app.html'
@@ -26,7 +27,7 @@ import {CartPage} from "../pages/cart/cart";
 export class MyApp {
   @ViewChild(Nav) nav: Nav;
 
-  rootPage: any = BrandPage;
+  rootPage: any = ProfilePage;
 
   pages: Array<{title: string, component: any}>;
 

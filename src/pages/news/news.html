@@ -20,7 +20,8 @@
       <ion-col col-12 no-padding>
         <div class="newses" *ngFor="let i of news;let in = index" (click)="openNewsDetails(i.show_url)">
           <div class="left-img">
-            <img src="../../assets/content/company.png" alt="">
+            <!--<img src="../../assets/content/company.png" alt="">-->
+            <img src="{{i.featured_image}}" alt="">
           </div>
           <div class="right-detail">
             <div class="news-heading">{{i.title}}</div>
@@ -32,9 +33,6 @@
       </ion-col>
     </ion-row>
   </ion-grid>
-  <ion-list>
-    <ion-item *ngFor="let i of items">{{i}}</ion-item>
-  </ion-list>
   <ion-infinite-scroll (ionInfinite)="doInfinite($event)">
     <ion-infinite-scroll-content></ion-infinite-scroll-content>
   </ion-infinite-scroll>

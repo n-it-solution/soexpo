@@ -8,7 +8,7 @@
     <button ion-button menuToggle right>
       <ion-icon name="menu" color="dark"></ion-icon>
     </button>
-    <ion-title>Announcement Detail</ion-title>
+    <ion-title>{{data.title}}</ion-title>
   </ion-navbar>
 
 </ion-header>
@@ -21,16 +21,14 @@
       <ion-col col-12 no-padding>
         <div class="announ-detail">
           <div class="announ-detail-left-img">
-            <img src="../../assets/content/company.png" alt="">
+            <img src="{{data.image}}" alt="">
           </div>
           <div class="bor-bottom-img"></div>
           <div class="announ-detail-right-detail">
             <div class="announ-detail-heading">خدمة برمجيات منظمي المعارض</div>
-            <div class="announ-detail-description">
-              نوفر جميع المتطلبات لك كمنظم للإستفادة القصوى من تنظيم معارضك وأدارتها بالشكل الأمثل
-              للتواصل
+            <div class="announ-detail-description" [innerHTML]="data.content">
             </div>
-            <div class="announ-detail-date">mohammad@bioservpro.com</div>
+            <!--<div class="announ-detail-date">mohammad@bioservpro.com</div>-->
             <div class="bor-bottom-date"></div>
           </div>
           <div class="clearfix"></div>

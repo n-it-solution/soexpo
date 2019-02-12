@@ -19,20 +19,21 @@
     <ion-row no-padding>
       <ion-col col-12>
         <div class="all-announcements">
-          <div class="announcement">
+          <div class="announcement" *ngFor="let i of announcements" (click)="annDetails(i)">
             <div class="inner-announ">
               <div class="announ-img">
                 <img src="../../assets/content/company.png" alt="">
+                <!--<img src="{{i.image}}" alt="">-->
               </div>
               <div class="announ-clock-flag">
                 <div class="announ-clock">
                   <div>
-                    <ion-icon class="time-icon" name="time"><i class="date">4 month ago</i></ion-icon>
+                    <ion-icon class="time-icon" name="time"><i class="date">{{i.starts_at}}</i></ion-icon>
                   </div>
                 </div>
                 <div class="announ-flag">
                   <div>
-                    <ion-icon class="flag-icon" name="flag"><i class="read">Read</i></ion-icon>
+                    <ion-icon class="flag-icon" name="flag"><i class="read"><span *ngIf="i.is_read">Read</span><span *ngIf="!i.is_read">Unread</span></i></ion-icon>
                   </div>
                 </div>
                 <div class="clearfix"></div>
@@ -42,75 +43,75 @@
               </div>
             </div>
           </div>
-          <div class="announcement">
-            <div class="inner-announ">
-              <div class="announ-img">
-                <img src="../../assets/content/company.png" alt="">
-              </div>
-              <div class="announ-clock-flag">
-                <div class="announ-clock">
-                  <div>
-                    <ion-icon class="time-icon" name="time"><i class="date">4 month ago</i></ion-icon>
-                  </div>
-                </div>
-                <div class="announ-flag">
-                  <div>
-                    <ion-icon class="flag-icon" name="flag"><i class="read">Read</i></ion-icon>
-                  </div>
-                </div>
-                <div class="clearfix"></div>
-              </div>
-              <div class="announ-link-heading">
-                خدمة برمجيات منظمي المعارض
-              </div>
-            </div>
-          </div>
-          <div class="announcement">
-            <div class="inner-announ">
-              <div class="announ-img">
-                <img src="../../assets/content/company.png" alt="">
-              </div>
-              <div class="announ-clock-flag">
-                <div class="announ-clock">
-                  <div>
-                    <ion-icon class="time-icon" name="time"><i class="date">4 month ago</i></ion-icon>
-                  </div>
-                </div>
-                <div class="announ-flag">
-                  <div>
-                    <ion-icon class="flag-icon" name="flag"><i class="read">Read</i></ion-icon>
-                  </div>
-                </div>
-                <div class="clearfix"></div>
-              </div>
-              <div class="announ-link-heading">
-                خدمة برمجيات منظمي المعارض
-              </div>
-            </div>
-          </div>
-          <div class="announcement">
-            <div class="inner-announ">
-              <div class="announ-img">
-                <img src="../../assets/content/company.png" alt="">
-              </div>
-              <div class="announ-clock-flag">
-                <div class="announ-clock">
-                  <div>
-                    <ion-icon class="time-icon" name="time"><i class="date">4 month ago</i></ion-icon>
-                  </div>
-                </div>
-                <div class="announ-flag">
-                  <div>
-                    <ion-icon class="flag-icon" name="flag"><i class="read">Read</i></ion-icon>
-                  </div>
-                </div>
-                <div class="clearfix"></div>
-              </div>
-              <div class="announ-link-heading">
-                خدمة برمجيات منظمي المعارض
-              </div>
-            </div>
-          </div>
+          <!--<div class="announcement">-->
+            <!--<div class="inner-announ">-->
+              <!--<div class="announ-img">-->
+                <!--<img src="../../assets/content/company.png" alt="">-->
+              <!--</div>-->
+              <!--<div class="announ-clock-flag">-->
+                <!--<div class="announ-clock">-->
+                  <!--<div>-->
+                    <!--<ion-icon class="time-icon" name="time"><i class="date">4 month ago</i></ion-icon>-->
+                  <!--</div>-->
+                <!--</div>-->
+                <!--<div class="announ-flag">-->
+                  <!--<div>-->
+                    <!--<ion-icon class="flag-icon" name="flag"><i class="read">Read</i></ion-icon>-->
+                  <!--</div>-->
+                <!--</div>-->
+                <!--<div class="clearfix"></div>-->
+              <!--</div>-->
+              <!--<div class="announ-link-heading">-->
+                <!--خدمة برمجيات منظمي المعارض-->
+              <!--</div>-->
+            <!--</div>-->
+          <!--</div>-->
+          <!--<div class="announcement">-->
+            <!--<div class="inner-announ">-->
+              <!--<div class="announ-img">-->
+                <!--<img src="../../assets/content/company.png" alt="">-->
+              <!--</div>-->
+              <!--<div class="announ-clock-flag">-->
+                <!--<div class="announ-clock">-->
+                  <!--<div>-->
+                    <!--<ion-icon class="time-icon" name="time"><i class="date">4 month ago</i></ion-icon>-->
+                  <!--</div>-->
+                <!--</div>-->
+                <!--<div class="announ-flag">-->
+                  <!--<div>-->
+                    <!--<ion-icon class="flag-icon" name="flag"><i class="read">Read</i></ion-icon>-->
+                  <!--</div>-->
+                <!--</div>-->
+                <!--<div class="clearfix"></div>-->
+              <!--</div>-->
+              <!--<div class="announ-link-heading">-->
+                <!--خدمة برمجيات منظمي المعارض-->
+              <!--</div>-->
+            <!--</div>-->
+          <!--</div>-->
+          <!--<div class="announcement">-->
+            <!--<div class="inner-announ">-->
+              <!--<div class="announ-img">-->
+                <!--<img src="../../assets/content/company.png" alt="">-->
+              <!--</div>-->
+              <!--<div class="announ-clock-flag">-->
+                <!--<div class="announ-clock">-->
+                  <!--<div>-->
+                    <!--<ion-icon class="time-icon" name="time"><i class="date">4 month ago</i></ion-icon>-->
+                  <!--</div>-->
+                <!--</div>-->
+                <!--<div class="announ-flag">-->
+                  <!--<div>-->
+                    <!--<ion-icon class="flag-icon" name="flag"><i class="read">Read</i></ion-icon>-->
+                  <!--</div>-->
+                <!--</div>-->
+                <!--<div class="clearfix"></div>-->
+              <!--</div>-->
+              <!--<div class="announ-link-heading">-->
+                <!--خدمة برمجيات منظمي المعارض-->
+              <!--</div>-->
+            <!--</div>-->
+          <!--</div>-->
         </div>
       </ion-col>
     </ion-row>
