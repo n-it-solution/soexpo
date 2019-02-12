@@ -30,12 +30,24 @@
         <div class="user-detail-update">
           <div class="email-update">
             <div class="email-icon-update">
+              <ion-icon class="em-icon-update" name="person"></ion-icon>
+            </div>
+            <div class="email-heading-update">Name</div>
+            <div class="email-address-update">
+              <ion-item style="background: transparent!important;">
+                <ion-input clearInput class="email-input" type="text" value="{{profile.name}}"></ion-input>
+              </ion-item>
+            </div>
+            <div style="clear: both;"></div>
+          </div>
+          <div class="email-update">
+            <div class="email-icon-update">
               <ion-icon class="em-icon-update" name="mail"></ion-icon>
             </div>
             <div class="email-heading-update">E-mail:</div>
             <div class="email-address-update">
               <ion-item style="background: transparent!important;">
-                <ion-input clearInput class="email-input" type="email" value="example@gmail.com" placeholder="Example: demo@gmail.com"></ion-input>
+                <ion-input clearInput class="email-input" type="email" value="{{profile.email}}" placeholder="Example: demo@gmail.com"></ion-input>
               </ion-item>
             </div>
             <div style="clear: both;"></div>
@@ -47,7 +59,7 @@
             <div class="phone-heading-update">Phone#:</div>
             <div class="phone-address-update">
               <ion-item style="background: transparent!important;">
-                <ion-input clearInput class="email-input" type="text" value="+92 303 4472 147" placeholder="Example: +92 303 4472 147"></ion-input>
+                <ion-input clearInput class="email-input" type="text" value="{{profile.phone}}" placeholder="Example: +92 303 4472 147"></ion-input>
               </ion-item>
             </div>
             <div style="clear: both;"></div>
@@ -59,7 +71,35 @@
             <div class="exhi-heading-update">Exhibition:</div>
             <div class="exhi-address-update">
               <ion-item style="background: transparent!important;">
-                <ion-input clearInput class="email-input" type="text" value="Something" placeholder="Example: Something"></ion-input>
+                    <!--<ion-label>Gaming</ion-label>-->
+                    <ion-select [(ngModel)]="gaming" interface="popover">
+                      <ion-option selected *ngFor="let i of exhibition">{{i}}</ion-option>
+                    </ion-select>
+
+              </ion-item>
+            </div>
+            <div style="clear: both;"></div>
+          </div>
+          <div class="exhibition-update">
+            <div class="exhi-icon-update">
+              <ion-icon class="ex-icon-update" name="person"></ion-icon>
+            </div>
+            <div class="exhi-heading-update">About</div>
+            <div class="exhi-address-update">
+              <ion-item style="background: transparent!important;">
+                <ion-input clearInput class="email-input" type="text" value="{{profile.about}}"></ion-input>
+              </ion-item>
+            </div>
+            <div style="clear: both;"></div>
+          </div>
+          <div class="exhibition-update">
+            <div class="exhi-icon-update">
+              <ion-icon class="ex-icon-update" name="code-working"></ion-icon>
+            </div>
+            <div class="exhi-heading-update">Job Title</div>
+            <div class="exhi-address-update">
+              <ion-item style="background: transparent!important;">
+                <ion-input clearInput class="email-input" type="text" value="{{profile.job_title}}"></ion-input>
               </ion-item>
             </div>
             <div style="clear: both;"></div>
