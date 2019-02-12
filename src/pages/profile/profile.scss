@@ -37,6 +37,21 @@ page-profile {
     font-size: 20px;
     text-align: center;
   }
+  .user-detail .email .email-icon .flag-icon{
+    color: #186e47;
+    font-size: 25px;
+    text-align: center;
+  }
+  .user-detail .email .email-icon .com-icon{
+    color: #186e47;
+    font-size: 18px;
+    text-align: center;
+  }
+  .user-detail .email .email-icon .bri-icon{
+    color: #186e47;
+    font-size: 18px;
+    text-align: center;
+  }
   .user-detail .email .email-heading{
     display: inline;
     color: #333;
@@ -125,6 +140,15 @@ page-profile {
     float: right;
     font-size: 14px;
   }
+  .user-detail .exhibition .exhi-address-select-option{
+    display: inline;
+    color: #333;
+    padding-top: 2px;
+    width: 55%;
+    float: right;
+    font-size: 14px;
+    margin-top: -12px!important;
+  }
 
   .edit-button{
     padding-top: 30px;
@@ -136,6 +160,75 @@ page-profile {
     display: block;
     background: #186e47;
     border: 2px solid #333;
+  }
+
+
+  .select-ios {
+    padding: 0;
+  }
+  .select-md {
+    padding: 0;
+  }
+  ion-select {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    overflow: hidden;
+    max-width: 100%;
+    font-size: 12px;
+  }
+  .item-ios.item-block .item-inner {
+    padding-right: 0!important;
+    padding-left: 0!important;
+    border-bottom: none!important;
+    font-size: 12px;
+  }
+  .item-md.item-block .item-inner {
+    padding-right: 0!important;
+    padding-left: 0!important;
+    border-bottom: none!important;
+    font-size: 12px;
+  }
+
+  .list-ios > .item-block:last-child, .list-ios > .item-wrapper:last-child .item-block {
+    border-bottom: none!important;
+    border-top: none!important;
+    font-size: 12px;
+  }
+
+  .list-md > .item-block:last-child, .list-md > .item-wrapper:last-child .item-block {
+    border-bottom: none!important;
+    border-top: none!important;
+    font-size: 12px;
+  }
+  .list-ios > .item-block:first-child {
+    border-bottom: none!important;
+    border-top: none!important;
+    font-size: 12px;
+  }
+  .list-md > .item-block:first-child {
+    border-bottom: none!important;
+    border-top: none!important;
+    font-size: 12px;
+  }
+  .list-ios > .item-block:first-child {
+    border-bottom: none !important;
+    border-top: none !important;
+    padding: 0!important;
+    font-size: 12px;
+  }
+  .list-md > .item-block:first-child {
+    border-bottom: none !important;
+    border-top: none !important;
+    padding: 0!important;
+    font-size: 12px;
+  }
+
+  .select-ios .select-icon {
+    position: relative;
+    width: 20px!important;
+    height: 18px;
   }
 
 }
