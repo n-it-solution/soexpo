@@ -67,16 +67,22 @@ page-company {
     margin-top: 15px;
   }
   .company-left-icon .company-category-img{
-    width: 100%;
+    width: 96%;
+    height: 110px;
+    border: 1px solid #eee;
+    padding: 5px;
+    margin: 0 auto;
   }
   .company-left-icon .company-category-img img{
     width: 100px;
+    //height: 100px;
     padding: 7px;
   }
   .company-left-icon .company-category-name{
     width: 100%;
     text-align: center;
-    margin-top: -7px;
+    margin-top: 0;
+    height: 30px;
   }
   .company-left-icon .company-category-name a{
     font-size: 12px;
