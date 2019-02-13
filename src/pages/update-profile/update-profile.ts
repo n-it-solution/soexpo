@@ -1,6 +1,9 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-
+import { HttpClient } from '@angular/common/http';
+import {GloaleVariablesProvider} from "../../providers/gloale-variables/gloale-variables";
+import { ToastController } from 'ionic-angular';
+import { HttpHeaders } from '@angular/common/http';
 /**
  * Generated class for the UpdateProfilePage page.
  *
@@ -45,7 +48,30 @@ export class UpdateProfilePage {
     "Food and Beverage",
     "Furniture"
   ];
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public navCtrl: NavController, public navParams: NavParams,
+              public httpClient: HttpClient,
+              public globalVar: GloaleVariablesProvider,
+              public toastCtrl: ToastController
+  ) {
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Accept' : 'application/json'
+      })
+    };
+    this.data = httpClient.get(globalVar.apiUrl+'get-exhibitions-list',httpOptions);
+    // this.data = httpClient.get('https://app.soexpo.net/api/get-countries-list');
+    this.data
+      .subscribe(data => {
+        console.log(data);
+        if (data.level == 'success'){
+
+        }
+      },error=> {
+        console.log(error);
+        if(error.status == 422){
+          alert(error.error.message)
+        }
+      });
   }
 
   ionViewDidLoad() {

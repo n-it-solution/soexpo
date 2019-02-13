@@ -27,7 +27,7 @@ import {NotificationPage} from "../pages/notification/notification";
 export class MyApp {
   @ViewChild(Nav) nav: Nav;
 
-  rootPage: any = TabsPage;
+  rootPage: any = UpdateProfilePage;
 
   pages: Array<{title: string, component: any}>;
 
