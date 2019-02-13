@@ -85,12 +85,12 @@ export class BrandPage {
         {
           text: 'Login',
           handler: data => {
-            if (User.isValid(data.username, data.password)) {
-              // logged in!
-            } else {
+            // if (User.isValid(data.username, data.password)) {
+            //   logged in!
+            // } else {
               // invalid login
-              return false;
-            }
+              // return false;
+            // }
           }
         }
       ]
