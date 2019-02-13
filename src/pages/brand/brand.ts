@@ -67,7 +67,6 @@ export class BrandPage {
           name: 'first',
           placeholder: 'Start date',
           type: 'datetime-local',
-          format: 'yyyy-MM-ddThh:mm'
         },
         {
           name: 'last',
