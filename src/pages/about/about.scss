@@ -1,3 +1,26 @@
 page-about {
 
+  .top-user-pic{
+    width: 60%;
+    margin: 0 auto;
+    padding: 30px;
+    text-align: center;
+  }
+  .top-user-pic img{
+    width: 100%;
+    padding: 10px;
+    text-align: center;
+    border-radius:100%;
+    border: 2px solid #eee;
+  }
+  .username{
+    width: 100%;
+    text-align: center;
+    font-size: 25px;
+    font-weight: bold;
+  }
+  .about-detail{
+    text-align: center;
+  }
+
 }

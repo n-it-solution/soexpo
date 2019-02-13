@@ -1,3 +1,63 @@
 page-contact {
 
+  .clearfix{
+    clear: both;
+  }
+  .top-user-pic{
+    width: 60%;
+    margin: 0 auto;
+    padding: 30px;
+    text-align: center;
+  }
+  .top-user-pic img{
+    width: 100%;
+    padding: 10px;
+    text-align: center;
+    border-radius:100%;
+    border: 2px solid #eee;
+  }
+  .username{
+    width: 100%;
+    text-align: center;
+    font-size: 25px;
+    font-weight: bold;
+  }
+  .main-contact{
+    width: 90%;
+    margin: 0 auto;
+  }
+  .contact-detail{
+    width: 100%;
+    padding-bottom: 10px;
+    //background: red;
+  }
+  .contact-detail .left-contact{
+    width: 15%;
+    //background: blue;
+    float: left;
+    padding: 5px;
+    text-align: center;
+  }
+  .contact-detail .left-contact .icon-pin{
+    font-size: 30px;
+    color: #186e47;
+  }
+  .contact-detail .left-contact .icon-call{
+    font-size: 30px;
+    color: #186e47;
+  }
+  .contact-detail .left-contact .icon-mail{
+    font-size: 30px;
+    color: #186e47;
+  }
+  .contact-detail .right-contact{
+    width: 85%;
+    //background: green;
+    padding-top: 10px;
+    padding-bottom: 11px;
+    padding-left: 10px;
+    padding-right: 10px!important;
+    float: right;
+  }
+
 }
