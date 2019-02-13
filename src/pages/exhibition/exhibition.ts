@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import {AlertController, IonicPage, NavController, NavParams} from 'ionic-angular';
 import {TabsPage} from "../tabs/tabs";
 import {Tab1Page} from "../tab1/tab1";
 import {NewsPage} from "../news/news";
@@ -22,7 +22,47 @@ export class ExhibitionPage {
   loadMore : any = true;
   noti:any = false;
   lang:any = false;
+  presentPrompt() {
+    let alert = this.alertCtrl.create({
+      title: 'Login',
+      inputs: [
+        {
+          name: 'lang',
+          placeholder: 'Username',
+          type: 'radio',
+          label: 'Arabic',
+          value: 'ar',
+        },
+        {
+          name: 'lang',
+          placeholder: 'Password',
+          type: 'radio',
+          label: 'English',
+          value: 'en'
+        }
+      ],
+      buttons: [
+        {
+          text: 'Cancel',
+          role: 'cancel',
+          handler: data => {
+            console.log('Cancel clicked');
+          }
+        },
+        {
+          text: 'Change',
+          handler: data => {
+            console.log(data)
+          }
+        }
+      ]
+    });
+    alert.present();
+  }
   openLnag(){
+    console.log(1);
+    console.log(4);
+    this.presentPrompt();
     if (this.lang == false){
       this.lang = true;
     } else {
@@ -91,6 +131,7 @@ export class ExhibitionPage {
               public globalVar: GloaleVariablesProvider,
               public toastCtrl: ToastController,
               private storage: Storage,
+              private alertCtrl: AlertController
   ) {
     this.storage.get('data').then((data)=>{
       if (data != null) {
