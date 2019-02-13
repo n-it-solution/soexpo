@@ -58,7 +58,7 @@
 
           <div class="overall-left">
             <!--<img src="{{companyDetails.logo}}" alt="">-->
-            <img src="../../assets/content/logo.png" alt="">
+            <img src="{{companyDetails.logo}}" alt="">
           </div>
           <div class="overall-right">
             <div class="overall-heading">Overall Rating</div>
@@ -68,12 +68,14 @@
                   [numStars]="5"
                   [readOnly]="true"
                   [value]=companyDetails.average_rating
+                  [ratingName] = "'average_rating'"
+                  [url]="companyDetails.rating_url"
                   *ngIf="showRating">
                 </ion-rating>
               </p>
             </div>
             <div class="overall-description">
-              بيع وشراء واستيراد وتصدير السيارات والشاحنات والمعدات الثقيلة بانواعها
+              <!--{{companyDetails.description}}-->
             </div>
           </div>
           <div style="clear: both;"></div>
@@ -116,6 +118,8 @@
                   [numStars]="5"
                   [readOnly]="false"
                   [value]=companyDetails.rating.products_satisfaction.my_rating
+                  [ratingName] = "'products_satisfaction'"
+                  [url]="companyDetails.rating_url"
                 *ngIf="showRating"
                 >
                 </ion-rating>
@@ -131,6 +135,8 @@
                   [numStars]="5"
                   [readOnly]="false"
                   [value]=companyDetails.rating.team_members_response.my_rating
+                  [ratingName] = "'team_members_response'"
+                  [url]="companyDetails.rating_url"
                   *ngIf="showRating">
                 </ion-rating>
               </p>
@@ -145,6 +151,8 @@
                   [numStars]="5"
                   [readOnly]="false"
                   [value]=companyDetails.rating.over_all_experience_evaluation.my_rating
+                  [ratingName] = "'over_all_experience_evaluation'"
+                  [url]="companyDetails.rating_url"
                   *ngIf="showRating">
                 </ion-rating>
               </p>
@@ -190,8 +198,8 @@
               <div class="team-right">
                 <div class="team-product-name">{{i.name}}</div>
                 <div class="team-brand-name">
-                  <span><ion-icon class="mail-icon" name="mail"></ion-icon></span>
-                  <span><ion-icon class="call-icon" name="call"></ion-icon></span>
+                  <span><a href="tel:{{i.skype}}" class="button button-positive"><ion-icon class="call-icon" name="call"></ion-icon></a></span>
+                  <span><a href="mailto:{{i.email}}" class="button button-positive"><ion-icon class="mail-icon" name="mail"></ion-icon></a></span>
                 </div>
                 <div class="team-cart-btn">
                   <a href="#">Book Appointment</a>
@@ -201,7 +209,7 @@
             </div>
           </div>
           <div class="models-tab" *ngIf="tab == 'models'">
-            <div class="main-product-section" *ngFor="let i of brands">
+            <div class="main-product-section" *ngFor="let i of brands" (click)="oepnProDetail(i.show_url)">
               <div class="models-left">
                 <img src="../../assets/content/company.png" alt="">
                 <!--<img src="{{i.image}}" alt="">-->

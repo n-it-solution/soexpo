@@ -16,27 +16,29 @@
     <ion-row style="padding-top: 0!important;">
       <ion-col col-12>
         <div class="main-pro-detail">
-          <div class="model-name">
-            <div class="name-heading">Model</div>
-            <div class="real-name">Model Name</div>
-          </div>
+          <!--<div class="model-name">-->
+            <!--<div class="name-heading">Model</div>-->
+            <!--<div class="real-name" *ngIf="show">{{detail.name}}</div>-->
+          <!--</div>-->
           <div class="clearfix"></div>
 
           <div class="product-name">
             <div class="name-heading">Product</div>
-            <div class="real-name">Product Name</div>
+            <div class="real-name" *ngIf="show">{{detail.product}}</div>
           </div>
           <div class="clearfix"></div>
 
           <div class="company">
             <div class="name-heading">Company</div>
-            <div class="real-name">Company Name</div>
+            <div class="real-name" *ngIf="show">{{detail.name}}</div>
           </div>
           <div class="clearfix"></div>
 
           <div class="product-description">
             <div class="name-heading">Description</div>
-            <div class="real-name">Product DescriptionProduct DescriptionProduct DescriptionProduct DescriptionProduct DescriptionProduct DescriptionProduct DescriptionProduct Description</div>
+            <div class="real-name" *ngIf="show">
+              {{detail.description}}
+            </div>
           </div>
           <div class="clearfix"></div>
         </div>
@@ -51,7 +53,7 @@
           </div>
           <div class="product-against-images">
             <!--<ion-icon name="star" class="gold-star"></ion-icon>-->
-            <img src="../../assets/content/slide/1.png" alt="">
+            <img *ngFor="let i of gallery"  src="{{i.url}}" alt="" >
           </div>
           <!--<div class="social-icons">
             <ion-icon class="img-social-link-fb" name="logo-facebook"></ion-icon>

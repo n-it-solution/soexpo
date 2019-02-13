@@ -16,18 +16,13 @@
     <ion-row>
       <ion-col col-12>
         <div class="top-user-pic">
-          <img src="../../assets/content/about.jpg" alt="">
-          <div class="username">Name</div>
+          <img src="{{fetch.featured_image}}" alt="" *ngIf="fetch">
+          <div class="username" *ngIf="show">{{fetch.title}}</div>
         </div>
 
         <div class="about-detail">
-          <p>
-            there will be appear data of about us
-            there will be appear data of about us
-            there will be appear data of about us
-            there will be appear data of about us
-            there will be appear data of about us
-            there will be appear data of about us
+          <p [innerHTML]="fetch.content" *ngIf="show">
+
           </p>
         </div>
 

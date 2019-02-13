@@ -17,40 +17,38 @@
     <ion-row>
       <ion-col col-12>
         <div class="top-user-pic">
-          <img src="../../assets/content/contact.jpg" alt="">
+          <img src="{{fetch.featured_image}}" alt="" *ngIf="show && fetch.featured_image">
+          <img src="../../assets/content/contact.jpg" alt="" *ngIf="show">
           <!--<div class="username">Name</div>-->
         </div>
 
         <div class="main-contact">
-          <div class="contact-detail">
-            <div class="left-contact">
-              <ion-icon class="icon-call" name="call"></ion-icon>
-            </div>
-            <div class="right-contact">
-              +000000000000
-            </div>
-            <div class="clearfix"></div>
-          </div>
+          <!--<div class="contact-detail">-->
+            <!--<div class="left-contact">-->
+              <!--<ion-icon class="icon-call" name="call"></ion-icon>-->
+            <!--</div>-->
+            <!--<div class="right-contact">-->
+              <!--+000000000000-->
+            <!--</div>-->
+            <!--<div class="clearfix"></div>-->
+          <!--</div>-->
+
+          <!--<div class="contact-detail">-->
+            <!--<div class="left-contact">-->
+              <!--<ion-icon class="icon-mail" name="mail"></ion-icon>-->
+            <!--</div>-->
+            <!--<div class="right-contact">-->
+              <!--hellotestemail@gmail.com-->
+            <!--</div>-->
+            <!--<div class="clearfix"></div>-->
+          <!--</div>-->
 
           <div class="contact-detail">
-            <div class="left-contact">
-              <ion-icon class="icon-mail" name="mail"></ion-icon>
-            </div>
-            <div class="right-contact">
-              hellotestemail@gmail.com
-            </div>
-            <div class="clearfix"></div>
-          </div>
+            <!--<div class="left-contact">-->
+              <!--<ion-icon class="icon-pin" name="pin"></ion-icon>-->
+            <!--</div>-->
+            <div class="right-contact" *ngIf="show" [innerHTML]="fetch.content">
 
-          <div class="contact-detail">
-            <div class="left-contact">
-              <ion-icon class="icon-pin" name="pin"></ion-icon>
-            </div>
-            <div class="right-contact">
-              location or home address or company address!
-              location or home address or company address!
-              location or home address or company address!
-              location or home address or company address!
             </div>
             <div class="clearfix"></div>
           </div>

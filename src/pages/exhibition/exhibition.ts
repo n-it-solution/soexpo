@@ -9,6 +9,7 @@ import {GloaleVariablesProvider} from "../../providers/gloale-variables/gloale-v
 import { ToastController } from 'ionic-angular';
 import {CompanyPage} from "../company/company";
 import {Storage} from '@ionic/storage';
+import {NotificationPage} from "../notification/notification";
 @IonicPage()
 @Component({
   selector: 'page-exhibition',
@@ -29,11 +30,12 @@ export class ExhibitionPage {
     }
   }
   openNot(){
-    if (this.noti == false){
-      this.noti = true;
-    } else {
-      this.noti = false;
-    }
+    // if (this.noti == false){
+    //   this.noti = true;
+    // } else {
+    //   this.noti = false;
+    // }
+    this.navCtrl.push(NotificationPage);
   }
   openCompany(url){
   console.log(url);

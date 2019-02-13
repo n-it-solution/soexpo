@@ -20,6 +20,9 @@ import {AnnouncementsPage} from "../pages/announcements/announcements";
 import {AnnouncementDetailPage} from "../pages/announcement-detail/announcement-detail";
 import {CartPage} from "../pages/cart/cart";
 import {NotificationPage} from "../pages/notification/notification";
+import {ProDetailPage} from "../pages/pro-detail/pro-detail";
+import {About1Page} from "../pages/about1/about1";
+import {AboutPage} from "../pages/about/about";
 
 @Component({
   templateUrl: 'app.html'
@@ -27,7 +30,7 @@ import {NotificationPage} from "../pages/notification/notification";
 export class MyApp {
   @ViewChild(Nav) nav: Nav;
 
-  rootPage: any = TabsPage;
+  rootPage: any = BrandPage;
 
   pages: Array<{title: string, component: any}>;
 
