@@ -29,10 +29,10 @@
                 <!--<div *ngIf="noti == true">En</div>-->
               </div>
               <div style="float: left;width: 25%; text-align: left;position: relative"><ion-icon class="language-icon" name="globe" (click)="openLnag()"></ion-icon>
-                <div *ngIf="lang == true" style="position: absolute">
+                <!--<div *ngIf="lang == true" style="position: absolute">
                   <div>En</div>
                   <div>Ar</div>
-                </div>
+                </div>-->
               </div>
               <div style="float: right;width: 50%;">
                 <img src="../../assets/content/logo.png" style="background: transparent; border-radius:15px; width: 70px;" class="logo-icon">
@@ -47,7 +47,7 @@
     </ion-row>
 
     <ion-row no-padding>
-      <ion-col col-12 no-padding>
+      <ion-col col-8 no-padding style="border-right: 2px solid #eee;">
         <div class="exibition-slide" >
             <!--<ion-card>-->
                 <ion-slides autoplay="3000" speed="2000" pager loop="true" effect="fade">
@@ -58,6 +58,12 @@
                     </ion-slide>
                 </ion-slides>
             <!--</ion-card>-->
+        </div>
+      </ion-col>
+      <ion-col col-4 no-padding>
+        <div class="exhibition-slider-name">
+          <div class="arabic-name">الراعي الماسي</div>
+          <div class="english-name">Diamond Sponsor</div>
         </div>
       </ion-col>
     </ion-row>

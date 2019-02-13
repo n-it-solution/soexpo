@@ -145,5 +145,30 @@ page-exhibition {
     color: #333;
     text-decoration: none;
   }
+  .exhibition-slider-name{
+    //background: red;
+    text-align: center;
+    vertical-align: middle;
+    height: 160px;
+    /*padding-top:35px;
+    padding-bottom: 35px;*/
+  }
+  .exhibition-slider-name .arabic-name{
+    //background: green;
+    text-align: center;
+    vertical-align: middle;
+    font-size: 12px;
+    height: 80px;
+    line-height: 140px;
+    /*padding-top:30px;
+    padding-bottom: 5px;*/
+  }
+  .exhibition-slider-name .english-name{
+    //background: yellowgreen;
+    text-align: center;
+    padding-top:10px;
+    font-size: 12px;
+    //padding-bottom: 15px;
+  }
 
 }
