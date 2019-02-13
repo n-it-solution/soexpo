@@ -58,6 +58,8 @@ export class UpdateProfilePage {
         'Accept' : 'application/json'
       })
     };
+    // startData
+    // console.log((this.startData.find(e => e.id === this.result[id]['id'])));
     this.data = httpClient.get(globalVar.apiUrl+'get-exhibitions-list',httpOptions);
     // this.data = httpClient.get('https://app.soexpo.net/api/get-countries-list');
     this.data
