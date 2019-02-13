@@ -1,0 +1,189 @@
+page-update-profile {
+
+  .top-user-pic-update{
+    width: 60%;
+    margin: 0 auto;
+    text-align: center;
+  }
+  .top-user-pic-update img{
+    width: 100%;
+    padding: 10px;
+    text-align: center;
+  }
+  .username-update{
+    width: 100%;
+    text-align: center;
+    font-size: 25px;
+    font-weight: bold;
+  }
+  .user-detail-update{
+    width:100%;
+  }
+  .user-detail-update .email-update{
+    width: 100%;
+    padding-top: 25px;
+    padding-bottom: 25px;
+    //background: red;
+  }
+  .user-detail-update .email-update .email-icon-update{
+    display: inline;
+    float: left;
+    color: #186e47;
+    text-align: center;
+    width: 12%;
+  }
+  .user-detail-update .email-update .email-icon-update .em-icon-update{
+    color: #186e47;
+    font-size: 20px;
+    text-align: center;
+  }
+  .user-detail-update .email-update .email-heading-update{
+    display: inline;
+    color: #333;
+    width: 25%;
+    padding-top: 15px;
+    float: left;
+    font-size: 14px;
+  }
+  .user-detail-update .email-update .email-address-update{
+    display: inline;
+    color: #333;
+    padding-top: 2px;
+    width: 55%;
+    float: right;
+    font-size: 14px;
+  }
+
+
+  .user-detail-update .phone-update{
+    width: 100%;
+    padding-top: 25px;
+    padding-bottom: 25px;
+    //background: red;
+  }
+  .user-detail-update .phone-update .phone-icon-update{
+    display: inline;
+    float: left;
+    color: #186e47;
+    text-align: center;
+    width: 12%;
+  }
+  .user-detail-update .phone-update .phone-icon-update .ph-icon-update{
+    color: #186e47;
+    font-size: 20px;
+    text-align: center;
+  }
+  .user-detail-update .phone-update .phone-heading-update{
+    display: inline;
+    color: #333;
+    width: 25%;
+    padding-top: 15px;
+    float: left;
+    font-size: 14px;
+  }
+  .user-detail-update .phone-update .phone-address-update{
+    display: inline;
+    color: #333;
+    padding-top: 2px;
+    width: 55%;
+    float: right;
+    font-size: 14px;
+  }
+
+
+  .user-detail-update .exhibition-update{
+    width: 100%;
+    padding-top: 25px;
+    padding-bottom: 25px;
+    //background: red;
+  }
+  .user-detail-update .exhibition-update .exhi-icon-update{
+    display: inline;
+    float: left;
+    color: #186e47;
+    text-align: center;
+    width: 12%;
+  }
+  .user-detail-update .exhibition-update .exhi-icon-update .ex-icon-update{
+    color: #186e47;
+    font-size: 20px;
+    text-align: center;
+  }
+  .user-detail-update .exhibition-update .exhi-heading-update{
+    display: inline;
+    color: #333;
+    width: 25%;
+    padding-top: 15px;
+    float: left;
+    font-size: 14px;
+  }
+  .user-detail-update .exhibition-update .exhi-address-update{
+    display: inline;
+    color: #333;
+    padding-top: 2px;
+    width: 55%;
+    float: right;
+    font-size: 14px;
+  }
+
+  .edit-button-update{
+    padding-top: 30px;
+    width: 100%;
+    margin: 0 auto;
+  }
+  .goback{
+    width: 50%;
+    float: left;
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+  .goback button{
+    width: 100%;
+    display: block;
+    background: #186e47;
+    border: 1px solid #333;
+  }
+  .update-btn{
+    width: 50%;
+    float: left;
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+  .update-btn button{
+    width: 100%;
+    display: block;
+    background: #186e47;
+    border: 1px solid #333;
+  }
+  .email-icon-update{
+    padding-top: 15px;
+  }
+  .phone-icon-update{
+    padding-top: 15px;
+  }
+  .exhi-icon-update{
+    padding-top: 15px;
+  }
+
+  .input-ios[clearInput] .text-input {
+    padding-right: 0!important;
+  }
+
+  .element.style {
+  }
+  .input-ios[clearInput] .text-input {
+    padding-right: 0!important;
+  }
+  .text-input-ios {
+    margin:0!important;
+    padding: 0;
+    width: calc(100% - 8px);
+  }
+  .item-ios.item-block .item-inner {
+    padding-right: 0!important;
+    //border-bottom: 0.55px solid #c8c7cc;
+    border-bottom: none!important;
+  }
+
+
+}

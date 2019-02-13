@@ -48,6 +48,9 @@ export class UpdateProfilePage {
     "Food and Beverage",
     "Furniture"
   ];
+  startData:any = [{id:2,name:'abdul'}];
+  result:any = [{id:1,name:'manan'},{id:2,name:'manan'}];
+  exhibitionList:any = [{id:1,name:'manan'},{id:2,name:'manan'}];
   constructor(public navCtrl: NavController, public navParams: NavParams,
               public httpClient: HttpClient,
               public globalVar: GloaleVariablesProvider,
@@ -58,15 +61,24 @@ export class UpdateProfilePage {
         'Accept' : 'application/json'
       })
     };
-    // startData
+    // startData:any = [];
     // console.log((this.startData.find(e => e.id === this.result[id]['id'])));
+
+    // console.log((this.startData.find(e => e.id === this.result[1]['id'])));
+    if((this.startData.find(e => e.id === this.result[0]['id']))){
+      console.log('fetched')
+    }
+    else {
+      console.log('fetched1')
+    }
     this.data = httpClient.get(globalVar.apiUrl+'get-exhibitions-list',httpOptions);
     // this.data = httpClient.get('https://app.soexpo.net/api/get-countries-list');
     this.data
       .subscribe(data => {
         console.log(data);
         if (data.level == 'success'){
-
+          this.exhibitionList = data.data;
+          console.log(this.exhibitionList);
         }
       },error=> {
         console.log(error);

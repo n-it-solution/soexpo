@@ -63,14 +63,14 @@
           <div class="overall-right">
             <div class="overall-heading">Overall Rating</div>
             <div class="overall-stars">
-              <ionic3-star-rating
-                      activeIcon = "ios-star"
-                      defaultIcon = "ios-star-outline"
-                      activeColor = "#EDB867"
-                      defaultColor = "grey"
-                      readonly="true"
-                      [rating]="3.2">
-              </ionic3-star-rating>
+              <p ion-button outline style="border:0px solid black; margin-top: -12px;">
+                <ion-rating
+                  [numStars]="5"
+                  [readOnly]="true"
+                  [value]=companyDetails.average_rating
+                  *ngIf="showRating">
+                </ion-rating>
+              </p>
             </div>
             <div class="overall-description">
               بيع وشراء واستيراد وتصدير السيارات والشاحنات والمعدات الثقيلة بانواعها
@@ -102,13 +102,7 @@
         </div>
       </ion-col>
     </ion-row>
-
-
-
-
-
     <ion-row no-padding>
-
       <div class="spc"></div>
       <ion-col col-12 no-padding>
         <div class="main-rating">
@@ -116,42 +110,44 @@
           <div class="rating-one">
             <div class="rating-one-left">الرضا عن المنتجات</div>
             <div class="rating-one-right">
-              <ionic3-star-rating
-                      activeIcon = "ios-star"
-                      defaultIcon = "ios-star-outline"
-                      activeColor = "#EDB867"
-                      defaultColor = "grey"
-                      readonly="false"
-                      [rating]="3.2">
-              </ionic3-star-rating>
+
+              <p ion-button outline style="border:0px solid black; margin-top: -12px;">
+                <ion-rating
+                  [numStars]="5"
+                  [readOnly]="false"
+                  [value]=companyDetails.rating.products_satisfaction.my_rating
+                *ngIf="showRating"
+                >
+                </ion-rating>
+              </p>
             </div>
             <div style="clear: both;"></div>
           </div>
           <div class="rating-two">
             <div class="rating-two-left">الرضا عن أستجابة فريق الشركة</div>
             <div class="rating-two-right">
-              <ionic3-star-rating
-                      activeIcon = "ios-star"
-                      defaultIcon = "ios-star-outline"
-                      activeColor = "#EDB867"
-                      defaultColor = "grey"
-                      readonly="false"
-                      [rating]="3.2">
-              </ionic3-star-rating>
+              <p ion-button outline style="border:0px solid black; margin-top: -12px;">
+                <ion-rating
+                  [numStars]="5"
+                  [readOnly]="false"
+                  [value]=companyDetails.rating.team_members_response.my_rating
+                  *ngIf="showRating">
+                </ion-rating>
+              </p>
             </div>
             <div style="clear: both;"></div>
           </div>
           <div class="rating-three">
             <div class="rating-three-left">التقييم العام للشركة</div>
             <div class="rating-three-right">
-              <ionic3-star-rating
-                      activeIcon = "ios-star"
-                      defaultIcon = "ios-star-outline"
-                      activeColor = "#EDB867"
-                      defaultColor = "grey"
-                      readonly="true"
-                      [rating]="3.2">
-              </ionic3-star-rating>
+              <p ion-button outline style="border:0px solid black; margin-top: -12px;">
+                <ion-rating
+                  [numStars]="5"
+                  [readOnly]="false"
+                  [value]=companyDetails.rating.over_all_experience_evaluation.my_rating
+                  *ngIf="showRating">
+                </ion-rating>
+              </p>
             </div>
             <div style="clear: both;"></div>
           </div>

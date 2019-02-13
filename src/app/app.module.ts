@@ -34,8 +34,9 @@ import {AnnouncementsPage} from "../pages/announcements/announcements";
 import {AnnouncementDetailPage} from "../pages/announcement-detail/announcement-detail";
 import {CartPage} from "../pages/cart/cart";
 import {NotificationPage} from "../pages/notification/notification";
-
-
+import { IonicStorageModule } from '@ionic/storage';
+import { IonRating } from '../components/ion-rating/ion-rating';
+import {ProDetailPage} from "../pages/pro-detail/pro-detail";
 @NgModule({
   declarations: [
     MyApp,
@@ -61,12 +62,15 @@ import {NotificationPage} from "../pages/notification/notification";
     ProfilePage,
     UpdateProfilePage,
     Tab1Page,
-    Contact1Page
+    Contact1Page,
+    IonRating,
+    ProDetailPage
   ],
   imports: [
     StarRatingModule,
     BrowserModule,
     IonicModule.forRoot(MyApp),
+    IonicStorageModule.forRoot(),
     HttpClientModule
   ],
   bootstrap: [IonicApp],
@@ -94,7 +98,9 @@ import {NotificationPage} from "../pages/notification/notification";
     ProfilePage,
     UpdateProfilePage,
     Tab1Page,
-    Contact1Page
+    Contact1Page,
+    IonRating,
+    ProDetailPage
   ],
   providers: [
     StatusBar,

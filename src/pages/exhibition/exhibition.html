@@ -26,10 +26,13 @@
           <div class="right">
             <div style="width: 100%; text-align: center;">
               <div style="float: left;width: 25%;"> <ion-icon class="notification-icon" name="notifications-outline" (click)="openNot()"></ion-icon>
-                <div *ngIf="noti == true">ajhaklsjha</div>
+                <!--<div *ngIf="noti == true">En</div>-->
               </div>
               <div style="float: left;width: 25%; text-align: left;position: relative"><ion-icon class="language-icon" name="globe" (click)="openLnag()"></ion-icon>
-                <div *ngIf="lang == true" style="position: absolute">ajhaklsjha</div>
+                <div *ngIf="lang == true" style="position: absolute">
+                  <div>En</div>
+                  <div>Ar</div>
+                </div>
               </div>
               <div style="float: right;width: 50%;">
                 <img src="../../assets/content/logo.png" style="background: transparent; border-radius:15px; width: 70px;" class="logo-icon">
@@ -48,9 +51,9 @@
         <div class="exibition-slide" >
             <!--<ion-card>-->
                 <ion-slides autoplay="3000" speed="2000" pager loop="true" effect="fade">
-                    <ion-slide *ngFor="let number of [1,2,3,4]">
+                    <ion-slide *ngFor="let i of slider">
                         <div>
-                            <img src="../../assets/content/slide/{{number}}.png" alt="">
+                            <img src="{{i.logo}}" alt="" style="height: 160px">
                         </div>
                     </ion-slide>
                 </ion-slides>

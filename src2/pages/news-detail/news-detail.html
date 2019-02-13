@@ -1,0 +1,38 @@
+
+<ion-header>
+
+  <!--<ion-navbar>
+    <ion-title>News Detail</ion-title>
+  </ion-navbar>-->
+  <ion-navbar>
+    <button ion-button menuToggle right>
+      <ion-icon name="menu" color="dark"></ion-icon>
+    </button>
+    <ion-title>News Detail</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <ion-grid no-padding>
+    <ion-row no-padding>
+      <ion-col col-12 no-padding>
+        <div class="news-detail">
+          <div class="news-detail-left-img">
+            <img src="../../assets/content/company.png" alt="">
+          </div>
+          <div class="bor-bottom-img"></div>
+          <div class="news-detail-right-detail">
+            <div class="news-detail-heading">{{news.title}}</div>
+            <div class="news-detail-date">{{news.published_at}}</div>
+            <div class="bor-bottom-date"></div>
+            <div class="news-detail-description" [innerHTML]="news.content">
+            </div>
+          </div>
+          <div class="clearfix"></div>
+        </div>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

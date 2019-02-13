@@ -1,0 +1,222 @@
+
+<ion-header>
+
+  <ion-navbar>
+    <button ion-button menuToggle right>
+      <ion-icon name="menu" color="dark"></ion-icon>
+    </button>
+    <ion-title>Brands</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content no-padding>
+
+  <ion-grid no-padding>
+
+    <ion-row no-padding>
+      <ion-col col-12 no-padding>
+        <div class="brand-topbar">
+          <div class="brand-left">
+            <div style="width: 100%;">
+              <div style="float: left;width: 100%; padding-bottom: 10px; padding-top: 10px;">
+                <ion-icon class="tel-icon" name="call"></ion-icon>
+                <div class="brand-top-det">&nbsp;+{{companyDetails.phone}}</div></div>
+              <div style="float: left;width: 100%;"><ion-icon class="fax-icon" name="filing"></ion-icon>
+                <div class="brand-top-det">&nbsp;{{companyDetails.fax}}</div></div>
+            </div>
+          </div>
+          <div class="brand-center">
+            <div style="width: 100%; text-align: center;">
+              <div style="float: left;width: 100%; text-align: left; padding-top: 10px; padding-bottom: 10px;">
+                <ion-icon class="website-icon" name="globe"></ion-icon>
+                <div class="brand-top-det">&nbsp;{{companyDetails.website}}</div>
+              </div>
+              <div style="float: left;width: 100%; text-align: left;">
+                <ion-icon class="email-icon" name="mail"></ion-icon>
+                <div class="brand-top-det">&nbsp;{{companyDetails.email}}</div>
+              </div>
+            </div>
+          </div>
+          <div class="brand-right">
+            <div style="width: 100%;  text-align: right;">
+              <div style="width: 100%; text-align: right;">
+                <img src="../../assets/content/logo.png" style=" padding-right: 10px; background: transparent; border-radius:15px; width: 70px;" class="logo-icon">
+              </div>
+            </div>
+          </div>
+        </div>
+      </ion-col>
+    </ion-row>
+
+
+    <ion-row no-padding>
+      <ion-col col-12>
+        <div class="overall-rating-main">
+
+          <div class="overall-left">
+            <img src="../../assets/content/company.png" alt="">
+          </div>
+          <div class="overall-right">
+            <div class="overall-heading">Overall Rating</div>
+
+            <div class="overall-stars">
+              <p ion-button outline style="border:0px solid black; margin-top: -12px;"> 
+              <ion-rating
+                    [numStars]="5"
+                    [readOnly]="false"
+                    [value]=companyDetails.average_rating>
+              </ion-rating>
+            </p>
+              
+            </div>
+            <div class="overall-description">
+              بيع وشراء واستيراد وتصدير السيارات والشاحنات والمعدات الثقيلة بانواعها
+            </div>
+          </div>
+          <div style="clear: both;"></div>
+
+          <div class="company-name">
+            <div class="comp-info-icon"><ion-icon class="planet-icon" name="planet"></ion-icon></div>
+            <div class="comp-info">
+              {{companyDetails.name}}
+            </div>
+          </div>
+          <div class="clearfix"></div>
+          <div class="company-address">
+            <div class="comp-info-icon"><ion-icon class="pin-icon" name="pin"></ion-icon></div>
+            <div class="comp-info">
+              {{companyDetails.address}}
+            </div>
+          </div>
+          <div class="clearfix"></div>
+          <div class="company-description">
+            <div class="comp-info-icon"><ion-icon class="info-icon" name="information-circle"></ion-icon></div>
+            <div class="comp-info">
+              {{companyDetails.description}}
+            </div>
+          </div>
+
+        </div>
+      </ion-col>
+    </ion-row>
+
+
+
+
+
+    <ion-row no-padding>
+
+      <div class="spc"></div>
+      <ion-col col-12 no-padding>
+        <div class="main-rating">
+          <div class="rate-this-company">Rate This Company</div>
+          <div class="rating-one">
+            <div class="rating-one-left">الرضا عن المنتجات</div>
+            <p ion-button outline style="border:0px solid black; margin-top: -12px;"> 
+              <ion-rating
+                    [numStars]="5"
+                    (clicked)="starClicked($event)"
+                    [readOnly]="false"
+                    [value]=companyDetails.rating.products_satisfaction.average_value>
+              </ion-rating>
+            </p>
+            
+            <div style="clear: both;"></div>
+          </div>
+          <div class="rating-two">
+            <div class="rating-two-left">الرضا عن أستجابة فريق الشركة</div>
+            <p ion-button outline style="border:0px solid black; margin-top: -12px;"> 
+              <ion-rating
+                    [numStars]="5"
+                    (clicked)="starClicked($event)"
+                    [readOnly]="false"
+                    [value]=companyDetails.rating.team_members_response.average_value>
+              </ion-rating>
+            </p>
+            
+            <div style="clear: both;"></div>
+          </div>
+          <div class="rating-three">
+            <div class="rating-three-left">التقييم العام للشركة</div>
+            <p ion-button outline style="border:0px solid black; margin-top: -12px;"> 
+              <ion-rating
+                    [numStars]="5"
+                    (clicked)="starClicked($event)"
+                    [readOnly]="false"
+                    [value]=companyDetails.rating.over_all_experience_evaluation.average_value>
+              </ion-rating>
+            </p>
+            <div style="clear: both;"></div>
+          </div>
+          <div style="clear: both;"></div>
+        </div>
+      </ion-col>
+      <div style="clear: both;"></div>
+
+    </ion-row>
+
+
+    <ion-row>
+      <ion-col col-12>
+        <div class="main-tabs">
+          <div class="location" (click)="changeTab('location')">
+            <button ion-button color="dark" [ngClass]="{'active': tab == 'location'}"><ion-icon class="team-icon" name="pin"></ion-icon>Location</button>
+          </div>
+          <div class="team" (click)="changeTab('team')">
+            <button ion-button color="dark" [ngClass]="{'active': tab == 'team'}"><ion-icon class="team-icon" name="people"></ion-icon>Team</button>
+          </div>
+          <div class="models" (click)="changeTab('models')">
+            <button ion-button color="dark" [ngClass]="{'active': tab == 'models'}"><ion-icon class="team-icon" name="cube"></ion-icon>Models</button>
+          </div>
+        </div>
+      </ion-col>
+    </ion-row>
+
+    <ion-row padding>
+      <ion-col col-12 padding>
+        <div class="tab-main-div">
+          <div class="location-tab" *ngIf="tab == 'location'">
+            Location
+          </div>
+          <div class="team-tab" *ngIf="tab == 'team'">
+            <div class="main-team-section">
+              <div class="team-left">
+                <img src="../../assets/content/company.png" alt="">
+              </div>
+              <div class="team-right">
+                <div class="team-product-name">asdfasdfasdf</div>
+                <div class="team-brand-name">
+                  <span><ion-icon class="mail-icon" name="mail"></ion-icon></span>
+                  <span><ion-icon class="call-icon" name="call"></ion-icon></span>
+                </div>
+                <div class="team-cart-btn">
+                  <a href="#">Book Appointment</a>
+                </div>
+              </div>
+              <div class="clearfix"></div>
+            </div>
+          </div>
+          <div class="models-tab" *ngIf="tab == 'models'">
+            <div class="main-product-section" *ngFor="let i of brands">
+              <div class="models-left">
+                <img src="../../assets/content/company.png" alt="">
+                <!--<img src="{{i.image}}" alt="">-->
+              </div>
+              <div class="models-right">
+                <div class="model-product-name">{{i.name}}</div>
+                <div class="model-brand-name">{{i.product}}</div>
+                <div class="model-cart-btn">
+                  <a href="#"><ion-icon class="add-to-cart-icon" name="cart"></ion-icon>Add to Cart</a>
+                </div>
+              </div>
+              <div class="clearfix"></div>
+            </div>
+          </div>
+        </div>
+      </ion-col>
+    </ion-row>
+
+  </ion-grid>
+</ion-content>

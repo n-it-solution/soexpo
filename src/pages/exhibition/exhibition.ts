@@ -8,6 +8,7 @@ import { HttpClient } from '@angular/common/http';
 import {GloaleVariablesProvider} from "../../providers/gloale-variables/gloale-variables";
 import { ToastController } from 'ionic-angular';
 import {CompanyPage} from "../company/company";
+import {Storage} from '@ionic/storage';
 @IonicPage()
 @Component({
   selector: 'page-exhibition',
@@ -77,11 +78,35 @@ export class ExhibitionPage {
     }
 
   }
+  slider:any = [
+    {
+      logo: ""
+    }
+  ];
+  sliderData;any;
   constructor(public navCtrl: NavController,
               public httpClient: HttpClient,
               public globalVar: GloaleVariablesProvider,
-              public toastCtrl: ToastController
+              public toastCtrl: ToastController,
+              private storage: Storage,
   ) {
+    this.storage.get('data').then((data)=>{
+      if (data != null) {
+        console.log(data)
+      }
+
+    });
+    this.sliderData = httpClient.get(this.globalVar.apiUrl+'diamond-sponsors?lang=en');
+    this.sliderData
+      .subscribe(data => {
+        console.log(data.data.data);
+        if (data.level == 'success'){
+          this.slider = data.data.data;
+          console.log(this.slider)
+        }
+      },error=> {
+        console.log(error);
+      });
     this.data = httpClient.get(this.globalVar.apiUrl+'exhibitions?page=1&lang=ar');
     this.data
         .subscribe(data => {
@@ -92,6 +117,7 @@ export class ExhibitionPage {
               this.exhibition.push(data.data.data[i])
             }
             console.log(this.exhibition);
+            this.storage.set("data", this.exhibition);
           //   console.log(data.data.data);
           //   // this.news = data.data.data;
             this.meta = data.data.meta.pagination;

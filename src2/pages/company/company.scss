@@ -1,0 +1,89 @@
+page-company {
+
+  .company-slide{
+    width: 96%;
+    margin: 0 auto;
+    //background: red;
+    text-align: center;
+    //padding-top: 30px;
+    //padding-bottom: 30px;
+  }
+
+
+  .spc{
+    width: 100%;
+    height: 20px;
+  }
+
+  .company-icons{
+    width: 96%;
+    margin: 0 auto;
+    padding-bottom:15px;
+  }
+  .company-icons ul.company-ul{
+    padding: 0;
+    width: 100%;
+    margin: 0 auto;
+    //height:90px;
+    list-style: none;
+    text-align: center;
+  }
+  .company-icons ul li{
+    float: left;
+    width:33.3%;
+    padding:0;
+    //background: red;
+    border: none;
+    text-align: center;
+  }
+  .company-icons ul li a{
+    text-decoration: none;
+    border: none;
+    display: block;
+  }
+  .company-icons ul li a img{
+    //background: yellow;
+    //width: 100%;
+    //height: 73px;
+    padding: 10px;
+    width: 100%;
+    padding-bottom: 0px!important;
+  }
+  .company-icons ul li a .company-name{
+    padding: 10px;
+    width: 100%;
+  }
+
+
+
+  .company-main-icon-div{
+    width:100%;
+  }
+  .company-left-icon{
+    width:33.3%;
+    float: left;
+    text-align: center;
+    //background: red;
+    margin-top: 15px;
+  }
+  .company-left-icon .company-category-img{
+    width: 100%;
+  }
+  .company-left-icon .company-category-img img{
+    width: 100px;
+    padding: 7px;
+  }
+  .company-left-icon .company-category-name{
+    width: 100%;
+    text-align: center;
+    margin-top: -7px;
+  }
+  .company-left-icon .company-category-name a{
+    font-size: 12px;
+    display: block;
+    color: #333;
+    text-decoration: none;
+  }
+
+
+}
