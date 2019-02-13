@@ -201,7 +201,7 @@
                   <span><a href="tel:{{i.skype}}" class="button button-positive"><ion-icon class="call-icon" name="call"></ion-icon></a></span>
                   <span><a href="mailto:{{i.email}}" class="button button-positive"><ion-icon class="mail-icon" name="mail"></ion-icon></a></span>
                 </div>
-                <div class="team-cart-btn">
+                <div class="team-cart-btn" (click)="openBookApp(i.meeting_request)">
                   <a href="#">Book Appointment</a>
                 </div>
               </div>
