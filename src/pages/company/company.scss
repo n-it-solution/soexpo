@@ -71,12 +71,14 @@ page-company {
     height: 110px;
     border: 1px solid #eee;
     padding: 5px;
+    overflow: hidden!important;
     margin: 0 auto;
   }
   .company-left-icon .company-category-img img{
-    width: 100px;
+    width: 100%!important;
     //height: 100px;
-    padding: 7px;
+    overflow: hidden!important;
+    padding: 7px!important;
   }
   .company-left-icon .company-category-name{
     width: 100%;
