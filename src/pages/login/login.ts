@@ -4,6 +4,7 @@ import { HttpClient } from '@angular/common/http';
 import {GloaleVariablesProvider} from "../../providers/gloale-variables/gloale-variables";
 import {RegisterPage} from "../register/register";
 import {TabsPage} from "../tabs/tabs";
+import {TranslateService} from "@ngx-translate/core";
 @IonicPage()
 @Component({
   selector: 'page-login',
@@ -15,8 +16,10 @@ export class LoginPage {
   constructor(public alertCtrl: AlertController,
               public httpClient: HttpClient,
               public globalvar: GloaleVariablesProvider,
-              public navCtrl: NavController
+              public navCtrl: NavController,
+              public translate: TranslateService
   ) {
+      translate.setDefaultLang('en');
   }
   openRegister(){
     this.navCtrl.push(RegisterPage);

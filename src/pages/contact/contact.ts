@@ -5,6 +5,7 @@ import {GloaleVariablesProvider} from "../../providers/gloale-variables/gloale-v
 import { ToastController } from 'ionic-angular';
 import {CompanyPage} from "../company/company";
 import {Storage} from '@ionic/storage';
+import {TranslateService} from "@ngx-translate/core";
 /**
  * Generated class for the ContactPage page.
  *
@@ -26,7 +27,9 @@ export class ContactPage {
               public globalVar: GloaleVariablesProvider,
               public toastCtrl: ToastController,
               private storage: Storage,
+              public translate: TranslateService
   ) {
+    translate.setDefaultLang('en');
     console.log(1);
     this.data = httpClient.get(this.globalVar.apiUrl+'get-content-by-slug/contact-us?lang=en');
     this.data

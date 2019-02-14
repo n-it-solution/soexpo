@@ -3,7 +3,7 @@
     <button ion-button menuToggle right>
       <ion-icon name="menu" color="dark"></ion-icon>
     </button>
-    <ion-title>Profile</ion-title>
+    <ion-title>{{'ProfilePage.title' | translate}}</ion-title>
   </ion-navbar>
 
 </ion-header>
@@ -27,7 +27,7 @@
             <div class="email-icon">
               <ion-icon class="em-icon" name="mail"></ion-icon>
             </div>
-            <div class="email-heading">E-mail:</div>
+            <div class="email-heading">{{ 'ProfilePage.email' | translate}}</div>
             <div class="email-address">{{profile.email}}</div>
             <div style="clear: both;"></div>
           </div>
@@ -36,7 +36,7 @@
             <div class="phone-icon">
               <ion-icon class="ph-icon" name="call"></ion-icon>
             </div>
-            <div class="phone-heading">Phone#:</div>
+            <div class="phone-heading">{{ 'ProfilePage.phone' | translate}}</div>
             <div class="phone-address">{{profile.phone}}</div>
             <div style="clear: both;"></div>
           </div>
@@ -46,8 +46,8 @@
             <div class="email-icon">
               <ion-icon class="flag-icon" name="flag"></ion-icon>
             </div>
-            <div class="email-heading">Country</div>
-            <div class="email-address">{{profile.country_code}} country</div>
+            <div class="email-heading">{{ 'ProfilePage.country' | translate}}</div>
+            <div class="email-address">{{profile.country_code}}</div>
             <div style="clear: both;"></div>
           </div>
           <div style="clear: both;"></div>
@@ -55,8 +55,8 @@
             <div class="email-icon">
               <ion-icon class="com-icon" name="compass"></ion-icon>
             </div>
-            <div class="email-heading">City</div>
-            <div class="email-address">{{profile.city}} city</div>
+            <div class="email-heading">{{ 'ProfilePage.city' | translate}}</div>
+            <div class="email-address">{{profile.city}}</div>
             <div style="clear: both;"></div>
           </div>
           <div style="clear: both;"></div>
@@ -64,8 +64,8 @@
             <div class="email-icon">
               <ion-icon class="bri-icon" name="briefcase"></ion-icon>
             </div>
-            <div class="email-heading">Job title</div>
-            <div class="email-address">{{profile.job_title}} job titile</div>
+            <div class="email-heading">{{ 'ProfilePage.tit' | translate}}</div>
+            <div class="email-address">{{profile.job_title}}</div>
             <div style="clear: both;"></div>
           </div>
           <div style="clear: both;"></div>
@@ -74,8 +74,8 @@
             <div class="email-icon">
               <ion-icon class="em-icon" name="information-circle"></ion-icon>
             </div>
-            <div class="email-heading">About</div>
-            <div class="email-address">{{profile.about}} about</div>
+            <div class="email-heading">{{ 'ProfilePage.about' | translate}}</div>
+            <div class="email-address">{{profile.about}}</div>
             <div style="clear: both;"></div>
           </div>
           <div style="clear: both;"></div>
@@ -84,7 +84,7 @@
             <div class="exhi-icon">
               <ion-icon class="ex-icon" name="heart"></ion-icon>
             </div>
-            <div class="exhi-heading">Exhibition:</div>
+            <div class="exhi-heading">{{ 'ProfilePage.exhi' | translate}}</div>
             <div class="exhi-address-select-option">
               <ion-list>
                 <ion-item>
@@ -102,7 +102,7 @@
 
 
         <div class="edit-button" (click)="openEditPage()">
-          <button ion-button>Edit Profile</button>
+          <button ion-button>{{ 'ProfilePage.edit' | translate}}</button>
         </div>
       </ion-col>
     </ion-row>

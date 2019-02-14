@@ -35,5 +35,50 @@
   "NewsPage": {
     "title" : "News"
   },
+  "WelcomePage": {
+    "title" : "Welcome",
+    "reg" : "Register",
+    "log" : "Login",
+    "ski" : "Skip"
+  },
+  "RegisterPage": {
+    "title" : "Register",
+    "name" : "Name",
+    "email" : "Email",
+    "pass" : "Password",
+    "cpass" : "Confirm Password",
+    "phone" : "Phone Number",
+    "accept" : "Accept Term And Conditions",
+    "create" : "Create Account",
+    "already" : "Already Have Account"
+  },
+  "LoginPage": {
+    "title" : "Login",
+    "email" : "Email",
+    "pass" : "Password",
+    "login" : "Login",
+    "forget" : "Forget Password",
+    "create" : "Don't Have Account?"
+  },
+  "ProfilePage": {
+    "title" : "Profile",
+    "email" : "Email",
+    "phone" : "Phone #",
+    "country" : "Country",
+    "city" : "City",
+    "tit" : "Job Title",
+    "about" : "About",
+    "exhi" : "Exhibition",
+    "edit" : "Edit Profile"
+  },
+  "AboutPage": {
+    "title" : "About Us"
+  },
+  "ContactPage": {
+    "title" : "Contact Us"
+  },
+  "NotificationPage": {
+    "title" : "Notifications"
+  },
   "CAT": "Cat"
 }

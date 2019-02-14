@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import {IonicPage, NavController, NavParams, ToastController} from 'ionic-angular';
 import {LoginPage} from "../login/login";
 import {ExhibitionPage} from "../exhibition/exhibition";
 import { HttpClient } from '@angular/common/http';
@@ -9,6 +9,7 @@ import {CompanyPage} from "../company/company";
 import {GloaleVariablesProvider} from "../../providers/gloale-variables/gloale-variables";
 import {BrandPage} from "../brand/brand";
 import {TabsPage} from "../tabs/tabs";
+import {TranslateService} from "@ngx-translate/core";
 
 /**
  * Generated class for the WelcomePage page.
@@ -27,8 +28,10 @@ export class WelcomePage {
 data:any;
   constructor(public navCtrl: NavController, public navParams: NavParams,
               public httpClient: HttpClient,
-              public globalVar: GloaleVariablesProvider
+              public globalVar: GloaleVariablesProvider,
+              public translate: TranslateService
   ) {
+      translate.setDefaultLang('en');
       console.log(globalVar.apiUrl);
       const httpOptions = {
           headers: new HttpHeaders({

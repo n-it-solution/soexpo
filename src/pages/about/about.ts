@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import {AlertController, IonicPage, NavController, NavParams} from 'ionic-angular';
 import { HttpClient } from '@angular/common/http';
 import {GloaleVariablesProvider} from "../../providers/gloale-variables/gloale-variables";
 import { ToastController } from 'ionic-angular';
@@ -7,6 +7,7 @@ import {CompanyPage} from "../company/company";
 import {Storage} from '@ionic/storage';
 import {ContactPage} from "../contact/contact";
 import {TabsPage} from "../tabs/tabs";
+import {TranslateService} from "@ngx-translate/core";
 /**
  * Generated class for the AboutPage page.
  *
@@ -28,7 +29,9 @@ export class AboutPage {
               public globalVar: GloaleVariablesProvider,
               public toastCtrl: ToastController,
               private storage: Storage,
+              public translate: TranslateService
   ) {
+    translate.setDefaultLang('en');
     console.log(1);
     console.log(2);
     console.log(3);

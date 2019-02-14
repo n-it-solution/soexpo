@@ -26,31 +26,31 @@
             <div class="first-item">
               <ion-item style="background: transparent!important;">
                 <ion-label> <ion-icon class="user-icon" name="person"></ion-icon></ion-label>
-                <ion-input clearInput class="user-input" type="text" [(ngModel)]="registerData.name" placeholder="Name"></ion-input>
+                <ion-input clearInput class="user-input" type="text" [(ngModel)]="registerData.name" placeholder="{{ 'RegisterPage.name' | translate}}"></ion-input>
               </ion-item>
             </div>
             <div class="first-item">
               <ion-item style="background: transparent!important;">
                 <ion-label> <ion-icon class="email-icon" name="mail"></ion-icon></ion-label>
-                <ion-input clearInput class="email-input" type="email" [(ngModel)]="registerData.email" placeholder="Email"></ion-input>
+                <ion-input clearInput class="email-input" type="email" [(ngModel)]="registerData.email" placeholder="{{ 'RegisterPage.email' | translate}}"></ion-input>
               </ion-item>
             </div>
             <div class="first-item">
               <ion-item style="background: transparent!important;">
                 <ion-label> <ion-icon class="password-icon" name="eye"></ion-icon></ion-label>
-                <ion-input clearInput class="password-input" type="password" [(ngModel)]="registerData.password" placeholder="Password"></ion-input>
+                <ion-input clearInput class="password-input" type="password" [(ngModel)]="registerData.password" placeholder="{{ 'RegisterPage.pass' | translate}}"></ion-input>
               </ion-item>
             </div>
             <div class="first-item">
               <ion-item style="background: transparent!important;">
                 <ion-label> <ion-icon class="cpassword-icon" name="eye"></ion-icon></ion-label>
-                <ion-input clearInput class="cpassword-input" type="password" [(ngModel)]="registerData.password_confirmation" placeholder="Confirm Password"></ion-input>
+                <ion-input clearInput class="cpassword-input" type="password" [(ngModel)]="registerData.password_confirmation" placeholder="{{ 'RegisterPage.cpass' | translate}}"></ion-input>
               </ion-item>
             </div>
             <div class="first-item">
               <ion-item style="background: transparent!important;">
                 <ion-label> <ion-icon class="cpassword-icon" name="call"></ion-icon></ion-label>
-                <ion-input clearInput class="cpassword-input" type="text" [(ngModel)]="registerData.phone_number" placeholder="Phone number"></ion-input>
+                <ion-input clearInput class="cpassword-input" type="text" [(ngModel)]="registerData.phone_number" placeholder="{{ 'RegisterPage.phone' | translate}}"></ion-input>
               </ion-item>
             </div>
             <div class="first-item">
@@ -63,17 +63,17 @@
             </div>
             <div class="first-item">
               <ion-item style="background: transparent!important;">
-                <ion-label> Accept term and conditions</ion-label>
+                <ion-label>{{ 'RegisterPage.accept' | translate}}</ion-label>
                 <ion-checkbox color="success" (ionChange)="accept()" checked="false" float-right></ion-checkbox>
               </ion-item>
             </div>
           </div>
           <div class="btns">
             <div class="reg-btn">
-              <button ion-button (click)="submitForm()">CREATE ACCOUNT</button>
+              <button ion-button (click)="submitForm()">{{ 'RegisterPage.create' | translate}}</button>
             </div>
             <div class="skip-btn">
-              <button ion-button>ALREADY HAVE ACCOUNT?</button>
+              <button ion-button>{{ 'RegisterPage.already' | translate}}</button>
             </div>
           </div>
         </div>

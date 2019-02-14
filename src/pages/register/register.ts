@@ -4,6 +4,7 @@ import { HttpClient } from '@angular/common/http';
 import {GloaleVariablesProvider} from "../../providers/gloale-variables/gloale-variables";
 import {TabsPage} from "../tabs/tabs";
 import { HttpHeaders } from '@angular/common/http';
+import {TranslateService} from "@ngx-translate/core";
 /**
  * Generated class for the RegisterPage page.
  *
@@ -65,7 +66,9 @@ export class RegisterPage {
   constructor(public navCtrl: NavController, public navParams: NavParams,
               public httpClient: HttpClient,
               public globalvar: GloaleVariablesProvider,
+              public translate: TranslateService
   ) {
+    translate.setDefaultLang('en');
     console.log(1);
     console.log(4);
     this.echibitionData = httpClient.get(globalvar.apiUrl+'get-exhibitions-list?lang=en');
