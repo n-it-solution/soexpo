@@ -5,7 +5,7 @@
     <button ion-button menuToggle right>
       <ion-icon name="menu" color="dark"></ion-icon>
     </button>
-    <ion-title>Brands</ion-title>
+    <ion-title>{{'brandPage.title' | translate}}</ion-title>
   </ion-navbar>
 
 </ion-header>
@@ -61,7 +61,7 @@
             <img src="{{companyDetails.logo}}" alt="">
           </div>
           <div class="overall-right">
-            <div class="overall-heading">Overall Rating</div>
+            <div class="overall-heading">{{'brandPage.overRating' | translate}}</div>
             <div class="overall-stars">
               <p ion-button outline style="border:0px solid black; margin-top: -12px;">
                 <ion-rating
@@ -110,7 +110,8 @@
         <div class="main-rating">
           <div class="rate-this-company">Rate This Company</div>
           <div class="rating-one">
-            <div class="rating-one-left">الرضا عن المنتجات</div>
+            <!--<div class="rating-one-left">الرضا عن المنتجات</div>-->
+            <div class="rating-one-left">{{'brandPage.sProduct' | translate}}</div>
             <div class="rating-one-right">
 
               <p ion-button outline style="border:0px solid black; margin-top: -12px;">
@@ -128,7 +129,8 @@
             <div style="clear: both;"></div>
           </div>
           <div class="rating-two">
-            <div class="rating-two-left">الرضا عن أستجابة فريق الشركة</div>
+            <!--<div class="rating-two-left">الرضا عن أستجابة فريق الشركة</div>-->
+            <div class="rating-two-left">{{'brandPage.sCompany' | translate}}</div>
             <div class="rating-two-right">
               <p ion-button outline style="border:0px solid black; margin-top: -12px;">
                 <ion-rating
@@ -144,7 +146,8 @@
             <div style="clear: both;"></div>
           </div>
           <div class="rating-three">
-            <div class="rating-three-left">التقييم العام للشركة</div>
+            <div class="rating-three-left">{{'brandPage.oAssessment' | translate}}</div>
+            <!--<div class="rating-three-left">التقييم العام للشركة</div>-->
             <div class="rating-three-right">
               <p ion-button outline style="border:0px solid black; margin-top: -12px;">
                 <ion-rating
@@ -202,7 +205,7 @@
                   <span><a href="mailto:{{i.email}}" class="button button-positive"><ion-icon class="mail-icon" name="mail"></ion-icon></a></span>
                 </div>
                 <div class="team-cart-btn" (click)="openBookApp(i.meeting_request)">
-                  <a href="#">Book Appointment</a>
+                  <a href="#">{{'brandPage.team.book' | translate}}</a>
                 </div>
               </div>
               <div class="clearfix"></div>
@@ -218,7 +221,7 @@
                 <div class="model-product-name">{{i.name}}</div>
                 <div class="model-brand-name">{{i.product}}</div>
                 <div class="model-cart-btn">
-                  <a href="#"><ion-icon class="add-to-cart-icon" name="cart"></ion-icon>Add to Cart</a>
+                  <a href="#"><ion-icon class="add-to-cart-icon" name="cart"></ion-icon>{{'brandPage.models.cart' | translate}}</a>
                 </div>
               </div>
               <div class="clearfix"></div>

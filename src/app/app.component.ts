@@ -23,6 +23,7 @@ import {NotificationPage} from "../pages/notification/notification";
 import {ProDetailPage} from "../pages/pro-detail/pro-detail";
 import {About1Page} from "../pages/about1/about1";
 import {AboutPage} from "../pages/about/about";
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   templateUrl: 'app.html'
@@ -30,7 +31,7 @@ import {AboutPage} from "../pages/about/about";
 export class MyApp {
   @ViewChild(Nav) nav: Nav;
 
-  rootPage: any = TabsPage;
+  rootPage: any = CartPage;
 
   pages: Array<{title: string, component: any}>;
 

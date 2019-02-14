@@ -4,6 +4,7 @@ import { HttpClient } from '@angular/common/http';
 import {GloaleVariablesProvider} from "../../providers/gloale-variables/gloale-variables";
 import {NewsDetailPage} from "../news-detail/news-detail";
 import { ToastController } from 'ionic-angular';
+import {TranslateService} from "@ngx-translate/core";
 /**
  * Generated class for the NewsPage page.
  *
@@ -76,8 +77,10 @@ export class NewsPage {
   constructor(public navCtrl: NavController, public navParams: NavParams,
               public httpClient: HttpClient,
               public globalVar: GloaleVariablesProvider,
-              public toastCtrl: ToastController
+              public toastCtrl: ToastController,
+              public translate: TranslateService
   ) {
+    translate.setDefaultLang('en');
     for (let i = 0; i < 30; i++) {
       this.items.push( this.items.length );
     }

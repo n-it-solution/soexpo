@@ -10,6 +10,7 @@ import { ToastController } from 'ionic-angular';
 import {CompanyPage} from "../company/company";
 import {Storage} from '@ionic/storage';
 import {NotificationPage} from "../notification/notification";
+import { TranslateService } from '@ngx-translate/core';
 @IonicPage()
 @Component({
   selector: 'page-exhibition',
@@ -22,9 +23,43 @@ export class ExhibitionPage {
   loadMore : any = true;
   noti:any = false;
   lang:any = false;
+  en:any = false;
+  ar:any = false;
+  changeLang(value){
+    if (value == 'en'){
+      this.ar = false;
+      this.en = true;
+      this.translate.setDefaultLang('en')
+    } else {
+      this.en = false;
+      this.ar = true;
+      this.translate.setDefaultLang('ar')
+    }
+  }
   presentPrompt() {
+    let cancelText;
+    this.translate.get('exhibitionPage.change.cancel').subscribe(
+      value => {
+        cancelText = value;
+      }
+    );
+    console.log(cancelText);
+    let changeText;
+    this.translate.get('exhibitionPage.change.change').subscribe(
+      value => {
+        changeText = value;
+      }
+    );
+    console.log(changeText);
+    let title;
+    this.translate.get('exhibitionPage.change.title').subscribe(
+      value => {
+        title = value;
+      }
+    );
+    console.log(title);
     let alert = this.alertCtrl.create({
-      title: 'Login',
+      title: title,
       inputs: [
         {
           name: 'lang',
@@ -32,27 +67,30 @@ export class ExhibitionPage {
           type: 'radio',
           label: 'Arabic',
           value: 'ar',
+          'checked': this.ar,
         },
         {
           name: 'lang',
           placeholder: 'Password',
           type: 'radio',
           label: 'English',
-          value: 'en'
+          value: 'en',
+          'checked': this.en
         }
       ],
       buttons: [
         {
-          text: 'Cancel',
+          text: cancelText,
           role: 'cancel',
           handler: data => {
             console.log('Cancel clicked');
           }
         },
         {
-          text: 'Change',
+          text: changeText,
           handler: data => {
-            console.log(data)
+            console.log(data);
+            this.changeLang(data)
           }
         }
       ]
@@ -131,8 +169,10 @@ export class ExhibitionPage {
               public globalVar: GloaleVariablesProvider,
               public toastCtrl: ToastController,
               private storage: Storage,
-              private alertCtrl: AlertController
+              private alertCtrl: AlertController,
+              public translate: TranslateService
   ) {
+    translate.setDefaultLang('en');
     this.storage.get('data').then((data)=>{
       if (data != null) {
         console.log(data)

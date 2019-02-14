@@ -29,11 +29,5 @@
     "company" : "Company",
     "des" : "Description"
   },
-  "annPage": {
-    "title" : "Announcements"
-  },
-  "NewsPage": {
-    "title" : "News"
-  },
   "CAT": "Cat"
 }

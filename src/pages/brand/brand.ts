@@ -7,6 +7,7 @@ import { ToastController } from 'ionic-angular';
 import { HttpHeaders } from '@angular/common/http';
 import {ProDetailPage} from "../pro-detail/pro-detail";
 import {TabsPage} from "../tabs/tabs";
+import { TranslateService } from '@ngx-translate/core';
 @IonicPage()
 @Component({
   selector: 'page-brand',
@@ -131,8 +132,10 @@ export class BrandPage {
               public httpClient: HttpClient,
               public globalVar: GloaleVariablesProvider,
               public toastCtrl: ToastController,
-              private alertCtrl: AlertController
+              private alertCtrl: AlertController,
+              public translate: TranslateService
   ) {
+    translate.setDefaultLang('en');
     console.log(navParams.get('url'));
     // this.overRating = 1;
     const httpOptions = {

@@ -4,6 +4,7 @@ import { HttpClient } from '@angular/common/http';
 import {GloaleVariablesProvider} from "../../providers/gloale-variables/gloale-variables";
 import { ToastController } from 'ionic-angular';
 import { HttpHeaders } from '@angular/common/http';
+import {TranslateService} from "@ngx-translate/core";
 
 /**
  * Generated class for the ProDetailPage page.
@@ -25,8 +26,10 @@ export class ProDetailPage {
   constructor(public navCtrl: NavController, public navParams: NavParams,
               public httpClient: HttpClient,
               public globalVar: GloaleVariablesProvider,
-              public toastCtrl: ToastController
+              public toastCtrl: ToastController,
+              public translate: TranslateService
   ) {
+    translate.setDefaultLang('en');
     console.log(navParams.get('url'));
     const httpOptions = {
       headers: new HttpHeaders({

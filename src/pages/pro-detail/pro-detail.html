@@ -4,7 +4,7 @@
     <button ion-button menuToggle right>
       <ion-icon name="menu" color="dark"></ion-icon>
     </button>
-    <ion-title>Product Detail</ion-title>
+    <ion-title>{{'proDetail.title' | translate}}</ion-title>
   </ion-navbar>
 
 </ion-header>
@@ -23,19 +23,19 @@
           <div class="clearfix"></div>
 
           <div class="product-name">
-            <div class="name-heading">Product</div>
+            <div class="name-heading">{{'proDetail.product' | translate}}</div>
             <div class="real-name" *ngIf="show">{{detail.product}}</div>
           </div>
           <div class="clearfix"></div>
 
           <div class="company">
-            <div class="name-heading">Company</div>
+            <div class="name-heading">{{'proDetail.company' | translate}}</div>
             <div class="real-name" *ngIf="show">{{detail.name}}</div>
           </div>
           <div class="clearfix"></div>
 
           <div class="product-description">
-            <div class="name-heading">Description</div>
+            <div class="name-heading">{{'proDetail.des' | translate}}</div>
             <div class="real-name" *ngIf="show">
               {{detail.description}}
             </div>

@@ -5,6 +5,7 @@ import {GloaleVariablesProvider} from "../../providers/gloale-variables/gloale-v
 import { ToastController } from 'ionic-angular';
 import { HttpHeaders } from '@angular/common/http';
 import {BrandPage} from "../brand/brand";
+import { TranslateService } from '@ngx-translate/core';
 /**
  * Generated class for the CompanyPage page.
  *
@@ -37,8 +38,10 @@ export class CompanyPage {
   constructor(public navCtrl: NavController, public navParams: NavParams,
               public httpClient: HttpClient,
               public globalVar: GloaleVariablesProvider,
-              public toastCtrl: ToastController
+              public toastCtrl: ToastController,
+              public translate: TranslateService
   ) {
+    translate.setDefaultLang('en');
     this.sponsor_silver = this.skeltonData;
     this.companies = this.skeltonData;
     this.sponsor_participants = this.skeltonData;

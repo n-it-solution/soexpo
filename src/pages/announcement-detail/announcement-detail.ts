@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import {TranslateService} from "@ngx-translate/core";
 
 /**
  * Generated class for the AnnouncementDetailPage page.
@@ -15,7 +16,10 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class AnnouncementDetailPage {
   data:any;
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public navCtrl: NavController, public navParams: NavParams,
+              public translate: TranslateService
+  ) {
+    translate.setDefaultLang('en');
     // console.log(navParams.get('data'));
     this.data = navParams.get('data');
   }
