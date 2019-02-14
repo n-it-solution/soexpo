@@ -70,6 +70,11 @@
 
     <ion-row no-padding>
       <ion-col col-12>
+        <ion-searchbar (ionInput)="getItems($event)"></ion-searchbar>
+      </ion-col>
+    </ion-row>
+    <ion-row no-padding>
+      <ion-col col-12>
         <div class="main-icon-div" *ngFor="let i of exhibition;let in = index" (click)="openCompany(i.show_url)">
           <div class="left-icon">
             <div class="category-img">

@@ -51,6 +51,25 @@ export class UpdateProfilePage {
   startData:any = [{id:2,name:'abdul'}];
   result:any = [{id:1,name:'manan'},{id:2,name:'manan'}];
   exhibitionList:any = [{id:1,name:'manan'},{id:2,name:'manan'}];
+  exhibitionList1:any;
+  checkAva(name){
+    if((this.exhibition.find(e => e === name))){
+      return true
+    }
+    else {
+      return false
+    }
+  }
+  name2:string = 'hello';
+  editData  = {name: ""};
+  registerData  = {name: "", email: "", password: "", password_confirmation: "", phone_number: "",exhibitions:[], terms: 0 };
+  checkEditData(){
+    console.log(this.name2);
+    console.log(1);
+    alert(this.registerData.name);
+    console.log(this.registerData);
+    console.log(this.editData);
+  }
   constructor(public navCtrl: NavController, public navParams: NavParams,
               public httpClient: HttpClient,
               public globalVar: GloaleVariablesProvider,
@@ -71,14 +90,15 @@ export class UpdateProfilePage {
     else {
       console.log('fetched1')
     }
-    this.data = httpClient.get(globalVar.apiUrl+'get-exhibitions-list',httpOptions);
+    this.data = httpClient.get(globalVar.apiUrl+'get-exhibitions-list?lang=en',httpOptions);
     // this.data = httpClient.get('https://app.soexpo.net/api/get-countries-list');
     this.data
       .subscribe(data => {
         console.log(data);
         if (data.level == 'success'){
-          this.exhibitionList = data.data;
-          console.log(this.exhibitionList);
+          this.registerData.email = 'hello@gmail.com';
+          this.exhibitionList1 = data.data.exhibitions;
+          console.log(this.exhibitionList1);
         }
       },error=> {
         console.log(error);

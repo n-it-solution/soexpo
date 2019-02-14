@@ -59,7 +59,11 @@
         </div>
       </ion-col>
     </ion-row>
-
+    <ion-row no-padding>
+      <ion-col col-12>
+        <ion-searchbar (ionInput)="getItems($event)"></ion-searchbar>
+      </ion-col>
+    </ion-row>
 
     <ion-row no-padding>
       <ion-col col-12>

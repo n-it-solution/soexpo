@@ -35,12 +35,25 @@ export class CompanyPage {
       console.log(url);
       this.navCtrl.push(BrandPage,{url:url})
   }
+  safeData:any;
+  getItems(ev: any) {
+    this.companies = this.safeData;
+    const val = ev.target.value;
+    if (val && val.trim() != '') {
+      this.companies = this.companies.filter((item) => {
+        return (item['name'].toLowerCase().indexOf(val.toLowerCase()) > -1);
+      })
+    }else {
+      this.companies = this.safeData;
+    }
+  }
   constructor(public navCtrl: NavController, public navParams: NavParams,
               public httpClient: HttpClient,
               public globalVar: GloaleVariablesProvider,
               public toastCtrl: ToastController,
               public translate: TranslateService
   ) {
+    console.log(1);
     translate.setDefaultLang('en');
     this.sponsor_silver = this.skeltonData;
     this.companies = this.skeltonData;
@@ -53,13 +66,14 @@ export class CompanyPage {
         'Content-Type' : 'application/json'
       })
     };
-    this.data = httpClient.get(navParams.get('url'),httpOptions);
+    this.data = httpClient.get('https://app.soexpo.net/api/exhibitions/W6op93z2nG?lang-en',httpOptions);
     this.data
         .subscribe(data => {
             console.log(data);
             if (data.level == 'success'){
                 // console.log(data.data.companies);
                 this.companies = data.data.companies;
+                this.safeData = data.data.companies;
                 this.sponsor_silver = data.data.sponsor_silver;
                 this.sponsor_golden = data.data.sponsor_golden;
                 this.sponsor_participants = data.data.slider.slides;

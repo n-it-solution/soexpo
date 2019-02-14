@@ -193,6 +193,11 @@
             Location
           </div>
           <div class="team-tab" *ngIf="tab == 'team'">
+            <ion-row no-padding>
+              <ion-col col-12>
+                <ion-searchbar (ionInput)="getTeam($event)"></ion-searchbar>
+              </ion-col>
+            </ion-row>
             <div class="main-team-section" *ngFor="let i of members">
               <div class="team-left">
                 <!--<img src="../../assets/content/company.png" alt="">-->
@@ -212,16 +217,22 @@
             </div>
           </div>
           <div class="models-tab" *ngIf="tab == 'models'">
-            <div class="main-product-section" *ngFor="let i of brands" (click)="oepnProDetail(i.show_url)">
-              <div class="models-left">
-                <img src="../../assets/content/company.png" alt="">
-                <!--<img src="{{i.image}}" alt="">-->
+            <ion-row no-padding>
+              <ion-col col-12>
+                <ion-searchbar (ionInput)="getBrand($event)"></ion-searchbar>
+              </ion-col>
+            </ion-row>
+            <div class="main-product-section" *ngFor="let i of brands">
+              <div class="models-left"  (click)="oepnProDetail(i.show_url)">
+                <!--<img src="../../assets/content/company.png" alt="">-->
+                <img src="{{i.image}}" alt="">
               </div>
               <div class="models-right">
-                <div class="model-product-name">{{i.name}}</div>
-                <div class="model-brand-name">{{i.product}}</div>
-                <div class="model-cart-btn">
-                  <a href="#"><ion-icon class="add-to-cart-icon" name="cart"></ion-icon>{{'brandPage.models.cart' | translate}}</a>
+                <div class="model-product-name"  (click)="oepnProDetail(i.show_url)">{{i.name}}</div>
+                <div class="model-brand-name"  (click)="oepnProDetail(i.show_url)">{{i.product}}</div>
+                <div class="model-cart-btn" >
+                  <a (click)="addToCart(i.id,i.image)" *ngIf="addToCartCheck(i.id)"><ion-icon class="add-to-cart-icon" name="cart"></ion-icon>{{'brandPage.models.cart' | translate}}</a>
+                  <a (click)="addToCartr(i.id)"  *ngIf="!addToCartCheck(i.id)" style="background: red!important"><ion-icon class="add-to-cart-icon" name="cart"></ion-icon>{{'brandPage.models.rCart' | translate}}</a>
                 </div>
               </div>
               <div class="clearfix"></div>

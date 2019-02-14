@@ -8,6 +8,7 @@ import { HttpHeaders } from '@angular/common/http';
 import {ProDetailPage} from "../pro-detail/pro-detail";
 import {TabsPage} from "../tabs/tabs";
 import { TranslateService } from '@ngx-translate/core';
+import {Storage} from '@ionic/storage';
 @IonicPage()
 @Component({
   selector: 'page-brand',
@@ -128,13 +129,75 @@ export class BrandPage {
     this.presentPrompt();
   }
   meetingUrl:any;
+  cart: any = [];
+  addToCart(id,image){
+    this.cart.push( {
+      company_id: this.companyDetails.id,
+      brand_id: id,
+      quantity: 1,
+      image: image
+    });
+    console.log(this.cart);
+
+    this.storage.set("cart", this.cart);
+  }
+  addToCartr(id){
+    let index = this.cart.findIndex(e => e.brand_id === id);
+    this.cart.splice(index, 1);
+    console.log(this.cart);
+    console.log(this.cart);
+    this.storage.set("cart", this.cart);
+  }
+  addToCartCheck(id){
+    if((this.cart.find(e => e.brand_id === id))){
+      return false
+    }
+    else {
+      return true
+    }
+  }
+  getTeam(ev: any) {
+    this.members = this.membersSafeData;
+    const val = ev.target.value;
+    if (val && val.trim() != '') {
+      this.members = this.members.filter((item) => {
+        return (item['name'].toLowerCase().indexOf(val.toLowerCase()) > -1);
+      })
+    }else {
+      this.members = this.membersSafeData;
+    }
+  }
+  brandSafeData:any = [];
+  getBrand(ev: any) {
+    this.brands = this.brandSafeData;
+    const val = ev.target.value;
+    if (val && val.trim() != '') {
+      this.brands = this.brands.filter((item) => {
+        return (item['name'].toLowerCase().indexOf(val.toLowerCase()) > -1);
+      })
+    }else {
+      this.brands = this.brandSafeData;
+    }
+  }
+  membersSafeData:any;
   constructor(public navCtrl: NavController, public navParams: NavParams,
               public httpClient: HttpClient,
               public globalVar: GloaleVariablesProvider,
               public toastCtrl: ToastController,
               private alertCtrl: AlertController,
-              public translate: TranslateService
+              public translate: TranslateService,
+              private storage: Storage,
   ) {
+    this.storage.get('cart').then((data)=>{
+      if (data != null) {
+        console.log(data);
+        this.cart = data;
+        console.log('cart+++' + this.cart)
+      }
+    });
+    console.log(1);
+    console.log(1);
+    console.log('cart ' + this.cart);
     translate.setDefaultLang('en');
     console.log(navParams.get('url'));
     // this.overRating = 1;
@@ -152,9 +215,11 @@ export class BrandPage {
             this.companyDetails = data.data.companyDetails;
             console.log(data.data.brands.data);
             this.members = data.data.members.data;
+            this.membersSafeData = data.data.members.data;
             console.log(this.members);
             for (let i = 0; i < data.data.brands.data.length; i++) {
-              this.brands.push(data.data.brands.data[i])
+              this.brands.push(data.data.brands.data[i]);
+              this.brandSafeData.push(data.data.brands.data[i]);
             }
             console.log(this.brands);
             this.showRating = true;

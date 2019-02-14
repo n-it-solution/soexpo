@@ -35,10 +35,16 @@
             <div class="email-heading-update">Name</div>
             <div class="email-address-update">
               <ion-item style="background: transparent!important;">
-                <ion-input clearInput class="email-input" type="text" value="{{profile.name}}"></ion-input>
+                <ion-input clearInput class="email-input" type="email" [ngModel]="name2" placeholder="Example: demo@gmail.com"></ion-input>
               </ion-item>
             </div>
             <div style="clear: both;"></div>
+          </div>
+          <div class="first-item">
+            <ion-item style="background: transparent!important;">
+              <ion-label> <ion-icon class="cpassword-icon" name="call"></ion-icon></ion-label>
+              <ion-input clearInput class="cpassword-input" type="text" [(ngModel)]="registerData.phone_number" placeholder="Phone number"></ion-input>
+            </ion-item>
           </div>
           <div class="email-update">
             <div class="email-icon-update">
@@ -47,7 +53,7 @@
             <div class="email-heading-update">E-mail:</div>
             <div class="email-address-update">
               <ion-item style="background: transparent!important;">
-                <ion-input clearInput class="email-input" type="email" value="{{profile.email}}" placeholder="Example: demo@gmail.com"></ion-input>
+                <ion-input clearInput class="email-input" type="email" value="{{profile.email}}" [ngModel]="registerData.email" placeholder="Example: demo@gmail.com"></ion-input>
               </ion-item>
             </div>
             <div style="clear: both;"></div>
@@ -72,10 +78,12 @@
             <div class="exhi-address-update">
               <ion-item style="background: transparent!important;">
                     <!--<ion-label>Gaming</ion-label>-->
-                    <ion-select [(ngModel)]="gaming" interface="popover">
-                      <ion-option selected *ngFor="let i of exhibitionList">{{i}}</ion-option>
+                    <ion-select interface="popover" multiple="true" ngModel="registerData.exhibitions">
+                      <span *ngFor="let i of exhibitionList1">
+                      <ion-option *ngIf="checkAva(i.name)" selected value="i.id">{{i.name}}</ion-option>
+                      <ion-option *ngIf="!checkAva(i.name)" value="i.id">{{i.name}}</ion-option>
+                      </span>
                     </ion-select>
-
               </ion-item>
             </div>
             <div style="clear: both;"></div>
@@ -110,7 +118,7 @@
             <button ion-button>Go Back</button>
           </div>
           <div class="update-btn">
-            <button ion-button>Update Profile</button>
+            <button ion-button (click)="checkEditData()">Update Profile</button>
           </div>
         </div>
       </ion-col>

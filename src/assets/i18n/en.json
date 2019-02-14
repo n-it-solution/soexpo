@@ -17,7 +17,8 @@
     "sCompany" : "Satisfaction with Team",
     "oAssessment" : "Overall Assessment",
     "models": {
-      "cart" : "Add to cart"
+      "cart" : "Add to cart",
+      "rCart": "Remove from cart"
     },
     "team" : {
       "book" : "Book Appointment"

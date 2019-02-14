@@ -126,7 +126,7 @@ export class ExhibitionPage {
       if(this.meta.current_page < this.meta.total_pages){
         console.log('infinity start');
         let page = this.meta.current_page + 1;
-        this.data = this.httpClient.get(this.globalVar.apiUrl+'exhibitions?page='+page+'&lang=ar');
+        this.data = this.httpClient.get(this.globalVar.apiUrl+'exhibitions?page='+page+'&lang=en');
         this.data
             .subscribe(data => {
               console.log(data);
@@ -164,6 +164,30 @@ export class ExhibitionPage {
     }
   ];
   sliderData;any;
+  searchQuery: string = '';
+  items: string[] = [];
+  initializeItems() {
+    console.log(this.safeData.length);
+    console.log(1);
+    for (let i = 0; i < this.safeData.length; i++) {
+      this.exhibition.push(this.safeData[i]);
+      console.log(this.safeData[i])
+      // this.items.push(data.data.data[i]['name']);
+      // this.safeData.push(data.data.data[i]);
+    }
+  }
+  getItems(ev: any) {
+    this.exhibition = this.safeData;
+    const val = ev.target.value;
+    if (val && val.trim() != '') {
+      this.exhibition = this.exhibition.filter((item) => {
+        return (item['name'].toLowerCase().indexOf(val.toLowerCase()) > -1);
+      })
+    }else {
+      this.exhibition = this.safeData;
+    }
+  }
+  safeData:any = [];
   constructor(public navCtrl: NavController,
               public httpClient: HttpClient,
               public globalVar: GloaleVariablesProvider,
@@ -173,6 +197,7 @@ export class ExhibitionPage {
               public translate: TranslateService
   ) {
     translate.setDefaultLang('en');
+    this.initializeItems();
     this.storage.get('data').then((data)=>{
       if (data != null) {
         console.log(data)
@@ -190,14 +215,16 @@ export class ExhibitionPage {
       },error=> {
         console.log(error);
       });
-    this.data = httpClient.get(this.globalVar.apiUrl+'exhibitions?page=1&lang=ar');
+    this.data = httpClient.get(this.globalVar.apiUrl+'exhibitions?page=1&lang=en');
     this.data
         .subscribe(data => {
           console.log(data);
           if (data.level == 'success'){
             console.log(data.data.data.length);
             for (let i = 0; i < data.data.data.length; i++) {
-              this.exhibition.push(data.data.data[i])
+              this.exhibition.push(data.data.data[i]);
+              this.items.push(data.data.data[i]['name']);
+              this.safeData.push(data.data.data[i]);
             }
             console.log(this.exhibition);
             this.storage.set("data", this.exhibition);
