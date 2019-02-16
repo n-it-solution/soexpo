@@ -174,13 +174,13 @@
       <ion-col col-12>
         <div class="main-tabs">
           <div class="location" (click)="changeTab('location')">
-            <button ion-button color="dark" [ngClass]="{'active': tab == 'location'}"><ion-icon class="team-icon" name="pin"></ion-icon>Location</button>
+            <button ion-button color="dark" [ngClass]="{'active': tab == 'location'}"><ion-icon class="team-icon" name="pin"></ion-icon>{{'brandPage.location.title' | translate}}</button>
           </div>
           <div class="team" (click)="changeTab('team')">
-            <button ion-button color="dark" [ngClass]="{'active': tab == 'team'}"><ion-icon class="team-icon" name="people"></ion-icon>Team</button>
+            <button ion-button color="dark" [ngClass]="{'active': tab == 'team'}"><ion-icon class="team-icon" name="people"></ion-icon>{{'brandPage.team.title' | translate}}</button>
           </div>
           <div class="models" (click)="changeTab('models')">
-            <button ion-button color="dark" [ngClass]="{'active': tab == 'models'}"><ion-icon class="team-icon" name="cube"></ion-icon>Models</button>
+            <button ion-button color="dark" [ngClass]="{'active': tab == 'models'}"><ion-icon class="team-icon" name="cube"></ion-icon>{{'brandPage.models.title' | translate}}</button>
           </div>
         </div>
       </ion-col>
@@ -195,7 +195,7 @@
           <div class="team-tab" *ngIf="tab == 'team'">
             <ion-row no-padding>
               <ion-col col-12>
-                <ion-searchbar (ionInput)="getTeam($event)"></ion-searchbar>
+                <ion-searchbar placeholder="{{'search' | translate}}" (ionInput)="getTeam($event)"></ion-searchbar>
               </ion-col>
             </ion-row>
             <div class="main-team-section" *ngFor="let i of members">
@@ -219,7 +219,7 @@
           <div class="models-tab" *ngIf="tab == 'models'">
             <ion-row no-padding>
               <ion-col col-12>
-                <ion-searchbar (ionInput)="getBrand($event)"></ion-searchbar>
+                <ion-searchbar placeholder="{{'search' | translate}}" (ionInput)="getBrand($event)"></ion-searchbar>
               </ion-col>
             </ion-row>
             <div class="main-product-section" *ngFor="let i of brands">
@@ -231,8 +231,8 @@
                 <div class="model-product-name"  (click)="oepnProDetail(i.show_url)">{{i.name}}</div>
                 <div class="model-brand-name"  (click)="oepnProDetail(i.show_url)">{{i.product}}</div>
                 <div class="model-cart-btn" >
-                  <a (click)="addToCart(i.id,i.image)" *ngIf="addToCartCheck(i.id)"><ion-icon class="add-to-cart-icon" name="cart"></ion-icon>{{'brandPage.models.cart' | translate}}</a>
-                  <a (click)="addToCartr(i.id)"  *ngIf="!addToCartCheck(i.id)" style="background: red!important"><ion-icon class="add-to-cart-icon" name="cart"></ion-icon>{{'brandPage.models.rCart' | translate}}</a>
+                  <a (click)="addToCart(i.id,i.image,i.show_url)" *ngIf="addToCartCheck(i.id)"><ion-icon class="add-to-cart-icon" name="cart"></ion-icon>{{'brandPage.models.cart' | translate}}</a>
+                  <a *ngIf="!addToCartCheck(i.id)"><ion-icon class="add-to-cart-icon" name="cart"></ion-icon>{{'brandPage.models.rCart' | translate}}</a>
                 </div>
               </div>
               <div class="clearfix"></div>

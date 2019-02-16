@@ -1,0 +1,32 @@
+<!--
+  Generated template for the ActivatePage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>{{'activatePage.title' | translate}}</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+<ion-grid>
+  <ion-row>
+    <ion-col col-2><div class="email-heading-update">{{'activatePage.code' | translate}}</div></ion-col>
+    <ion-col col-8>
+      <ion-item style="background: transparent!important;">
+        <ion-input clearInput class="email-input"  [(ngModel)]="code.code" name="name" type="number"   placeholder="{{'activatePage.placeText' | translate}}"></ion-input>
+      </ion-item>
+    </ion-col>
+  </ion-row>
+  <ion-row>
+    <div class="update-btn">
+      <button ion-button (click)="codeSubmit()">{{'activatePage.btn' | translate}}</button>
+    </div>
+  </ion-row>
+</ion-grid>
+</ion-content>

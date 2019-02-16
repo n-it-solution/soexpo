@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import {IonicPage, NavController, NavParams, ToastController} from 'ionic-angular';
+import {Events, IonicPage, NavController, NavParams, ToastController} from 'ionic-angular';
 import {LoginPage} from "../login/login";
 import {ExhibitionPage} from "../exhibition/exhibition";
 import { HttpClient } from '@angular/common/http';
@@ -10,7 +10,7 @@ import {GloaleVariablesProvider} from "../../providers/gloale-variables/gloale-v
 import {BrandPage} from "../brand/brand";
 import {TabsPage} from "../tabs/tabs";
 import {TranslateService} from "@ngx-translate/core";
-
+import {Storage} from '@ionic/storage';
 /**
  * Generated class for the WelcomePage page.
  *
@@ -25,13 +25,34 @@ import {TranslateService} from "@ngx-translate/core";
 })
 export class WelcomePage {
 
-data:any;
+  data:any;
+  loginData:any;
   constructor(public navCtrl: NavController, public navParams: NavParams,
               public httpClient: HttpClient,
               public globalVar: GloaleVariablesProvider,
-              public translate: TranslateService
+              public translate: TranslateService,
+              private storage: Storage,public events: Events
   ) {
-      translate.setDefaultLang('en');
+    this.storage.get('language').then((data)=>{
+      if (data != null) {
+        translate.setDefaultLang(data);
+        globalVar.lang = data;
+      }else {
+        this.storage.set('language','ar');
+        translate.setDefaultLang('ar');
+        globalVar.lang = 'ar';
+      }
+    });
+    this.storage.get('loginData').then((data)=>{
+      if (data != null) {
+        this.events.publish('user:logged',data);
+        console.log(data);
+        this.loginData = data;
+        this.globalVar.loginStatus = true;
+        this.globalVar.loginData = data;
+        navCtrl.setRoot(TabsPage);
+      }
+    });
       console.log(globalVar.apiUrl);
       const httpOptions = {
           headers: new HttpHeaders({

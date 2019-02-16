@@ -11,6 +11,9 @@ import {CompanyPage} from "../company/company";
 import {Storage} from '@ionic/storage';
 import {NotificationPage} from "../notification/notification";
 import { TranslateService } from '@ngx-translate/core';
+import {el} from "@angular/platform-browser/testing/src/browser_util";
+import {CartPage} from "../cart/cart";
+import { Events } from 'ionic-angular';
 @IonicPage()
 @Component({
   selector: 'page-exhibition',
@@ -22,7 +25,7 @@ export class ExhibitionPage {
   exhibition = [];
   loadMore : any = true;
   noti:any = false;
-  lang:any = false;
+  lang:any;
   en:any = false;
   ar:any = false;
   changeLang(value){
@@ -35,6 +38,9 @@ export class ExhibitionPage {
       this.ar = true;
       this.translate.setDefaultLang('ar')
     }
+    this.lang = value;
+    this.storage.set('language',value);
+    this.events.publish('lang:changed',value);
   }
   presentPrompt() {
     let cancelText;
@@ -98,21 +104,9 @@ export class ExhibitionPage {
     alert.present();
   }
   openLnag(){
-    console.log(1);
-    console.log(4);
     this.presentPrompt();
-    if (this.lang == false){
-      this.lang = true;
-    } else {
-      this.lang = false;
-    }
   }
   openNot(){
-    // if (this.noti == false){
-    //   this.noti = true;
-    // } else {
-    //   this.noti = false;
-    // }
     this.navCtrl.push(NotificationPage);
   }
   openCompany(url){
@@ -126,7 +120,7 @@ export class ExhibitionPage {
       if(this.meta.current_page < this.meta.total_pages){
         console.log('infinity start');
         let page = this.meta.current_page + 1;
-        this.data = this.httpClient.get(this.globalVar.apiUrl+'exhibitions?page='+page+'&lang=en');
+        this.data = this.httpClient.get(this.globalVar.apiUrl+'exhibitions?page='+page+'&lang='+this.lang);
         this.data
             .subscribe(data => {
               console.log(data);
@@ -188,23 +182,72 @@ export class ExhibitionPage {
     }
   }
   safeData:any = [];
+  getExhibition(){
+    this.data = this.httpClient.get(this.globalVar.apiUrl+'exhibitions?page=1&lang='+this.lang);
+    this.data
+      .subscribe(data => {
+        console.log(data);
+        if (data.level == 'success'){
+          console.log(data.data.data.length);
+          for (let i = 0; i < data.data.data.length; i++) {
+            this.exhibition.push(data.data.data[i]);
+            this.items.push(data.data.data[i]['name']);
+            this.safeData.push(data.data.data[i]);
+          }
+          console.log(this.exhibition);
+          this.storage.set("data", this.exhibition);
+          //   console.log(data.data.data);
+          //   // this.news = data.data.data;
+          this.meta = data.data.meta.pagination;
+          console.log(this.meta);
+          //   this.toastShow('data fetching complete');
+        }
+      },error=> {
+        console.log(error);
+        // this.toastShow('something wrong');
+      });
+  }
+  totalCartData:any;
+  getTotalCartData(){
+    this.storage.get('cart').then((data)=>{
+      if (data != null) {
+        this.totalCartData = data.length;
+      }
+    });
+  }
+  openCart(){
+    this.navCtrl.push(CartPage);
+  }
   constructor(public navCtrl: NavController,
               public httpClient: HttpClient,
               public globalVar: GloaleVariablesProvider,
               public toastCtrl: ToastController,
               private storage: Storage,
               private alertCtrl: AlertController,
-              public translate: TranslateService
+              public translate: TranslateService,
+              public events: Events
   ) {
-    translate.setDefaultLang('en');
+    events.subscribe('cart:updated', (total) => {
+      console.log(total);
+      this.totalCartData = total;
+    });
+    this.getTotalCartData();
+    this.lang = globalVar.lang;
+    translate.setDefaultLang(this.lang);
+    if (this.lang == 'en'){
+      this.en = true
+    } else{
+      this.ar = true
+    }
+    console.log(globalVar.loginData);
+    this.getExhibition();
     this.initializeItems();
     this.storage.get('data').then((data)=>{
       if (data != null) {
         console.log(data)
       }
-
     });
-    this.sliderData = httpClient.get(this.globalVar.apiUrl+'diamond-sponsors?lang=en');
+    this.sliderData = httpClient.get(this.globalVar.apiUrl+'diamond-sponsors?lang='+this.lang);
     this.sliderData
       .subscribe(data => {
         console.log(data.data.data);
@@ -215,29 +258,6 @@ export class ExhibitionPage {
       },error=> {
         console.log(error);
       });
-    this.data = httpClient.get(this.globalVar.apiUrl+'exhibitions?page=1&lang=en');
-    this.data
-        .subscribe(data => {
-          console.log(data);
-          if (data.level == 'success'){
-            console.log(data.data.data.length);
-            for (let i = 0; i < data.data.data.length; i++) {
-              this.exhibition.push(data.data.data[i]);
-              this.items.push(data.data.data[i]['name']);
-              this.safeData.push(data.data.data[i]);
-            }
-            console.log(this.exhibition);
-            this.storage.set("data", this.exhibition);
-          //   console.log(data.data.data);
-          //   // this.news = data.data.data;
-            this.meta = data.data.meta.pagination;
-            console.log(this.meta);
-          //   this.toastShow('data fetching complete');
-          }
-        },error=> {
-          console.log(error);
-          // this.toastShow('something wrong');
-        });
   }
 
 }

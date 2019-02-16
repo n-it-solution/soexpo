@@ -1,10 +1,11 @@
 import { Component } from '@angular/core';
-import {IonicPage, AlertController, NavController} from 'ionic-angular';
+import {IonicPage, AlertController, NavController, Events} from 'ionic-angular';
 import { HttpClient } from '@angular/common/http';
 import {GloaleVariablesProvider} from "../../providers/gloale-variables/gloale-variables";
 import {RegisterPage} from "../register/register";
 import {TabsPage} from "../tabs/tabs";
 import {TranslateService} from "@ngx-translate/core";
+import {Storage} from "@ionic/storage";
 @IonicPage()
 @Component({
   selector: 'page-login',
@@ -13,13 +14,58 @@ import {TranslateService} from "@ngx-translate/core";
 export class LoginPage {
   loginData  = {email: "", password: ""};
   data:any;
+  lang:any;
   constructor(public alertCtrl: AlertController,
               public httpClient: HttpClient,
               public globalvar: GloaleVariablesProvider,
               public navCtrl: NavController,
-              public translate: TranslateService
+              public translate: TranslateService,
+              private storage: Storage,
+              public events: Events
   ) {
-      translate.setDefaultLang('en');
+    this.lang = globalvar.lang;
+    translate.setDefaultLang(this.lang);
+    this.getalertText();
+    events.subscribe('lang:changed', (value) => {
+      translate.setDefaultLang(value);
+      this.lang = value;
+      this.getalertText();
+    });
+
+  }
+  alertTextTitle: any;
+  alertTextdec: any;
+  alertTextplaceText: any;
+  alertTextcancel: any;
+  alertTextsubmit: any;
+  getalertText(){
+    this.translate.get('LoginPage.alert.title').subscribe(
+      value => {
+        // value is our translated string
+        this.alertTextTitle = value;
+      }
+    );
+    this.translate.get('LoginPage.alert.dec').subscribe(
+      value => {
+        this.alertTextdec = value;
+      }
+    );
+    this.translate.get('LoginPage.alert.placeText').subscribe(
+      value => {
+        this.alertTextplaceText = value;
+      }
+    );
+    this.translate.get('LoginPage.alert.cancel').subscribe(
+      value => {
+        this.alertTextcancel = value;
+      }
+    );
+    this.translate.get('LoginPage.alert.submit').subscribe(
+      value => {
+        this.alertTextsubmit = value;
+      }
+    )
+
   }
   openRegister(){
     this.navCtrl.push(RegisterPage);
@@ -34,7 +80,11 @@ export class LoginPage {
           .subscribe(data => {
               console.log(data);
                     if (data.level == 'success'){
-                        console.log(data.data)
+                        console.log(data.data);
+                        this.storage.set('loginData',data.data);
+                        this.globalvar.loginStatus = true;
+                        this.globalvar.loginData = data.data;
+                      this.events.publish('user:logged',data.data);
                     }
                     console.log(1);
                     this.navCtrl.setRoot(TabsPage);
@@ -50,7 +100,7 @@ export class LoginPage {
   }
   forgetRequest(email){
     let email1 = {email:email};
-    this.data = this.httpClient.post(this.globalvar.apiUrl+'auth/reset-password?lang=en',email1);
+    this.data = this.httpClient.post(this.globalvar.apiUrl+'auth/reset-password?lang='+this.lang,email1);
     this.data
         .subscribe(data => {
           console.log(data);
@@ -62,25 +112,26 @@ export class LoginPage {
           }
         });
   };
+
   forgetpass() {
     let prompt = this.alertCtrl.create({
-      title: 'Forget Password',
-      message: "Enter an email, you can forget your password with email!",
+      title: this.alertTextTitle,
+      message: this.alertTextdec,
       inputs: [
         {
           name: 'title',
-          placeholder: 'Enter Your Email'
+          placeholder: this.alertTextplaceText
         },
       ],
       buttons: [
         {
-          text: 'Cancel',
+          text: this.alertTextcancel,
           handler: data => {
             console.log('Cancel clicked');
           }
         },
         {
-          text: 'Submit',
+          text: this.alertTextsubmit,
           handler: data => {
             console.log(data.title);
             console.log(111);

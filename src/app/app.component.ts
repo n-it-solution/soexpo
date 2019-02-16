@@ -1,5 +1,5 @@
 import { Component, ViewChild } from '@angular/core';
-import { Nav, Platform } from 'ionic-angular';
+import {Events, Nav, Platform} from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { HomePage } from '../pages/home/home';
@@ -24,6 +24,11 @@ import {ProDetailPage} from "../pages/pro-detail/pro-detail";
 import {About1Page} from "../pages/about1/about1";
 import {AboutPage} from "../pages/about/about";
 import { TranslateService } from '@ngx-translate/core';
+import {GloaleVariablesProvider} from "../providers/gloale-variables/gloale-variables";
+import {Storage} from "@ionic/storage";
+import {LogoutPage} from "../pages/logout/logout";
+import {ActivatePage} from "../pages/activate/activate";
+
 
 @Component({
   templateUrl: 'app.html'
@@ -31,25 +36,76 @@ import { TranslateService } from '@ngx-translate/core';
 export class MyApp {
   @ViewChild(Nav) nav: Nav;
 
-  rootPage: any = CartPage;
+  rootPage: any = WelcomePage;
 
   pages: Array<{title: string, component: any}>;
-
-  constructor(public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen) {
-    this.initializeApp();
-
-    // used for an example of ngFor and navigation
+  LoginText:any;
+  checkActivate(){
+    if (this.loginSatatus){
+      if (!this.loginData.confirmed){
+        this.pages.push({ title: 'menu.Activate', component: ActivatePage})
+      }
+    }
+  }
+  getLang(){
+    this.translate.get('menu.login').subscribe(
+      value => {
+        this.LoginText = value;
+        console.log(11)
+      }
+    );
+  }
+  loginData:any;
+  status:any = false;
+  loginSatatus:any = false;
+  withOutLoginMenu(){
     this.pages = [
-      { title: 'Exhibition', component: ExhibitionPage },
-      // { title: 'Companies', component: CompanyPage },
-      // { title: 'Brands', component: BrandPage },
-      { title: 'Notification', component: NotificationPage },
-      { title: 'Profile', component: ProfilePage },
-      { title: 'Register', component: RegisterPage },
-      { title: 'Login', component: LoginPage }
-      // { title: 'List', component: ListPage }
+      { title: 'menu.Exhibition', component: TabsPage },
+      { title: 'menu.Login', component: LoginPage},
+      { title: 'menu.Register', component: RegisterPage},
+      { title: 'menu.Activate', component: ActivatePage},
     ];
-
+  }
+  loginMenu(){
+    this.pages = [
+      { title: 'menu.Exhibition', component: TabsPage },
+      { title: 'menu.Notification', component: NotificationPage },
+      { title: 'menu.Profile', component: ProfilePage },
+      { title: 'menu.Cart', component: CartPage },
+      { title: 'menu.Logout', component: LogoutPage},
+    ];
+    this.checkActivate();
+  }
+  constructor(public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen,
+              public translate: TranslateService,public events: Events,public globalVar: GloaleVariablesProvider,
+              private storage: Storage,
+  ) {
+    events.subscribe('user:logged', (data) => {
+      this.loginMenu();
+    });
+    events.subscribe('user:logout', () => {
+      this.withOutLoginMenu();
+    });
+    this.storage.get('loginData').then((data)=>{
+      if (data != null) {
+        console.log('aa'+data);
+        this.loginData = data;
+        this.loginSatatus = true;
+        this.loginMenu();
+      }{
+        this.withOutLoginMenu();
+      }
+    });
+    this.loginSatatus = globalVar.loginStatus;
+    events.subscribe('lang:changed', (value) => {
+      translate.setDefaultLang(value);
+      console.log(11);
+      this.status = true;
+    });
+    translate.setDefaultLang('en');
+    this.initializeApp();
+    this.getLang();
+    // used for an example of ngFor and navigation
   }
 
   initializeApp() {

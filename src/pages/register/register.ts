@@ -1,10 +1,11 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import {Events, IonicPage, NavController, NavParams} from 'ionic-angular';
 import { HttpClient } from '@angular/common/http';
 import {GloaleVariablesProvider} from "../../providers/gloale-variables/gloale-variables";
 import {TabsPage} from "../tabs/tabs";
 import { HttpHeaders } from '@angular/common/http';
 import {TranslateService} from "@ngx-translate/core";
+import {LoginPage} from "../login/login";
 /**
  * Generated class for the RegisterPage page.
  *
@@ -63,15 +64,21 @@ export class RegisterPage {
   }
   }
   data:any;
+  lang:any;
+  openLogin(){
+    this.navCtrl.push(LoginPage)
+  }
   constructor(public navCtrl: NavController, public navParams: NavParams,
               public httpClient: HttpClient,
               public globalvar: GloaleVariablesProvider,
-              public translate: TranslateService
+              public translate: TranslateService,public events: Events,
   ) {
-    translate.setDefaultLang('en');
-    console.log(1);
-    console.log(4);
-    this.echibitionData = httpClient.get(globalvar.apiUrl+'get-exhibitions-list?lang=en');
+    events.subscribe('lang:changed', (value) => {
+      translate.setDefaultLang(value);
+      this.lang = value;
+    });
+    this.lang = this.globalvar.lang;
+    this.echibitionData = httpClient.get(globalvar.apiUrl+'get-exhibitions-list?lang='+this.lang);
     this.echibitionData
       .subscribe(data => {
         console.log(data);

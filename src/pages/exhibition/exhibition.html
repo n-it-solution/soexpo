@@ -17,10 +17,11 @@
           <div class="left">
             <div style="width: 100%; text-align: center;">
               <div style="float: left;width: 50%;">
-                <!--<ion-icon class="profile-icon" name="contact"></ion-icon>-->
-                <img class="profile-pic" src="../../assets/content/company.png" alt="">
+                <ion-icon class="profile-icon" name="contact" *ngIf="!globalVar.loginStatus"></ion-icon>
+                <img class="profile-pic" src="{{globalVar.loginData.picture}}" alt="" *ngIf="globalVar.loginStatus">
               </div>
-              <div style="float: left;width: 30%;"><ion-icon class="cart-icon" name="cart"></ion-icon></div>
+              <ion-badge color="secondary" style="position: absolute;margin-top: 9px!important;margin-left: -7%;font-size: 9px;">{{totalCartData}}</ion-badge>
+              <div style="float: left;width: 30%;" (click)="openCart()"><ion-icon class="cart-icon" name="cart"></ion-icon></div>
             </div>
           </div>
           <div class="right">
@@ -51,8 +52,8 @@
             <!--<ion-card>-->
                 <ion-slides autoplay="3000" speed="2000" pager loop="true" effect="fade">
                     <ion-slide *ngFor="let i of slider">
-                        <div >
-                            <img src="{{i.logo}}" alt="" style="height: 160px" (click)="openCompany(i.logo)">
+                        <div>
+                            <img src="{{i.logo}}" alt="" style="height: 160px" (click)="openCompany(i.show_url)">
                         </div>
                     </ion-slide>
                 </ion-slides>
@@ -70,7 +71,7 @@
 
     <ion-row no-padding>
       <ion-col col-12>
-        <ion-searchbar (ionInput)="getItems($event)"></ion-searchbar>
+        <ion-searchbar placeholder="{{'search' | translate}}" (ionInput)="getItems($event)"></ion-searchbar>
       </ion-col>
     </ion-row>
     <ion-row no-padding>

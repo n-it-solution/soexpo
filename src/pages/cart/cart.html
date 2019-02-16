@@ -20,11 +20,11 @@
       <ion-col col-12>
 
         <div class="cart-main" *ngFor="let i of cart;let in = index"><!--cart product section start-->
-          <div class="cart-left-img">
+          <div class="cart-left-img" (click)="oepnProDetail(i.show_url)">
             <img src="{{i.image}}" alt="">
           </div>
           <div class="cart-right-detail">
-            <div class="product-name">{{i.name}}</div>
+            <div class="product-name" (click)="oepnProDetail(i.show_url)">{{i.name}}</div>
             <div class="product-company-quantity">
               <div class="quantity-left">
                 <ion-icon class="remove-icon" name="remove-circle" (click)="minusQuantity(in)"></ion-icon>

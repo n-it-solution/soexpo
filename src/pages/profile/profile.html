@@ -89,8 +89,8 @@
               <ion-list>
                 <ion-item>
                   <!--<ion-label>Gaming</ion-label>-->
-                  <ion-select [(ngModel)]="gaming" interface="popover">
-                    <ion-option selected *ngFor="let i of exhibition">{{i}}</ion-option>
+                  <ion-select interface="popover">
+                    <ion-option *ngFor="let i of exhibition">{{i}}</ion-option>
                   </ion-select>
                 </ion-item>
               </ion-list>

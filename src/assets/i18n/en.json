@@ -17,11 +17,16 @@
     "sCompany" : "Satisfaction with Team",
     "oAssessment" : "Overall Assessment",
     "models": {
+      "title" : "MODELS",
       "cart" : "Add to cart",
-      "rCart": "Remove from cart"
+      "rCart": "Item added successfully"
     },
     "team" : {
+      "title" : "TEAM",
       "book" : "Book Appointment"
+    },
+    "location" : {
+      "title" : "location"
     }
   },
   "proDetail": {
@@ -59,7 +64,14 @@
     "pass" : "Password",
     "login" : "Login",
     "forget" : "Forget Password",
-    "create" : "Don't Have Account?"
+    "create" : "Don't Have Account?",
+    "alert" : {
+      "title" : "Forget Password",
+      "dec" : "Enter an email, you can forget your password with email!",
+      "placeText" : "Enter your Email",
+      "cancel" : "Cancel",
+      "submit" : "Submit"
+    }
   },
   "ProfilePage": {
     "title" : "Profile",
@@ -81,5 +93,29 @@
   "NotificationPage": {
     "title" : "Notifications"
   },
+  "TabsPage": {
+    "home" : "Home",
+    "ann" : "Announ",
+    "news" : "News"
+  },
+  "menu": {
+    "Notification" : "Notification",
+    "Profile" : "Profile",
+    "Cart" : "Cart",
+    "Login" : "Login",
+    "Logout" : "Logout",
+    "Register" : "Register",
+    "Exhibition" : "Exhibition",
+    "Activate" : "Activate"
+  },
+  "activatePage":{
+    "title" : "Activate",
+    "code" : "Code:",
+    "placeText" : "Enter your confirmation code",
+    "btn" : "Profile confirm"
+
+  },
+  "search" : "Search",
+  "Register": "Register1111",
   "CAT": "Cat"
 }

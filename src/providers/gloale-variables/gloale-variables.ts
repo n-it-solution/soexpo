@@ -9,7 +9,10 @@ import { Injectable } from '@angular/core';
 */
 @Injectable()
 export class GloaleVariablesProvider {
-apiUrl = 'https://app.soexpo.net/api/';
+  apiUrl = 'https://app.soexpo.net/api/';
+  loginStatus:any = false;
+  loginData:any;
+  lang:any = 'ar';
   constructor(public http: HttpClient) {
     console.log('Hello GloaleVariablesProvider Provider');
   }

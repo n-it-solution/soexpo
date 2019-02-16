@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import {Events, IonicPage, NavController, NavParams} from 'ionic-angular';
 import {Storage} from '@ionic/storage';
 import {el} from "@angular/platform-browser/testing/src/browser_util";
 import {BrandPage} from "../brand/brand";
@@ -8,6 +8,8 @@ import {GloaleVariablesProvider} from "../../providers/gloale-variables/gloale-v
 import {TabsPage} from "../tabs/tabs";
 import { HttpHeaders } from '@angular/common/http';
 import {CompanyPage} from "../company/company";
+import {UpdateProfilePage} from "../update-profile/update-profile";
+import {ProDetailPage} from "../pro-detail/pro-detail";
 
 /**
  * Generated class for the CartPage page.
@@ -40,6 +42,7 @@ export class CartPage {
     this.cart.splice(index, 1);
     console.log(this.cart);
     this.storage.set("cart", this.cart);
+    this.events.publish('cart:updated',this.cart.length);
   }
   cartData:any = {
     "items": [
@@ -89,13 +92,16 @@ export class CartPage {
         console.log(error.error.message)
       });
   }
+  oepnProDetail(url){
+    console.log('111');
+    this.navCtrl.push(ProDetailPage,{url:url});
+  }
   constructor(public navCtrl: NavController, public navParams: NavParams,
               private storage: Storage,
               public httpClient: HttpClient,
               public globalvar: GloaleVariablesProvider,
+              public events: Events
   ) {
-    navCtrl.push(BrandPage);
-    console.log(1);
     this.storage.get('cart').then((data)=>{
       if (data != null) {
         console.log(data);

@@ -70,6 +70,10 @@ export class UpdateProfilePage {
     console.log(this.registerData);
     console.log(this.editData);
   }
+  getBrand(ev: any) {
+    const val = ev.target.value;
+    console.log(val);
+  }
   constructor(public navCtrl: NavController, public navParams: NavParams,
               public httpClient: HttpClient,
               public globalVar: GloaleVariablesProvider,
@@ -96,7 +100,7 @@ export class UpdateProfilePage {
       .subscribe(data => {
         console.log(data);
         if (data.level == 'success'){
-          this.registerData.email = 'hello@gmail.com';
+          // this.registerData.email = 'hello@gmail.com';
           this.exhibitionList1 = data.data.exhibitions;
           console.log(this.exhibitionList1);
         }

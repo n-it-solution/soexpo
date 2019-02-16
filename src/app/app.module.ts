@@ -41,6 +41,8 @@ import {NotificationPage} from "../pages/notification/notification";
 import { IonicStorageModule } from '@ionic/storage';
 import { IonRating } from '../components/ion-rating/ion-rating';
 import {ProDetailPage} from "../pages/pro-detail/pro-detail";
+import {ActivatePage} from "../pages/activate/activate";
+import {LogoutPage} from "../pages/logout/logout";
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http, "./assets/i18n/", ".json");
 }
@@ -71,7 +73,9 @@ export function HttpLoaderFactory(http: HttpClient) {
     Tab1Page,
     Contact1Page,
     IonRating,
-    ProDetailPage
+    ProDetailPage,
+    ActivatePage,
+    LogoutPage
   ],
   imports: [
     StarRatingModule,
@@ -114,7 +118,9 @@ export function HttpLoaderFactory(http: HttpClient) {
     Tab1Page,
     Contact1Page,
     IonRating,
-    ProDetailPage
+    ProDetailPage,
+    ActivatePage,
+    LogoutPage
   ],
   providers: [
     StatusBar,

@@ -1,33 +1,121 @@
 {
   "exhibitionPage": {
-    "title" :  "Exhibition",
+    "title" :  "معرض",
     "change": {
-      "title" : "Change Language",
-      "cancel" : "Cancel",
-      "change" : "Change"
+      "title" : "غير اللغة",
+      "cancel" : "إلغاء",
+      "change" : "يتغيرون"
     }
   },
   "companyPage": {
-    "title" :  "Companies"
+    "title" :  "الشركات"
   },
   "brandPage": {
-    "title" :  "Brand",
-    "overRating" : "Overall Rating",
-    "sProduct" : "Satisfaction with Products",
-    "sCompany" : "Satisfaction with Team",
-    "oAssessment" : "Overall Assessment",
+    "title" :  "علامة تجارية",
+    "overRating" : "تقييم عام",
+    "sProduct" : "الرضا عن المنتجات",
+    "sCompany" : "الرضاء عن الفريق",
+    "oAssessment" : "التقييم العام",
     "models": {
-      "cart" : "Add to cart"
+      "title" : "MODELS",
+      "cart" : "أضف إلى السلة",
+      "rCart": "تمت إضافة العنصر بنجاح"
     },
     "team" : {
-      "book" : "Book Appointment"
+      "title" : "TEAM",
+      "book" : "موعد الكتاب"
+    },
+    "location" : {
+      "title" : "location"
     }
   },
   "proDetail": {
-    "title" :  "Product Details",
-    "product" : "Product Name",
-    "company" : "Company",
-    "des" : "Description"
+    "title" :  "تفاصيل المنتج",
+    "product" : "اسم المنتج",
+    "company" : "شركة",
+    "des" : "وصف"
   },
+  "annPage": {
+    "title" : "الإعلانات"
+  },
+  "NewsPage": {
+    "title" : "أخبار"
+  },
+  "WelcomePage": {
+    "title" : "أهلا بك",
+    "reg" : "تسجيل",
+    "log" : "تسجيل الدخول",
+    "ski" : "تخطى"
+  },
+  "RegisterPage": {
+    "title" : "تسجيل",
+    "name" : "اسم",
+    "email" : "البريد الإلكتروني",
+    "pass" : "كلمه السر",
+    "cpass" : "تأكيد كلمة المرور",
+    "phone" : "رقم الهاتف",
+    "accept" : "قبول الشروط والأحكام",
+    "create" : "إنشاء حساب",
+    "already" : "لديك بالفعل حساب"
+  },
+  "LoginPage": {
+    "title" : "تسجيل الدخول",
+    "email" : "البريد الإلكتروني،",
+    "pass" : "كلمه السر",
+    "login" : "تسجيل الدخول",
+    "forget" : "ننسى",
+    "create" : "لا تملك حساب؟",
+    "alert" : {
+      "title" : "نسيت كلمة المرور",
+      "dec" : "أدخل بريد إلكتروني ، يمكنك أن تنسى كلمة المرور الخاصة بك مع البريد الإلكتروني!",
+      "placeText" : "أدخل البريد الإلكتروني الخاص بك",
+      "cancel" : "إلغاء",
+      "submit" : "خضع"
+    }
+  },
+  "ProfilePage": {
+    "title" : "الملف الشخصي",
+    "email" : "البريد الإلكتروني،",
+    "phone" : "هاتف #",
+    "country" : "بلد",
+    "city" : "مدينة",
+    "tit" : "عنوان وظيفي",
+    "about" : "حول",
+    "exhi" : "معرض",
+    "edit" : "تعديل الملف الشخصي"
+  },
+  "AboutPage": {
+    "title" : "معلومات عنا"
+  },
+  "ContactPage": {
+    "title" : "اتصل بنا"
+  },
+  "NotificationPage": {
+    "title" : "إخطارات"
+  },
+  "TabsPage": {
+    "home" : "الرئيسية",
+    "ann" : "الإعلانات",
+    "news" : "الأخبار"
+  },
+  "menu": {
+    "Notification" : "إعلام",
+    "Profile" : "الملف الشخصي",
+    "Cart" : "عربة التسوق",
+    "Login" : "تسجيل الدخول",
+    "Logout" : "الخروج",
+    "Register" : "تسجيل",
+    "Exhibition" : "معرض",
+    "Activate" : "تفعيل"
+  },
+  "activatePage":{
+    "title" : "تفعيل",
+    "code" : "الشفرة:",
+    "placeText" : "أدخل رمز التأكيد الخاص بك",
+    "btn" : "تأكيد الملف الشخصي"
+
+  },
+  "search" : "بحث",
+  "Register": "Register1111",
   "CAT": "Cat"
 }

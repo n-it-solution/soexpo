@@ -24,6 +24,11 @@
         </div>
       </ion-col>
     </ion-row>
+    <ion-row>
+      <ion-col col-12>
+        <input (change)="getBrand($event)">
+      </ion-col>
+    </ion-row>
 
     <ion-row no-padding>
       <ion-col col-12 no-padding>
@@ -35,7 +40,7 @@
             <div class="email-heading-update">Name</div>
             <div class="email-address-update">
               <ion-item style="background: transparent!important;">
-                <ion-input clearInput class="email-input" type="email" [ngModel]="name2" placeholder="Example: demo@gmail.com"></ion-input>
+                <ion-input clearInput class="email-input" type="email" [ngModel]="name2" (change)="getBrand($event)" placeholder="Example: demo@gmail.com"></ion-input>
               </ion-item>
             </div>
             <div style="clear: both;"></div>
@@ -53,7 +58,7 @@
             <div class="email-heading-update">E-mail:</div>
             <div class="email-address-update">
               <ion-item style="background: transparent!important;">
-                <ion-input clearInput class="email-input" type="email" value="{{profile.email}}" [ngModel]="registerData.email" placeholder="Example: demo@gmail.com"></ion-input>
+                <ion-input clearInput class="email-input" type="email" value="{{profile.email}}" [ngModel]="registerData.name" placeholder="Example: demo@gmail.com"></ion-input>
               </ion-item>
             </div>
             <div style="clear: both;"></div>

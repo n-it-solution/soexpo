@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import {Events, IonicPage, NavController, NavParams} from 'ionic-angular';
 import { HttpClient } from '@angular/common/http';
 import {GloaleVariablesProvider} from "../../providers/gloale-variables/gloale-variables";
 import {NewsDetailPage} from "../news-detail/news-detail";
@@ -74,17 +74,22 @@ export class NewsPage {
     }
 
   }
+  lang:any;
   constructor(public navCtrl: NavController, public navParams: NavParams,
               public httpClient: HttpClient,
               public globalVar: GloaleVariablesProvider,
               public toastCtrl: ToastController,
-              public translate: TranslateService
+              public translate: TranslateService,public events: Events,
   ) {
-    translate.setDefaultLang('en');
+    this.lang = globalVar.lang;
+    events.subscribe('lang:changed', (value) => {
+      translate.setDefaultLang(value);
+      this.lang = value;
+    });
     for (let i = 0; i < 30; i++) {
       this.items.push( this.items.length );
     }
-    this.data = httpClient.get(this.globalVar.apiUrl+'news?lang=en');
+    this.data = httpClient.get(this.globalVar.apiUrl+'news?lang='+this.lang);
     this.data
         .subscribe(data => {
             console.log(data);
