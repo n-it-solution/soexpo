@@ -40,6 +40,7 @@ export class ExhibitionPage {
     }
     this.lang = value;
     this.storage.set('language',value);
+    this.globalVar.lang = value;
     this.events.publish('lang:changed',value);
   }
   presentPrompt() {

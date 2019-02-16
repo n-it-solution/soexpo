@@ -28,6 +28,7 @@ import {GloaleVariablesProvider} from "../providers/gloale-variables/gloale-vari
 import {Storage} from "@ionic/storage";
 import {LogoutPage} from "../pages/logout/logout";
 import {ActivatePage} from "../pages/activate/activate";
+import {ContactPage} from "../pages/contact/contact";
 
 
 @Component({
@@ -64,6 +65,8 @@ export class MyApp {
       { title: 'menu.Login', component: LoginPage},
       { title: 'menu.Register', component: RegisterPage},
       { title: 'menu.Activate', component: ActivatePage},
+      { title: 'menu.About', component: AboutPage},
+      { title: 'menu.Contact', component: ContactPage},
     ];
   }
   loginMenu(){
@@ -73,6 +76,8 @@ export class MyApp {
       { title: 'menu.Profile', component: ProfilePage },
       { title: 'menu.Cart', component: CartPage },
       { title: 'menu.Logout', component: LogoutPage},
+      { title: 'menu.About', component: AboutPage},
+      { title: 'menu.Contact', component: ContactPage},
     ];
     this.checkActivate();
   }

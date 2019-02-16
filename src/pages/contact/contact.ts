@@ -29,9 +29,9 @@ export class ContactPage {
               private storage: Storage,
               public translate: TranslateService
   ) {
-    translate.setDefaultLang('en');
+    translate.setDefaultLang(globalVar.lang);
     console.log(1);
-    this.data = httpClient.get(this.globalVar.apiUrl+'get-content-by-slug/contact-us?lang=en');
+    this.data = httpClient.get(this.globalVar.apiUrl+'get-content-by-slug/contact-us?lang='+globalVar.lang);
     this.data
       .subscribe(data => {
         console.log(data);

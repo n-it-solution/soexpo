@@ -34,9 +34,13 @@ export class CompanyPage {
     "rating_url": "https://app.soexpo.net/api/companies/rate/v1oz1Yz27j",
   }];
   openBrand(url){
-    if (this.loginStatus == true) {
+    if (this.loginStatus) {
       console.log(url);
-      this.navCtrl.push(BrandPage, {url: url})
+      if(this.loginData.confirmed){
+        this.navCtrl.push(BrandPage, {url: url})
+      }else {
+        alert('Activate your account first')
+      }
     }else {
       alert ('Login first to open this page');
     }
@@ -56,19 +60,17 @@ export class CompanyPage {
   }
   lang:any;
   getData(search,query){
-    if (this.loginStatus){
-      if (this.loginData.confirmed) {
       const httpOptions = {
         headers: new HttpHeaders({
-          'Authorization':  this.globalVar.loginData.authorization,
+          // 'Authorization':  this.globalVar.loginData.authorization,
           'Content-Type' : 'application/json'
         })
       };
       if (search == 'search'){
-        console.log(this.globalVar.apiUrl+'exhibitions/7goegqKYnQ'+'?lang='+this.lang+'&search='+query);
-        this.data = this.httpClient.get(this.globalVar.apiUrl+'exhibitions/7goegqKYnQ'+'?lang='+this.lang+'&search='+query,httpOptions);
+        console.log(this.navParams.get('url')+'?lang='+this.lang+'&search='+query);
+        this.data = this.httpClient.get(this.navParams.get('url')+'?lang='+this.lang+'&search='+query,httpOptions);
       } else {
-        this.data = this.httpClient.get(this.globalVar.apiUrl+'exhibitions/7goegqKYnQ'+'?lang='+this.lang,httpOptions);
+        this.data = this.httpClient.get(this.navParams.get('url')+'?lang='+this.lang,httpOptions);
       }
       // this.data = this.httpClient.get(this.navParams.get('url')+'?lang='+this.lang,httpOptions);
       this.data
@@ -91,14 +93,6 @@ export class CompanyPage {
           }
           // console.log(error.error.message)
         });
-      }else {
-        alert('please confirm your account to access');
-        this.navCtrl.pop();
-      }
-    }else {
-      alert('logged first tp access this page!');
-      this.navCtrl.pop();
-    }
 
   }
   loginStatus:any = false;
@@ -110,6 +104,7 @@ export class CompanyPage {
               public translate: TranslateService,
               private storage: Storage,
   ) {
+    console.log(1);
     this.lang = globalVar.lang;
     translate.setDefaultLang(this.lang);
     this.loginData = this.globalVar.loginData;

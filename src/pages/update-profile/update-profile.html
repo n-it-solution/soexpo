@@ -24,12 +24,6 @@
         </div>
       </ion-col>
     </ion-row>
-    <ion-row>
-      <ion-col col-12>
-        <input (change)="getBrand($event)">
-      </ion-col>
-    </ion-row>
-
     <ion-row no-padding>
       <ion-col col-12 no-padding>
         <div class="user-detail-update">
@@ -40,16 +34,11 @@
             <div class="email-heading-update">Name</div>
             <div class="email-address-update">
               <ion-item style="background: transparent!important;">
-                <ion-input clearInput class="email-input" type="email" [ngModel]="name2" (change)="getBrand($event)" placeholder="Example: demo@gmail.com"></ion-input>
+                <ion-input type="text" [(ngModel)]="userData.name" placeholder="Enter your name" name="name"></ion-input>
+                <!--<ion-input clearInput class="email-input" type="email" [ngModel]="name2" (change)="getBrand($event)" placeholder="Example: demo@gmail.com"></ion-input>-->
               </ion-item>
             </div>
             <div style="clear: both;"></div>
-          </div>
-          <div class="first-item">
-            <ion-item style="background: transparent!important;">
-              <ion-label> <ion-icon class="cpassword-icon" name="call"></ion-icon></ion-label>
-              <ion-input clearInput class="cpassword-input" type="text" [(ngModel)]="registerData.phone_number" placeholder="Phone number"></ion-input>
-            </ion-item>
           </div>
           <div class="email-update">
             <div class="email-icon-update">
@@ -58,7 +47,8 @@
             <div class="email-heading-update">E-mail:</div>
             <div class="email-address-update">
               <ion-item style="background: transparent!important;">
-                <ion-input clearInput class="email-input" type="email" value="{{profile.email}}" [ngModel]="registerData.name" placeholder="Example: demo@gmail.com"></ion-input>
+                <ion-input type="email" [(ngModel)]="userData.email" placeholder="Enter your email" name="Email"></ion-input>
+                <!--<ion-input clearInput class="email-input" type="email" value="{{profile.email}}" [ngModel]="registerData.name" placeholder="Example: demo@gmail.com"></ion-input>-->
               </ion-item>
             </div>
             <div style="clear: both;"></div>
@@ -70,7 +60,8 @@
             <div class="phone-heading-update">Phone#:</div>
             <div class="phone-address-update">
               <ion-item style="background: transparent!important;">
-                <ion-input clearInput class="email-input" type="text" value="{{profile.phone}}" placeholder="Example: +92 303 4472 147"></ion-input>
+                <ion-input type="text" [(ngModel)]="userData.phone_number" value="{{userData1.phone}}" placeholder="Enter your Phone number" name="text"></ion-input>
+                <!--<ion-input clearInput class="email-input" type="text" value="{{profile.phone}}" placeholder="Example: +92 303 4472 147"></ion-input>-->
               </ion-item>
             </div>
             <div style="clear: both;"></div>
@@ -83,10 +74,10 @@
             <div class="exhi-address-update">
               <ion-item style="background: transparent!important;">
                     <!--<ion-label>Gaming</ion-label>-->
-                    <ion-select interface="popover" multiple="true" ngModel="registerData.exhibitions">
+                    <ion-select interface="popover" multiple="true" [(ngModel)]="userData.exhibitions">
                       <span *ngFor="let i of exhibitionList1">
-                      <ion-option *ngIf="checkAva(i.name)" selected value="i.id">{{i.name}}</ion-option>
-                      <ion-option *ngIf="!checkAva(i.name)" value="i.id">{{i.name}}</ion-option>
+                      <ion-option *ngIf="checkAva(i.name)" selected value="{{i.id}}">{{i.name}}</ion-option>
+                      <ion-option *ngIf="!checkAva(i.name)" value="{{i.id}}">{{i.name}}</ion-option>
                       </span>
                     </ion-select>
               </ion-item>
@@ -100,7 +91,8 @@
             <div class="exhi-heading-update">About</div>
             <div class="exhi-address-update">
               <ion-item style="background: transparent!important;">
-                <ion-input clearInput class="email-input" type="text" value="{{profile.about}}" placeholder="About"></ion-input>
+                <ion-input type="text" placeholder="About your self" [(ngModel)]="userData.about" name="text"></ion-input>
+                <!--<ion-input clearInput class="email-input" type="text" value="{{profile.about}}" placeholder="About"></ion-input>-->
               </ion-item>
             </div>
             <div style="clear: both;"></div>
@@ -112,7 +104,8 @@
             <div class="exhi-heading-update">Job Title</div>
             <div class="exhi-address-update">
               <ion-item style="background: transparent!important;">
-                <ion-input clearInput class="email-input" type="text" value="{{profile.job_title}}" placeholder="Job title"></ion-input>
+                <ion-input type="text" placeholder="Job title" [(ngModel)]="userData.job_title" name="Email"></ion-input>
+                <!--<ion-input clearInput class="email-input" type="text" value="{{profile.job_title}}" placeholder="Job title"></ion-input>-->
               </ion-item>
             </div>
             <div style="clear: both;"></div>
@@ -123,9 +116,18 @@
             <button ion-button>Go Back</button>
           </div>
           <div class="update-btn">
-            <button ion-button (click)="checkEditData()">Update Profile</button>
+            <button ion-button (click)="checkEditData1()">Update Profile</button>
           </div>
         </div>
+        <!--<button ion-button (click)="checkEditData1()">Update Profile</button>-->
+        <!--<ion-item>-->
+          <!--<ion-label stacked>Name</ion-label>-->
+
+        <!--</ion-item>-->
+        <!--<ion-item>-->
+          <!--<ion-label stacked>Email</ion-label>-->
+          <!--<ion-input type="email" [(ngModel)]="userData.email" name="Email"></ion-input>-->
+        <!--</ion-item>-->
       </ion-col>
     </ion-row>
   </ion-grid>

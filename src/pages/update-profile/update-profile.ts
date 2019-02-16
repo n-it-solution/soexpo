@@ -4,6 +4,7 @@ import { HttpClient } from '@angular/common/http';
 import {GloaleVariablesProvider} from "../../providers/gloale-variables/gloale-variables";
 import { ToastController } from 'ionic-angular';
 import { HttpHeaders } from '@angular/common/http';
+import {TabsPage} from "../tabs/tabs";
 /**
  * Generated class for the UpdateProfilePage page.
  *
@@ -62,23 +63,71 @@ export class UpdateProfilePage {
   }
   name2:string = 'hello';
   editData  = {name: ""};
+  userData = {
+    name: "", email: "", phone_number: "", about: "", job_title: "", exhibitions: []
+  };
   registerData  = {name: "", email: "", password: "", password_confirmation: "", phone_number: "",exhibitions:[], terms: 0 };
   checkEditData(){
+     console.log(this.userData);
     console.log(this.name2);
     console.log(1);
     alert(this.registerData.name);
     console.log(this.registerData);
     console.log(this.editData);
   }
+  exhibition1:any = [];
+  token:any;
+  data1:any;
+  checkEditData1(){
+    // this.userData.exhibitions = this.exhibition1;
+    console.log(this.exhibition1);
+     console.log(this.userData);
+     this.userData.job_title = 'helllo';
+     console.log(this.userData);
+    const httpOptions1 = {
+      headers: new HttpHeaders({
+        'Authorization':  this.token,
+        'Content-Type' : 'application/json',
+        // 'X-Requested-With' : 'XMLHttpRequest'
+      })
+    };
+    this.data1 = this.httpClient.post(this.globalvar.apiUrl+'auth/profile',this.userData,httpOptions1);
+    this.data1
+      .subscribe(data => {
+        console.log(data);
+        if (data.level == 'success'){
+          alert(data.message)
+        }
+        console.log(1);
+        // this.navCtrl.setRoot(TabsPage);
+      },error=> {
+        console.log(error);
+        if(error.status == 422){
+          alert(error.error.message)
+        }
+        console.log(error.error.message)
+      });
+    console.log('success')
+  }
   getBrand(ev: any) {
     const val = ev.target.value;
     console.log(val);
   }
+  userData1:any;
   constructor(public navCtrl: NavController, public navParams: NavParams,
               public httpClient: HttpClient,
               public globalVar: GloaleVariablesProvider,
-              public toastCtrl: ToastController
+              public toastCtrl: ToastController,
+              public globalvar: GloaleVariablesProvider,
   ) {
+    this.userData1 = globalVar.loginData;
+    this.userData.name = this.userData1.name;
+    this.userData.email = this.userData1.email;
+    this.userData.phone_number = this.userData1.phone;
+    this.userData.job_title = this.userData1.job_title;
+    this.userData.about = this.userData1.about;
+    this.token = this.userData1.authorization;
+    console.log(1);
     const httpOptions = {
       headers: new HttpHeaders({
         'Accept' : 'application/json'

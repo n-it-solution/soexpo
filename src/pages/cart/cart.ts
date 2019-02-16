@@ -69,11 +69,11 @@ export class CartPage {
     this.cartData.items[0].brands = this.cart;
     const httpOptions = {
       headers: new HttpHeaders({
-        'Authorization':  'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImp0aSI6IjEyYjMwNjIyMzgzNGZhNzUzYzZlMWVlMDM5ZGQ2NmE0NDIxYjI5YTM1Yzg0MmMxMjA5OWZhZDIyYTA2NDYwZTkxZmJkOTI4NzRhNjA3ZDE4In0.eyJhdWQiOiIxIiwianRpIjoiMTJiMzA2MjIzODM0ZmE3NTNjNmUxZWUwMzlkZDY2YTQ0MjFiMjlhMzVjODQyYzEyMDk5ZmFkMjJhMDY0NjBlOTFmYmQ5Mjg3NGE2MDdkMTgiLCJpYXQiOjE1NTAxMzY3MzAsIm5iZiI6MTU1MDEzNjczMCwiZXhwIjoxNTgxNjcyNzMwLCJzdWIiOiIyMDMiLCJzY29wZXMiOltdfQ.CEjDbjf4A9lTKOHb3oyeZ_7WdoZtY97ERFN1Gp7aFf-sOgZaoklSIutk1UUL-A1_LezL--u2WMvfqXB5M8ad5g_ysEHkO2DfiPIJgPt8_Ey20K00_A72edtwCRPHLpDamuVadSdsZBg7QwxOL8rmO9P-hvODkBcLH5_eRAuu851CNBeH0d6fB8rGCEEe_tydDNN-V1ykzqg5---bRgEd8ir6cO67DTW8albLdNtHt7vldsdlzE0Kc--3EchnicVCbLLHkBiMn6dN-t_J1SMBroU5BzJO5eizTDdtPCOPVf6XwOZSPr7zvxLrMw22de7pyWXXvwCNn-VmG1yavoKLu8tKN3aRKkVN1WEYlsNx80hyY-LrNHghQ5gpnbFrI5DewIYrjuNsFFDS_zG1C-jB2tXNMSN_bXnu1YZd0Ll-rResR73ePJdO-V9XH0VmluDDeb9UBb-VJbhe19irTJF_j8PX3zS9MDA59WpDOHddn_eVVo2ECKQf0z1A4yZLVHJafxYfJcMF2VxAMLJLMi4cu8naCcqiyBO9IoksWtheGPIqHecvEjSQSXYkgLdm9Znt1tdkepXL-cslyjr2mUmwGluEFuFOHcqiy7F7pQrajd8BLSLaZ9i2rF1_vqv97pysedzlZskp2-T42l7OCLHarRmgIsooiWNGHqW_DrlBXwY',
+        'Authorization':  this.globalvar.loginData.authorization,
         'Content-Type' : 'application/json'
       })
     };
-    this.data = this.httpClient.post(this.globalvar.apiUrl+'send-cart?lang=en',this.cartData,httpOptions);
+    this.data = this.httpClient.post(this.globalvar.apiUrl+'send-cart?lang='+this.globalvar.lang,this.cartData,httpOptions);
     this.data
       .subscribe(data => {
         console.log(data);

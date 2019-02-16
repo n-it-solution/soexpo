@@ -31,11 +31,8 @@ export class AboutPage {
               private storage: Storage,
               public translate: TranslateService
   ) {
-    translate.setDefaultLang('en');
-    console.log(1);
-    console.log(2);
-    console.log(3);
-    this.data = httpClient.get(this.globalVar.apiUrl+'get-content-by-slug/about-us?lang=en');
+    translate.setDefaultLang(globalVar.lang);
+    this.data = httpClient.get(this.globalVar.apiUrl+'get-content-by-slug/about-us?lang='+globalVar.lang);
     this.data
       .subscribe(data => {
         console.log(data);

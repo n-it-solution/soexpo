@@ -4,7 +4,7 @@
     "change": {
       "title" : "غير اللغة",
       "cancel" : "إلغاء",
-      "change" : "يتغيرون"
+      "change" : "تغيير"
     }
   },
   "companyPage": {
@@ -23,7 +23,7 @@
     },
     "team" : {
       "title" : "TEAM",
-      "book" : "موعد الكتاب"
+      "book" : "حجز موعد"
     },
     "location" : {
       "title" : "location"
@@ -63,7 +63,7 @@
     "email" : "البريد الإلكتروني،",
     "pass" : "كلمه السر",
     "login" : "تسجيل الدخول",
-    "forget" : "ننسى",
+    "forget" : "هل نسيت كلمة المرور؟",
     "create" : "لا تملك حساب؟",
     "alert" : {
       "title" : "نسيت كلمة المرور",
@@ -85,10 +85,10 @@
     "edit" : "تعديل الملف الشخصي"
   },
   "AboutPage": {
-    "title" : "معلومات عنا"
+    "title" : "من نحن"
   },
   "ContactPage": {
-    "title" : "اتصل بنا"
+    "title" : "تواصل معنا"
   },
   "NotificationPage": {
     "title" : "إخطارات"
@@ -99,14 +99,16 @@
     "news" : "الأخبار"
   },
   "menu": {
-    "Notification" : "إعلام",
+    "Notification" : "الأخبار",
     "Profile" : "الملف الشخصي",
     "Cart" : "عربة التسوق",
     "Login" : "تسجيل الدخول",
     "Logout" : "الخروج",
     "Register" : "تسجيل",
-    "Exhibition" : "معرض",
-    "Activate" : "تفعيل"
+    "Exhibition" : "المعارض",
+    "Activate" : "تفعيل",
+    "About" : "من نحن",
+    "Contact" : " تواصل معنا"
   },
   "activatePage":{
     "title" : "تفعيل",
