@@ -29,6 +29,7 @@ import {Storage} from "@ionic/storage";
 import {LogoutPage} from "../pages/logout/logout";
 import {ActivatePage} from "../pages/activate/activate";
 import {ContactPage} from "../pages/contact/contact";
+import {SplashPage} from "../pages/splash/splash";
 
 
 @Component({
@@ -37,7 +38,7 @@ import {ContactPage} from "../pages/contact/contact";
 export class MyApp {
   @ViewChild(Nav) nav: Nav;
 
-  rootPage: any = WelcomePage;
+  rootPage: any = SplashPage;
 
   pages: Array<{title: string, component: any}>;
   LoginText:any;
