@@ -484,5 +484,27 @@ page-brand {
     padding-right: 5px;
   }
 
+  .full-width-div{
+    width:100%;
+    //background: red;
+    padding-top: 10px;
+    clear: both;
+  }
+  .full-width-div .left-div{
+    width: 50%;
+    float: left;
+    padding-right: 10px;
+    padding-top: 10px;
+    padding-bottom:5px;
+  }
+  .full-width-div .right-div{
+    //background: purple;
+    width: 50%;
+    float: right;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 10px;
+  }
+
 
 }
