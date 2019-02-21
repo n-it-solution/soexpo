@@ -15,11 +15,11 @@ import {WelcomePage} from "../welcome/welcome";
   templateUrl: 'splash.html',
 })
 export class SplashPage {
-
   constructor(public navCtrl: NavController, public navParams: NavParams) {
-    setTimeout(() => {
-      this.navCtrl.setRoot(WelcomePage);
-    }, 10000);
+    navCtrl.setRoot(WelcomePage);
+    // setTimeout(() => {
+    //   this.navCtrl.setRoot(WelcomePage);
+    // }, 10000);
   }
 
   ionViewDidLoad() {

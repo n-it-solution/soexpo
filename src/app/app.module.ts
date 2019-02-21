@@ -44,6 +44,7 @@ import {ProDetailPage} from "../pages/pro-detail/pro-detail";
 import {ActivatePage} from "../pages/activate/activate";
 import {LogoutPage} from "../pages/logout/logout";
 import {SplashPage} from "../pages/splash/splash";
+import {MapPage} from "../pages/map/map";
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http, "./assets/i18n/", ".json");
 }
@@ -77,7 +78,8 @@ export function HttpLoaderFactory(http: HttpClient) {
     ProDetailPage,
     ActivatePage,
     LogoutPage,
-    SplashPage
+    SplashPage,
+    MapPage
   ],
   imports: [
     StarRatingModule,
@@ -123,7 +125,8 @@ export function HttpLoaderFactory(http: HttpClient) {
     ProDetailPage,
     ActivatePage,
     LogoutPage,
-    SplashPage
+    SplashPage,
+    MapPage
   ],
   providers: [
     StatusBar,

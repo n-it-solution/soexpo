@@ -206,10 +206,22 @@
               <div class="team-right">
                 <div class="team-product-name">{{i.name}}</div>
                 <div class="team-brand-name">
-                  <span><a href="tel:{{i.skype}}" class="button button-positive"><ion-icon class="call-icon" name="call"></ion-icon></a></span>
+                  <span><a href="tel:{{i.phone}}" class="button button-positive"><ion-icon class="call-icon" name="call"></ion-icon></a></span>
                   <span><a href="mailto:{{i.email}}" class="button button-positive"><ion-icon class="mail-icon" name="mail"></ion-icon></a></span>
                 </div>
-                <div class="team-cart-btn" (click)="openBookApp(i.meeting_request)">
+                <ion-item *ngIf="show == i.id">
+                  <ion-label>Start Date</ion-label>
+                  <ion-datetime displayFormat="YYYY-MM-DD H:m" pickerFormat="YYYY-MM-DD H:m" (ionChange)="startFun($event)" format="" [(ngModel)]="start"></ion-datetime>
+                </ion-item>
+                <ion-item *ngIf="show == i.id">
+                  <ion-label>End Date</ion-label>
+                  <ion-datetime displayFormat="YYYY-MM-DD H:m" pickerFormat="YYYY-MM-DD H:m" (ionChange)="endFun($event)" [(ngModel)]="end"></ion-datetime>
+                </ion-item>
+                <br>
+                <div class="team-cart-btn" *ngIf="show == i.id" (click)="appSubmit(i.meeting_request)">
+                  <a href="#">{{'brandPage.team.confirm' | translate}}</a>
+                </div>
+                <div class="team-cart-btn" *ngIf="hide != i.id" (click)="showDate(i.id)">
                   <a href="#">{{'brandPage.team.book' | translate}}</a>
                 </div>
               </div>
