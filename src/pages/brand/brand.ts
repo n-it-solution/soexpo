@@ -10,6 +10,7 @@ import {TabsPage} from "../tabs/tabs";
 import { TranslateService } from '@ngx-translate/core';
 import {Storage} from '@ionic/storage';
 import { Events } from 'ionic-angular';
+import {MapPage} from "../map/map";
 @IonicPage()
 @Component({
   selector: 'page-brand',
@@ -18,7 +19,11 @@ import { Events } from 'ionic-angular';
 export class BrandPage {
   tab:any;
   changeTab(tab){
-  this.tab = tab;
+    if(tab == 'location'){
+      this.navCtrl.push(MapPage,{locations : this.locations});
+    }else {
+      this.tab = tab;
+    }
   }
   data:any;
   // overRating:any;
@@ -62,6 +67,9 @@ export class BrandPage {
       }
     }
   };
+  openLocation(){
+    this.navCtrl.push(MapPage);
+  }
   showRating:any = false;
   start:any;
   end:any;
@@ -245,6 +253,7 @@ export class BrandPage {
   lang:any;
   loginData:any;
   loginStatus:any;
+  locations:any;
   constructor(public navCtrl: NavController, public navParams: NavParams,
               public httpClient: HttpClient,
               public globalVar: GloaleVariablesProvider,
@@ -278,6 +287,7 @@ export class BrandPage {
           console.log(data);
           if (data.level == 'success'){
             console.log(data.data);
+            this.locations = data.data.locations;
             this.companyDetails = data.data.companyDetails;
             console.log(data.data.brands.data);
             this.members = data.data.members.data;

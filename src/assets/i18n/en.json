@@ -5,7 +5,8 @@
       "title" : "Change Language",
       "cancel" : "Cancel",
       "change" : "Change"
-    }
+    },
+    "slider" : "Diamond Sponsor"
   },
   "companyPage": {
     "title" :  "Companies"

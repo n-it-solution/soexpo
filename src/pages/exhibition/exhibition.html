@@ -50,11 +50,11 @@
       <ion-col col-8 no-padding style="border-right: 2px solid #eee;">
         <div class="exibition-slide" >
             <!--<ion-card>-->
-                <ion-slides autoplay="3000" pager loop="true" effect="false">
+                <ion-slides autoplay="3000" pager loop="false" effect="false">
                     <ion-slide *ngFor="let i of slider">
                         <!--<div>-->
-                            <!--<img src="{{i.logo}}" alt="" style="height: 160px" (click)="openCompany(i.show_url)">-->
-                            <img src="https://app.soexpo.net/assets/corals/images/avatars/avatar_3.png" alt="" style="height: 160px" (click)="openCompany(i.show_url)">
+                            <img src="{{i.logo}}" style="height: 160px" (click)="openCompany(i.show_url)">
+                            <!--<img src="https://app.soexpo.net/assets/corals/images/avatars/avatar_3.png" alt="" style="height: 160px" (click)="openCompany(i.show_url)">-->
                         <!--</div>-->
                     </ion-slide>
                 </ion-slides>
@@ -63,8 +63,9 @@
       </ion-col>
       <ion-col col-4 no-padding>
         <div class="exhibition-slider-name">
-          <div class="arabic-name">الراعي الماسي</div>
-          <div class="english-name">Diamond Sponsor</div>
+          <!--<div class="arabic-name">الراعي الماسي</div>-->
+          <!--<div class="english-name">Diamond Sponsor</div>-->
+          <div class="arabic-name">{{ 'exhibitionPage.slider' | translate }}</div>
         </div>
       </ion-col>
     </ion-row>

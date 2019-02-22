@@ -5,7 +5,8 @@
       "title" : "غير اللغة",
       "cancel" : "إلغاء",
       "change" : "تغيير"
-    }
+    },
+    "slider" : "الراعي الماسي"
   },
   "companyPage": {
     "title" :  "الشركات"
@@ -17,22 +18,22 @@
     "sCompany" : "الرضاء عن الفريق",
     "oAssessment" : "التقييم العام",
     "models": {
-      "title" : "MODELS",
+      "title" : "الموديلات",
       "cart" : "أضف إلى السلة",
       "rCart": "تمت إضافة العنصر بنجاح"
     },
     "team" : {
-      "title" : "TEAM",
+      "title" : "فريق الشركة",
       "book" : "حجز موعد"
     },
     "location" : {
-      "title" : "location"
+      "title" : "الموقع"
     }
   },
   "proDetail": {
     "title" :  "تفاصيل المنتج",
     "product" : "اسم المنتج",
-    "company" : "شركة",
+    "company" : "الموديل",
     "des" : "وصف"
   },
   "annPage": {
@@ -70,7 +71,7 @@
       "dec" : "أدخل بريد إلكتروني ، يمكنك أن تنسى كلمة المرور الخاصة بك مع البريد الإلكتروني!",
       "placeText" : "أدخل البريد الإلكتروني الخاص بك",
       "cancel" : "إلغاء",
-      "submit" : "خضع"
+      "submit" : "حفظ"
     }
   },
   "ProfilePage": {
@@ -99,7 +100,7 @@
     "news" : "الأخبار"
   },
   "menu": {
-    "Notification" : "الأخبار",
+    "Notification" : "الإخطارات",
     "Profile" : "الملف الشخصي",
     "Cart" : "عربة التسوق",
     "Login" : "تسجيل الدخول",

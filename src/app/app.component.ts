@@ -30,6 +30,7 @@ import {LogoutPage} from "../pages/logout/logout";
 import {ActivatePage} from "../pages/activate/activate";
 import {ContactPage} from "../pages/contact/contact";
 import {SplashPage} from "../pages/splash/splash";
+import {MapPage} from "../pages/map/map";
 
 
 @Component({
@@ -40,12 +41,12 @@ export class MyApp {
 
   rootPage: any = SplashPage;
 
-  pages: Array<{title: string, component: any}>;
+  pages: Array<{title: string, component: any,icon: string}>;
   LoginText:any;
   checkActivate(){
     if (this.loginSatatus){
       if (!this.loginData.confirmed){
-        this.pages.push({ title: 'menu.Activate', component: ActivatePage})
+        this.pages.push({ title: 'menu.Activate', component: ActivatePage, icon: 'information-circle'})
       }
     }
   }
@@ -62,23 +63,23 @@ export class MyApp {
   loginSatatus:any = false;
   withOutLoginMenu(){
     this.pages = [
-      { title: 'menu.Exhibition', component: TabsPage },
-      { title: 'menu.Login', component: LoginPage},
-      { title: 'menu.Register', component: RegisterPage},
-      { title: 'menu.Activate', component: ActivatePage},
-      { title: 'menu.About', component: AboutPage},
-      { title: 'menu.Contact', component: ContactPage},
+      { title: 'menu.Exhibition', component: TabsPage, icon: 'home' },
+      { title: 'menu.Login', component: LoginPage, icon: 'lock'},
+      { title: 'menu.Register', component: RegisterPage, icon: 'person-add'},
+      { title: 'menu.Activate', component: ActivatePage, icon: 'key'},
+      { title: 'menu.About', component: AboutPage, icon: 'information-circle'},
+      { title: 'menu.Contact', component: ContactPage, icon: 'help'},
     ];
   }
   loginMenu(){
     this.pages = [
-      { title: 'menu.Exhibition', component: TabsPage },
-      { title: 'menu.Notification', component: NotificationPage },
-      { title: 'menu.Profile', component: ProfilePage },
-      { title: 'menu.Cart', component: CartPage },
-      { title: 'menu.Logout', component: LogoutPage},
-      { title: 'menu.About', component: AboutPage},
-      { title: 'menu.Contact', component: ContactPage},
+      { title: 'menu.Exhibition', component: TabsPage, icon: 'home'},
+      { title: 'menu.Notification', component: NotificationPage, icon: 'notifications-outline' },
+      { title: 'menu.Profile', component: ProfilePage, icon: 'person' },
+      { title: 'menu.Cart', component: CartPage, icon: 'cart' },
+      { title: 'menu.Logout', component: LogoutPage, icon: 'log-out'},
+      { title: 'menu.About', component: AboutPage, icon: 'information-circle'},
+      { title: 'menu.Contact', component: ContactPage, icon: 'help'},
     ];
     this.checkActivate();
   }

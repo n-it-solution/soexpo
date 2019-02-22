@@ -42,6 +42,7 @@ export class ExhibitionPage {
     this.storage.set('language',value);
     this.globalVar.lang = value;
     this.events.publish('lang:changed',value);
+    this.getExhibition();
   }
   presentPrompt() {
     let cancelText;
@@ -190,6 +191,9 @@ export class ExhibitionPage {
         console.log(data);
         if (data.level == 'success'){
           console.log(data.data.data.length);
+          this.exhibition = [];
+          this.items = [];
+          this.safeData = [];
           for (let i = 0; i < data.data.data.length; i++) {
             this.exhibition.push(data.data.data[i]);
             this.items.push(data.data.data[i]['name']);

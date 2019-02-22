@@ -22,10 +22,8 @@
         <div class="company-slide">
           <ion-slides autoplay="3000" speed="2000" pager="true" loop="true" effect="fade">
             <ion-slide *ngFor="let i of sponsor_golden">
-              <div>
                 <!--<img src="../../assets/content/company-slide/1.png" alt="">-->
                 <img src="{{i.logo}}" alt="">
-              </div>
             </ion-slide>
           </ion-slides>
         </div>
@@ -36,10 +34,8 @@
         <div class="company-slide" style="margin-top: 10px; margin-bottom: 10px;">
           <ion-slides autoplay="3000" speed="2000" pager="true" loop="true" effect="fade">
             <ion-slide  *ngFor="let i of sponsor_participants">
-              <div>
                 <!--<img src="../../assets/content/company-slide/2.png" alt="">-->
                 <img src="{{i.content}}" alt="">
-              </div>
             </ion-slide>
           </ion-slides>
         </div>
@@ -49,11 +45,9 @@
       <ion-col col-12 no-padding>
         <div class="company-slide">
           <ion-slides autoplay="3000" speed="2000" pager="true" loop="true" effect="fade">
-            <ion-slide *ngFor="let i of sponsor_silver">
-              <div>
+            <ion-slide *ngFor="let i of sponsor_silver" (click)="openCompany(i.show_url)">
                 <!--<img src="../../assets/content/company-slide/1.png" alt="">-->
                 <img src="{{i.logo}}" alt="">
-              </div>
             </ion-slide>
           </ion-slides>
         </div>
