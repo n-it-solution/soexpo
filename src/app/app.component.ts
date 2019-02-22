@@ -32,7 +32,6 @@ import {ContactPage} from "../pages/contact/contact";
 import {SplashPage} from "../pages/splash/splash";
 import {MapPage} from "../pages/map/map";
 
-
 @Component({
   templateUrl: 'app.html'
 })
@@ -46,6 +45,8 @@ export class MyApp {
   checkActivate(){
     if (this.loginSatatus){
       if (!this.loginData.confirmed){
+        this.pages.splice(6,1);
+        this.pages.push({ title: 'menu.Logout', component: LogoutPage, icon: 'log-out'});
         this.pages.push({ title: 'menu.Activate', component: ActivatePage, icon: 'information-circle'})
       }
     }
@@ -70,17 +71,22 @@ export class MyApp {
       { title: 'menu.About', component: AboutPage, icon: 'information-circle'},
       { title: 'menu.Contact', component: ContactPage, icon: 'help'},
     ];
+    console.log('withOutLoginMenu');
   }
   loginMenu(){
+    console.log(1);
+    console.log(1);
     this.pages = [
       { title: 'menu.Exhibition', component: TabsPage, icon: 'home'},
       { title: 'menu.Notification', component: NotificationPage, icon: 'notifications-outline' },
       { title: 'menu.Profile', component: ProfilePage, icon: 'person' },
       { title: 'menu.Cart', component: CartPage, icon: 'cart' },
-      { title: 'menu.Logout', component: LogoutPage, icon: 'log-out'},
       { title: 'menu.About', component: AboutPage, icon: 'information-circle'},
       { title: 'menu.Contact', component: ContactPage, icon: 'help'},
+      { title: 'menu.Logout', component: LogoutPage, icon: 'log-out'},
     ];
+    console.log('with login menu');
+    console.log(this.pages);
     this.checkActivate();
   }
   constructor(public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen,
@@ -88,20 +94,11 @@ export class MyApp {
               private storage: Storage,
   ) {
     events.subscribe('user:logged', (data) => {
+      console.log('logged in');
       this.loginMenu();
     });
     events.subscribe('user:logout', () => {
       this.withOutLoginMenu();
-    });
-    this.storage.get('loginData').then((data)=>{
-      if (data != null) {
-        console.log('aa'+data);
-        this.loginData = data;
-        this.loginSatatus = true;
-        this.loginMenu();
-      }{
-        this.withOutLoginMenu();
-      }
     });
     this.loginSatatus = globalVar.loginStatus;
     events.subscribe('lang:changed', (value) => {

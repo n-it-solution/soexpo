@@ -24,7 +24,8 @@
     },
     "team" : {
       "title" : "TEAM",
-      "book" : "Book Appointment"
+      "book" : "Book Appointment",
+      "confirm" : "Confirm"
     },
     "location" : {
       "title" : "location"
