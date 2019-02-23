@@ -117,8 +117,16 @@ export class ExhibitionPage {
   this.navCtrl.push(CompanyPage,{url: url})
   }
   openBrand(url){
-    console.log(url);
-    this.navCtrl.push(BrandPage,{url: url})
+    if (this.loginStatus) {
+      console.log(url);
+      if(this.loginData.confirmed){
+        this.navCtrl.push(BrandPage, {url: url})
+      }else {
+        alert('Activate your account first')
+      }
+    }else {
+      alert ('Login first to open this page');
+    }
   }
   doInfinite(infiniteScroll) {
     if (this.loadMore == true){
@@ -228,6 +236,8 @@ export class ExhibitionPage {
   openCart(){
     this.navCtrl.push(CartPage);
   }
+  loginData:any;
+  loginStatus:any;
   constructor(public navCtrl: NavController,
               public httpClient: HttpClient,
               public globalVar: GloaleVariablesProvider,
@@ -237,9 +247,15 @@ export class ExhibitionPage {
               public translate: TranslateService,
               public events: Events
   ) {
+    this.loginData = this.globalVar.loginData;
+    this.loginStatus = globalVar.loginStatus;
     events.subscribe('cart:updated', (total) => {
       console.log(total);
       this.totalCartData = total;
+    });
+    events.subscribe('user:logged', (data) => {
+      this.loginData = true;
+      this.loginStatus = data;
     });
     this.getTotalCartData();
     this.lang = globalVar.lang;
