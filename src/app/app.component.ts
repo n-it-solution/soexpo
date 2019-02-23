@@ -93,6 +93,7 @@ export class MyApp {
               public translate: TranslateService,public events: Events,public globalVar: GloaleVariablesProvider,
               private storage: Storage,
   ) {
+    this.withOutLoginMenu();
     events.subscribe('user:logged', (data) => {
       console.log('logged in');
       this.loginMenu();
