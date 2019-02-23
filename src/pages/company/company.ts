@@ -99,6 +99,7 @@ export class CompanyPage {
     console.log(url);
     this.navCtrl.push(CompanyPage,{url: url})
   }
+
   loginStatus:any = false;
   loginData:any;
   constructor(public navCtrl: NavController, public navParams: NavParams,

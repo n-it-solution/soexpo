@@ -14,6 +14,7 @@ import { TranslateService } from '@ngx-translate/core';
 import {el} from "@angular/platform-browser/testing/src/browser_util";
 import {CartPage} from "../cart/cart";
 import { Events } from 'ionic-angular';
+import {BrandPage} from "../brand/brand";
 @IonicPage()
 @Component({
   selector: 'page-exhibition',
@@ -114,6 +115,10 @@ export class ExhibitionPage {
   openCompany(url){
   console.log(url);
   this.navCtrl.push(CompanyPage,{url: url})
+  }
+  openBrand(url){
+    console.log(url);
+    this.navCtrl.push(BrandPage,{url: url})
   }
   doInfinite(infiniteScroll) {
     if (this.loadMore == true){
