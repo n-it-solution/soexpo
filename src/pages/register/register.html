@@ -63,12 +63,15 @@
             </div>
             <div class="first-item">
               <ion-item style="background: transparent!important;">
-                <ion-label>{{ 'RegisterPage.accept' | translate}}</ion-label>
+                <ion-label (click)="openTerms()">{{ 'RegisterPage.accept' | translate}}</ion-label>
                 <ion-checkbox color="success" (ionChange)="accept()" checked="false" float-right></ion-checkbox>
               </ion-item>
             </div>
           </div>
           <div class="btns">
+            <div class="reg-btn">
+              <a style="margin-left: 20%" href="http://www.soexpo.net/en/privacy-policy-2/" target="_blank">{{ 'RegisterPage.term' | translate}}</a>
+            </div>
             <div class="reg-btn">
               <button ion-button (click)="submitForm()">{{ 'RegisterPage.create' | translate}}</button>
             </div>

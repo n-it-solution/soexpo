@@ -56,6 +56,8 @@ export class ProfilePage {
               public translate: TranslateService
   ) {
     translate.setDefaultLang('en');
+    console.log(124);
+    console.log(this.globalVar.loginData);
     const httpOptions = {
       headers: new HttpHeaders({
         'Authorization':  globalVar.loginData.authorization,

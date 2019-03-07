@@ -6,6 +6,8 @@ import {TabsPage} from "../tabs/tabs";
 import { HttpHeaders } from '@angular/common/http';
 import {TranslateService} from "@ngx-translate/core";
 import {LoginPage} from "../login/login";
+import { InAppBrowser } from '@ionic-native/in-app-browser';
+
 /**
  * Generated class for the RegisterPage page.
  *
@@ -63,6 +65,10 @@ export class RegisterPage {
     console.log(this.registerData);
   }
   }
+  openTerms(){
+    this.iab.create('https://ionicframework.com/');
+
+  };
   data:any;
   lang:any;
   openLogin(){
@@ -72,6 +78,7 @@ export class RegisterPage {
               public httpClient: HttpClient,
               public globalvar: GloaleVariablesProvider,
               public translate: TranslateService,public events: Events,
+              private iab: InAppBrowser
   ) {
     events.subscribe('lang:changed', (value) => {
       translate.setDefaultLang(value);

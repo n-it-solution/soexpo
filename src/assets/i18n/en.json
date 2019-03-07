@@ -58,7 +58,8 @@
     "phone" : "Phone Number",
     "accept" : "Accept Term And Conditions",
     "create" : "Create Account",
-    "already" : "Already Have Account"
+    "already" : "Already Have Account",
+    "term" : "Read Term And Conditions"
   },
   "LoginPage": {
     "title" : "Login",

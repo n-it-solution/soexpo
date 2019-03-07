@@ -13,6 +13,7 @@ export class GloaleVariablesProvider {
   loginStatus:any = false;
   loginData:any;
   lang:any = 'ar';
+  updateAbleLoginData:any;
   constructor(public http: HttpClient) {
     console.log('Hello GloaleVariablesProvider Provider');
   }

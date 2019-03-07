@@ -1,10 +1,12 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import {Events, IonicPage, NavController, NavParams} from 'ionic-angular';
 import { HttpClient } from '@angular/common/http';
 import {GloaleVariablesProvider} from "../../providers/gloale-variables/gloale-variables";
 import { ToastController } from 'ionic-angular';
 import { HttpHeaders } from '@angular/common/http';
 import {TabsPage} from "../tabs/tabs";
+import {Storage} from "@ionic/storage";
+
 /**
  * Generated class for the UpdateProfilePage page.
  *
@@ -41,20 +43,42 @@ export class UpdateProfilePage {
     "picture_thumb": "https://app.soexpo.net/assets/corals/images/avatars/avatar_3.png",
     "created_at": "02 Feb, 2019",
     "updated_at": "12 Feb, 2019",
-    "authorization": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImp0aSI6IjEwM2I2NjY1NTk2ZWIzOTYxZTc3MTJlNTA1OTc4MzQ0YjkwYWJmNjMyNjU4Y2E0ZjExNTg5NWNmNmRjMWYyN2JhYTZjZDg1MzhjMWQyYmIwIn0.eyJhdWQiOiIxIiwianRpIjoiMTAzYjY2NjU1OTZlYjM5NjFlNzcxMmU1MDU5NzgzNDRiOTBhYmY2MzI2NThjYTRmMTE1ODk1Y2Y2ZGMxZjI3YmFhNmNkODUzOGMxZDJiYjAiLCJpYXQiOjE1NDk5ODgyNzgsIm5iZiI6MTU0OTk4ODI3OCwiZXhwIjoxNTgxNTI0Mjc4LCJzdWIiOiIyMDMiLCJzY29wZXMiOltdfQ.m0S0eU2vM7ZX195-arXHINNHGvfKLwVT4Vfcn0kSqJ7Lrejh-a738zQs1Lwoh7PQEozzDJCoO1oiClp-l1Jdc7teh2Fhq5fWONLUhbjnNMNMXdS5_Puou97j6N3r7ZUU5CHOTTyJFxAlA50wZEmnuqb-ieJeJxjIMCQ3RQl-ORoxZicyj38AQHpgEre8GyIgpJaYBS743qked_KbB5rMtvx82mmBdkPqtPPNfd2Tiu4HL25TemzhNb7U5dLhreIaXjJTEdvCcVoSfqqKI15eJQlwbjDDNiaBJU3dzqdVMGsLIxhQAy3DFvJLRMuZhvdEUyjDZleJREb0xmCLxOpH46-yL_rt2K7J0rgy5RJMCx6AhaeWqZbnnKteVIT6L3xh_4XMz_nZHwgu9Bm3J0xoeIaHQAQSj_yXejfgUY2WgnjtVvHjlFj6f-dKWboLYSxVRmBoxq8qCIvBIf0OfERnam2ko4hF3KiUI5vPky0CTKnyUEMDQWotmAnzHG2ir6vIIjiYP6N81N9i0OibqKAdlQ4nv9eCUfIK48WymCRP6i2ep-TeCVo32qdijJUl_HWg0GhqM6c4cGpgNCvYrLhJYK28ef87hKg0JeKFXsK_I6DV0b9ySFqlRtCY4LEHC_FaTsEpDxRvWY_CSYTcTRbEy_7WTZVlfEZTryompj8eUyk",
+    "authorization": "",
     "expires_at": "2020-02-12 16:17:58"
   };
-  exhibition:any = [
-    "Building /Construction & Real Estate",
-    "Food and Beverage",
-    "Furniture"
-  ];
+  exhibition:any = [];
   startData:any = [{id:2,name:'abdul'}];
   result:any = [{id:1,name:'manan'},{id:2,name:'manan'}];
   exhibitionList:any = [{id:1,name:'manan'},{id:2,name:'manan'}];
-  exhibitionList1:any;
-  checkAva(name){
+  exhibitionList1:any = [];
+  currentExhibition:any;
+  addExhibition(){
+    var i;
+    for (i = 0; i < this.exhibitionList1.length; i++) {
+      console.log(this.exhibitionList1);
+      this.currentExhibition = this.exhibitionList1[i];
+      console.log(this.currentExhibition);
+      if((this.exhibition.find(e => e === this.currentExhibition.name))){
+        if((this.userData.exhibitions.find(e => e === ''+this.currentExhibition.id+''))){
+          console.log(this.userData.exhibitions);
+        }else{
+          this.userData.exhibitions.push(''+this.currentExhibition.id+'');
+          console.log(this.userData.exhibitions);
+        }
+      }
+      else {
+      }
+      // text += cars[i] + "<br>";
+    }
+  }
+  checkAva(name,id){
     if((this.exhibition.find(e => e === name))){
+      if((this.userData.exhibitions.find(e => e === ''+id+''))){
+        // console.log(this.userData.exhibitions);
+      }else{
+        // this.userData.exhibitions.push(''+id+'');
+        // console.log(this.userData.exhibitions);
+      }
       return true
     }
     else {
@@ -91,23 +115,30 @@ export class UpdateProfilePage {
         // 'X-Requested-With' : 'XMLHttpRequest'
       })
     };
-    this.data1 = this.httpClient.post(this.globalvar.apiUrl+'auth/profile',this.userData,httpOptions1);
-    this.data1
-      .subscribe(data => {
-        console.log(data);
-        if (data.level == 'success'){
-          alert(data.message)
-        }
-        console.log(1);
-        // this.navCtrl.setRoot(TabsPage);
-      },error=> {
-        console.log(error);
-        if(error.status == 422){
-          alert(error.error.message)
-        }
-        console.log(error.error.message)
-      });
-    console.log('success')
+    console.log(this.userData);
+    if (this.userData.exhibitions.length > 5){
+      alert('Exhibition no more then 5')
+    } else {
+      this.data1 = this.httpClient.post(this.globalvar.apiUrl+'auth/profile?lang=en',this.userData,httpOptions1);
+      this.data1
+        .subscribe(data => {
+          console.log(data);
+          if (data.level == 'success'){
+            alert(data.message);
+            this.globalVar.updateAbleLoginData = data.data;
+            console.log(this.globalVar.updateAbleLoginData);
+            this.storage.set('updateAbleLoginData',data.data);
+          }
+          console.log(1);
+          // this.navCtrl.setRoot(TabsPage);
+        },error=> {
+          console.log(error);
+          if(error.status == 422){
+            alert(error.error.message)
+          }
+          console.log(error.error.message)
+        });
+    }
   }
   getBrand(ev: any) {
     const val = ev.target.value;
@@ -119,15 +150,19 @@ export class UpdateProfilePage {
               public globalVar: GloaleVariablesProvider,
               public toastCtrl: ToastController,
               public globalvar: GloaleVariablesProvider,
+              private storage: Storage,
+              public events: Events
   ) {
-    this.userData1 = globalVar.loginData;
+    this.userData1 = globalVar.updateAbleLoginData;
     this.userData.name = this.userData1.name;
     this.userData.email = this.userData1.email;
     this.userData.phone_number = this.userData1.phone;
     this.userData.job_title = this.userData1.job_title;
     this.userData.about = this.userData1.about;
-    this.token = this.userData1.authorization;
-    console.log(1);
+    this.token = this.globalVar.loginData.authorization;
+    this.exhibition = this.globalvar.updateAbleLoginData.exhibitions;
+    console.log(this.userData1);
+    console.log(this.userData1);
     const httpOptions = {
       headers: new HttpHeaders({
         'Accept' : 'application/json'
@@ -152,6 +187,7 @@ export class UpdateProfilePage {
           // this.registerData.email = 'hello@gmail.com';
           this.exhibitionList1 = data.data.exhibitions;
           console.log(this.exhibitionList1);
+          this.addExhibition();
         }
       },error=> {
         console.log(error);

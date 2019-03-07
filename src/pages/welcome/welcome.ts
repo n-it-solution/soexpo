@@ -50,6 +50,15 @@ export class WelcomePage {
         this.loginData = data;
         this.globalVar.loginStatus = true;
         this.globalVar.loginData = data;
+        this.storage.get('updateAbleLoginData').then((data1)=>{
+          if (data1 != null) {
+            console.log('update');
+            console.log(data1);
+            this.globalVar.updateAbleLoginData = data1;
+          }else {
+            this.globalVar.updateAbleLoginData = data;
+          }
+        });
         navCtrl.setRoot(TabsPage);
       }
     });

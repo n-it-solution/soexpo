@@ -25,6 +25,7 @@ import {LoginPage} from "../pages/login/login";
 import {ExhibitionPage} from "../pages/exhibition/exhibition";
 import {CompanyPage} from "../pages/company/company";
 import {BrandPage} from "../pages/brand/brand";
+import { InAppBrowser } from '@ionic-native/in-app-browser';
 
 import { GloaleVariablesProvider } from '../providers/gloale-variables/gloale-variables';
 
@@ -132,7 +133,8 @@ export function HttpLoaderFactory(http: HttpClient) {
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    GloaleVariablesProvider
+    GloaleVariablesProvider,
+    InAppBrowser
   ]
 })
 export class AppModule {}

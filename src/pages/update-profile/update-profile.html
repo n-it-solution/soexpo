@@ -76,8 +76,8 @@
                     <!--<ion-label>Gaming</ion-label>-->
                     <ion-select interface="popover" multiple="true" [(ngModel)]="userData.exhibitions">
                       <span *ngFor="let i of exhibitionList1">
-                      <ion-option *ngIf="checkAva(i.name)" selected value="{{i.id}}">{{i.name}}</ion-option>
-                      <ion-option *ngIf="!checkAva(i.name)" value="{{i.id}}">{{i.name}}</ion-option>
+                      <ion-option *ngIf="checkAva(i.name,i.id)" selected value="{{i.id}}">{{i.name}}</ion-option>
+                      <ion-option *ngIf="!checkAva(i.name,i.id)" value="{{i.id}}">{{i.name}}</ion-option>
                       </span>
                     </ion-select>
               </ion-item>

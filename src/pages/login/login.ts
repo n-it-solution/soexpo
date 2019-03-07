@@ -82,8 +82,11 @@ export class LoginPage {
                     if (data.level == 'success'){
                         console.log(data.data);
                         this.storage.set('loginData',data.data);
+                        this.storage.set('updateAbleLoginData',data.data);
                         this.globalvar.loginStatus = true;
                         this.globalvar.loginData = data.data;
+                      this.globalvar.updateAbleLoginData = data.data;
+                        console.log(data.data);
                       this.events.publish('user:logged',data.data);
                     }
                     console.log(1);
