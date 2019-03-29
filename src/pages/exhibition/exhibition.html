@@ -5,7 +5,29 @@
     </button>
     <ion-row no-padding>
       <ion-col col-12 no-padding>
-        <div class="topbar">
+        <ion-col col-12>
+          <div class="new-top-logo" style="width: 100%;">
+            <div class="inner-divs">
+              <ion-icon class="profile-icon" name="contact" *ngIf="!globalVar.loginStatus"></ion-icon>
+              <img class="profile-pic" src="{{globalVar.loginData.picture}}" alt="" *ngIf="globalVar.loginStatus">
+            </div>
+            <div class="inner-divs">
+              <ion-badge color="secondary" style="position: absolute;margin-top: 9px!important;margin-left: -7%;font-size: 9px;">{{totalCartData}}</ion-badge>
+              <div (click)="openCart()"><ion-icon class="cart-icon" name="cart"></ion-icon></div>
+            </div>
+            <div class="inner-divs">
+              <ion-icon class="notification-icon" name="notifications-outline" (click)="openNot()"></ion-icon>
+            </div>
+            <div class="inner-divs">
+              <ion-icon class="language-icon" name="globe" (click)="openLnag()"></ion-icon>
+            </div>
+            <div class="inner-divs" style="height: 70px;">
+              <img src="../../assets/content/logo.png" style="margin-top: 5px; background: transparent; border-radius:15px; width: 70px;" class="logo-icon">
+            </div>
+            <div style="clear: both!important;"></div>
+          </div>
+        </ion-col>
+        <!--<div class="topbar">
           <div class="left">
             <div style="width: 100%; text-align: center;">
               <div style="float: left;width: 50%;">
@@ -19,23 +41,23 @@
           <div class="right">
             <div style="width: 100%; text-align: center;">
               <div style="float: left;width: 25%;"> <ion-icon class="notification-icon" name="notifications-outline" (click)="openNot()"></ion-icon>
-                <!--<div *ngIf="noti == true">En</div>-->
+                &lt;!&ndash;<div *ngIf="noti == true">En</div>&ndash;&gt;
               </div>
               <div style="float: left;width: 25%; text-align: left;position: relative"><ion-icon class="language-icon" name="globe" (click)="openLnag()"></ion-icon>
-                <!--<div *ngIf="lang == true" style="position: absolute">
+                &lt;!&ndash;<div *ngIf="lang == true" style="position: absolute">
                   <div>En</div>
                   <div>Ar</div>
-                </div>-->
+                </div>&ndash;&gt;
               </div>
               <div style="float: right;width: 50%;">
                 <img src="../../assets/content/logo.png" style="background: transparent; border-radius:15px; width: 70px;" class="logo-icon">
               </div>
             </div>
-            <!--<span> <ion-icon class="notification-icon" name="notifications-outline"></ion-icon> </span>-->
-            <!--<span> <ion-icon class="language-icon" name="megaphone"></ion-icon> </span>-->
-            <!--<span> <img src="../../assets/content/logo.png" style="background: transparent; border-radius:15px; width: 70px;" class="logo-icon"> </span>-->
+            &lt;!&ndash;<span> <ion-icon class="notification-icon" name="notifications-outline"></ion-icon> </span>&ndash;&gt;
+            &lt;!&ndash;<span> <ion-icon class="language-icon" name="megaphone"></ion-icon> </span>&ndash;&gt;
+            &lt;!&ndash;<span> <img src="../../assets/content/logo.png" style="background: transparent; border-radius:15px; width: 70px;" class="logo-icon"> </span>&ndash;&gt;
           </div>
-        </div>
+        </div>-->
       </ion-col>
     </ion-row>
     <!--<ion-title> {{ 'exhibitionPage.title' | translate }}</ion-title>-->
@@ -46,15 +68,27 @@
   <div #map id="map"></div>
   <ion-grid no-padding>
 
+    <!--<ion-row>
+      <ion-col col-12>
+        <div class="new-top-logo" style="width: 100%; background: blue;">
+          <div class="inner-divs"></div>
+          <div class="inner-divs"></div>
+          <div class="inner-divs"></div>
+          <div class="inner-divs"></div>
+          <div class="inner-divs"></div>
+          <div style="clear: both!important;"></div>
+        </div>
+      </ion-col>
+    </ion-row>-->
 
     <ion-row no-padding>
-      <ion-col col-9 no-padding style="border-right: 2px solid #eee;">
+      <ion-col col-9 no-padding>
         <div class="exibition-slide" >
             <!--<ion-card>-->
                 <ion-slides autoplay="3000" pager loop="false" effect="false">
                     <ion-slide *ngFor="let i of slider">
                         <!--<div>-->
-                            <img src="{{i.logo}}" style="height: 160px" (click)="openBrand(i.show_url)">
+                            <img src="{{i.logo}}" style="margin-top: 5px; padding-left: 7px; padding-right: 7px; border: 1px solid green; height: 150px" (click)="openBrand(i.show_url)">
                             <!--<img src="https://app.soexpo.net/assets/corals/images/avatars/avatar_3.png" alt="" style="height: 160px" (click)="openCompany(i.show_url)">-->
                         <!--</div>-->
                     </ion-slide>
@@ -62,8 +96,11 @@
             <!--</ion-card>-->
         </div>
       </ion-col>
-      <ion-col col-3 no-padding>
+      <ion-col col-3 no-padding style="border-left: 2px solid #eee;">
         <div class="exhibition-slider-name">
+          <div class="diamond-pic">
+            <img src="../../assets/content/two.gif" alt="">
+          </div>
           <!--<div class="arabic-name">الراعي الماسي</div>-->
           <!--<div class="english-name">Diamond Sponsor</div>-->
           <div class="arabic-name"><b>{{ 'exhibitionPage.slider' | translate }}</b></div>
