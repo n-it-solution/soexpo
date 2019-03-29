@@ -23,6 +23,8 @@ import { InAppBrowser } from '@ionic-native/in-app-browser';
 export class RegisterPage {
   echibitionData:any;
   exhibitions:any;
+  errors:any;
+  errorStatus:boolean = false;
   registerData  = {name: "", email: "", password: "", password_confirmation: "", phone_number: "",exhibitions:[], terms: 0 };
   submitForm(){
     const httpOptions = {
@@ -37,7 +39,7 @@ export class RegisterPage {
       alert('Enter Complete details in form')
     } else
       {
-      this.data = this.httpClient.post(this.globalvar.apiUrl+'auth/register?lang=en',this.registerData,httpOptions);
+      this.data = this.httpClient.post(this.globalvar.apiUrl+'auth/register?lang='+this.lang,this.registerData,httpOptions);
       this.data
         .subscribe(data => {
           console.log(data);
@@ -49,6 +51,8 @@ export class RegisterPage {
         },error=> {
           console.log(error);
           if(error.status == 422){
+            this.errors = error.error.errors;
+            this.errorStatus = true;
             alert(error.error.message)
           }
           console.log(error.error.message)

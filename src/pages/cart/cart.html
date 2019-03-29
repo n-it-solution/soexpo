@@ -7,7 +7,7 @@
     <button ion-button menuToggle right>
       <ion-icon name="menu" color="dark"></ion-icon>
     </button>
-    <ion-title>Cart</ion-title>
+    <ion-title>{{ 'cartPage.title' | translate}}</ion-title>
   </ion-navbar>
 
 </ion-header>
@@ -32,19 +32,19 @@
                 <ion-icon class="add-icon"  (click)="addQuantity(in)" name="add-circle"></ion-icon>
               </div>
               <div class="quantity-right">
-                <div class="remove-product" (click)="removeFromCart(i.brand_id)">Remove</div>
+                <div class="remove-product" (click)="removeFromCart(i.brand_id)">{{ 'cartPage.remove' | translate}}</div>
               </div>
               <div class="clearfix"></div>
             </div>
             <div class="clearfix"></div>
-            <div class="product-price-section">
-              <div class="price-left">
-                <ion-icon name="planet"></ion-icon>
-                <span> &nbsp; EMDAD</span>
-              </div>
-              <!--<div class="price-right">Company Name Here</div>-->
-              <div class="clearfix"></div>
-            </div>
+            <!--<div class="product-price-section">-->
+              <!--<div class="price-left">-->
+                <!--<ion-icon name="planet"></ion-icon>-->
+                <!--&lt;!&ndash;<span> &nbsp; EMDAD</span>&ndash;&gt;-->
+              <!--</div>-->
+              <!--&lt;!&ndash;<div class="price-right">Company Name Here</div>&ndash;&gt;-->
+              <!--<div class="clearfix"></div>-->
+            <!--</div>-->
           </div>
           <div class="clearfix"></div>
         </div><!--cart product section end-->
@@ -80,7 +80,7 @@
         <!--</div>&lt;!&ndash;cart product section end&ndash;&gt;-->
 
         <div class="proceed-btn">
-          <button class="proceed" ion-button (click)="submitCart()">Send Request</button>
+          <button class="proceed" ion-button (click)="submitCart()">{{'cartPage.send' | translate}}</button>
         </div>
       </ion-col>
     </ion-row>

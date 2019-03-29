@@ -28,11 +28,12 @@ export class CompanyPage {
   sponsor_participants:any;
   skeltonData = [{
     "id": 1,
-    "name": "",
+    "name": "hello",
     "logo" : "",
     "show_url": "https://app.soexpo.net/api/companies/v1oz1Yz27j",
     "rating_url": "https://app.soexpo.net/api/companies/rate/v1oz1Yz27j",
   }];
+  showData:boolean = false;
   openBrand(url){
     if (this.loginStatus) {
       console.log(url);
@@ -84,6 +85,7 @@ export class CompanyPage {
             this.sponsor_golden = data.data.sponsor_golden;
             this.sponsor_participants = data.data.slider.slides;
             console.log(this.sponsor_participants);
+            this.showData = true;
             // console.log(this.sponsor_silver);
           }
         },error=> {
@@ -109,7 +111,8 @@ export class CompanyPage {
               public translate: TranslateService,
               private storage: Storage,
   ) {
-    console.log(1);
+    console.log(this.navParams.get('name'));
+    console.log(2);
     this.lang = globalVar.lang;
     translate.setDefaultLang(this.lang);
     this.loginData = this.globalVar.loginData;

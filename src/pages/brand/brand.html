@@ -42,7 +42,7 @@
           <div class="brand-right">
             <div style="width: 100%;  text-align: right;">
               <div style="width: 100%; text-align: right;">
-                <img src="../../assets/content/logo.png" style=" padding-right: 10px; background: transparent; border-radius:15px; width: 70px;" class="logo-icon">
+                <img src="{{companyDetails.logo}}" style=" padding-right: 10px; background: transparent; border-radius:15px; width: 70px;" class="logo-icon">
                 <!--<img src="{{companyDetails.logo}}" style=" padding-right: 10px; background: transparent; border-radius:15px; width: 70px;" class="logo-icon">-->
               </div>
             </div>
@@ -182,6 +182,9 @@
           <div class="models" (click)="changeTab('models')">
             <button ion-button color="dark" [ngClass]="{'active': tab == 'models'}"><ion-icon class="team-icon" name="cube"></ion-icon>{{'brandPage.models.title' | translate}}</button>
           </div>
+          <div class="models" (click)="changeTab('videos')">
+            <button ion-button color="dark" [ngClass]="{'active': tab == 'videos'}"><ion-icon class="team-icon" name="cube"></ion-icon>{{'brandPage.gallery.title' | translate}}</button>
+          </div>
         </div>
       </ion-col>
     </ion-row>
@@ -255,6 +258,25 @@
                   <a *ngIf="!addToCartCheck(i.id)"><ion-icon class="add-to-cart-icon" name="cart"></ion-icon>{{'brandPage.models.rCart' | translate}}</a>
                 </div>
               </div>
+              <div class="clearfix"></div>
+            </div>
+          </div>
+          <div class="models-tab" *ngIf="tab == 'videos'">
+            <ion-row no-padding>
+              <ion-col col-12 no-padding>
+                <div class="company-slide">
+                  <ion-slides autoplay="3000" pager loop="true" effect="false" *ngIf="showGallery">
+                    <ion-slide *ngFor="let i of gallery">
+                      <!--<img src="../../assets/content/company-slide/1.png" alt="">-->
+                      <img src="{{ i.url }}" alt="">
+                    </ion-slide>
+                  </ion-slides>
+                </div>
+              </ion-col>
+            </ion-row>
+            <div class="main-product-section" *ngFor="let i of videos">
+              <iframe width="100%" height="auto" [src]="check11(i)" frameborder="0" allowfullscreen></iframe>
+<!--              <p>{{i}}</p>-->
               <div class="clearfix"></div>
             </div>
           </div>

@@ -3,14 +3,6 @@
     <button ion-button menuToggle right>
       <ion-icon name="menu" color="dark"></ion-icon>
     </button>
-    <ion-title> {{ 'exhibitionPage.title' | translate }}</ion-title>
-  </ion-navbar>
-</ion-header>
-
-<ion-content no-padding>
-  <div #map id="map"></div>
-  <ion-grid no-padding>
-
     <ion-row no-padding>
       <ion-col col-12 no-padding>
         <div class="topbar">
@@ -46,6 +38,15 @@
         </div>
       </ion-col>
     </ion-row>
+    <!--<ion-title> {{ 'exhibitionPage.title' | translate }}</ion-title>-->
+  </ion-navbar>
+</ion-header>
+
+<ion-content no-padding>
+  <div #map id="map"></div>
+  <ion-grid no-padding>
+
+
     <ion-row no-padding>
       <ion-col col-9 no-padding style="border-right: 2px solid #eee;">
         <div class="exibition-slide" >
@@ -65,7 +66,7 @@
         <div class="exhibition-slider-name">
           <!--<div class="arabic-name">الراعي الماسي</div>-->
           <!--<div class="english-name">Diamond Sponsor</div>-->
-          <div class="arabic-name">{{ 'exhibitionPage.slider' | translate }}</div>
+          <div class="arabic-name"><b>{{ 'exhibitionPage.slider' | translate }}</b></div>
         </div>
       </ion-col>
     </ion-row>
@@ -78,7 +79,7 @@
     </ion-row>
     <ion-row no-padding>
       <ion-col col-12>
-        <div class="main-icon-div" *ngFor="let i of exhibition;let in = index" (click)="openCompany(i.show_url)">
+        <div class="main-icon-div" *ngFor="let i of exhibition;let in = index" (click)="openCompany(i.show_url,i.name)">
           <div class="left-icon">
             <div class="category-img">
               <!--<a><img src="../../assets/content/1.png" style="width: 100px;" alt="icon1"></a>-->

@@ -25,3 +25,9 @@
   min-width: 12px;
   font-size: 2rem;
 }
+//a[aria-controls = tabpanel-t0-3] {
+//  display: none;
+//}
+.show-tabbar a:nth-child(4){
+  display: none!important;
+}

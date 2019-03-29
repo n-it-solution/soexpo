@@ -18,7 +18,17 @@
         </div>
       </ion-col>
     </ion-row>
-
+    <div class="errors" *ngIf="errorStatus">
+      <div *ngIf="errors.email">
+        <p *ngFor="let i of errors.email">{{i}}</p>
+      </div>
+      <div *ngIf="errors.password">
+        <p *ngFor="let i of errors.password">{{i}}</p>
+      </div>
+      <div *ngIf="errors.exhibitions">
+        <p *ngFor="let i of errors.exhibitions">{{i}}</p>
+      </div>
+    </div>
     <ion-row>
       <ion-col col-12>
         <div class="myform">
@@ -69,8 +79,8 @@
             </div>
           </div>
           <div class="btns">
-            <div class="reg-btn">
-              <a style="margin-left: 20%" href="http://www.soexpo.net/en/privacy-policy-2/" target="_blank">{{ 'RegisterPage.term' | translate}}</a>
+            <div class="term-btn">
+              <a href="http://www.soexpo.net/en/privacy-policy-2/" target="_blank">{{ 'RegisterPage.term' | translate}}</a>
             </div>
             <div class="reg-btn">
               <button ion-button (click)="submitForm()">{{ 'RegisterPage.create' | translate}}</button>

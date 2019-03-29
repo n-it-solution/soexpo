@@ -6,6 +6,7 @@ import { ToastController } from 'ionic-angular';
 import { HttpHeaders } from '@angular/common/http';
 import {TabsPage} from "../tabs/tabs";
 import {Storage} from "@ionic/storage";
+import {TranslateService} from "@ngx-translate/core";
 
 /**
  * Generated class for the UpdateProfilePage page.
@@ -106,8 +107,7 @@ export class UpdateProfilePage {
     // this.userData.exhibitions = this.exhibition1;
     console.log(this.exhibition1);
      console.log(this.userData);
-     this.userData.job_title = 'helllo';
-     console.log(this.userData);
+     // this.userData.job_title = 'helllo';
     const httpOptions1 = {
       headers: new HttpHeaders({
         'Authorization':  this.token,
@@ -144,6 +144,7 @@ export class UpdateProfilePage {
     const val = ev.target.value;
     console.log(val);
   }
+  lang:any = 'en';
   userData1:any;
   constructor(public navCtrl: NavController, public navParams: NavParams,
               public httpClient: HttpClient,
@@ -151,8 +152,11 @@ export class UpdateProfilePage {
               public toastCtrl: ToastController,
               public globalvar: GloaleVariablesProvider,
               private storage: Storage,
-              public events: Events
+              public events: Events,
+              public translate: TranslateService
   ) {
+    this.lang = globalVar.lang;
+    translate.setDefaultLang(this.lang);
     this.userData1 = globalVar.updateAbleLoginData;
     this.userData.name = this.userData1.name;
     this.userData.email = this.userData1.email;
@@ -178,7 +182,7 @@ export class UpdateProfilePage {
     else {
       console.log('fetched1')
     }
-    this.data = httpClient.get(globalVar.apiUrl+'get-exhibitions-list?lang=en',httpOptions);
+    this.data = httpClient.get(globalVar.apiUrl+'get-exhibitions-list?lang='+this.lang,httpOptions);
     // this.data = httpClient.get('https://app.soexpo.net/api/get-countries-list');
     this.data
       .subscribe(data => {

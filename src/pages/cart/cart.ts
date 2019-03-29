@@ -10,6 +10,7 @@ import { HttpHeaders } from '@angular/common/http';
 import {CompanyPage} from "../company/company";
 import {UpdateProfilePage} from "../update-profile/update-profile";
 import {ProDetailPage} from "../pro-detail/pro-detail";
+import {TranslateService} from "@ngx-translate/core";
 
 /**
  * Generated class for the CartPage page.
@@ -100,8 +101,10 @@ export class CartPage {
               private storage: Storage,
               public httpClient: HttpClient,
               public globalvar: GloaleVariablesProvider,
-              public events: Events
+              public events: Events,
+              public translate: TranslateService
   ) {
+    translate.setDefaultLang(globalvar.lang);
     this.storage.get('cart').then((data)=>{
       if (data != null) {
         console.log(data);

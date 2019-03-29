@@ -1,7 +1,7 @@
 import { Component, ViewChild } from '@angular/core';
-import {Events, Nav, Platform} from 'ionic-angular';
+import {AlertController, Events, Nav, Platform} from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
-import { SplashScreen } from '@ionic-native/splash-screen';
+// import { SplashScreen } from '@ionic-native/splash-screen';
 import { HomePage } from '../pages/home/home';
 import { ListPage } from '../pages/list/list';
 import {TabsPage} from "../pages/tabs/tabs";
@@ -31,6 +31,8 @@ import {ActivatePage} from "../pages/activate/activate";
 import {ContactPage} from "../pages/contact/contact";
 import {SplashPage} from "../pages/splash/splash";
 import {MapPage} from "../pages/map/map";
+import {el} from "@angular/platform-browser/testing/src/browser_util";
+import {AdvancedSearchedPage} from "../pages/advanced-searched/advanced-searched";
 
 @Component({
   templateUrl: 'app.html'
@@ -65,6 +67,7 @@ export class MyApp {
   withOutLoginMenu(){
     this.pages = [
       { title: 'menu.Exhibition', component: TabsPage, icon: 'home' },
+      { title: 'menu.advancedSearched', component: AdvancedSearchedPage, icon: 'search'},
       { title: 'menu.Login', component: LoginPage, icon: 'lock'},
       { title: 'menu.Register', component: RegisterPage, icon: 'person-add'},
       { title: 'menu.Activate', component: ActivatePage, icon: 'key'},
@@ -74,10 +77,10 @@ export class MyApp {
     console.log('withOutLoginMenu');
   }
   loginMenu(){
-    console.log(1);
-    console.log(1);
+    console.log(1000000);
     this.pages = [
       { title: 'menu.Exhibition', component: TabsPage, icon: 'home'},
+      { title: 'menu.advancedSearched', component: AdvancedSearchedPage, icon: 'search'},
       { title: 'menu.Notification', component: NotificationPage, icon: 'notifications-outline' },
       { title: 'menu.Profile', component: ProfilePage, icon: 'person' },
       { title: 'menu.Cart', component: CartPage, icon: 'cart' },
@@ -89,13 +92,17 @@ export class MyApp {
     console.log(this.pages);
     this.checkActivate();
   }
-  constructor(public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen,
+  constructor(public platform: Platform, public statusBar: StatusBar,
+              // public splashScreen: SplashScreen,
               public translate: TranslateService,public events: Events,public globalVar: GloaleVariablesProvider,
               private storage: Storage,
+              private alertCtrl: AlertController,
   ) {
     this.withOutLoginMenu();
     events.subscribe('user:logged', (data) => {
       console.log('logged in');
+      this.loginSatatus = true;
+      this.loginData = data;
       this.loginMenu();
     });
     events.subscribe('user:logout', () => {
@@ -118,13 +125,69 @@ export class MyApp {
       // Okay, so the platform is ready and our plugins are available.
       // Here you can do any higher level native things you might need.
       this.statusBar.styleDefault();
-      this.splashScreen.hide();
+      // this.splashScreen.hide();
     });
   }
-
+  logoutConfirm(page){
+    let yesText;
+    this.translate.get('logout.yes').subscribe(
+      value => {
+        yesText = value;
+      }
+    );
+    console.log(yesText);
+    let noText;
+    this.translate.get('logout.no').subscribe(
+      value => {
+        noText = value;
+      }
+    );
+    console.log(noText);
+    let title;
+    this.translate.get('logout.title').subscribe(
+      value => {
+        title = value;
+      }
+    );
+    let alert = this.alertCtrl.create({
+      title: title,
+      buttons: [
+        {
+          text: noText,
+          role: 'cancel',
+          handler: data => {
+            console.log('Cancel clicked');
+          }
+        },
+        {
+          text: yesText,
+          handler: data => {
+            console.log('ok clicked');
+            console.log(data);
+            this.nav.setRoot(page);
+            // this.viewCtrl.dismiss();
+            // this.changeLang(data)
+          }
+        }
+      ]
+    });
+    alert.present();
+  }
   openPage(page) {
     // Reset the content nav to have just this page
     // we wouldn't want the back button to show in this scenario
-    this.nav.setRoot(page.component);
+    if (page.component == NotificationPage || page.component == ProfilePage ||
+        page.component == CartPage || page.component == ContactPage || page.component == AboutPage ||
+        page .component == AdvancedSearchedPage
+    ){
+      // this.events.publish('open:tab',page.component);
+      this.nav.setRoot(TabsPage,{'openPageInTab' : page.component});
+    }else{
+      if (page.component == LogoutPage) {
+        this.logoutConfirm(page.component);
+      } else {
+        this.nav.setRoot(page.component);
+      }
+    }
   }
 }

@@ -29,6 +29,9 @@
     },
     "location" : {
       "title" : "location"
+    },
+    "gallery": {
+      "title": "video/gallery"
     }
   },
   "proDetail": {
@@ -85,7 +88,8 @@
     "tit" : "Job Title",
     "about" : "About",
     "exhi" : "Exhibition",
-    "edit" : "Edit Profile"
+    "edit" : "Edit Profile",
+    "pChange": "Change Password"
   },
   "AboutPage": {
     "title" : "About Us"
@@ -102,6 +106,7 @@
     "news" : "News"
   },
   "menu": {
+    "title": "Menu",
     "Notification" : "Notification",
     "Profile" : "Profile",
     "Cart" : "Cart",
@@ -111,7 +116,13 @@
     "Exhibition" : "Exhibition",
     "Activate" : "Activate",
     "About" : "About Us",
-    "Contact" : "Contact Us"
+    "Contact" : "Contact Us",
+    "advancedSearched": "Advanced Searched"
+  },
+  "logout": {
+    "title": "Are you sure?",
+    "yes": "Yes",
+    "no" : "No"
   },
   "activatePage":{
     "title" : "Activate",
@@ -122,5 +133,26 @@
   },
   "search" : "Search",
   "Register": "Register1111",
-  "CAT": "Cat"
+  "CAT": "Cat",
+  "cartPage" : {
+    "title" : "Cart",
+    "remove" : "Remove",
+    "send" : "Send Request"
+  },
+  "updatePage": {
+    "title": "Update Profile",
+    "name": "Name",
+    "email": "E-mail:",
+    "phone": "Phone#:",
+    "exhibition:": "Exhibition:",
+    "about": "About",
+    "jTitle": "Job Title"
+  },
+  "pChangePage": {
+    "title": "Password Change",
+    "password": "Password",
+    "confirmPassword": "Confirm Password",
+    "currentPassword": "Current Password",
+    "submit": "Submit"
+  }
 }

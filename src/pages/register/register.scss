@@ -66,7 +66,15 @@ page-register {
   .cpassword-input{
     color: #333333;
   }
-
+.term-btn {
+  text-align: center;
+  width: 100%;
+}
+.term-btn a{
+  color: black;
+  text-decoration: none;
+  font-size: 12px;
+}
 
   .btns{
     width: 100%;
@@ -93,5 +101,14 @@ page-register {
     border: 1px solid #333333;
     background: #186e47!important;
   }
-
+  .errors{
+    width: 90%;
+    margin: 0 auto;
+    text-align: center;
+    color: #f80909b3;
+    font-weight: bold
+  }
+  .errors div p {
+    margin-top: 2px;
+  }
 }

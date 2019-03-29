@@ -1,5 +1,5 @@
-import { Component } from '@angular/core';
-import {AlertController, IonicPage, NavController, NavParams} from 'ionic-angular';
+import { Component, ViewChild } from '@angular/core';
+import {AlertController, IonicPage, NavController, NavParams, Slides} from 'ionic-angular';
 import {TabsPage} from "../tabs/tabs";
 import {Tab1Page} from "../tab1/tab1";
 import {NewsPage} from "../news/news";
@@ -15,12 +15,16 @@ import {el} from "@angular/platform-browser/testing/src/browser_util";
 import {CartPage} from "../cart/cart";
 import { Events } from 'ionic-angular';
 import {BrandPage} from "../brand/brand";
+import {Observable} from 'Rxjs/rx';
+
 @IonicPage()
 @Component({
   selector: 'page-exhibition',
   templateUrl: 'exhibition.html',
 })
 export class ExhibitionPage {
+  @ViewChild(Slides) slides: Slides;
+  sliderObservable:any;
   meta:any;
   data:any;
   exhibition = [];
@@ -45,6 +49,24 @@ export class ExhibitionPage {
     this.events.publish('lang:changed',value);
     this.getExhibition();
   }
+
+  ionViewDidEnter(){
+    this.sliderObservable = Observable.interval(3000).subscribe(x => {
+      setTimeout(()=>{
+        this.autoPlaySlider(); }, 3000);
+    });
+  }
+
+  autoPlaySlider(){
+    var slider_index = this.slides.getActiveIndex();
+    if(slider_index < this.slider.length){
+      this.slides.slideTo(slider_index+1);
+    }
+    else{
+      this.slides.slideTo(0);
+    }
+  }
+
   presentPrompt() {
     let cancelText;
     this.translate.get('exhibitionPage.change.cancel').subscribe(
@@ -112,9 +134,9 @@ export class ExhibitionPage {
   openNot(){
     this.navCtrl.push(NotificationPage);
   }
-  openCompany(url){
-  console.log(url);
-  this.navCtrl.push(CompanyPage,{url: url})
+  openCompany(url,name){
+    console.log(url);
+    this.navCtrl.push(CompanyPage,{url: url,name: name})
   }
   openBrand(url){
     if (this.loginStatus) {
@@ -137,24 +159,24 @@ export class ExhibitionPage {
         let page = this.meta.current_page + 1;
         this.data = this.httpClient.get(this.globalVar.apiUrl+'exhibitions?page='+page+'&lang='+this.lang);
         this.data
-            .subscribe(data => {
-              console.log(data);
-              if (data.level == 'success'){
-                console.log(data.data.data);
-                for (let i = 0; i < data.data.data.length; i++) {
-                  console.log(i);
-                  this.exhibition.push(data.data.data[i])
-                }
-                this.meta = data.data.meta.pagination;
-                console.log(this.exhibition);
-                // this.toastShow('News updated');
-                infiniteScroll.complete();
+          .subscribe(data => {
+            console.log(data);
+            if (data.level == 'success'){
+              console.log(data.data.data);
+              for (let i = 0; i < data.data.data.length; i++) {
+                console.log(i);
+                this.exhibition.push(data.data.data[i])
               }
-            },error=> {
-              console.log(error);
-              // this.toastShow('An error accrue');
+              this.meta = data.data.meta.pagination;
+              console.log(this.exhibition);
+              // this.toastShow('News updated');
               infiniteScroll.complete();
-            });
+            }
+          },error=> {
+            console.log(error);
+            // this.toastShow('An error accrue');
+            infiniteScroll.complete();
+          });
       }else {
         // this.toastShow('News already updated');
         this.loadMore = false;
@@ -279,7 +301,7 @@ export class ExhibitionPage {
         console.log(data.data.data);
         if (data.level == 'success'){
           this.slider = data.data.data;
-          console.log(this.slider)
+          console.log("Slider: "+this.slider)
         }
       },error=> {
         console.log(error);

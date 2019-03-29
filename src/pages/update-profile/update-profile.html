@@ -7,7 +7,7 @@
     <button ion-button menuToggle right>
       <ion-icon name="menu" color="dark"></ion-icon>
     </button>
-    <ion-title>Update Profile</ion-title>
+    <ion-title>{{'updatePage.title' | translate}}</ion-title>
   </ion-navbar>
 
 </ion-header>
@@ -19,8 +19,8 @@
     <ion-row>
       <ion-col col-12>
         <div class="top-user-pic-update">
-          <img src="../../assets/content/welcome.png" alt="">
-          <div class="username-update">Full Name</div>
+          <img src="{{ globalVar.loginData.picture }}" alt="">
+          <div class="username-update">{{ userData.name }}</div>
         </div>
       </ion-col>
     </ion-row>
@@ -31,10 +31,10 @@
             <div class="email-icon-update">
               <ion-icon class="em-icon-update" name="person"></ion-icon>
             </div>
-            <div class="email-heading-update">Name</div>
+            <div class="email-heading-update">{{'updatePage.name' | translate}}</div>
             <div class="email-address-update">
               <ion-item style="background: transparent!important;">
-                <ion-input type="text" [(ngModel)]="userData.name" placeholder="Enter your name" name="name"></ion-input>
+                <ion-input type="text" [(ngModel)]="userData.name" name="name"></ion-input>
                 <!--<ion-input clearInput class="email-input" type="email" [ngModel]="name2" (change)="getBrand($event)" placeholder="Example: demo@gmail.com"></ion-input>-->
               </ion-item>
             </div>
@@ -44,10 +44,10 @@
             <div class="email-icon-update">
               <ion-icon class="em-icon-update" name="mail"></ion-icon>
             </div>
-            <div class="email-heading-update">E-mail:</div>
+            <div class="email-heading-update">{{'updatePage.email' | translate}}</div>
             <div class="email-address-update">
               <ion-item style="background: transparent!important;">
-                <ion-input type="email" [(ngModel)]="userData.email" placeholder="Enter your email" name="Email"></ion-input>
+                <ion-input type="email" [(ngModel)]="userData.email" name="Email"></ion-input>
                 <!--<ion-input clearInput class="email-input" type="email" value="{{profile.email}}" [ngModel]="registerData.name" placeholder="Example: demo@gmail.com"></ion-input>-->
               </ion-item>
             </div>
@@ -57,7 +57,7 @@
             <div class="phone-icon-update">
               <ion-icon class="ph-icon-update" name="call"></ion-icon>
             </div>
-            <div class="phone-heading-update">Phone#:</div>
+            <div class="phone-heading-update">{{'updatePage.phone' | translate}}</div>
             <div class="phone-address-update">
               <ion-item style="background: transparent!important;">
                 <ion-input type="text" [(ngModel)]="userData.phone_number" value="{{userData1.phone}}" placeholder="Enter your Phone number" name="text"></ion-input>
@@ -70,7 +70,7 @@
             <div class="exhi-icon-update">
               <ion-icon class="ex-icon-update" name="heart"></ion-icon>
             </div>
-            <div class="exhi-heading-update">Exhibition:</div>
+            <div class="exhi-heading-update">{{'updatePage.exhibition' | translate}}</div>
             <div class="exhi-address-update">
               <ion-item style="background: transparent!important;">
                     <!--<ion-label>Gaming</ion-label>-->
@@ -88,7 +88,7 @@
             <div class="exhi-icon-update">
               <ion-icon class="ex-icon-update" name="person"></ion-icon>
             </div>
-            <div class="exhi-heading-update">About</div>
+            <div class="exhi-heading-update">{{'updatePage.about' | translate}}</div>
             <div class="exhi-address-update">
               <ion-item style="background: transparent!important;">
                 <ion-input type="text" placeholder="About your self" [(ngModel)]="userData.about" name="text"></ion-input>
@@ -101,7 +101,7 @@
             <div class="exhi-icon-update">
               <ion-icon class="ex-icon-update" name="code-working"></ion-icon>
             </div>
-            <div class="exhi-heading-update">Job Title</div>
+            <div class="exhi-heading-update">{{'updatePage.jTitle' | translate}}</div>
             <div class="exhi-address-update">
               <ion-item style="background: transparent!important;">
                 <ion-input type="text" placeholder="Job title" [(ngModel)]="userData.job_title" name="Email"></ion-input>
@@ -112,11 +112,8 @@
           </div>
         </div>
         <div class="edit-button-update">
-          <div class="goback">
-            <button ion-button>Go Back</button>
-          </div>
           <div class="update-btn">
-            <button ion-button (click)="checkEditData1()">Update Profile</button>
+            <button ion-button (click)="checkEditData1()">{{'updatePage.title' | translate}}</button>
           </div>
         </div>
         <!--<button ion-button (click)="checkEditData1()">Update Profile</button>-->

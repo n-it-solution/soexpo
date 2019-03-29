@@ -11,6 +11,7 @@ import { TranslateService } from '@ngx-translate/core';
 import {Storage} from '@ionic/storage';
 import { Events } from 'ionic-angular';
 import {MapPage} from "../map/map";
+import {DomSanitizer,SafeResourceUrl,} from '@angular/platform-browser';
 @IonicPage()
 @Component({
   selector: 'page-brand',
@@ -18,6 +19,11 @@ import {MapPage} from "../map/map";
 })
 export class BrandPage {
   tab:any;
+  videos:any = [];
+  gallery:any = [];
+  showGallery: boolean = false;
+  videoTestLink = 'https://www.youtube.com/embed/1F_UQFlPiKU';
+  videoTestLink2: any;
   changeTab(tab){
     if(tab == 'location'){
       this.navCtrl.push(MapPage,{locations : this.locations});
@@ -261,7 +267,8 @@ export class BrandPage {
               private alertCtrl: AlertController,
               public translate: TranslateService,
               private storage: Storage,
-              public events: Events
+              public events: Events,
+              public sanitizer:DomSanitizer
   ) {
     this.lang = globalVar.lang;
     translate.setDefaultLang(this.lang);
@@ -297,6 +304,10 @@ export class BrandPage {
               this.brands.push(data.data.brands.data[i]);
               this.brandSafeData.push(data.data.brands.data[i]);
             }
+            this.videos = data.data.videos;
+            console.log(this.videos);
+            this.gallery = data.data.gallery;
+            this.showGallery = true;
             console.log(this.brands);
             this.showRating = true;
           }
@@ -305,9 +316,13 @@ export class BrandPage {
         });
     this.tab = 'models';
   }
-
+  check11(url){
+    return this.sanitizer.bypassSecurityTrustResourceUrl(url);
+  }
   ionViewDidLoad() {
     console.log('ionViewDidLoad BrandPage');
+    this.videoTestLink2 = this.sanitizer.bypassSecurityTrustResourceUrl(this.videoTestLink);
+    console.log(this.videoTestLink2);
   }
 
 }

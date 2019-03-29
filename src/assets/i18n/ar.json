@@ -29,6 +29,9 @@
     },
     "location" : {
       "title" : "الموقع"
+    },
+    "gallery": {
+      "title": "video/gallery"
     }
   },
   "proDetail": {
@@ -85,7 +88,8 @@
     "tit" : "عنوان وظيفي",
     "about" : "حول",
     "exhi" : "معرض",
-    "edit" : "تعديل الملف الشخصي"
+    "edit" : "تعديل الملف الشخصي",
+    "pChange": "Change Password"
   },
   "AboutPage": {
     "title" : "من نحن"
@@ -94,7 +98,7 @@
     "title" : "تواصل معنا"
   },
   "NotificationPage": {
-    "title" : "إخطارات"
+    "title" : "التنبيهات"
   },
   "TabsPage": {
     "home" : "الرئيسية",
@@ -102,7 +106,8 @@
     "news" : "الأخبار"
   },
   "menu": {
-    "Notification" : "الإخطارات",
+    "title": "القائمة الرئيسية",
+    "Notification" : "التنبيهات",
     "Profile" : "الملف الشخصي",
     "Cart" : "عربة التسوق",
     "Login" : "تسجيل الدخول",
@@ -111,7 +116,13 @@
     "Exhibition" : "المعارض",
     "Activate" : "تفعيل",
     "About" : "من نحن",
-    "Contact" : " تواصل معنا"
+    "Contact" : " تواصل معنا",
+    "advancedSearched": "Advanced Searched"
+  },
+  "logout": {
+    "title": "هل أنت متأكد؟",
+    "yes": "نعم",
+    "no" : "لا"
   },
   "activatePage":{
     "title" : "تفعيل",
@@ -121,5 +132,26 @@
   },
   "search" : "بحث",
   "Register": "Register1111",
-  "CAT": "Cat"
+  "CAT": "Cat",
+  "cartPage" : {
+    "title" : "عربة التسوق",
+    "remove" : "إزالة",
+    "send" : "طلب عرض سعر"
+  },
+  "updatePage": {
+    "title": "Update Profile",
+    "name": "اسم",
+    "email": "البريد الإلكتروني:",
+    "phone": "رقم الهاتف#:",
+    "exhibition:": "المعارض:",
+    "about": "About",
+    "jTitle": "Job Title"
+  },
+  "pChangePage": {
+    "title": "Password Change",
+    "password": "Password",
+    "confirmPassword": "Confirm Password",
+    "currentPassword": "Current Password",
+    "submit": "Save"
+  }
 }

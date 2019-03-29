@@ -8,7 +8,8 @@
     <button ion-button menuToggle right>
       <ion-icon name="menu" color="dark"></ion-icon>
     </button>
-    <ion-title>{{ 'companyPage.title' | translate }}</ion-title>
+    <!--<ion-title>{{ 'companyPage.title' | translate }}</ion-title>-->
+    <ion-title>{{navParams.get('name')}}</ion-title>
   </ion-navbar>
 
 </ion-header>
@@ -17,42 +18,44 @@
 <ion-content padding>
 
   <ion-grid no-padding>
-    <ion-row no-padding>
-      <ion-col col-12 no-padding>
-        <div class="company-slide">
-          <ion-slides autoplay="3000" pager loop="false" effect="false">
-            <ion-slide *ngFor="let i of sponsor_golden"  (click)="openBrand(i.show_url)">
+    <ng-container *ngIf="showData">
+      <ion-row no-padding>
+        <ion-col col-12 no-padding>
+          <div class="company-slide">
+            <ion-slides autoplay="3000" pager loop="true" effect="false">
+              <ion-slide *ngFor="let i of sponsor_golden"  (click)="openBrand(i.show_url)">
                 <!--<img src="../../assets/content/company-slide/1.png" alt="">-->
-                <img src="{{i.logo}}" alt="">
-            </ion-slide>
-          </ion-slides>
-        </div>
-      </ion-col>
-    </ion-row>
-    <ion-row no-padding>
-      <ion-col col-12 no-padding>
-        <div class="company-slide" style="margin-top: 10px; margin-bottom: 10px;">
-          <ion-slides autoplay="3000" pager loop="false" effect="false">
-            <ion-slide  *ngFor="let i of sponsor_participants">
+                <img src="{{ i.logo }}" alt="">
+              </ion-slide>
+            </ion-slides>
+          </div>
+        </ion-col>
+      </ion-row>
+      <ion-row no-padding>
+        <ion-col col-12 no-padding>
+          <div class="company-slide" style="margin-top: 10px; margin-bottom: 10px;">
+            <ion-slides autoplay="3000" pager loop="true" effect="false">
+              <ion-slide  *ngFor="let i of sponsor_participants">
                 <!--<img src="../../assets/content/company-slide/2.png" alt="">-->
-                <img src="{{i.content}}" alt="">
-            </ion-slide>
-          </ion-slides>
-        </div>
-      </ion-col>
-    </ion-row>
-    <ion-row no-padding>
-      <ion-col col-12 no-padding>
-        <div class="company-slide">
-          <ion-slides autoplay="3000" pager loop="false" effect="false">
-            <ion-slide *ngFor="let i of sponsor_silver" (click)="openBrand(i.show_url)">
+                <img src="{{ i.content }}" alt="">
+              </ion-slide>
+            </ion-slides>
+          </div>
+        </ion-col>
+      </ion-row>
+      <ion-row no-padding>
+        <ion-col col-12 no-padding>
+          <div class="company-slide">
+            <ion-slides autoplay="3000" pager loop="true" effect="false">
+              <ion-slide *ngFor="let i of sponsor_silver" (click)="openBrand(i.show_url)">
                 <!--<img src="../../assets/content/company-slide/1.png" alt="">-->
                 <img src="{{i.logo}}" alt="">
-            </ion-slide>
-          </ion-slides>
-        </div>
-      </ion-col>
-    </ion-row>
+              </ion-slide>
+            </ion-slides>
+          </div>
+        </ion-col>
+      </ion-row>
+    </ng-container>
     <ion-row no-padding>
       <ion-col col-12>
         <ion-searchbar placeholder="{{'search' | translate}}" (ionInput)="getItems($event)"></ion-searchbar>
@@ -61,20 +64,22 @@
 
     <ion-row no-padding>
       <ion-col col-12>
-        <div class="company-main-icon-div" *ngFor="let i of companies" (click)="openBrand(i.show_url)">
-          <div class="company-left-icon">
-            <ion-badge color="dark" style="position: absolute;margin-top: 7px!important;margin-left: -14%;" *ngIf="i.isSilver">Silver</ion-badge>
-            <ion-badge color="secondary" style="position: absolute;margin-top: 7px!important;margin-left: -14%;" *ngIf="i.isGolden" >Golden</ion-badge>
-            <div class="company-category-img">
-              <!--<a href="#"><img src="../../assets/content/company.png" style="width: 100px;" alt="icon1"></a>-->
-              <img src="{{i.logo}}" style="width: 100px;" alt="icon1">
-            </div>
-            <div class="company-category-name">
-              <!--{{i.name | slice:0:15}}-->
-              {{i.name}}
+        <ng-container  *ngIf="showData">
+          <div class="company-main-icon-div" *ngFor="let i of companies" (click)="openBrand(i.show_url)">
+            <div class="company-left-icon">
+              <ion-badge color="dark" style="position: absolute;margin-top: 7px!important;margin-left: -14%;" *ngIf="i.isSilver">Silver</ion-badge>
+              <ion-badge color="secondary" style="position: absolute;margin-top: 7px!important;margin-left: -14%;" *ngIf="i.isGolden" >Golden</ion-badge>
+              <div class="company-category-img">
+                <!--<a href="#"><img src="../../assets/content/company.png" style="width: 100px;" alt="icon1"></a>-->
+                <img src="{{i.logo}}" style="width: 100px;">
+              </div>
+              <div class="company-category-name">
+                <!--{{i.name | slice:0:15}}-->
+                {{i.name}}
+              </div>
             </div>
           </div>
-        </div>
+        </ng-container>
       </ion-col>
     </ion-row>
 

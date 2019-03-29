@@ -6,6 +6,7 @@ import { ToastController } from 'ionic-angular';
 import { HttpHeaders } from '@angular/common/http';
 import {UpdateProfilePage} from "../update-profile/update-profile";
 import {TranslateService} from "@ngx-translate/core";
+import {PasswordChangePage} from "../password-change/password-change";
 /**
  * Generated class for the ProfilePage page.
  *
@@ -49,13 +50,16 @@ export class ProfilePage {
   openEditPage(){
     this.navCtrl.push(UpdateProfilePage);
   }
+  openPassChangePage(){
+    this.navCtrl.push(PasswordChangePage);
+  }
   constructor(public navCtrl: NavController, public navParams: NavParams,
               public httpClient: HttpClient,
               public globalVar: GloaleVariablesProvider,
               public toastCtrl: ToastController,
               public translate: TranslateService
   ) {
-    translate.setDefaultLang('en');
+    translate.setDefaultLang(globalVar.lang);
     console.log(124);
     console.log(this.globalVar.loginData);
     const httpOptions = {

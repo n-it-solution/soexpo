@@ -10,7 +10,7 @@ import { Injectable } from '@angular/core';
 @Injectable()
 export class GloaleVariablesProvider {
   apiUrl = 'https://app.soexpo.net/api/';
-  loginStatus:any = false;
+  loginStatus:any;
   loginData:any;
   lang:any = 'ar';
   updateAbleLoginData:any;
