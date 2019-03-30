@@ -54,20 +54,39 @@
 </ion-row>
   <ion-row no-padding>
     <ion-col col-12>
-        <div class="company-main-icon-div" *ngFor="let i of companies" (click)="openBrand(i.show_url)">
-          <div class="company-left-icon">
-            <ion-badge color="dark" style="position: absolute;margin-top: 7px!important;margin-left: -14%;" *ngIf="i.isSilver">Silver</ion-badge>
-            <ion-badge color="secondary" style="position: absolute;margin-top: 7px!important;margin-left: -14%;" *ngIf="i.isGolden" >Golden</ion-badge>
-            <div class="company-category-img">
-              <!--<a href="#"><img src="../../assets/content/company.png" style="width: 100px;" alt="icon1"></a>-->
-              <img src="{{i.logo}}" style="width: 100px;">
-            </div>
-            <div class="company-category-name">
-              <!--{{i.name | slice:0:15}}-->
-              {{i.name}}
-            </div>
+
+      <div class="main-product-section" *ngFor="let i of companies">
+        <div class="models-left"  (click)="oepnProDetail(i.show_url)">
+          <!--<img src="../../assets/content/company.png" alt="">-->
+          <img src="{{i.image}}" alt="">
+        </div>
+        <div class="models-right">
+          <div class="model-product-name"  (click)="oepnProDetail(i.show_url)">{{i.name}}</div>
+          <div class="model-brand-name"  (click)="oepnProDetail(i.show_url)">{{i.product}}</div>
+          <div class="model-cart-btn" >
+            <a (click)="addToCart(i.id,i.image,i.show_url,i.company_id)" *ngIf="addToCartCheck(i.id)"><ion-icon class="add-to-cart-icon" name="cart"></ion-icon>{{'brandPage.models.cart' | translate}}</a>
+            <a *ngIf="!addToCartCheck(i.id)"><ion-icon class="add-to-cart-icon" name="cart"></ion-icon>{{'brandPage.models.rCart' | translate}}</a>
           </div>
         </div>
+        <div class="clearfix"></div>
+      </div>
+
+
+
+<!--        <div class="company-main-icon-div" *ngFor="let i of companies" (click)="openBrand(i.show_url)">-->
+<!--          <div class="company-left-icon">-->
+<!--            <ion-badge color="dark" style="position: absolute;margin-top: 7px!important;margin-left: -14%;" *ngIf="i.isSilver">Silver</ion-badge>-->
+<!--            <ion-badge color="secondary" style="position: absolute;margin-top: 7px!important;margin-left: -14%;" *ngIf="i.isGolden" >Golden</ion-badge>-->
+<!--            <div class="company-category-img">-->
+<!--              &lt;!&ndash;<a href="#"><img src="../../assets/content/company.png" style="width: 100px;" alt="icon1"></a>&ndash;&gt;-->
+<!--              <img src="{{i.logo}}" style="width: 100px;">-->
+<!--            </div>-->
+<!--            <div class="company-category-name">-->
+<!--              &lt;!&ndash;{{i.name | slice:0:15}}&ndash;&gt;-->
+<!--              {{i.name}}-->
+<!--            </div>-->
+<!--          </div>-->
+<!--        </div>-->
     </ion-col>
   </ion-row>
 </ion-content>

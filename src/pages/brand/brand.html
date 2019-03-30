@@ -192,95 +192,94 @@
     <ion-row padding>
       <ion-col col-12 padding>
         <div class="tab-main-div">
-          <div class="location-tab" *ngIf="tab == 'location'">
-            Location
-          </div>
-          <div class="team-tab" *ngIf="tab == 'team'">
-            <ion-row no-padding>
-              <ion-col col-12>
-                <ion-searchbar placeholder="{{'search' | translate}}" (ionInput)="getTeam($event)"></ion-searchbar>
-              </ion-col>
-            </ion-row>
-            <div class="main-team-section" *ngFor="let i of members">
-              <div class="team-left">
-                <!--<img src="../../assets/content/company.png" alt="">-->
-                <img src="{{i.picture}}" alt="">
+        <div class="location-tab" *ngIf="tab == 'location'">
+          Location
+        </div>
+        <div class="team-tab" *ngIf="tab == 'team'">
+          <ion-row no-padding>
+            <ion-col col-12>
+              <ion-searchbar placeholder="{{'search' | translate}}" (ionInput)="getTeam($event)"></ion-searchbar>
+            </ion-col>
+          </ion-row>
+          <div class="main-team-section" *ngFor="let i of members">
+            <div class="team-left">
+              <!--<img src="../../assets/content/company.png" alt="">-->
+              <img src="{{i.picture}}" alt="">
+            </div>
+            <div class="team-right">
+              <div class="team-product-name">{{i.name}}</div>
+              <div class="team-brand-name">
+                <span><a href="tel:{{i.phone}}" class="button button-positive"><ion-icon class="call-icon" name="call"></ion-icon></a></span>
+                <span><a href="mailto:{{i.email}}" class="button button-positive"><ion-icon class="mail-icon" name="mail"></ion-icon></a></span>
               </div>
-              <div class="team-right">
-                <div class="team-product-name">{{i.name}}</div>
-                <div class="team-brand-name">
-                  <span><a href="tel:{{i.phone}}" class="button button-positive"><ion-icon class="call-icon" name="call"></ion-icon></a></span>
-                  <span><a href="mailto:{{i.email}}" class="button button-positive"><ion-icon class="mail-icon" name="mail"></ion-icon></a></span>
-                </div>
-                <div class="team-cart-btn" *ngIf="show == i.id" (click)="appSubmit(i.meeting_request)">
-                  <a href="#">{{'brandPage.team.confirm' | translate}}</a>
-                </div>
-                <div class="team-cart-btn" *ngIf="hide != i.id" (click)="showDate(i.id)">
-                  <a href="#">{{'brandPage.team.book' | translate}}</a>
-                </div>
+              <div class="team-cart-btn" *ngIf="show == i.id" (click)="appSubmit(i.meeting_request)">
+                <a href="#">{{'brandPage.team.confirm' | translate}}</a>
               </div>
-              <div class="clearfix"></div>
+              <div class="team-cart-btn" *ngIf="hide != i.id" (click)="showDate(i.id)">
+                <a href="#">{{'brandPage.team.book' | translate}}</a>
+              </div>
+            </div>
+            <div class="clearfix"></div>
 
-              <div class="full-width-div">
-                <div class="left-div">
-                  <ion-item *ngIf="show == i.id">
-                    <ion-label>Start Date</ion-label>
-                    <ion-datetime displayFormat="YYYY-MM-DD H:m" pickerFormat="YYYY-MM-DD H:m" (ionChange)="startFun($event)" format="" [(ngModel)]="start"></ion-datetime>
-                  </ion-item>
-                </div>
-                <div class="right-div">
-                  <ion-item *ngIf="show == i.id">
-                    <ion-label>End Date</ion-label>
-                    <ion-datetime displayFormat="YYYY-MM-DD H:m" pickerFormat="YYYY-MM-DD H:m" (ionChange)="endFun($event)" [(ngModel)]="end"></ion-datetime>
-                  </ion-item>
-                </div>
-                <div class="clearfix"></div>
+            <div class="full-width-div">
+              <div class="left-div">
+                <ion-item *ngIf="show == i.id">
+                  <ion-label>Start Date</ion-label>
+                  <ion-datetime displayFormat="YYYY-MM-DD H:m" pickerFormat="YYYY-MM-DD H:m" (ionChange)="startFun($event)" format="" [(ngModel)]="start"></ion-datetime>
+                </ion-item>
               </div>
+              <div class="right-div">
+                <ion-item *ngIf="show == i.id">
+                  <ion-label>End Date</ion-label>
+                  <ion-datetime displayFormat="YYYY-MM-DD H:m" pickerFormat="YYYY-MM-DD H:m" (ionChange)="endFun($event)" [(ngModel)]="end"></ion-datetime>
+                </ion-item>
+              </div>
+              <div class="clearfix"></div>
+            </div>
 
-            </div>
-          </div>
-          <div class="models-tab" *ngIf="tab == 'models'">
-            <ion-row no-padding>
-              <ion-col col-12>
-                <ion-searchbar placeholder="{{'search' | translate}}" (ionInput)="getBrand($event)"></ion-searchbar>
-              </ion-col>
-            </ion-row>
-            <div class="main-product-section" *ngFor="let i of brands">
-              <div class="models-left"  (click)="oepnProDetail(i.show_url)">
-                <!--<img src="../../assets/content/company.png" alt="">-->
-                <img src="{{i.image}}" alt="">
-              </div>
-              <div class="models-right">
-                <div class="model-product-name"  (click)="oepnProDetail(i.show_url)">{{i.name}}</div>
-                <div class="model-brand-name"  (click)="oepnProDetail(i.show_url)">{{i.product}}</div>
-                <div class="model-cart-btn" >
-                  <a (click)="addToCart(i.id,i.image,i.show_url)" *ngIf="addToCartCheck(i.id)"><ion-icon class="add-to-cart-icon" name="cart"></ion-icon>{{'brandPage.models.cart' | translate}}</a>
-                  <a *ngIf="!addToCartCheck(i.id)"><ion-icon class="add-to-cart-icon" name="cart"></ion-icon>{{'brandPage.models.rCart' | translate}}</a>
-                </div>
-              </div>
-              <div class="clearfix"></div>
-            </div>
-          </div>
-          <div class="models-tab" *ngIf="tab == 'videos'">
-            <ion-row no-padding>
-              <ion-col col-12 no-padding>
-                <div class="company-slide">
-                  <ion-slides autoplay="3000" pager loop="true" effect="false" *ngIf="showGallery">
-                    <ion-slide *ngFor="let i of gallery">
-                      <!--<img src="../../assets/content/company-slide/1.png" alt="">-->
-                      <img src="{{ i.url }}" alt="">
-                    </ion-slide>
-                  </ion-slides>
-                </div>
-              </ion-col>
-            </ion-row>
-            <div class="main-product-section" *ngFor="let i of videos">
-              <iframe width="100%" height="auto" [src]="check11(i)" frameborder="0" allowfullscreen></iframe>
-<!--              <p>{{i}}</p>-->
-              <div class="clearfix"></div>
-            </div>
           </div>
         </div>
+        <div class="models-tab" *ngIf="tab == 'models'">
+          <ion-row no-padding>
+            <ion-col col-12>
+              <ion-searchbar placeholder="{{'search' | translate}}" (ionInput)="getBrand($event)"></ion-searchbar>
+            </ion-col>
+          </ion-row>
+          <div class="main-product-section" *ngFor="let i of brands">
+            <div class="models-left"  (click)="oepnProDetail(i.show_url)">
+              <!--<img src="../../assets/content/company.png" alt="">-->
+              <img src="{{i.image}}" alt="">
+            </div>
+            <div class="models-right">
+              <div class="model-product-name"  (click)="oepnProDetail(i.show_url)">{{i.name}}</div>
+              <div class="model-brand-name"  (click)="oepnProDetail(i.show_url)">{{i.product}}</div>
+              <div class="model-cart-btn" >
+                <a (click)="addToCart(i.id,i.image,i.show_url)" *ngIf="addToCartCheck(i.id)"><ion-icon class="add-to-cart-icon" name="cart"></ion-icon>{{'brandPage.models.cart' | translate}}</a>
+                <a *ngIf="!addToCartCheck(i.id)"><ion-icon class="add-to-cart-icon" name="cart"></ion-icon>{{'brandPage.models.rCart' | translate}}</a>
+              </div>
+            </div>
+            <div class="clearfix"></div>
+          </div>
+        </div>
+        <div class="models-tab" *ngIf="tab == 'videos'">
+          <ion-row no-padding>
+            <ion-col col-12 no-padding>
+              <div class="company-slide">
+                <ion-slides autoplay="3000" pager loop="true" effect="false" *ngIf="showGallery">
+                  <ion-slide *ngFor="let i of gallery">
+                    <!--<img src="../../assets/content/company-slide/1.png" alt="">-->
+                    <img src="{{ i.url }}" alt="">
+                  </ion-slide>
+                </ion-slides>
+              </div>
+            </ion-col>
+          </ion-row>
+          <div class="main-product-section" *ngFor="let i of videos">
+            <iframe width="100%"  height="auto" [src]="check11(i)" frameborder="0" allowfullscreen></iframe>
+            <div class="clearfix"></div>
+          </div>
+        </div>
+      </div>
       </ion-col>
     </ion-row>
 

@@ -1,10 +1,12 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import {Events, IonicPage, NavController, NavParams} from 'ionic-angular';
 import { HttpClient } from '@angular/common/http';
 import {GloaleVariablesProvider} from "../../providers/gloale-variables/gloale-variables";
 import {TranslateService} from "@ngx-translate/core";
 import { HttpHeaders } from '@angular/common/http';
 import {BrandPage} from "../brand/brand";
+import {ProDetailPage} from "../pro-detail/pro-detail";
+import {Storage} from "@ionic/storage";
 /**
  * Generated class for the AdvancedSearchedPage page.
  *
@@ -32,6 +34,7 @@ export class AdvancedSearchedPage {
   cities2:any = '';
   keyword:any = '';
   companies:any = [];
+  cart: any = [];
   search(){
     console.log(this.keyword);
     console.log(this.city);
@@ -39,12 +42,13 @@ export class AdvancedSearchedPage {
     const httpOptions = {
       headers: new HttpHeaders({
         'Content-Type' : 'application/json',
-        // 'X-Requested-With' : 'XMLHttpRequest'
+        // 'X-Requested-With' : 'XMLHttpRequest',
+        'Authorization' : this.globalVar.loginData.authorization
       })
     };
-    this.data4 = this.httpClient.get(this.globalVar.apiUrl+'companies-advanced-search?city_id='+this.city+'&exhibition_id='+this.exhibition+'&search='+this.keyword+'&lang='+this.globalVar.lang,httpOptions);
+    this.data4 = this.httpClient.get(this.globalVar.apiUrl+'models-advanced-search?city_id='+this.city+'&exhibition_id='+this.exhibition+'&search='+this.keyword+'&lang='+this.globalVar.lang,httpOptions);
     // this.data = httpClient.get('https://app.soexpo.net/api/get-countries-list');
-    console.log(this.globalVar.apiUrl+'companies-advanced-search?city_id='+this.city+'&exhibition_id='+this.exhibition+'&search='+this.keyword+'&lang='+this.globalVar.lang);
+    // console.log(this.globalVar.apiUrl+'models-advanced-search?city_id='+this.city+'&exhibition_id='+this.exhibition+'&search='+this.keyword+'&lang='+this.globalVar.lang);
     this.data4
       .subscribe(data => {
         console.log(data);
@@ -112,10 +116,42 @@ export class AdvancedSearchedPage {
         }
       });
   }
+  oepnProDetail(url){
+    console.log('111');
+    this.navCtrl.push(ProDetailPage,{url:url});
+  }
+  addToCartCheck(id){
+    if((this.cart.find(e => e.brand_id === id))){
+      return false
+    }
+    else {
+      return true
+    }
+  }
+  addToCart(id,image,url,company_id){
+    this.cart.push( {
+      company_id: company_id,
+      brand_id: id,
+      quantity: 1,
+      image: image,
+      show_url: url
+    });
+    console.log(this.cart);
+
+    this.storage.set("cart", this.cart);
+    this.events.publish('cart:updated',this.cart.length);
+  }
   constructor(public navCtrl: NavController, public navParams: NavParams,public httpClient: HttpClient,
               public globalVar: GloaleVariablesProvider,
-              public translate: TranslateService
+              public translate: TranslateService,private storage: Storage,public events: Events
   ) {
+    this.storage.get('cart').then((data)=>{
+      if (data != null) {
+        console.log(data);
+        this.cart = data;
+        console.log('cart+++' + this.cart)
+      }
+    });
     const httpOptions = {
       headers: new HttpHeaders({
         'Content-Type' : 'application/json',

@@ -42,7 +42,7 @@ export class MapPage {
     }
     // const location2 = new google.maps.LatLng(21.422487, 39.826206);
     // this.addMarker(location2, this.map)
-  }co
+  }
 
   addMarker(position, map){
     return new google.maps.Marker({
