@@ -178,6 +178,8 @@ export class AdvancedSearchedPage {
     this.country = 'SA';
     this.cityChange();
     console.log(1);
+    this.keyword = 'شركة سعيد';
+    this.search();
   }
 
   ionViewDidLoad() {

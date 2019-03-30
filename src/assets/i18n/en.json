@@ -18,20 +18,20 @@
     "sCompany" : "Satisfaction with Team",
     "oAssessment" : "Overall Assessment",
     "models": {
-      "title" : "MODELS",
+      "title" : "Models",
       "cart" : "Add to cart",
       "rCart": "Item added successfully"
     },
     "team" : {
-      "title" : "TEAM",
+      "title" : "Team",
       "book" : "Book Appointment",
       "confirm" : "Confirm"
     },
     "location" : {
-      "title" : "location"
+      "title" : "Location"
     },
     "gallery": {
-      "title": "video/gallery"
+      "title": "Gallery"
     }
   },
   "proDetail": {

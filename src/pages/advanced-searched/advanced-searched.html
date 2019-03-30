@@ -58,7 +58,7 @@
       <div class="main-product-section" *ngFor="let i of companies">
         <div class="models-left"  (click)="oepnProDetail(i.show_url)">
           <!--<img src="../../assets/content/company.png" alt="">-->
-          <img src="{{i.image}}" alt="">
+          <img src="{{i.image}}" style="width: 150px;" alt="">
         </div>
         <div class="models-right">
           <div class="model-product-name"  (click)="oepnProDetail(i.show_url)">{{i.name}}</div>

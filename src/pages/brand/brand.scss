@@ -297,6 +297,7 @@ page-brand {
     display: block;
     text-align: center;
     background: #333;
+    font-size: 12px!important;
     border: 1px solid #000;
   }
   .team{
@@ -314,6 +315,7 @@ page-brand {
     display: block;
     text-align: center;
     background: #333;
+    font-size: 12px!important;
     border: 1px solid #000;
   }
   .models{
@@ -331,6 +333,7 @@ page-brand {
     display: block;
     text-align: center;
     background: #333;
+    font-size: 12px!important;
     border: 1px solid #000;
   }
   .team-icon{
@@ -345,6 +348,15 @@ page-brand {
     border: 1px solid #333!important;
   }
 
+  .location button{
+    font-size: 12px!important;
+  }
+  .team button{
+    font-size: 12px!important;
+  }
+  .models button{
+    font-size: 12px!important;
+  }
 
   .tab-main-div{
     width: 100%;
@@ -443,6 +455,7 @@ page-brand {
     padding-left: 5px;
     padding-bottom: 5px;
     font-size: 14px;
+    text-transform: capitalize;
     color:#333;
   }
   .tab-main-div .team-tab .main-team-section .team-right .team-brand-name{
