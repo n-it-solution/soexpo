@@ -17,6 +17,7 @@
     "sProduct" : "الرضا عن المنتجات",
     "sCompany" : "الرضاء عن الفريق",
     "oAssessment" : "التقييم العام",
+    "rateCompany": "Rate This Company1",
     "models": {
       "title" : "الموديلات",
       "cart" : "أضف إلى السلة",
@@ -31,7 +32,7 @@
       "title" : "الموقع"
     },
     "gallery": {
-      "title": "video/gallery"
+      "title": "الميديا"
     }
   },
   "proDetail": {
@@ -45,6 +46,9 @@
   },
   "NewsPage": {
     "title" : "أخبار"
+  },
+  "newsDetailsPage": {
+    "title": "تفاصيل الخبر"
   },
   "WelcomePage": {
     "title" : "أهلا بك",
@@ -89,7 +93,7 @@
     "about" : "حول",
     "exhi" : "معرض",
     "edit" : "تعديل الملف الشخصي",
-    "pChange": "Change Password"
+    "pChange": "تغيير الرقم السري"
   },
   "AboutPage": {
     "title" : "من نحن"
@@ -117,7 +121,7 @@
     "Activate" : "تفعيل",
     "About" : "من نحن",
     "Contact" : " تواصل معنا",
-    "advancedSearched": "Advanced Searched"
+    "advancedSearched": "البحث المتقدم"
   },
   "logout": {
     "title": "هل أنت متأكد؟",
@@ -139,19 +143,27 @@
     "send" : "طلب عرض سعر"
   },
   "updatePage": {
-    "title": "Update Profile",
+    "title": "تحديث الملف الشخصي",
     "name": "اسم",
     "email": "البريد الإلكتروني:",
     "phone": "رقم الهاتف#:",
     "exhibition:": "المعارض:",
-    "about": "About",
-    "jTitle": "Job Title"
+    "about": "معلومات عن الشخص",
+    "jTitle": "الوصف الوظيفي"
   },
   "pChangePage": {
-    "title": "Password Change",
-    "password": "Password",
-    "confirmPassword": "Confirm Password",
-    "currentPassword": "Current Password",
-    "submit": "Save"
+    "title": "تغيير الرقم السري",
+    "password": "الرقم السرى الجديد",
+    "confirmPassword": "تأكيد الرقم السرى الجديد",
+    "currentPassword": "الرقم السري الحالي",
+    "submit": "حفظ"
+  },
+  "adSearchPage" : {
+    "title" : "البحث المتقدم",
+    "exhibition": "المعارض",
+    "city" : "مدينة",
+    "keyword": "Keyword",
+    "search": "Search",
+    "loginAlert": "عليك الدخول بحسابك لاستخدام هذا البحث."
   }
 }

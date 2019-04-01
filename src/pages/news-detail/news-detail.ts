@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { HttpClient } from '@angular/common/http';
 import {GloaleVariablesProvider} from "../../providers/gloale-variables/gloale-variables";
+import {TranslateService} from "@ngx-translate/core";
 /**
  * Generated class for the NewsDetailPage page.
  *
@@ -20,8 +21,9 @@ export class NewsDetailPage {
   news: any = {id: 0, title: "", published_at: "", featured_image: "", content:""};
   constructor(public navCtrl: NavController, public navParams: NavParams,
               public httpClient: HttpClient,
-              public globalVar: GloaleVariablesProvider
+              public globalVar: GloaleVariablesProvider,public translate: TranslateService,
   ) {
+    translate.setDefaultLang(globalVar.lang);
     this.url = navParams.get('url');
     this.data = httpClient.get(this.url);
     this.data

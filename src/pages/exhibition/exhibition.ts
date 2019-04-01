@@ -4,7 +4,7 @@ import {TabsPage} from "../tabs/tabs";
 import {Tab1Page} from "../tab1/tab1";
 import {NewsPage} from "../news/news";
 import {AnnouncementsPage} from "../announcements/announcements";
-import { HttpClient } from '@angular/common/http';
+import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {GloaleVariablesProvider} from "../../providers/gloale-variables/gloale-variables";
 import { ToastController } from 'ionic-angular';
 import {CompanyPage} from "../company/company";
@@ -16,6 +16,7 @@ import {CartPage} from "../cart/cart";
 import { Events } from 'ionic-angular';
 import {BrandPage} from "../brand/brand";
 import {Observable} from 'Rxjs/rx';
+import {LocalNotifications} from "@ionic-native/local-notifications";
 
 @IonicPage()
 @Component({
@@ -33,6 +34,7 @@ export class ExhibitionPage {
   lang:any;
   en:any = false;
   ar:any = false;
+  notifications: number;
   changeLang(value){
     if (value == 'en'){
       this.ar = false;
@@ -260,6 +262,7 @@ export class ExhibitionPage {
   }
   loginData:any;
   loginStatus:any;
+  notiData:any;
   constructor(public navCtrl: NavController,
               public httpClient: HttpClient,
               public globalVar: GloaleVariablesProvider,
@@ -267,7 +270,8 @@ export class ExhibitionPage {
               private storage: Storage,
               private alertCtrl: AlertController,
               public translate: TranslateService,
-              public events: Events
+              public events: Events,
+              private localNotifications: LocalNotifications
   ) {
     this.loginData = this.globalVar.loginData;
     this.loginStatus = globalVar.loginStatus;
@@ -295,6 +299,39 @@ export class ExhibitionPage {
         console.log(data)
       }
     });
+    if(globalVar.loginStatus){
+      if(globalVar.loginData.confirmed){
+        const httpOptions = {
+          headers: new HttpHeaders({
+            'Authorization':  this.loginData.authorization,
+          })
+        };
+        this.notiData = httpClient.get(this.globalVar.apiUrl+'notifications?lang='+this.lang,httpOptions);
+        this.notiData
+          .subscribe(data => {
+            console.log(data);
+            if (data.level == 'success'){
+              console.log(data.data);
+              // console.log(11111);
+              this.notifications = data.data.length;
+              if (this.notifications > 0){
+                this.localNotifications.schedule({
+                  id: 1,
+                  text: '',
+                  sound: 'file://beep.caf',
+                  title: this.notifications + ' Notifications received'
+                  // data: { secret: key }
+                });
+              }
+              // console.log(this.notification);
+            }
+          },error=> {
+            console.log(error);
+          });
+      }else {
+      }
+    }else {
+    }
     this.sliderData = httpClient.get(this.globalVar.apiUrl+'diamond-sponsors?lang='+this.lang);
     this.sliderData
       .subscribe(data => {

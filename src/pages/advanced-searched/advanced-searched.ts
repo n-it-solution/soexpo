@@ -39,28 +39,38 @@ export class AdvancedSearchedPage {
     console.log(this.keyword);
     console.log(this.city);
     console.log(this.country);
-    const httpOptions = {
-      headers: new HttpHeaders({
-        'Content-Type' : 'application/json',
-        // 'X-Requested-With' : 'XMLHttpRequest',
-        'Authorization' : this.globalVar.loginData.authorization
-      })
-    };
-    this.data4 = this.httpClient.get(this.globalVar.apiUrl+'models-advanced-search?city_id='+this.city+'&exhibition_id='+this.exhibition+'&search='+this.keyword+'&lang='+this.globalVar.lang,httpOptions);
-    // this.data = httpClient.get('https://app.soexpo.net/api/get-countries-list');
-    // console.log(this.globalVar.apiUrl+'models-advanced-search?city_id='+this.city+'&exhibition_id='+this.exhibition+'&search='+this.keyword+'&lang='+this.globalVar.lang);
-    this.data4
-      .subscribe(data => {
-        console.log(data);
-        if (data.level == 'success'){
-          this.companies = data.data.data;
+    if (this.globalVar.loginStatus){
+      const httpOptions = {
+        headers: new HttpHeaders({
+          'Content-Type' : 'application/json',
+          // 'X-Requested-With' : 'XMLHttpRequest',
+          'Authorization' : this.globalVar.loginData.authorization
+        })
+      };
+      this.data4 = this.httpClient.get(this.globalVar.apiUrl+'models-advanced-search?city_id='+this.city+'&exhibition_id='+this.exhibition+'&search='+this.keyword+'&lang='+this.globalVar.lang,httpOptions);
+      // this.data = httpClient.get('https://app.soexpo.net/api/get-countries-list');
+      // console.log(this.globalVar.apiUrl+'models-advanced-search?city_id='+this.city+'&exhibition_id='+this.exhibition+'&search='+this.keyword+'&lang='+this.globalVar.lang);
+      this.data4
+        .subscribe(data => {
+          console.log(data);
+          if (data.level == 'success'){
+            this.companies = data.data.data;
+          }
+        },error=> {
+          console.log(error);
+          if(error.status == 422){
+            alert(error.error.message)
+          }
+        });
+    }else {
+      let loginAlert;
+      this.translate.get('adSearchPage.loginAlert').subscribe(
+        value => {
+          loginAlert = value;
         }
-      },error=> {
-        console.log(error);
-        if(error.status == 422){
-          alert(error.error.message)
-        }
-      });
+      );
+      alert(loginAlert);
+    }
   }
   openBrand(url){
     if (this.globalVar.loginStatus) {
@@ -177,9 +187,6 @@ export class AdvancedSearchedPage {
       });
     this.country = 'SA';
     this.cityChange();
-    console.log(1);
-    this.keyword = 'شركة سعيد';
-    this.search();
   }
 
   ionViewDidLoad() {

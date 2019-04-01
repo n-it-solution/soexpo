@@ -17,6 +17,7 @@
     "sProduct" : "Satisfaction with Products",
     "sCompany" : "Satisfaction with Team",
     "oAssessment" : "Overall Assessment",
+    "rateCompany": "Rate This Company",
     "models": {
       "title" : "Models",
       "cart" : "Add to cart",
@@ -45,6 +46,9 @@
   },
   "NewsPage": {
     "title" : "News"
+  },
+  "newsDetailsPage": {
+    "title": "News Detail"
   },
   "WelcomePage": {
     "title" : "Welcome",
@@ -154,5 +158,13 @@
     "confirmPassword": "Confirm Password",
     "currentPassword": "Current Password",
     "submit": "Submit"
+  },
+  "adSearchPage" : {
+    "title" : "Advanced Search",
+    "exhibition": "Exhibition",
+    "city" : "City",
+    "keyword": "Keyword",
+    "search": "Search",
+    "loginAlert": "You need to login to use this search ."
   }
 }

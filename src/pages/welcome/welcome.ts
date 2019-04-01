@@ -11,6 +11,7 @@ import {BrandPage} from "../brand/brand";
 import {TabsPage} from "../tabs/tabs";
 import {TranslateService} from "@ngx-translate/core";
 import {Storage} from '@ionic/storage';
+import { LocalNotifications } from '@ionic-native/local-notifications';
 /**
  * Generated class for the WelcomePage page.
  *
@@ -31,8 +32,10 @@ export class WelcomePage {
               public httpClient: HttpClient,
               public globalVar: GloaleVariablesProvider,
               public translate: TranslateService,
-              private storage: Storage,public events: Events
+              private storage: Storage,public events: Events,
+              private localNotifications: LocalNotifications
   ) {
+    console.log(1);
     this.storage.get('language').then((data)=>{
       if (data != null) {
         translate.setDefaultLang(data);
