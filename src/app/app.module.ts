@@ -49,6 +49,8 @@ import {MapPage} from "../pages/map/map";
 import {AdvancedSearchedPage} from "../pages/advanced-searched/advanced-searched";
 import {PasswordChangePage} from "../pages/password-change/password-change";
 import { LocalNotifications } from '@ionic-native/local-notifications';
+import { Camera, CameraOptions } from '@ionic-native/camera';
+import { Base64 } from '@ionic-native/base64';
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http, "./assets/i18n/", ".json");
 }
@@ -142,7 +144,9 @@ export function HttpLoaderFactory(http: HttpClient) {
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     GloaleVariablesProvider,
     InAppBrowser,
-    LocalNotifications
+    LocalNotifications,
+    Camera,
+    Base64
   ]
 })
 export class AppModule {}

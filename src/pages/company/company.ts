@@ -8,6 +8,7 @@ import {BrandPage} from "../brand/brand";
 import { TranslateService } from '@ngx-translate/core';
 import {Storage} from "@ionic/storage";
 import {TabsPage} from "../tabs/tabs";
+
 /**
  * Generated class for the CompanyPage page.
  *
@@ -78,12 +79,15 @@ export class CompanyPage {
         .subscribe(data => {
           console.log(data);
           if (data.level == 'success'){
-            // console.log(data.data.companies);
+            console.log(data.data.companies);
             this.companies = data.data.companies;
+            console.log(this.companies);
             this.safeData = data.data.companies;
             this.sponsor_silver = data.data.sponsor_silver;
             this.sponsor_golden = data.data.sponsor_golden;
-            this.sponsor_participants = data.data.slider.slides;
+            if (data.data.slider !== null){
+              this.sponsor_participants = data.data.slider.slides;
+            }
             console.log(this.sponsor_participants);
             this.showData = true;
             // console.log(this.sponsor_silver);

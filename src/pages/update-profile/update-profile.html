@@ -17,11 +17,12 @@
 
   <ion-grid>
     <ion-row>
-      <ion-col col-12>
+      <ion-col col-12  (click)="editPic()">
         <div class="top-user-pic-update">
           <img src="{{ globalVar.loginData.picture }}" alt="">
           <div class="username-update">{{ userData.name }}</div>
         </div>
+        <ion-buttons ion-button>Click</ion-buttons>
       </ion-col>
     </ion-row>
     <ion-row no-padding>

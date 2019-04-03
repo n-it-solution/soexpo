@@ -21,11 +21,11 @@
     <ng-container *ngIf="showData">
       <ion-row no-padding>
         <ion-col col-12 no-padding>
-          <div class="company-slide">
+          <div class="company-slide" style="border: 2px solid;">
             <ion-slides autoplay="3000" pager loop="true" effect="false">
               <ion-slide *ngFor="let i of sponsor_golden"  (click)="openBrand(i.show_url)">
                 <!--<img src="../../assets/content/company-slide/1.png" alt="">-->
-                <img src="{{ i.logo }}" alt="">
+                <img src="{{ i.logo }}" alt="" style="height: 200px">
               </ion-slide>
             </ion-slides>
           </div>
@@ -37,7 +37,7 @@
             <ion-slides autoplay="3000" pager loop="true" effect="false">
               <ion-slide  *ngFor="let i of sponsor_participants">
                 <!--<img src="../../assets/content/company-slide/2.png" alt="">-->
-                <img src="{{ i.content }}" alt="">
+                <img src="{{ i.content }}" alt="" style="height: 200px">
               </ion-slide>
             </ion-slides>
           </div>
@@ -49,7 +49,7 @@
             <ion-slides autoplay="3000" pager loop="true" effect="false">
               <ion-slide *ngFor="let i of sponsor_silver" (click)="openBrand(i.show_url)">
                 <!--<img src="../../assets/content/company-slide/1.png" alt="">-->
-                <img src="{{i.logo}}" alt="">
+                <img src="{{i.logo}}" alt=""  style="height: 200px">
               </ion-slide>
             </ion-slides>
           </div>

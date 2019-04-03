@@ -112,10 +112,8 @@ export class CartPage {
       }else {
         alert('No data in cart');
       }
-
     });
   }
-
   ionViewDidLoad() {
     console.log('ionViewDidLoad CartPage');
   }

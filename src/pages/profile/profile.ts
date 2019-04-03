@@ -7,6 +7,8 @@ import { HttpHeaders } from '@angular/common/http';
 import {UpdateProfilePage} from "../update-profile/update-profile";
 import {TranslateService} from "@ngx-translate/core";
 import {PasswordChangePage} from "../password-change/password-change";
+import { Camera, CameraOptions } from '@ionic-native/camera';
+import { Base64 } from '@ionic-native/base64';
 /**
  * Generated class for the ProfilePage page.
  *
@@ -57,8 +59,42 @@ export class ProfilePage {
               public httpClient: HttpClient,
               public globalVar: GloaleVariablesProvider,
               public toastCtrl: ToastController,
-              public translate: TranslateService
+              public translate: TranslateService,
+              private camera: Camera,
+              private base64: Base64
   ) {
+    const options: CameraOptions = {
+      quality: 100,
+      destinationType: this.camera.DestinationType.FILE_URI,
+      encodingType: this.camera.EncodingType.JPEG,
+      mediaType: this.camera.MediaType.PICTURE,
+      sourceType: this.camera.PictureSourceType.SAVEDPHOTOALBUM
+    };
+
+    this.camera.getPicture(options).then((imageData) => {
+      // imageData is either a base64 encoded string or a file URI
+      // If it's base64 (DATA_URL):
+      alert(imageData);
+      this.base64.encodeFile(imageData).then((base64File: string) => {
+        console.log(base64File);
+        alert(base64File)
+      }, (err) => {
+        alert(err);
+        console.log(err);
+      });
+      let base64Image = 'data:image/jpeg;base64,' + imageData;
+      this.base64.encodeFile(base64Image).then((base64File: string) => {
+        console.log(base64File);
+        alert(base64File)
+      }, (err) => {
+        alert(err);
+        console.log(err);
+      });
+      console.log(1);
+      alert(base64Image);
+    }, (err) => {
+      // Handle error
+    });
     translate.setDefaultLang(globalVar.lang);
     console.log(124);
     console.log(this.globalVar.loginData);

@@ -7,6 +7,8 @@ import { HttpHeaders } from '@angular/common/http';
 import {TabsPage} from "../tabs/tabs";
 import {Storage} from "@ionic/storage";
 import {TranslateService} from "@ngx-translate/core";
+import {Camera, CameraOptions} from "@ionic-native/camera";
+import {Base64} from "@ionic-native/base64";
 
 /**
  * Generated class for the UpdateProfilePage page.
@@ -122,6 +124,7 @@ export class UpdateProfilePage {
       this.data1 = this.httpClient.post(this.globalvar.apiUrl+'auth/profile?lang=en',this.userData,httpOptions1);
       this.data1
         .subscribe(data => {
+          alert(JSON.stringify(data));
           console.log(data);
           if (data.level == 'success'){
             alert(data.message);
@@ -133,6 +136,7 @@ export class UpdateProfilePage {
           // this.navCtrl.setRoot(TabsPage);
         },error=> {
           console.log(error);
+          alert(JSON.stringify(error));
           if(error.status == 422){
             alert(error.error.message)
           }
@@ -146,6 +150,49 @@ export class UpdateProfilePage {
   }
   lang:any = 'en';
   userData1:any;
+  pic:any;
+  editThisPic:boolean = false;
+  editPic(){
+    // this.userData['new'] = 'hh';
+    console.log(this.userData);
+    const options: CameraOptions = {
+      quality: 100,
+      destinationType: this.camera.DestinationType.FILE_URI,
+      encodingType: this.camera.EncodingType.JPEG,
+      mediaType: this.camera.MediaType.PICTURE,
+      sourceType: this.camera.PictureSourceType.SAVEDPHOTOALBUM
+    };
+    this.camera.getPicture(options).then((imageData) => {
+      // imageData is either a base64 encoded string or a file URI
+      // If it's base64 (DATA_URL):
+      // alert(imageData);
+      this.base64.encodeFile(imageData).then((base64File: string) => {
+        console.log(base64File);
+        alert(base64File);
+        var base64Img2 = "";
+        base64Img2 = base64File.replace("data:image/*;charset=utf-8;base64,", "");
+        this.userData['profile_image'] = base64Img2;
+        alert(JSON.stringify(this.userData));
+        this.userData.job_title = base64Img2;
+      }, (err) => {
+        alert(err);
+        console.log(JSON.stringify(err));
+      });
+      // let base64Image = 'data:image/jpeg;base64,' + imageData;
+      // this.base64.encodeFile(base64Image).then((base64File: string) => {
+      //   console.log(base64File);
+      //   alert(base64File)
+      // }, (err) => {
+      //   alert(err);
+      //   console.log(err);
+      // });
+      // console.log(1);
+      // alert(base64Image);
+    }, (err) => {
+      alert(err);
+      // Handle error
+    });
+  }
   constructor(public navCtrl: NavController, public navParams: NavParams,
               public httpClient: HttpClient,
               public globalVar: GloaleVariablesProvider,
@@ -153,7 +200,8 @@ export class UpdateProfilePage {
               public globalvar: GloaleVariablesProvider,
               private storage: Storage,
               public events: Events,
-              public translate: TranslateService
+              public translate: TranslateService,private camera: Camera,
+              private base64: Base64
   ) {
     this.lang = globalVar.lang;
     translate.setDefaultLang(this.lang);

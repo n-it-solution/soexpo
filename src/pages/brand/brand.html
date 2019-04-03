@@ -262,22 +262,22 @@
           </div>
         </div>
         <div class="models-tab" *ngIf="tab == 'videos'">
-          <ion-row no-padding>
-            <ion-col col-12 no-padding>
-              <div class="company-slide">
-                <ion-slides autoplay="3000" pager loop="true" effect="false" *ngIf="showGallery">
-                  <ion-slide *ngFor="let i of gallery">
-                    <!--<img src="../../assets/content/company-slide/1.png" alt="">-->
-                    <img src="{{ i.url }}" alt="">
-                  </ion-slide>
-                </ion-slides>
-              </div>
-            </ion-col>
-          </ion-row>
-          <div class="main-product-section" *ngFor="let i of videos">
-            <iframe width="100%"  height="auto" [src]="check11(i)" frameborder="0" allowfullscreen></iframe>
-            <div class="clearfix"></div>
-          </div>
+<!--          <ion-row no-padding>-->
+<!--            <ion-col col-12 no-padding>-->
+<!--              <div class="company-slide">-->
+<!--                <ion-slides autoplay="3000" pager loop="true" effect="false" *ngIf="showGallery">-->
+<!--                  <ion-slide *ngFor="let i of gallery">-->
+<!--                    &lt;!&ndash;<img src="../../assets/content/company-slide/1.png" alt="">&ndash;&gt;-->
+<!--                    <img src="{{ i.url }}" alt="">-->
+<!--                  </ion-slide>-->
+<!--                </ion-slides>-->
+<!--              </div>-->
+<!--            </ion-col>-->
+<!--          </ion-row>-->
+<!--          <div class="main-product-section" *ngFor="let i of videos">-->
+<!--            <iframe width="100%"  height="auto" [src]="check11(i)" frameborder="0" allowfullscreen></iframe>-->
+<!--            <div class="clearfix"></div>-->
+<!--          </div>-->
         </div>
       </div>
       </ion-col>
