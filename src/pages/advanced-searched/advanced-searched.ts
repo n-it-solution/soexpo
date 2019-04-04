@@ -78,10 +78,23 @@ export class AdvancedSearchedPage {
       if(this.globalVar.loginData.confirmed){
         this.navCtrl.push(BrandPage, {url: url})
       }else {
-        alert('Activate your account first')
+        let alertText = '';
+        this.translate.get('NotificationPage.confirmProfileFirst').subscribe(
+          value => {
+            // value is our translated string
+            alertText = value;
+          }
+        );
+        alert(alertText);
       }
     }else {
-      alert ('Login first to open this page');
+      let alertText = '';
+      this.translate.get('NotificationPage.loginFirst').subscribe(
+        value => {
+          // value is our translated string
+          alertText = value;
+        }
+      );
     }
   }
   cityChange(){

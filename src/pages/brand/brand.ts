@@ -260,6 +260,9 @@ export class BrandPage {
   loginData:any;
   loginStatus:any;
   locations:any;
+  check11(url){
+    return this.sanitizer.bypassSecurityTrustResourceUrl(url);
+  }
   constructor(public navCtrl: NavController, public navParams: NavParams,
               public httpClient: HttpClient,
               public globalVar: GloaleVariablesProvider,
@@ -304,7 +307,11 @@ export class BrandPage {
               this.brands.push(data.data.brands.data[i]);
               this.brandSafeData.push(data.data.brands.data[i]);
             }
-            this.videos = data.data.videos;
+            for (let i = 0; i < data.data.videos.length; i++) {
+              let safeLink = this.check11(data.data.videos[i]);
+              this.videos.push(safeLink);
+            }
+            // this.videos = data.data.videos;
             console.log(this.videos);
             this.gallery = data.data.gallery;
             this.showGallery = true;
@@ -315,9 +322,6 @@ export class BrandPage {
           console.log(error);
         });
     this.tab = 'models';
-  }
-  check11(url){
-    return this.sanitizer.bypassSecurityTrustResourceUrl(url);
   }
   ionViewDidLoad() {
     console.log('ionViewDidLoad BrandPage');

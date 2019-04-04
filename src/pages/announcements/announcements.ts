@@ -66,11 +66,25 @@ export class AnnouncementsPage {
           });
       }
       else {
-        alert('please confirm your account to access')
+        let alertText = '';
+        this.translate.get('NotificationPage.confirmProfileFirst').subscribe(
+          value => {
+            // value is our translated string
+            alertText = value;
+          }
+        );
+        alert(alertText);
       }
 
     }else {
-      alert('login first to access this page');
+      let alertText = '';
+      this.translate.get('NotificationPage.loginFirst').subscribe(
+        value => {
+          // value is our translated string
+          alertText = value;
+        }
+      );
+      alert(alertText);
     }
 
   }

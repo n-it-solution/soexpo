@@ -1,5 +1,6 @@
 import { Component, ViewChild, ElementRef } from '@angular/core';
 import {NavController, NavParams} from 'ionic-angular';
+import { ShowLocationPage } from '../show-location/show-location';
 declare var google: any;
 
 @Component({
@@ -19,6 +20,13 @@ export class MapPage {
   ionViewDidLoad() {
     console.log('ionViewDidLoad MapPage');
     this.showMap();
+
+    google.maps.event.addListener(this.marker, 'click', () => {
+      this.navCtrl.push(ShowLocationPage,{
+        lat: this.marker.getPosition().lat(),
+        lng: this.marker.getPosition().lng()
+      })
+    });
   }
   showMap(){
     const location = new google.maps.LatLng(this.locations[0]['latitude'], this.locations[0]['longitude']);
@@ -33,7 +41,7 @@ export class MapPage {
       mapTypeId: 'hybrid'
     };
 
-     this.map = new google.maps.Map
+    this.map = new google.maps.Map
     (this.mapRef.nativeElement, options);
     // this.addMarker(location, map);
     for (let i = 0; i < this.locations.length; i++) {
@@ -45,9 +53,13 @@ export class MapPage {
   }
 
   addMarker(position, map){
-    return new google.maps.Marker({
+    this.marker= new google.maps.Marker({
       position,
       map
     });
+    return this.marker;
   }
+
+
+  marker:any;
 }

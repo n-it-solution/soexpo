@@ -6,10 +6,15 @@
       "cancel" : "Cancel",
       "change" : "Change"
     },
-    "slider" : "Diamond Sponsor"
+    "slider" : "Diamond Sponsor",
+    "activateFirst" : "Activate your account first",
+    "loginFirst": "Login first to open this page",
+    "search": "Search for a company or product"
   },
   "companyPage": {
-    "title" :  "Companies"
+    "title" :  "Companies",
+    "activateFirst": "Activate your account first",
+    "loginFirst": "Login first to open this page"
   },
   "brandPage": {
     "title" :  "Brand",
@@ -81,7 +86,8 @@
       "placeText" : "Enter your Email",
       "cancel" : "Cancel",
       "submit" : "Submit"
-    }
+    },
+    "enterComplete": "Enter Complete details in form"
   },
   "ProfilePage": {
     "title" : "Profile",
@@ -102,7 +108,9 @@
     "title" : "Contact Us"
   },
   "NotificationPage": {
-    "title" : "Notifications"
+    "title" : "Notifications",
+    "confirmProfileFirst": "Confirm your profile to access this page",
+    "loginFirst": "Login first to access this page"
   },
   "TabsPage": {
     "home" : "Home",
@@ -141,7 +149,8 @@
   "cartPage" : {
     "title" : "Cart",
     "remove" : "Remove",
-    "send" : "Send Request"
+    "send" : "Send Request",
+    "noData": "No data in cart"
   },
   "updatePage": {
     "title": "Update Profile",
@@ -164,7 +173,8 @@
     "exhibition": "Exhibition",
     "city" : "City",
     "keyword": "Keyword",
-    "search": "Search",
+    "search": "Search for model names",
     "loginAlert": "You need to login to use this search ."
-  }
+  },
+  "networkError": "Please check your network connection"
 }

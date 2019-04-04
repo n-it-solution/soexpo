@@ -59,11 +59,25 @@ export class NotificationPage {
           console.log(error);
         });
       }else {
-        alert('Confirm your profile to access this page');
+        let alertText = '';
+        this.translate.get('NotificationPage.confirmProfileFirst').subscribe(
+          value => {
+            // value is our translated string
+            alertText = value;
+          }
+        );
+        alert(alertText);
         navCtrl.pop();
       }
     }else {
-      alert('Login first to access this page');
+      let alertText = '';
+      this.translate.get('NotificationPage.loginFirst').subscribe(
+        value => {
+          // value is our translated string
+          alertText = value;
+        }
+      );
+      alert(alertText);
       navCtrl.pop();
     }
 

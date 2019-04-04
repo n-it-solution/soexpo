@@ -36,7 +36,14 @@ export class RegisterPage {
   console.log(this.registerData);
     if (this.registerData['name'] == '' || this.registerData['password'] == '' || this.registerData['email'] == '' || this.registerData['password_confirmation'] == '' || this.registerData['phone_number'] == '' || this.registerData['terms'] == 0)
     {
-      alert('Enter Complete details in form')
+      let alertText = '';
+      this.translate.get('LoginPage.enterComplete').subscribe(
+        value => {
+          // value is our translated string
+          alertText = value;
+        }
+      );
+      alert(alertText);
     } else
       {
       this.data = this.httpClient.post(this.globalvar.apiUrl+'auth/register?lang='+this.lang,this.registerData,httpOptions);

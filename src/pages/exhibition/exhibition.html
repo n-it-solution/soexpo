@@ -110,9 +110,17 @@
     </ion-row>
 
 
+<!--    <ion-row no-padding>-->
+<!--      <ion-col col-12>-->
+<!--        <ion-searchbar placeholder="{{'search' | translate}}" (ionInput)="getItems($event)"></ion-searchbar>-->
+<!--      </ion-col>-->
+<!--    </ion-row>-->
     <ion-row no-padding>
-      <ion-col col-12>
-        <ion-searchbar placeholder="{{'search' | translate}}" (ionInput)="getItems($event)"></ion-searchbar>
+      <ion-col col-10>
+        <ion-searchbar [(ngModel)]="searchNew1" placeholder="{{'exhibitionPage.search' | translate}}"></ion-searchbar>
+      </ion-col>
+      <ion-col col-2 (click)="searchNew()">
+        <ion-buttons ion-button>{{'search' | translate}}</ion-buttons>
       </ion-col>
     </ion-row>
     <ion-row no-padding>

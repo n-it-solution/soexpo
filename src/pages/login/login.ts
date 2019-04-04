@@ -73,7 +73,14 @@ export class LoginPage {
   loginFormSubmit(){
     console.log(this.loginData.email);
     if (this.loginData['email'] == '' || this.loginData['password'] == ''){
-      alert('Enter Complete details in form')
+      let alertText = '';
+      this.translate.get('LoginPage.enterComplete').subscribe(
+        value => {
+          // value is our translated string
+          alertText = value;
+        }
+      );
+      alert(alertText);
     } else {
       this.data = this.httpClient.post(this.globalvar.apiUrl+'auth/login?lang=en',this.loginData);
       this.data

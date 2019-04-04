@@ -110,7 +110,14 @@ export class CartPage {
         console.log(data);
         this.cart = data;
       }else {
-        alert('No data in cart');
+        let alertText = '';
+        this.translate.get('cartPage.noData').subscribe(
+          value => {
+            // value is our translated string
+            alertText = value;
+          }
+        );
+        alert(alertText);
       }
     });
   }

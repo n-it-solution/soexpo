@@ -17,6 +17,7 @@ import { Events } from 'ionic-angular';
 import {BrandPage} from "../brand/brand";
 import {Observable} from 'Rxjs/rx';
 import {LocalNotifications} from "@ionic-native/local-notifications";
+import { Network } from '@ionic-native/network';
 
 @IonicPage()
 @Component({
@@ -146,10 +147,24 @@ export class ExhibitionPage {
       if(this.loginData.confirmed){
         this.navCtrl.push(BrandPage, {url: url})
       }else {
-        alert('Activate your account first')
+        let alertText = '';
+        this.translate.get('exhibitionPage.activateFirst').subscribe(
+          value => {
+            // value is our translated string
+            alertText = value;
+          }
+        );
+        alert(alertText);
       }
     }else {
-      alert ('Login first to open this page');
+      let alertText = '';
+      this.translate.get('exhibitionPage.loginFirst').subscribe(
+        value => {
+          // value is our translated string
+          alertText = value;
+        }
+      );
+      alert(alertText);
     }
   }
   doInfinite(infiniteScroll) {
@@ -220,7 +235,39 @@ export class ExhibitionPage {
       this.exhibition = this.safeData;
     }
   }
+  searchNew1:any;
   safeData:any = [];
+  searchNew(){
+    if(this.searchNew1 == ''){
+      this.getExhibition();
+    }else {
+      console.log(this.searchNew1);
+      this.data = this.httpClient.get(this.globalVar.apiUrl+'exhibitions?search='+this.searchNew1+'&lang='+this.lang);
+      this.data
+        .subscribe(data => {
+          console.log(data);
+          if (data.level == 'success'){
+            console.log(data.data.data.length);
+            this.exhibition = [];
+            this.items = [];
+            this.safeData = [];
+            for (let i = 0; i < data.data.data.length; i++) {
+              this.exhibition.push(data.data.data[i]);
+              this.items.push(data.data.data[i]['name']);
+              this.safeData.push(data.data.data[i]);
+            }
+            console.log(this.exhibition);
+            // this.storage.set("data", this.exhibition);
+            //   console.log(data.data.data);
+            //   // this.news = data.data.data;
+            //   this.toastShow('data fetching complete');
+          }
+        },error=> {
+          console.log(error);
+          // this.toastShow('something wrong');
+        });
+    }
+  }
   getExhibition(){
     this.data = this.httpClient.get(this.globalVar.apiUrl+'exhibitions?page=1&lang='+this.lang);
     this.data
@@ -271,7 +318,8 @@ export class ExhibitionPage {
               private alertCtrl: AlertController,
               public translate: TranslateService,
               public events: Events,
-              private localNotifications: LocalNotifications
+              private localNotifications: LocalNotifications,
+              private network: Network
   ) {
     this.loginData = this.globalVar.loginData;
     this.loginStatus = globalVar.loginStatus;

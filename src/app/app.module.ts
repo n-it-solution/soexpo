@@ -51,6 +51,10 @@ import {PasswordChangePage} from "../pages/password-change/password-change";
 import { LocalNotifications } from '@ionic-native/local-notifications';
 import { Camera, CameraOptions } from '@ionic-native/camera';
 import { Base64 } from '@ionic-native/base64';
+import { Network } from '@ionic-native/network';
+import { File } from '@ionic-native/file';
+import {ShowLocationPage} from "../pages/show-location/show-location";
+
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http, "./assets/i18n/", ".json");
 }
@@ -87,7 +91,8 @@ export function HttpLoaderFactory(http: HttpClient) {
     SplashPage,
     MapPage,
     AdvancedSearchedPage,
-    PasswordChangePage
+    PasswordChangePage,
+    ShowLocationPage
   ],
   imports: [
     StarRatingModule,
@@ -136,7 +141,8 @@ export function HttpLoaderFactory(http: HttpClient) {
     SplashPage,
     MapPage,
     AdvancedSearchedPage,
-    PasswordChangePage
+    PasswordChangePage,
+    ShowLocationPage
   ],
   providers: [
     StatusBar,
@@ -146,7 +152,9 @@ export function HttpLoaderFactory(http: HttpClient) {
     InAppBrowser,
     LocalNotifications,
     Camera,
-    Base64
+    Base64,
+    Network,
+    File
   ]
 })
 export class AppModule {}

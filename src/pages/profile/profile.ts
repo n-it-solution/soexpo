@@ -71,30 +71,30 @@ export class ProfilePage {
       sourceType: this.camera.PictureSourceType.SAVEDPHOTOALBUM
     };
 
-    this.camera.getPicture(options).then((imageData) => {
-      // imageData is either a base64 encoded string or a file URI
-      // If it's base64 (DATA_URL):
-      alert(imageData);
-      this.base64.encodeFile(imageData).then((base64File: string) => {
-        console.log(base64File);
-        alert(base64File)
-      }, (err) => {
-        alert(err);
-        console.log(err);
-      });
-      let base64Image = 'data:image/jpeg;base64,' + imageData;
-      this.base64.encodeFile(base64Image).then((base64File: string) => {
-        console.log(base64File);
-        alert(base64File)
-      }, (err) => {
-        alert(err);
-        console.log(err);
-      });
-      console.log(1);
-      alert(base64Image);
-    }, (err) => {
-      // Handle error
-    });
+    // this.camera.getPicture(options).then((imageData) => {
+    //   // imageData is either a base64 encoded string or a file URI
+    //   // If it's base64 (DATA_URL):
+    //   alert(imageData);
+    //   this.base64.encodeFile(imageData).then((base64File: string) => {
+    //     console.log(base64File);
+    //     alert(base64File)
+    //   }, (err) => {
+    //     alert(err);
+    //     console.log(err);
+    //   });
+    //   let base64Image = 'data:image/jpeg;base64,' + imageData;
+    //   this.base64.encodeFile(base64Image).then((base64File: string) => {
+    //     console.log(base64File);
+    //     alert(base64File)
+    //   }, (err) => {
+    //     alert(err);
+    //     console.log(err);
+    //   });
+    //   console.log(1);
+    //   alert(base64Image);
+    // }, (err) => {
+    //   // Handle error
+    // });
     translate.setDefaultLang(globalVar.lang);
     console.log(124);
     console.log(this.globalVar.loginData);

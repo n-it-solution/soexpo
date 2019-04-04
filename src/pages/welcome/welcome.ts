@@ -12,6 +12,7 @@ import {TabsPage} from "../tabs/tabs";
 import {TranslateService} from "@ngx-translate/core";
 import {Storage} from '@ionic/storage';
 import { LocalNotifications } from '@ionic-native/local-notifications';
+import {Network} from "@ionic-native/network";
 /**
  * Generated class for the WelcomePage page.
  *
@@ -33,19 +34,32 @@ export class WelcomePage {
               public globalVar: GloaleVariablesProvider,
               public translate: TranslateService,
               private storage: Storage,public events: Events,
-              private localNotifications: LocalNotifications
+              private localNotifications: LocalNotifications,
+              private network: Network
   ) {
     console.log(1);
     this.storage.get('language').then((data)=>{
       if (data != null) {
         translate.setDefaultLang(data);
         globalVar.lang = data;
+        this.events.publish('lang:changed',data);
       }else {
         this.storage.set('language','ar');
         translate.setDefaultLang('ar');
         globalVar.lang = 'ar';
+        this.events.publish('lang:changed','ar');
       }
     });
+    if(this.network.type == 'none'){
+      let alertText = '';
+      this.translate.get('networkError').subscribe(
+        value => {
+          // value is our translated string
+          alertText = value;
+        }
+      );
+      alert(alertText);
+    }
     this.storage.get('loginData').then((data)=>{
       if (data != null) {
         this.events.publish('user:logged',data);
