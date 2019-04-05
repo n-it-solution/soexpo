@@ -159,7 +159,8 @@
     "phone": "Phone#:",
     "exhibition": "Exhibition:",
     "about": "About",
-    "jTitle": "Job Title"
+    "jTitle": "Job Title",
+    "browse": "Browse File"
   },
   "pChangePage": {
     "title": "Password Change",
