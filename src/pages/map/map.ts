@@ -1,6 +1,7 @@
 import { Component, ViewChild, ElementRef } from '@angular/core';
 import {NavController, NavParams} from 'ionic-angular';
 import { ShowLocationPage } from '../show-location/show-location';
+import {LaunchNavigator} from "@ionic-native/launch-navigator";
 declare var google: any;
 
 @Component({
@@ -12,7 +13,8 @@ export class MapPage {
   locations:any;
   map:any;
   @ViewChild('map') mapRef: ElementRef;
-  constructor(public navCtrl: NavController, public navParams: NavParams,) {
+  constructor(public navCtrl: NavController, public navParams: NavParams,
+              private launchNavigator: LaunchNavigator) {
     console.log(this.navParams.get('locations'));
     this.locations = this.navParams.get('locations');
   }
@@ -22,11 +24,14 @@ export class MapPage {
     this.showMap();
 
     google.maps.event.addListener(this.marker, 'click', () => {
-      window.open('http://google.com','_blank');
-      this.navCtrl.push(ShowLocationPage,{
-        lat: this.marker.getPosition().lat(),
-        lng: this.marker.getPosition().lng()
-      })
+      // window.open('http://google.com','_blank');
+      this.launchNavigator.navigate([this.marker.getPosition().lat(), this.marker.getPosition().lng()], {
+
+      });
+      // this.navCtrl.push(ShowLocationPage,{
+      //   lat: this.marker.getPosition().lat(),
+      //   lng: this.marker.getPosition().lng()
+      // })
     });
   }
   showMap(){

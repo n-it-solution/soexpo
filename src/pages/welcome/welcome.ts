@@ -39,11 +39,7 @@ export class WelcomePage {
               private network: Network,
               private launchNavigator: LaunchNavigator
   ) {
-    launchNavigator.navigate("London, UK")
-      .then(
-        success => {alert('Launched navigator')},
-        error => {alert('Error launching navigator' + error)}
-      );
+
     console.log(1);
     this.storage.get('language').then((data)=>{
       if (data != null) {

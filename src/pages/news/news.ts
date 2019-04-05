@@ -54,16 +54,16 @@ export class NewsPage {
                 }
                 this.meta = data.data.meta.pagination;
                 console.log(this.news);
-                this.toastShow('News updated');
+                // this.toastShow('News updated');
                 infiniteScroll.complete();
               }
             },error=> {
               console.log(error);
-              this.toastShow('An error accrue');
+              // this.toastShow('An error accrue');
               infiniteScroll.complete();
             });
       }else {
-        this.toastShow('News already updated');
+        // this.toastShow('News already updated');
         this.loadMore = false;
         infiniteScroll.complete();
       }
@@ -103,11 +103,11 @@ export class NewsPage {
                 // this.news = data.data.data;
                 this.meta = data.data.meta.pagination;
                 console.log(this.meta);
-                this.toastShow('data fetching complete');
+                // this.toastShow('data fetching complete');
             }
         },error=> {
             console.log(error);
-          this.toastShow('something wrong');
+          // this.toastShow('something wrong');
         });
   }
   ionViewDidLoad() {

@@ -265,7 +265,7 @@
           <ion-row no-padding>
             <ion-col col-12 no-padding>
               <div class="company-slide">
-                <ion-slides autoplay="3000" pager loop="true" effect="false" *ngIf="showGallery">
+                <ion-slides autoplay="3000" pager loop="true" effect="false" *ngIf="gallery.lenght > 0">
                   <ion-slide *ngFor="let i of gallery">
                     <!--<img src="../../assets/content/company-slide/1.png" alt="">-->
                     <img src="{{ i.url }}" alt="">
@@ -274,9 +274,11 @@
               </div>
             </ion-col>
           </ion-row>
-          <div class="main-product-section" *ngFor="let i of videos">
-            <iframe width="100%"  height="auto" [src]="i" frameborder="0" allowfullscreen></iframe>
-            <div class="clearfix"></div>
+          <div *ngIf="videos.lenght > 0">
+            <div class="main-product-section" *ngFor="let i of videos">
+              <iframe width="100%"  height="auto" [src]="i" frameborder="0" allowfullscreen></iframe>
+              <div class="clearfix"></div>
+            </div>
           </div>
         </div>
       </div>
