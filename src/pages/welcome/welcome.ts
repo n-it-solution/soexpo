@@ -13,6 +13,7 @@ import {TranslateService} from "@ngx-translate/core";
 import {Storage} from '@ionic/storage';
 import { LocalNotifications } from '@ionic-native/local-notifications';
 import {Network} from "@ionic-native/network";
+import { LaunchNavigator, LaunchNavigatorOptions } from '@ionic-native/launch-navigator';
 /**
  * Generated class for the WelcomePage page.
  *
@@ -35,8 +36,14 @@ export class WelcomePage {
               public translate: TranslateService,
               private storage: Storage,public events: Events,
               private localNotifications: LocalNotifications,
-              private network: Network
+              private network: Network,
+              private launchNavigator: LaunchNavigator
   ) {
+    launchNavigator.navigate("London, UK")
+      .then(
+        success => {alert('Launched navigator')},
+        error => {alert('Error launching navigator' + error)}
+      );
     console.log(1);
     this.storage.get('language').then((data)=>{
       if (data != null) {

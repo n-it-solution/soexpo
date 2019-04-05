@@ -22,6 +22,7 @@ export class MapPage {
     this.showMap();
 
     google.maps.event.addListener(this.marker, 'click', () => {
+      window.open('http://google.com','_blank');
       this.navCtrl.push(ShowLocationPage,{
         lat: this.marker.getPosition().lat(),
         lng: this.marker.getPosition().lng()

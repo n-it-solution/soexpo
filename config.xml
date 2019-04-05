@@ -88,5 +88,10 @@
     <plugin name="com-badrit-base64" spec="0.2.0" />
     <plugin name="cordova-plugin-network-information" spec="2.0.1" />
     <plugin name="cordova-plugin-file" spec="6.0.1" />
+    <plugin name="uk.co.workingedge.phonegap.plugin.launchnavigator" spec="5.0.4">
+        <variable name="GOOGLE_API_KEY_FOR_ANDROID" value="AIzaSyC8Ap3r26Zv7QPwgKdegq4SZvb9x-CgAPI" />
+        <variable name="GOOGLE_API_KEY_FOR_IOS" value="AIzaSyC8Ap3r26Zv7QPwgKdegq4SZvb9x-CgAPI" />
+        <variable name="OKHTTP_VERSION" value="3.12.0" />
+    </plugin>
     <engine name="android" spec="7.1.4" />
 </widget>

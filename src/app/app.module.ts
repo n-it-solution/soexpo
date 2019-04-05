@@ -54,7 +54,7 @@ import { Base64 } from '@ionic-native/base64';
 import { Network } from '@ionic-native/network';
 import { File } from '@ionic-native/file';
 import {ShowLocationPage} from "../pages/show-location/show-location";
-
+import { LaunchNavigator } from '@ionic-native/launch-navigator';
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http, "./assets/i18n/", ".json");
 }
@@ -154,7 +154,8 @@ export function HttpLoaderFactory(http: HttpClient) {
     Camera,
     Base64,
     Network,
-    File
+    File,
+    LaunchNavigator
   ]
 })
 export class AppModule {}
