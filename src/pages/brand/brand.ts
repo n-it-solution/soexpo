@@ -26,7 +26,9 @@ export class BrandPage {
   videoTestLink2: any;
   changeTab(tab){
     if(tab == 'location'){
-      this.navCtrl.push(MapPage,{locations : this.locations});
+      if (this.locations.length > 0){
+        this.navCtrl.push(MapPage,{locations : this.locations});
+      }
     }else {
       this.tab = tab;
     }

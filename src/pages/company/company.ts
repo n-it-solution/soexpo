@@ -27,6 +27,9 @@ export class CompanyPage {
   sponsor_silver:any;
   sponsor_golden:any;
   sponsor_participants:any;
+  sponsor_silver_show : boolean = false;
+  sponsor_golden_show : boolean = false;
+  sponsor_participants_show : boolean = false;
   skeltonData = [{
     "id": 1,
     "name": "hello",
@@ -99,11 +102,24 @@ export class CompanyPage {
             this.safeData = data.data.companies;
             this.sponsor_silver = data.data.sponsor_silver;
             this.sponsor_golden = data.data.sponsor_golden;
+            if(data.data.sponsor_golden.length > 0){
+              console.log(data.data.sponsor_golden.length);
+              this.sponsor_golden_show = true;
+            }
+            if(data.data.sponsor_silver.length > 0){
+              console.log(data.data.sponsor_silver.length);
+              this.sponsor_silver_show = true;
+            }
             if (data.data.slider !== null){
               this.sponsor_participants = data.data.slider.slides;
+              if(data.data.slider.slides.length > 0){
+                console.log(data.data.slider.slides.length);
+                this.sponsor_participants_show = true;
+              }
             }
             console.log(this.sponsor_participants);
             this.showData = true;
+            console.log('all set')
             // console.log(this.sponsor_silver);
           }
         },error=> {

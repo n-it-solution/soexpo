@@ -19,7 +19,7 @@
 
   <ion-grid no-padding>
     <ng-container *ngIf="showData">
-      <ion-row no-padding>
+      <ion-row no-padding *ngIf="sponsor_golden_show">
         <ion-col col-12 no-padding>
           <div class="company-slide" style="border: 2px solid goldenrod;">
             <ion-slides autoplay="3000" pager loop="true" effect="false">
@@ -31,7 +31,7 @@
           </div>
         </ion-col>
       </ion-row>
-      <ion-row no-padding>
+      <ion-row no-padding *ngIf="sponsor_participants_show">
         <ion-col col-12 no-padding>
           <div class="company-slide" style="margin-top: 10px; margin-bottom: 10px;">
             <ion-slides autoplay="3000" pager loop="true" effect="false">
@@ -43,7 +43,7 @@
           </div>
         </ion-col>
       </ion-row>
-      <ion-row no-padding>
+      <ion-row no-padding *ngIf="sponsor_silver_show">
         <ion-col col-12 no-padding>
           <div class="company-slide">
             <ion-slides autoplay="3000" pager loop="true" effect="false">
