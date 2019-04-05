@@ -1,5 +1,17 @@
 page-exhibition {
 
+  .mybtn{
+    margin-top: 12px!important; border-radius:5px!important;
+    color: #ffffff; background: #186e47;border: 1px solid #000; width: 80%!important; font-size: 1.3rem!important; height: 2.6em!important;
+  }
+  .searchbar-ios {
+    padding: 0 8px;
+    min-height: 56px!important;
+    border-top: 0.55px solid transparent;
+    border-bottom: 0.55px solid rgba(0, 0, 0, 0.05);
+    background: rgba(0, 0, 0, 0.2);
+  }
+
   .topbar{
     width: 100%;
     //margin-top: 15px;

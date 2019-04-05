@@ -116,11 +116,14 @@
 <!--      </ion-col>-->
 <!--    </ion-row>-->
     <ion-row no-padding>
-      <ion-col col-10>
+      <ion-col col-9>
         <ion-searchbar [(ngModel)]="searchNew1" placeholder="{{'exhibitionPage.search' | translate}}"></ion-searchbar>
       </ion-col>
-      <ion-col col-2 (click)="searchNew()">
-        <ion-buttons ion-button>{{'search' | translate}}</ion-buttons>
+      <ion-col col-3 (click)="searchNew()" class="search-btn" style="text-align: center!important;">
+        <div style="height: 100%; vertical-align: middle!important;">
+          <button class="mybtn">{{'search' | translate}}</button>
+        </div>
+        <!--<ion-buttons ion-button>{{'search' | translate}}</ion-buttons>-->
       </ion-col>
     </ion-row>
     <ion-row no-padding>
