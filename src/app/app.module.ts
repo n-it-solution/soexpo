@@ -55,6 +55,8 @@ import { Network } from '@ionic-native/network';
 import { File } from '@ionic-native/file';
 import {ShowLocationPage} from "../pages/show-location/show-location";
 import { LaunchNavigator } from '@ionic-native/launch-navigator';
+import {ExhibitionSearchPage} from "../pages/exhibition-search/exhibition-search";
+
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http, "./assets/i18n/", ".json");
 }
@@ -92,7 +94,8 @@ export function HttpLoaderFactory(http: HttpClient) {
     MapPage,
     AdvancedSearchedPage,
     PasswordChangePage,
-    ShowLocationPage
+    ShowLocationPage,
+    ExhibitionSearchPage
   ],
   imports: [
     StarRatingModule,
@@ -142,7 +145,8 @@ export function HttpLoaderFactory(http: HttpClient) {
     MapPage,
     AdvancedSearchedPage,
     PasswordChangePage,
-    ShowLocationPage
+    ShowLocationPage,
+    ExhibitionSearchPage
   ],
   providers: [
     StatusBar,

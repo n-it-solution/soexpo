@@ -18,6 +18,7 @@ import {BrandPage} from "../brand/brand";
 import {Observable} from 'Rxjs/rx';
 import {LocalNotifications} from "@ionic-native/local-notifications";
 import { Network } from '@ionic-native/network';
+import {ExhibitionSearchPage} from "../exhibition-search/exhibition-search";
 
 @IonicPage()
 @Component({
@@ -238,35 +239,39 @@ export class ExhibitionPage {
   searchNew1:any;
   safeData:any = [];
   searchNew(){
-    if(this.searchNew1 == ''){
+    if(this.searchNew1 == '')
+    {
       this.getExhibition();
     }else {
-      console.log(this.searchNew1);
-      this.data = this.httpClient.get(this.globalVar.apiUrl+'exhibitions?search='+this.searchNew1+'&lang='+this.lang);
-      this.data
-        .subscribe(data => {
-          console.log(data);
-          if (data.level == 'success'){
-            console.log(data.data.data.length);
-            this.exhibition = [];
-            this.items = [];
-            this.safeData = [];
-            for (let i = 0; i < data.data.data.length; i++) {
-              this.exhibition.push(data.data.data[i]);
-              this.items.push(data.data.data[i]['name']);
-              this.safeData.push(data.data.data[i]);
-            }
-            console.log(this.exhibition);
-            // this.storage.set("data", this.exhibition);
-            //   console.log(data.data.data);
-            //   // this.news = data.data.data;
-            //   this.toastShow('data fetching complete');
-          }
-        },error=> {
-          console.log(error);
-          // this.toastShow('something wrong');
-        });
+      this.navCtrl.push(ExhibitionSearchPage,{keyword: this.searchNew1})
     }
+    //   {
+    //   console.log(this.searchNew1);
+    //   this.data = this.httpClient.get(this.globalVar.apiUrl+'exhibitions?search='+this.searchNew1+'&lang='+this.lang);
+    //   this.data
+    //     .subscribe(data => {
+    //       console.log(data);
+    //       if (data.level == 'success'){
+    //         console.log(data.data.data.length);
+    //         this.exhibition = [];
+    //         this.items = [];
+    //         this.safeData = [];
+    //         for (let i = 0; i < data.data.data.length; i++) {
+    //           this.exhibition.push(data.data.data[i]);
+    //           this.items.push(data.data.data[i]['name']);
+    //           this.safeData.push(data.data.data[i]);
+    //         }
+    //         console.log(this.exhibition);
+    //         // this.storage.set("data", this.exhibition);
+    //         //   console.log(data.data.data);
+    //         //   // this.news = data.data.data;
+    //         //   this.toastShow('data fetching complete');
+    //       }
+    //     },error=> {
+    //       console.log(error);
+    //       // this.toastShow('something wrong');
+    //     });
+    // }
   }
   getExhibition(){
     this.data = this.httpClient.get(this.globalVar.apiUrl+'exhibitions?page=1&lang='+this.lang);
