@@ -7,7 +7,7 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>{{ 'adSearchPage.exhibition' | translate }}</ion-title>
+    <ion-title>{{ 'search' | translate }}</ion-title>
   </ion-navbar>
 
 </ion-header>
@@ -16,11 +16,11 @@
 <ion-content padding>
   <ion-row no-padding>
     <ion-col col-12>
-      <div class="main-icon-div" *ngFor="let i of exhibition;let in = index" (click)="openCompany(i.show_url,i.name)">
+      <div class="main-icon-div" *ngFor="let i of exhibition;let in = index" (click)="openBrand(i.show_url)">
         <div class="left-icon">
           <div class="category-img">
             <!--<a><img src="../../assets/content/1.png" style="width: 100px;" alt="icon1"></a>-->
-            <a><img src="{{i.mobile_logo}}" style="width: 100px;"></a>
+            <a><img src="{{i.logo}}" style="width: 100px;"></a>
           </div>
           <div class="category-name">
             <a>{{i.name}}</a>

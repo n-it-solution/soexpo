@@ -4,6 +4,7 @@ import {TranslateService} from "@ngx-translate/core";
 import {HttpClient} from "@angular/common/http";
 import {GloaleVariablesProvider} from "../../providers/gloale-variables/gloale-variables";
 import {CompanyPage} from "../company/company";
+import {BrandPage} from "../brand/brand";
 
 /**
  * Generated class for the ExhibitionSearchPage page.
@@ -26,8 +27,34 @@ export class ExhibitionSearchPage {
     this.navCtrl.push(CompanyPage,{url: url,name: name});
     console.log(1);
   }
+  openBrand(url){
+    if (this.globalVar.loginStatus) {
+      console.log(url);
+      if(this.globalVar.loginData.confirmed){
+        this.navCtrl.push(BrandPage, {url: url})
+      }else {
+        let alertText = '';
+        this.translate.get('companyPage.activateFirst').subscribe(
+          value => {
+            // value is our translated string
+            alertText = value;
+          }
+        );
+        alert(alertText);
+      }
+    }else {
+      let alertText = '';
+      this.translate.get('companyPage.loginFirst').subscribe(
+        value => {
+          // value is our translated string
+          alertText = value;
+        }
+      );
+      alert(alertText);
+    }
+  }
   search(){
-        this.data = this.httpClient.get(this.globalVar.apiUrl+'exhibitions?search='+this.keyword+'&lang='+this.globalVar.lang);
+        this.data = this.httpClient.get(this.globalVar.apiUrl+'companies-advanced-search?search='+this.keyword+'&lang='+this.globalVar.lang);
         // this.data = this.httpClient.get(this.globalVar.apiUrl+'exhibitions?lang='+this.globalVar.lang);
         this.data
           .subscribe(data => {

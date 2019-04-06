@@ -20,6 +20,7 @@ import {DomSanitizer,SafeResourceUrl,} from '@angular/platform-browser';
 export class BrandPage {
   tab:any;
   videos:any = [];
+  showVideos: boolean = false;
   gallery:any = [];
   showGallery: boolean = false;
   videoTestLink = 'https://www.youtube.com/embed/1F_UQFlPiKU';
@@ -313,10 +314,16 @@ export class BrandPage {
               let safeLink = this.check11(data.data.videos[i]);
               this.videos.push(safeLink);
             }
+            if(this.videos.length > 0) {
+              this.showVideos = true;
+            }
             // this.videos = data.data.videos;
             console.log(this.videos);
             this.gallery = data.data.gallery;
-            this.showGallery = true;
+            console.log(this.gallery);
+            if(this.gallery.length > 0) {
+              this.showGallery = true;
+            }
             console.log(this.brands);
             this.showRating = true;
           }
