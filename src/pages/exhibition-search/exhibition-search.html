@@ -18,14 +18,16 @@
     <ion-col col-12>
       <div class="main-icon-div" *ngFor="let i of exhibition;let in = index" (click)="openBrand(i.show_url)">
         <div class="left-icon">
-          <div class="category-img">
+          <div class="search-category-img">
             <!--<a><img src="../../assets/content/1.png" style="width: 100px;" alt="icon1"></a>-->
             <a><img src="{{i.logo}}" style="width: 100px;"></a>
           </div>
-          <div class="category-name">
+          <div class="search-category-name">
             <a>{{i.name}}</a>
           </div>
+          <div style="clear: both;"></div>
         </div>
+        <div style="clear: both;"></div>
       </div>
     </ion-col>
   </ion-row>

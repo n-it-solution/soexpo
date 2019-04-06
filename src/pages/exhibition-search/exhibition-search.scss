@@ -1,6 +1,33 @@
 page-exhibition-search {
 
 
+  .search-category-img{
+    width: 100%;
+    text-align: center;
+  }
+  .search-category-img img{
+    padding: 5px;
+    border: 2px solid #eee;
+  }
+  .search-category-name{
+    width: 100%;
+    color: #333;
+    text-align: center;
+  }
+  .search-category-name a{
+    color: #333;
+    display: block;
+    cursor: pointer;
+  }
+
+  .main-icon-div{
+    border: 2px solid #eee;
+    padding: 5px;
+    margin-bottom: 5px;
+  }
+
+
+
   .company-slide{
     width: 96%;
     margin: 0 auto;
