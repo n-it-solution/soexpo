@@ -160,7 +160,10 @@
     "exhibition": "Exhibition:",
     "about": "About",
     "jTitle": "Job Title",
-    "browse": "Browse File"
+    "browse": "Browse File",
+    "gallery": "Gallery",
+    "camera": "Camera",
+    "alertTitle": "Select Source"
   },
   "pChangePage": {
     "title": "Password Change",

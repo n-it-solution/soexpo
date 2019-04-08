@@ -6,6 +6,7 @@ import {TranslateService} from "@ngx-translate/core";
 import {Events, NavController, NavParams} from "ionic-angular";
 import {GloaleVariablesProvider} from "../../providers/gloale-variables/gloale-variables";
 import {ProfilePage} from "../profile/profile";
+import {HttpClient, HttpHeaders} from "@angular/common/http";
 
 @Component({
   templateUrl: './tabs.html'
@@ -17,8 +18,10 @@ export class TabsPage {
   tab3Root = ExhibitionPage;
   tab4Root = ProfilePage;
   tabIndex: number = 2;
+  annData:any;
+  totalAnn:number;
   constructor(public translate: TranslateService,public events: Events,public globalVar: GloaleVariablesProvider,
-              public navParams: NavParams,
+              public navParams: NavParams,public httpClient: HttpClient
   ) {
     let openPageInTab = this.navParams.get('openPageInTab');
     if(openPageInTab != undefined){
@@ -35,6 +38,35 @@ export class TabsPage {
     events.subscribe('lang:changed', (value) => {
       translate.setDefaultLang(value);
     });
-    translate.setDefaultLang(globalVar.lang)
+    translate.setDefaultLang(globalVar.lang);
+    if(globalVar.loginStatus){
+      if(globalVar.loginData.confirmed){
+        const httpOptions = {
+          headers: new HttpHeaders({
+            'Authorization':  this.globalVar.loginData.authorization,
+          })
+        };
+        this.annData = httpClient.get(this.globalVar.apiUrl+'announcements?lang='+this.globalVar.lang,httpOptions);
+        this.annData
+          .subscribe(data => {
+            console.log(data);
+            if (data.level == 'success'){
+              console.log(data.data);
+              this.totalAnn = 0;
+              for (let i = 0; i < data.data.data.length; i++) {
+                if(!data.data.data[i].is_read){
+                  this.totalAnn = this.totalAnn + 1;
+                }
+                // this.items.push(data.data.data[i]['name']);
+                // this.safeData.push(data.data.data[i]);
+              }
+            }
+          },error=> {
+            console.log(error);
+          });
+      }else {
+      }
+    }else {
+    }
   }
 }

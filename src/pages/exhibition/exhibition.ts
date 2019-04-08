@@ -315,6 +315,8 @@ export class ExhibitionPage {
   loginData:any;
   loginStatus:any;
   notiData:any;
+  annData:any;
+  totalAnn: number;
   constructor(public navCtrl: NavController,
               public httpClient: HttpClient,
               public globalVar: GloaleVariablesProvider,
@@ -381,6 +383,25 @@ export class ExhibitionPage {
           },error=> {
             console.log(error);
           });
+        // this.annData = httpClient.get(this.globalVar.apiUrl+'announcements?lang='+this.lang,httpOptions);
+        // this.annData
+        //   .subscribe(data => {
+        //     console.log(data);
+        //     if (data.level == 'success'){
+        //       console.log(data.data);
+        //       this.totalAnn = 0;
+        //       for (let i = 0; i < data.data.data.length; i++) {
+        //         if(!data.data.data[i].is_read){
+        //           this.totalAnn = this.totalAnn + 1;
+        //         }
+        //         // this.items.push(data.data.data[i]['name']);
+        //         // this.safeData.push(data.data.data[i]);
+        //       }
+        //       alert(this.totalAnn);
+        //     }
+        //   },error=> {
+        //     console.log(error);
+        //   });
       }else {
       }
     }else {

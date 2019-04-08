@@ -95,8 +95,6 @@ export class WelcomePage {
       };
 
     // navCtrl.push(BrandPage);
-      console.log('in welcome page');
-      console.log('in welcome page1');
       console.log(httpOptions);
       let data = {email:'mirza.amanan@gmail.com' , password: '0300421077'};
       let data2 = JSON.stringify({

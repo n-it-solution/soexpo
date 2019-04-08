@@ -47,7 +47,8 @@ export class AnnouncementsPage {
     }
     translate.setDefaultLang(this.globalVar.lang);
     if(globalVar.loginStatus){
-      if (globalVar.loginData.confirmed) {const httpOptions = {
+      if (globalVar.loginData.confirmed) {
+        const httpOptions = {
         headers: new HttpHeaders({
           'Authorization':  this.token,
         })

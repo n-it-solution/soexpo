@@ -159,7 +159,10 @@
     "exhibition": "المعارض:",
     "about": "معلومات عن الشخص",
     "jTitle": "الوصف الوظيفي",
-    "browse": "ملف الاستعراض"
+    "browse": "ملف الاستعراض",
+    "gallery": "Gallery",
+    "camera": "Camera",
+    "alertTitle": "Select Source"
   },
   "pChangePage": {
     "title": "تغيير الرقم السري",

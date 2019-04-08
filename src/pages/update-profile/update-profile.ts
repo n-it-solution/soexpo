@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import {Events, IonicPage, NavController, NavParams} from 'ionic-angular';
+import {AlertController, Events, IonicPage, NavController, NavParams} from 'ionic-angular';
 import { HttpClient } from '@angular/common/http';
 import {GloaleVariablesProvider} from "../../providers/gloale-variables/gloale-variables";
 import { ToastController } from 'ionic-angular';
@@ -156,17 +156,95 @@ export class UpdateProfilePage {
   pic1:any;
   pic2:any;
   pic4:any;
+  selectSource: string;
+  cameraOptions() {
+    let cameraText;
+    this.translate.get('updatePage.camera').subscribe(
+      value => {
+        cameraText = value;
+      }
+    );
+    console.log(cameraText);
+    let galleryText;
+    this.translate.get('updatePage.gallery').subscribe(
+      value => {
+        galleryText = value;
+      }
+    );
+    console.log(galleryText);
+    let title;
+    this.translate.get('updatePage.alertTitle').subscribe(
+      value => {
+        title = value;
+      }
+    );
+    console.log(title);
+    let alert = this.alertCtrl.create({
+      title: title,
+      // inputs: [
+      //   {
+      //     name: 'lang',
+      //     placeholder: 'Username',
+      //     type: 'radio',
+      //     label: 'Arabic',
+      //     value: 'camera',
+      //     'checked': this.ar,
+      //   },
+      //   {
+      //     name: 'lang',
+      //     placeholder: 'Password',
+      //     type: 'radio',
+      //     label: 'English',
+      //     value: 'en',
+      //     'checked': this.en
+      //   }
+      // ],
+      buttons: [
+        {
+          text: cameraText,
+          role: 'cancel',
+          handler: data => {
+            console.log('Cancel clicked');
+            this.selectSource = 'camera';
+            this.editPic();
+          }
+        },
+        {
+          text: galleryText,
+          handler: data => {
+            this.selectSource = 'gallery';
+            this.editPic();
+            // console.log(data);
+            // this.changeLang(data)
+          }
+        }
+      ]
+    });
+    alert.present();
+  }
+  cameraSource:any;
   editPic(){
     // this.userData['new'] = 'hh';
     console.log(this.userData);
-    const options: CameraOptions = {
-      quality: 100,
-      destinationType: this.camera.DestinationType.DATA_URL,
-      encodingType: this.camera.EncodingType.JPEG,
-      mediaType: this.camera.MediaType.PICTURE,
-      // sourceType: this.camera.PictureSourceType.SAVEDPHOTOALBUM
-    };
-    this.camera.getPicture(options).then((imageData) => {
+    if (this.selectSource === 'gallery'){
+      const options: CameraOptions = {
+        quality: 100,
+        destinationType: this.camera.DestinationType.DATA_URL,
+        encodingType: this.camera.EncodingType.JPEG,
+        mediaType: this.camera.MediaType.PICTURE,
+        sourceType: this.camera.PictureSourceType.SAVEDPHOTOALBUM
+      };
+      this.cameraSource = options;
+    }else {
+      const options: CameraOptions = {
+        quality: 100,
+        destinationType: this.camera.DestinationType.DATA_URL,
+        encodingType: this.camera.EncodingType.JPEG,
+        mediaType: this.camera.MediaType.PICTURE,
+      };
+      this.cameraSource = options;
+    }
+    this.camera.getPicture(this.cameraSource).then((imageData) => {
       // imageData is either a base64 encoded string or a file URI
       // If it's base64 (DATA_URL):
       this.pic2 = imageData;
@@ -214,7 +292,8 @@ export class UpdateProfilePage {
               public events: Events,
               public translate: TranslateService,private camera: Camera,
               private base64: Base64,
-              private file: File
+              private file: File,
+              private alertCtrl: AlertController
   ) {
     this.lang = globalVar.lang;
     translate.setDefaultLang(this.lang);

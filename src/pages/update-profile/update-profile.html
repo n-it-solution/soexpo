@@ -17,9 +17,9 @@
 
   <ion-grid>
     <ion-row>
-      <ion-col col-12  (click)="editPic()">
+      <ion-col col-12  (click)="cameraOptions()">
         <div class="top-user-pic-update">
-          <img src="{{ globalVar.loginData.picture }}" alt="">
+          <img src="{{ globalVar.updateAbleLoginData.picture }}" alt="">
           <div class="username-update">{{ userData.name }}</div>
         </div>
         <div style="height: 100%; text-align: center; vertical-align: middle!important;">
