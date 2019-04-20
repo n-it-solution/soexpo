@@ -328,6 +328,8 @@ export class ExhibitionPage {
               private localNotifications: LocalNotifications,
               private network: Network
   ) {
+    var x = parseInt("1000d", 10);
+    console.log(x);
     this.loginData = this.globalVar.loginData;
     this.loginStatus = globalVar.loginStatus;
     events.subscribe('cart:updated', (total) => {

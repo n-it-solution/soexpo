@@ -14,6 +14,7 @@ import {Storage} from '@ionic/storage';
 import { LocalNotifications } from '@ionic-native/local-notifications';
 import {Network} from "@ionic-native/network";
 import { LaunchNavigator, LaunchNavigatorOptions } from '@ionic-native/launch-navigator';
+import { Badge } from '@ionic-native/badge';
 /**
  * Generated class for the WelcomePage page.
  *
@@ -37,10 +38,9 @@ export class WelcomePage {
               private storage: Storage,public events: Events,
               private localNotifications: LocalNotifications,
               private network: Network,
-              private launchNavigator: LaunchNavigator
+              private launchNavigator: LaunchNavigator,
+              private badge: Badge
   ) {
-
-    console.log(1);
     this.storage.get('language').then((data)=>{
       if (data != null) {
         translate.setDefaultLang(data);

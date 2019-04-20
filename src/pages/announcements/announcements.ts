@@ -50,7 +50,7 @@ export class AnnouncementsPage {
       if (globalVar.loginData.confirmed) {
         const httpOptions = {
         headers: new HttpHeaders({
-          'Authorization':  this.token,
+          'Authorization':  this.token
         })
       };
         this.data = httpClient.get(this.globalVar.apiUrl+'announcements?lang='+this.lang,httpOptions);

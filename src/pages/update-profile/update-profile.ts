@@ -114,7 +114,7 @@ export class UpdateProfilePage {
       headers: new HttpHeaders({
         'Authorization':  this.token,
         'Content-Type' : 'application/json',
-        // 'X-Requested-With' : 'XMLHttpRequest'
+        'X-Requested-With' : 'XMLHttpRequest'
       })
     };
     console.log(this.userData);
@@ -224,6 +224,7 @@ export class UpdateProfilePage {
   }
   cameraSource:any;
   editPic(){
+    this.selectSource = 'gallery';
     // this.userData['new'] = 'hh';
     console.log(this.userData);
     if (this.selectSource === 'gallery'){

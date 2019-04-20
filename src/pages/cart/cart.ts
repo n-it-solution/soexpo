@@ -82,6 +82,7 @@ export class CartPage {
           console.log(data.data);
           this.cart = [];
           this.storage.set("cart", this.cart);
+          this.events.publish('cart:updated',this.cart.length);
           alert(data.message);
         }
         console.log(1);

@@ -20,6 +20,7 @@
     "@angular/http": "5.2.11",
     "@angular/platform-browser": "5.2.11",
     "@angular/platform-browser-dynamic": "5.2.11",
+    "@ionic-native/badge": "^4.20.0",
     "@ionic-native/base64": "^4.20.0",
     "@ionic-native/camera": "^4.20.0",
     "@ionic-native/core": "~4.18.0",
@@ -81,7 +82,8 @@
         "GOOGLE_API_KEY_FOR_ANDROID": "AIzaSyC8Ap3r26Zv7QPwgKdegq4SZvb9x-CgAPI",
         "GOOGLE_API_KEY_FOR_IOS": "AIzaSyC8Ap3r26Zv7QPwgKdegq4SZvb9x-CgAPI",
         "OKHTTP_VERSION": "3.12.0"
-      }
+      },
+      "cordova-plugin-badge": {}
     },
     "platforms": [
       "android"

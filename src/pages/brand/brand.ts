@@ -25,6 +25,11 @@ export class BrandPage {
   showGallery: boolean = false;
   videoTestLink = 'https://www.youtube.com/embed/1F_UQFlPiKU';
   videoTestLink2: any;
+  integerNumber: any;
+  convertNumberInInteger(text){
+    this.integerNumber = parseInt(text,10);
+    return this.integerNumber;
+  }
   changeTab(tab){
     if(tab == 'location'){
       if (this.locations.length > 0){
