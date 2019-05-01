@@ -274,32 +274,252 @@ export class ExhibitionPage {
     // }
   }
   getExhibition(){
-    this.data = this.httpClient.get(this.globalVar.apiUrl+'exhibitions?page=1&lang='+this.lang);
-    this.data
-      .subscribe(data => {
-        console.log(data);
-        if (data.level == 'success'){
-          console.log(data.data.data.length);
-          this.exhibition = [];
-          this.items = [];
-          this.safeData = [];
-          for (let i = 0; i < data.data.data.length; i++) {
-            this.exhibition.push(data.data.data[i]);
-            this.items.push(data.data.data[i]['name']);
-            this.safeData.push(data.data.data[i]);
-          }
-          console.log(this.exhibition);
-          this.storage.set("data", this.exhibition);
-          //   console.log(data.data.data);
-          //   // this.news = data.data.data;
-          this.meta = data.data.meta.pagination;
-          console.log(this.meta);
-          //   this.toastShow('data fetching complete');
+    if (this.lang == 'en') {
+      this.exhibition = [
+        {
+          "id": 2,
+          "mobile_logo": "../../assets/content/logo/2.png",
+          "show_url": "https://app.soexpo.net/api/exhibitions/85Azx9KGJ3",
+          "name": "Health & Medicine",
+          "description": null
+        },
+        {
+          "id": 3,
+          "mobile_logo": "../../assets/content/logo/11.png",
+          "show_url": "https://app.soexpo.net/api/exhibitions/W6op93z2nG",
+          "name": "Building /Construction & Real Estate",
+          "description": null
+        },
+        {
+          "id": 7,
+          "mobile_logo": "../../assets/content/logo/23.png",
+          "show_url": "https://app.soexpo.net/api/exhibitions/0xazOkznPq",
+          "name": "Auto, Moto, Transport",
+          "description": null
+        },
+        {
+          "id": 10,
+          "mobile_logo": "../../assets/content/logo/14.png",
+          "show_url": "https://app.soexpo.net/api/exhibitions/7goegqKYnQ",
+          "name": "Information Technologies",
+          "description": null
+        },
+        {
+          "id": 13,
+          "mobile_logo": "../../assets/content/logo/5.png",
+          "show_url": "https://app.soexpo.net/api/exhibitions/ZoPzaNKkGQ",
+          "name": "Fashion and Textile",
+          "description": null
+        },
+        {
+          "id": 14,
+          "mobile_logo": "../../assets/content/logo/12.png",
+          "show_url": "https://app.soexpo.net/api/exhibitions/58oeoQKaZx",
+          "name": "Food and Beverage",
+          "description": null
+        },
+        {
+          "id": 16,
+          "mobile_logo": "../../assets/content/logo/7.png",
+          "show_url": "https://app.soexpo.net/api/exhibitions/7ZPKkGKWd4",
+          "name": "Electrical Devices, Electronics",
+          "description": null
+        },
+        {
+          "id": 17,
+          "mobile_logo": "../../assets/content/logo/20.png",
+          "show_url": "https://app.soexpo.net/api/exhibitions/4RZKV7pkVg",
+          "name": "Tourism and Travel",
+          "description": null
+        },
+        {
+          "id": 19,
+          "mobile_logo": "../../assets/content/logo/6.png",
+          "show_url": "https://app.soexpo.net/api/exhibitions/LxWpqJeMG5",
+          "name": "Banking, Finances",
+          "description": null
+        },
+        {
+          "id": 20,
+          "mobile_logo": "../../assets/content/logo/10.png",
+          "show_url": "https://app.soexpo.net/api/exhibitions/jO0eMYeRAo",
+          "name": "Education and Training",
+          "description": null
+        },
+        {
+          "id": 22,
+          "mobile_logo": "../../assets/content/logo/3.png",
+          "show_url": "https://app.soexpo.net/api/exhibitions/bqDpjrpWnd",
+          "name": "Women care & cosmetics",
+          "description": null
+        },
+        {
+          "id": 23,
+          "mobile_logo": "../../assets/content/logo/19.png",
+          "show_url": "https://app.soexpo.net/api/exhibitions/41NKLgz8Pq",
+          "name": "Furniture",
+          "description": null
+        },
+        {
+          "id": 24,
+          "mobile_logo": "../../assets/content/logo/8.png",
+          "show_url": "https://app.soexpo.net/api/exhibitions/aYOzrMe7Wm",
+          "name": "Food,drinks& sweets",
+          "description": null
+        },
+        {
+          "id": 25,
+          "mobile_logo": "../../assets/content/logo/9.png",
+          "show_url": "https://app.soexpo.net/api/exhibitions/92mKbEz7M8",
+          "name": "Pc's & smart phones",
+          "description": null
+        },
+        {
+          "id": 26,
+          "mobile_logo": "../../assets/content/logo/18.png",
+          "show_url": "https://app.soexpo.net/api/exhibitions/1WapRYKLYv",
+          "name": "Sports & entertainment",
+          "description": null
         }
-      },error=> {
-        console.log(error);
-        // this.toastShow('something wrong');
-      });
+      ];
+    }else {
+      this.exhibition =  [
+        {
+          "id": 2,
+          "mobile_logo": "../../assets/content/logo/2.png",
+          "show_url": "https://app.soexpo.net/api/exhibitions/85Azx9KGJ3",
+          "name": "الأجهزة الطبية والصحة العامة",
+          "description": null
+        },
+        {
+          "id": 3,
+          "mobile_logo": "../../assets/content/logo/11.png",
+          "show_url": "https://app.soexpo.net/api/exhibitions/W6op93z2nG",
+          "name": "العقارات و البناء",
+          "description": null
+        },
+        {
+          "id": 7,
+          "mobile_logo": "../../assets/content/logo/23.png",
+          "show_url": "https://app.soexpo.net/api/exhibitions/0xazOkznPq",
+          "name": "السيارات و النقل",
+          "description": null
+        },
+        {
+          "id": 10,
+          "mobile_logo": "../../assets/content/logo/14.png",
+          "show_url": "https://app.soexpo.net/api/exhibitions/7goegqKYnQ",
+          "name": "تكنولوجيا المعلومات والتقنيات الصناعية",
+          "description": null
+        },
+        {
+          "id": 13,
+          "mobile_logo": "../../assets/content/logo/5.png",
+          "show_url": "https://app.soexpo.net/api/exhibitions/ZoPzaNKkGQ",
+          "name": "الأزياء والموضة",
+          "description": null
+        },
+        {
+          "id": 14,
+          "mobile_logo": "../../assets/content/logo/12.png",
+          "show_url": "https://app.soexpo.net/api/exhibitions/58oeoQKaZx",
+          "name": "الزراعة والمياه والبيئة",
+          "description": null
+        },
+        {
+          "id": 16,
+          "mobile_logo": "../../assets/content/logo/7.png",
+          "show_url": "https://app.soexpo.net/api/exhibitions/7ZPKkGKWd4",
+          "name": "الإلكترونيات والأجهزة الكهربائية",
+          "description": null
+        },
+        {
+          "id": 17,
+          "mobile_logo": "../../assets/content/logo/20.png",
+          "show_url": "https://app.soexpo.net/api/exhibitions/4RZKV7pkVg",
+          "name": "السياحة والسفر",
+          "description": null
+        },
+        {
+          "id": 19,
+          "mobile_logo": "../../assets/content/logo/6.png",
+          "show_url": "https://app.soexpo.net/api/exhibitions/LxWpqJeMG5",
+          "name": "الخدمات المالية والبنوك",
+          "description": null
+        },
+        {
+          "id": 20,
+          "mobile_logo": "../../assets/content/logo/10.png",
+          "show_url": "https://app.soexpo.net/api/exhibitions/jO0eMYeRAo",
+          "name": "التعليم والتدريب",
+          "description": null
+        },
+        {
+          "id": 22,
+          "mobile_logo": "../../assets/content/logo/3.png",
+          "show_url": "https://app.soexpo.net/api/exhibitions/bqDpjrpWnd",
+          "name": "العناية بالمرأةوالتجميل",
+          "description": null
+        },
+        {
+          "id": 23,
+          "mobile_logo": "../../assets/content/logo/19.png",
+          "show_url": "https://app.soexpo.net/api/exhibitions/41NKLgz8Pq",
+          "name": "الأثاث والمفروشات",
+          "description": null
+        },
+        {
+          "id": 24,
+          "mobile_logo": "../../assets/content/logo/8.png",
+          "show_url": "https://app.soexpo.net/api/exhibitions/aYOzrMe7Wm",
+          "name": "الأغذية-المشروبات- الحلويات",
+          "description": null
+        },
+        {
+          "id": 25,
+          "mobile_logo": "../../assets/content/logo/9.png",
+          "show_url": "https://app.soexpo.net/api/exhibitions/92mKbEz7M8",
+          "name": "الكمبيوتروالأجهزة الذكية",
+          "description": null
+        },
+        {
+          "id": 26,
+          "mobile_logo": "../../assets/content/logo/18.png",
+          "show_url": "https://app.soexpo.net/api/exhibitions/1WapRYKLYv",
+          "name": "الرياضة والترفيه",
+          "description": null
+        }
+      ];
+    }
+    console.log('hello i guess it-s clear');
+    console.log('hello i guess it-s clear');
+
+    // this.data = this.httpClient.get(this.globalVar.apiUrl+'exhibitions?page=1&lang='+this.lang);
+    // this.data
+    //   .subscribe(data => {
+    //     console.log(data);
+    //     if (data.level == 'success'){
+    //       console.log(data.data.data.length);
+    //       this.exhibition = [];
+    //       this.items = [];
+    //       this.safeData = [];
+    //       for (let i = 0; i < data.data.data.length; i++) {
+    //         this.exhibition.push(data.data.data[i]);
+    //         this.items.push(data.data.data[i]['name']);
+    //         this.safeData.push(data.data.data[i]);
+    //       }
+    //       console.log(this.exhibition);
+    //       this.storage.set("data", this.exhibition);
+    //       //   console.log(data.data.data);
+    //       //   // this.news = data.data.data;
+    //       this.meta = data.data.meta.pagination;
+    //       console.log(this.meta);
+    //       //   this.toastShow('data fetching complete');
+    //     }
+    //   },error=> {
+    //     console.log(error);
+    //     // this.toastShow('something wrong');
+    //   });
   }
   totalCartData:any;
   getTotalCartData(){

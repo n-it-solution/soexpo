@@ -65,22 +65,56 @@
     <ion-row no-padding>
       <ion-col col-12>
         <ng-container  *ngIf="showData">
-          <div class="company-main-icon-div" *ngFor="let i of companies" (click)="openBrand(i.show_url)">
-            <div class="company-left-icon">
-              <ion-badge color="dark" style="position: absolute;margin-top: 7px!important;margin-left: -14%;" *ngIf="i.isSilver">Silver</ion-badge>
-              <img src="../../assets/content/gold.png" *ngIf="i.isGolden" style="position: absolute;margin-top: 4px!important;
+          <ng-container *ngFor="let i of companies">
+            <div class="company-main-icon-div"  (click)="openBrand(i.show_url)" *ngIf="i.isGolden">
+              <div class="company-left-icon">
+                <ion-badge color="dark" style="position: absolute;margin-top: 7px!important;margin-left: -14%;" *ngIf="i.isSilver">Silver</ion-badge>
+                <img src="../../assets/content/gold.png" *ngIf="i.isGolden" style="position: absolute;margin-top: 4px!important;
     margin-left: -17%;width: 50px;height: 38px;">
-<!--              <ion-badge color="secondary" style="position: absolute;margin-top: 7px!important;margin-left: -14%;" *ngIf="i.isGolden" >Golden</ion-badge>-->
-              <div class="company-category-img">
-                <!--<a href="#"><img src="../../assets/content/company.png" style="width: 100px;" alt="icon1"></a>-->
-                <img src="{{i.logo}}" style="width: 100px;">
-              </div>
-              <div class="company-category-name">
-                <!--{{i.name | slice:0:15}}-->
-                {{i.name}}
+                <!--              <ion-badge color="secondary" style="position: absolute;margin-top: 7px!important;margin-left: -14%;" *ngIf="i.isGolden" >Golden</ion-badge>-->
+                <div class="company-category-img">
+                  <!--<a href="#"><img src="../../assets/content/company.png" style="width: 100px;" alt="icon1"></a>-->
+                  <img src="{{i.logo}}" style="width: 100px;">
+                </div>
+                <div class="company-category-name">
+                  <!--{{i.name | slice:0:15}}-->
+                  {{i.name}}
+                </div>
               </div>
             </div>
-          </div>
+            <div class="company-main-icon-div"  (click)="openBrand(i.show_url)" *ngIf="i.isSilver">
+              <div class="company-left-icon">
+                <ion-badge color="dark" style="position: absolute;margin-top: 7px!important;margin-left: -14%;" *ngIf="i.isSilver">Silver</ion-badge>
+                <img src="../../assets/content/gold.png" *ngIf="i.isGolden" style="position: absolute;margin-top: 4px!important;
+    margin-left: -17%;width: 50px;height: 38px;">
+                <!--              <ion-badge color="secondary" style="position: absolute;margin-top: 7px!important;margin-left: -14%;" *ngIf="i.isGolden" >Golden</ion-badge>-->
+                <div class="company-category-img">
+                  <!--<a href="#"><img src="../../assets/content/company.png" style="width: 100px;" alt="icon1"></a>-->
+                  <img src="{{i.logo}}" style="width: 100px;">
+                </div>
+                <div class="company-category-name">
+                  <!--{{i.name | slice:0:15}}-->
+                  {{i.name}}
+                </div>
+              </div>
+            </div>
+            <div class="company-main-icon-div"  (click)="openBrand(i.show_url)" *ngIf="!i.isSilver && !i.isGolden">
+              <div class="company-left-icon">
+                <ion-badge color="dark" style="position: absolute;margin-top: 7px!important;margin-left: -14%;" *ngIf="i.isSilver">Silver</ion-badge>
+                <img src="../../assets/content/gold.png" *ngIf="i.isGolden" style="position: absolute;margin-top: 4px!important;
+    margin-left: -17%;width: 50px;height: 38px;">
+                <!--              <ion-badge color="secondary" style="position: absolute;margin-top: 7px!important;margin-left: -14%;" *ngIf="i.isGolden" >Golden</ion-badge>-->
+                <div class="company-category-img">
+                  <!--<a href="#"><img src="../../assets/content/company.png" style="width: 100px;" alt="icon1"></a>-->
+                  <img src="{{i.logo}}" style="width: 100px;">
+                </div>
+                <div class="company-category-name">
+                  <!--{{i.name | slice:0:15}}-->
+                  {{i.name}}
+                </div>
+              </div>
+            </div>
+          </ng-container>
         </ng-container>
       </ion-col>
     </ion-row>
