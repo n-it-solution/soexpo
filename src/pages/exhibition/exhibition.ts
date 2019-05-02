@@ -491,8 +491,6 @@ export class ExhibitionPage {
         }
       ];
     }
-    console.log('hello i guess it-s clear');
-    console.log('hello i guess it-s clear');
 
     // this.data = this.httpClient.get(this.globalVar.apiUrl+'exhibitions?page=1&lang='+this.lang);
     // this.data

@@ -12,6 +12,11 @@ import {Storage} from '@ionic/storage';
 import { Events } from 'ionic-angular';
 import {MapPage} from "../map/map";
 import {DomSanitizer,SafeResourceUrl,} from '@angular/platform-browser';
+import { DocumentViewer } from '@ionic-native/document-viewer';
+import { DocumentViewerOptions } from '@ionic-native/document-viewer';
+import { File } from '@ionic-native/file'
+import { FileTransfer } from "@ionic-native/file-transfer";
+
 @IonicPage()
 @Component({
   selector: 'page-brand',
@@ -279,7 +284,10 @@ export class BrandPage {
               public translate: TranslateService,
               private storage: Storage,
               public events: Events,
-              public sanitizer:DomSanitizer
+              public sanitizer:DomSanitizer,
+              private document: DocumentViewer,
+              private file: File,
+              private fileTransfer: FileTransfer
   ) {
     this.lang = globalVar.lang;
     translate.setDefaultLang(this.lang);
@@ -336,6 +344,72 @@ export class BrandPage {
           console.log(error);
         });
     this.tab = 'models';
+  }
+  viewProfile(){
+    alert('hello');
+    const options: DocumentViewerOptions = {
+      title: 'My PDF'
+    };
+    function onMissingApp(appId, installer)
+    {
+      if(confirm("Do you want to install the free PDF Viewer App "
+        + appId + " for Android?"))
+      {
+        installer();
+      }
+    }
+    function onError(error){
+      window.console.log(error);
+      alert(JSON.stringify(error));
+      alert("Sorry! Cannot show document.");
+    }
+    function onClose(){
+      alert('document closed');
+      window.console.log('document closed');
+      //e.g. remove temp files
+    }
+    function onShow(){
+      alert('document shown');
+      window.console.log('document shown');
+      //e.g. track document usage
+    }
+    this.document.viewDocument('assets/content/c.pdf', 'application/pdf', options,onShow,onClose,onMissingApp,onError)
+  }
+  downProfile(){
+    let path = null;
+    path = this.file.dataDirectory;
+    const transfer = this.fileTransfer.create();
+    transfer.download('https://app.soexpo.net/media/user_W6op93z2nG/1161/CP.pdf', path + 'myfile.pdf').then(entry=>{
+      let url = entry.toURL();
+      alert(url);
+      const options: DocumentViewerOptions = {
+        title: 'My PDF'
+      };
+      function onMissingApp(appId, installer)
+      {
+        if(confirm("Do you want to install the free PDF Viewer App "
+          + appId + " for Android?"))
+        {
+          installer();
+        }
+      }
+      function onError(error){
+        window.console.log(error);
+        alert(JSON.stringify(error));
+        alert("Sorry! Cannot show document.");
+      }
+      function onClose(){
+        alert('document closed');
+        window.console.log('document closed');
+        //e.g. remove temp files
+      }
+      function onShow(){
+        alert('document shown');
+        window.console.log('document shown');
+        //e.g. track document usage
+      }
+      this.document.viewDocument(url,'application/pdf', options,onShow,onClose,onMissingApp,onError)
+    })
   }
   ionViewDidLoad() {
     console.log('ionViewDidLoad BrandPage');

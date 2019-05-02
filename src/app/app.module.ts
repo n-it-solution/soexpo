@@ -57,6 +57,8 @@ import {ShowLocationPage} from "../pages/show-location/show-location";
 import { LaunchNavigator } from '@ionic-native/launch-navigator';
 import {ExhibitionSearchPage} from "../pages/exhibition-search/exhibition-search";
 import { Badge } from '@ionic-native/badge';
+import { DocumentViewer } from '@ionic-native/document-viewer';
+import { FileTransfer } from '@ionic-native/file-transfer';
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http, "./assets/i18n/", ".json");
 }
@@ -160,7 +162,9 @@ export function HttpLoaderFactory(http: HttpClient) {
     Network,
     File,
     LaunchNavigator,
-    Badge
+    Badge,
+    DocumentViewer,
+    FileTransfer
   ]
 })
 export class AppModule {}
