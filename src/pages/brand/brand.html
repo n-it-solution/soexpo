@@ -77,10 +77,10 @@
             <div class="overall-description">
               <!--{{companyDetails.description}}-->
             </div>
-            <div  (click)="viewProfile()">
-              <ion-buttons ion-button>Click to profile read</ion-buttons>
-            </div>
-            <div  (click)="downProfile()">
+<!--            <div  (click)="viewProfile()">-->
+<!--              <ion-buttons ion-button>Click to profile read</ion-buttons>-->
+<!--            </div>-->
+            <div  (click)="downProfile()" *ngIf="companyDetails.company_profile">
               <ion-buttons ion-button>Click to download and read profile</ion-buttons>
             </div>
           </div>

@@ -16,7 +16,7 @@ import { DocumentViewer } from '@ionic-native/document-viewer';
 import { DocumentViewerOptions } from '@ionic-native/document-viewer';
 import { File } from '@ionic-native/file'
 import { FileTransfer } from "@ionic-native/file-transfer";
-
+import { FileOpener } from '@ionic-native/file-opener';
 @IonicPage()
 @Component({
   selector: 'page-brand',
@@ -287,7 +287,8 @@ export class BrandPage {
               public sanitizer:DomSanitizer,
               private document: DocumentViewer,
               private file: File,
-              private fileTransfer: FileTransfer
+              private fileTransfer: FileTransfer,
+              private fileOpener: FileOpener
   ) {
     this.lang = globalVar.lang;
     translate.setDefaultLang(this.lang);
@@ -346,7 +347,7 @@ export class BrandPage {
     this.tab = 'models';
   }
   viewProfile(){
-    alert('hello');
+    // alert('hello');
     const options: DocumentViewerOptions = {
       title: 'My PDF'
     };
@@ -360,7 +361,7 @@ export class BrandPage {
     }
     function onError(error){
       window.console.log(error);
-      alert(JSON.stringify(error));
+      // alert(JSON.stringify(error));
       alert("Sorry! Cannot show document.");
     }
     function onClose(){
@@ -379,9 +380,9 @@ export class BrandPage {
     let path = null;
     path = this.file.dataDirectory;
     const transfer = this.fileTransfer.create();
-    transfer.download('https://app.soexpo.net/media/user_W6op93z2nG/1161/CP.pdf', path + 'myfile.pdf').then(entry=>{
+    transfer.download(this.companyDetails.company_profile, path + 'myfile.pdf').then(entry=>{
       let url = entry.toURL();
-      alert(url);
+      // alert(url);
       const options: DocumentViewerOptions = {
         title: 'My PDF'
       };
@@ -404,11 +405,14 @@ export class BrandPage {
         //e.g. remove temp files
       }
       function onShow(){
-        alert('document shown');
+        // alert('document shown');
         window.console.log('document shown');
         //e.g. track document usage
       }
-      this.document.viewDocument(url,'application/pdf', options,onShow,onClose,onMissingApp,onError)
+      // this.document.viewDocument(url,'application/pdf', options,onShow,onClose,onMissingApp,onError);
+      this.fileOpener.open(url, 'application/pdf')
+        // .then(() => alert('File is opened'))
+        // .catch(e => alert('Error opening file' + JSON.stringify(e)));
     })
   }
   ionViewDidLoad() {

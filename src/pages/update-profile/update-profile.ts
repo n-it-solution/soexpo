@@ -136,7 +136,7 @@ export class UpdateProfilePage {
           // this.navCtrl.setRoot(TabsPage);
         },error=> {
           console.log(error);
-          alert(JSON.stringify(error));
+          // alert(JSON.stringify(error));
           if(error.status == 422){
             alert(error.error.message)
           }
@@ -280,7 +280,8 @@ export class UpdateProfilePage {
       // console.log(1);
       // alert(base64Image);
     }, (err) => {
-      alert(err);
+      alert('something wrong');
+      // alert(err);
       // Handle error
     });
   }
