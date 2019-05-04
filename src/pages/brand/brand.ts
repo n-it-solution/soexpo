@@ -416,7 +416,7 @@ export class BrandPage {
     })
   }
   ionViewDidLoad() {
-    console.log('ionViewDidLoad BrandPage');
+    console.log('ionViewDidLoad BrandPagae');
     this.videoTestLink2 = this.sanitizer.bypassSecurityTrustResourceUrl(this.videoTestLink);
     console.log(this.videoTestLink2);
   }
