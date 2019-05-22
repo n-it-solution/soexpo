@@ -131,6 +131,7 @@ export class UpdateProfilePage {
             this.globalVar.updateAbleLoginData = data.data;
             console.log(this.globalVar.updateAbleLoginData);
             this.storage.set('updateAbleLoginData',data.data);
+            this.events.publish('profile:updated',data.data);
           }
           console.log(1);
           // this.navCtrl.setRoot(TabsPage);

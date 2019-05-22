@@ -16,7 +16,8 @@ import { DocumentViewer } from '@ionic-native/document-viewer';
 import { DocumentViewerOptions } from '@ionic-native/document-viewer';
 import { File } from '@ionic-native/file'
 import { FileTransfer } from "@ionic-native/file-transfer";
-import { FileOpener } from '@ionic-native/file-opener';
+import { FileOpener } from '@ionic-native/file-opener'
+
 @IonicPage()
 @Component({
   selector: 'page-brand',
@@ -274,7 +275,13 @@ export class BrandPage {
   loginStatus:any;
   locations:any;
   check11(url){
-    return this.sanitizer.bypassSecurityTrustResourceUrl(url);
+    // var myString = url;
+    var videoId = url.split('https://www.youtube.com/embed/').join('');
+    videoId = videoId.split('www.youtube.com/embed/').join('');
+    videoId = videoId.split('/').join('');
+    console.log(videoId);
+    return videoId
+    // return this.sanitizer.bypassSecurityTrustResourceUrl(url);
   }
   constructor(public navCtrl: NavController, public navParams: NavParams,
               public httpClient: HttpClient,

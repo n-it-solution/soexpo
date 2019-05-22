@@ -52,6 +52,7 @@ export class ExhibitionPage {
     this.globalVar.lang = value;
     this.events.publish('lang:changed',value);
     this.getExhibition();
+    this.asignDimondCompany();
   }
 
   ionViewDidEnter(){
@@ -238,6 +239,96 @@ export class ExhibitionPage {
   }
   searchNew1:any;
   safeData:any = [];
+  diamondCompany: any = [];
+  asignDimondCompany(){
+    if(this.lang == 'ar'){
+      this.diamondCompany =
+        [{
+          "isGolden": true,
+          "isSilver": null,
+          "id": 1,
+          "name": "محمد غانم المحدودة",
+          "country": "المملكة العربية السعودية",
+          "city": "Riyadh",
+          "logo": "https://app.soexpo.net/media/user_W6op93z2nG/1079/logo%20png.png",
+          "exhibitions": [
+            "تكنولوجيا المعلومات والتقنيات الصناعية"
+          ],
+          "address": "نشاط عالمي من خلال شركاء العمل بالدول المختلفة",
+          "phone": "00970598516067",
+          "email": "mohammad@mghanem.net",
+          "fax": "-",
+          "website": "https://mghanem.net",
+          "description": "شركة محمد غانم المحدودة وعلاماتها التجارية مثل بيوسيرفبروا، بي ان بيزنيس و بيزنيس كليكس واللتي تنفذ مشاريعها الخاصه من خلال شركاء مسجلين في دول مختلفه من العالم . يمثل الشركه في المملكة العربية السعودية مكتب العقول الراجحة للخدمات التجارية",
+          "participant_sponsor": false,
+          "show_url": "https://app.soexpo.net/api/companies/v1oz1Yz27j",
+          "rating_url": "https://app.soexpo.net/api/companies/rate/v1oz1Yz27j",
+          "average_rating": "4.2381",
+          "company_profile": "https://app.soexpo.net/media/user_W6op93z2nG/1161/CP.pdf",
+          "rating": {
+            "products_satisfaction": {
+              "criteria": "الرضا عن المنتجات",
+              "my_rating": null,
+              "average_value": "4.7143"
+            },
+            "team_members_response": {
+              "criteria": "الرضا عن أستجابة فريق الشركة",
+              "my_rating": null,
+              "average_value": "4.0000"
+            },
+            "over_all_experience_evaluation": {
+              "criteria": "التقييم العام للشركة",
+              "my_rating": null,
+              "average_value": "4.0000"
+            }
+          }
+        }]
+    }else {
+      this.diamondCompany =
+        [
+          {
+            "isGolden": true,
+            "isSilver": null,
+            "id": 1,
+            "name": "Mohammad Ghanem Ltd",
+            "country": "Saudi Arabia",
+            "city": "Riyadh",
+            "logo": "https://app.soexpo.net/media/user_W6op93z2nG/1079/logo%20png.png",
+            "exhibitions": [
+              "Information Technologies"
+            ],
+            "address": "نشاط عالمي من خلال شركاء العمل بالدول المختلفة",
+            "phone": "00970598516067",
+            "email": "mohammad@mghanem.net",
+            "fax": "-",
+            "website": "https://mghanem.net",
+            "description": "شركة محمد غانم المحدودة وعلاماتها التجارية مثل بيوسيرفبروا، بي ان بيزنيس و بيزنيس كليكس واللتي تنفذ مشاريعها الخاصه من خلال شركاء مسجلين في دول مختلفه من العالم . يمثل الشركه في المملكة العربية السعودية مكتب العقول الراجحة للخدمات التجارية",
+            "participant_sponsor": false,
+            "show_url": "https://app.soexpo.net/api/companies/v1oz1Yz27j",
+            "rating_url": "https://app.soexpo.net/api/companies/rate/v1oz1Yz27j",
+            "average_rating": "4.2381",
+            "company_profile": "https://app.soexpo.net/media/user_W6op93z2nG/1161/CP.pdf",
+            "rating": {
+              "products_satisfaction": {
+                "criteria": "الرضا عن المنتجات",
+                "my_rating": null,
+                "average_value": "4.7143"
+              },
+              "team_members_response": {
+                "criteria": "الرضا عن أستجابة فريق الشركة",
+                "my_rating": null,
+                "average_value": "4.0000"
+              },
+              "over_all_experience_evaluation": {
+                "criteria": "التقييم العام للشركة",
+                "my_rating": null,
+                "average_value": "4.0000"
+              }
+            }
+          }
+        ]
+    }
+  }
   searchNew(){
     if(this.searchNew1 == '')
     {
@@ -569,6 +660,7 @@ export class ExhibitionPage {
     console.log(globalVar.loginData);
     this.getExhibition();
     this.initializeItems();
+    this.asignDimondCompany();
     this.storage.get('data').then((data)=>{
       if (data != null) {
         console.log(data)

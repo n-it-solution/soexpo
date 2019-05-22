@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import {Events, IonicPage, NavController, NavParams} from 'ionic-angular';
 import { HttpClient } from '@angular/common/http';
 import {GloaleVariablesProvider} from "../../providers/gloale-variables/gloale-variables";
 import { ToastController } from 'ionic-angular';
@@ -55,13 +55,33 @@ export class ProfilePage {
   openPassChangePage(){
     this.navCtrl.push(PasswordChangePage);
   }
+  getPrfileDetail(){
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Authorization':  this.globalVar.loginData.authorization,
+      })
+    };
+    this.data = this.httpClient.get(this.globalVar.apiUrl+'auth/profile?lang='+this.globalVar.lang,httpOptions);
+    this.data
+      .subscribe(data => {
+        console.log(data);
+        if (data.level == 'success'){
+          this.profile = data.data;
+          console.log(this.profile);
+          this.exhibition = data.data.exhibitions;
+        }
+      },error=> {
+        console.log(error);
+      });
+  }
   constructor(public navCtrl: NavController, public navParams: NavParams,
               public httpClient: HttpClient,
               public globalVar: GloaleVariablesProvider,
               public toastCtrl: ToastController,
               public translate: TranslateService,
               private camera: Camera,
-              private base64: Base64
+              private base64: Base64,
+              public events: Events
   ) {
     const options: CameraOptions = {
       quality: 100,
@@ -98,23 +118,10 @@ export class ProfilePage {
     translate.setDefaultLang(globalVar.lang);
     console.log(124);
     console.log(this.globalVar.loginData);
-    const httpOptions = {
-      headers: new HttpHeaders({
-        'Authorization':  globalVar.loginData.authorization,
-      })
-    };
-    this.data = httpClient.get(this.globalVar.apiUrl+'auth/profile?lang='+globalVar.lang,httpOptions);
-    this.data
-      .subscribe(data => {
-        console.log(data);
-        if (data.level == 'success'){
-          this.profile = data.data;
-          console.log(this.profile);
-          this.exhibition = data.data.exhibitions;
-        }
-      },error=> {
-        console.log(error);
-      });
+    this.getPrfileDetail();
+    events.subscribe('profile:updated', (value) => {
+      this.getPrfileDetail();
+    });
   }
 
   ionViewDidLoad() {

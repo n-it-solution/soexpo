@@ -81,7 +81,7 @@
 <!--              <ion-buttons ion-button>Click to profile read</ion-buttons>-->
 <!--            </div>-->
             <div  (click)="downProfile()" *ngIf="companyDetails.company_profile">
-              <ion-buttons ion-button>Click to download and read profile</ion-buttons>
+              <ion-buttons ion-button style="background-color: #186e47 !important">{{'brandPage.companyProfile' | translate}}</ion-buttons>
             </div>
           </div>
           <div style="clear: both;"></div>
@@ -282,8 +282,13 @@
             </ion-col>
           </ion-row>
           <div *ngIf="showVideos">
+<!--            <div class="main-product-section" *ngFor="let i of videos" (click)="playVideo(i)">-->
             <div class="main-product-section" *ngFor="let i of videos">
-              <iframe width="100%"  height="auto" [src]="i" frameborder="0" allowfullscreen></iframe>
+              <a href="http://www.youtube.com/watch?v={{ i }}">
+                <ion-icon name="play" style=" margin-top: 16%;position: absolute;margin-left: 35%;font-size: 60px;"></ion-icon>
+                <img src="https://i.ytimg.com/vi/{{ i }}/mqdefault.jpg">
+              </a>
+<!--              <iframe width="100%"  height="auto" [src]="i" frameborder="0" allowfullscreen></iframe>-->
               <div class="clearfix"></div>
             </div>
           </div>

@@ -22,6 +22,7 @@
     "sProduct" : "الرضا عن المنتجات",
     "sCompany" : "الرضاء عن الفريق",
     "oAssessment" : "التقييم العام",
+    "companyProfile": "ملف الشركة",
     "rateCompany": "تقييم الشركة",
     "models": {
       "title" : "الموديلات",

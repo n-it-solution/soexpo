@@ -65,12 +65,30 @@
     <ion-row no-padding>
       <ion-col col-12>
         <ng-container  *ngIf="showData">
+<!--            <ng-container *ngFor="let i of diamondCompany">-->
+<!--              <div class="company-main-icon-div"  (click)="openBrand(i.show_url)">-->
+<!--                <div class="company-left-icon">-->
+<!--&lt;!&ndash;                  <ion-badge color="dark" style="position: absolute;margin-top: 7px!important;margin-left: -14%;">Silver</ion-badge>&ndash;&gt;-->
+<!--                  <img src="../../assets/content/diamond.png" style="position: absolute;margin-top: 4px!important;-->
+<!--    margin-left: 4%;width: 50px;height: 38px;">-->
+<!--                  &lt;!&ndash;              <ion-badge color="secondary" style="position: absolute;margin-top: 7px!important;margin-left: -14%;" *ngIf="i.isGolden" >Golden</ion-badge>&ndash;&gt;-->
+<!--                  <div class="company-category-img">-->
+<!--                    &lt;!&ndash;<a href="#"><img src="../../assets/content/company.png" style="width: 100px;" alt="icon1"></a>&ndash;&gt;-->
+<!--                    <img src="{{i.logo}}" style="width: 100px;">-->
+<!--                  </div>-->
+<!--                  <div class="company-category-name">-->
+<!--                    &lt;!&ndash;{{i.name | slice:0:15}}&ndash;&gt;-->
+<!--                    {{i.name}}-->
+<!--                  </div>-->
+<!--                </div>-->
+<!--              </div>-->
+<!--            </ng-container>-->
           <ng-container *ngFor="let i of companies">
             <div class="company-main-icon-div"  (click)="openBrand(i.show_url)" *ngIf="i.isGolden">
               <div class="company-left-icon">
                 <ion-badge color="dark" style="position: absolute;margin-top: 7px!important;margin-left: -14%;" *ngIf="i.isSilver">Silver</ion-badge>
                 <img src="../../assets/content/gold.png" *ngIf="i.isGolden" style="position: absolute;margin-top: 4px!important;
-    margin-left: -17%;width: 50px;height: 38px;">
+    margin-left: 4%;width: 50px;height: 38px;">
                 <!--              <ion-badge color="secondary" style="position: absolute;margin-top: 7px!important;margin-left: -14%;" *ngIf="i.isGolden" >Golden</ion-badge>-->
                 <div class="company-category-img">
                   <!--<a href="#"><img src="../../assets/content/company.png" style="width: 100px;" alt="icon1"></a>-->
@@ -86,7 +104,7 @@
               <div class="company-left-icon">
                 <ion-badge color="dark" style="position: absolute;margin-top: 7px!important;margin-left: -14%;" *ngIf="i.isSilver">Silver</ion-badge>
                 <img src="../../assets/content/gold.png" *ngIf="i.isGolden" style="position: absolute;margin-top: 4px!important;
-    margin-left: -17%;width: 50px;height: 38px;">
+    margin-left: 4%;width: 50px;height: 38px;">
                 <!--              <ion-badge color="secondary" style="position: absolute;margin-top: 7px!important;margin-left: -14%;" *ngIf="i.isGolden" >Golden</ion-badge>-->
                 <div class="company-category-img">
                   <!--<a href="#"><img src="../../assets/content/company.png" style="width: 100px;" alt="icon1"></a>-->
@@ -102,7 +120,7 @@
               <div class="company-left-icon">
                 <ion-badge color="dark" style="position: absolute;margin-top: 7px!important;margin-left: -14%;" *ngIf="i.isSilver">Silver</ion-badge>
                 <img src="../../assets/content/gold.png" *ngIf="i.isGolden" style="position: absolute;margin-top: 4px!important;
-    margin-left: -17%;width: 50px;height: 38px;">
+    margin-left: 4%;width: 50px;height: 38px;">
                 <!--              <ion-badge color="secondary" style="position: absolute;margin-top: 7px!important;margin-left: -14%;" *ngIf="i.isGolden" >Golden</ion-badge>-->
                 <div class="company-category-img">
                   <!--<a href="#"><img src="../../assets/content/company.png" style="width: 100px;" alt="icon1"></a>-->

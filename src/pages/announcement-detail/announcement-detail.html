@@ -26,6 +26,13 @@
           <div class="bor-bottom-img"></div>
           <div class="announ-detail-right-detail">
             <div class="announ-detail-heading">{{ data.company }}</div>
+            <ng-container *ngIf="data.video_url">
+              <br>
+              <a href="http://www.youtube.com/watch?v={{ videoLink }}">
+                <ion-icon name="play" style=" margin-top: 16%;position: absolute;margin-left: 35%;font-size: 60px;"></ion-icon>
+                <img src="https://i.ytimg.com/vi/{{ videoLink }}/mqdefault.jpg"  (click)="playVideo(videoLink)">
+              </a>
+            </ng-container>
             <div class="announ-detail-description" [innerHTML]="data.content">
             </div>
             <!--<div class="announ-detail-date">mohammad@bioservpro.com</div>-->

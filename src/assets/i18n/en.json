@@ -22,6 +22,7 @@
     "sProduct" : "Satisfaction with Products",
     "sCompany" : "Satisfaction with Team",
     "oAssessment" : "Overall Assessment",
+    "companyProfile": "Company Profile",
     "rateCompany": "Rate This Company",
     "models": {
       "title" : "Models",
